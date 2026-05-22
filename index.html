@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FLOW LEADER™ — X2 Kết Quả Không Cần Làm Thêm Giờ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* ════════════════════════════════════════
+       DESIGN TOKENS
+    ════════════════════════════════════════ */
+    :root {
+      --dark:    #121936;
+      --primary: #024dc2;
+      --gold:    #E2C27A;
+      --light:   #dfedfc;
+      --muted:   #4A6080;
+      --fd:      'Lora', Georgia, serif;
+      --fb:      'Roboto', Arial, sans-serif;
+      --max:     1200px;
+      --col:     740px;
+      --r-sm:    10px;
+      --r-md:    16px;
+      --r-lg:    24px;
+      --r-full:  999px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--fb);
+      background: var(--dark);
+      color: #fff;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { display: block; max-width: 100%; }
+
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+
+    .sec        { padding: 96px 0; }
+    .sec--dark  { background: var(--dark); }
+    .sec--light { background: var(--light); }
+    .col-text   { max-width: var(--col); margin: 0 auto; }
+
+    /* ════════════════════════════════════════
+       TYPOGRAPHY
+    ════════════════════════════════════════ */
+    .h2-dark  { font-family:var(--fd); font-size:clamp(26px,3vw,38px); font-weight:700; color:#fff;             line-height:1.25; margin-bottom:24px; text-align:center; }
+    .h2-light { font-family:var(--fd); font-size:clamp(26px,3vw,38px); font-weight:700; color:var(--primary);   line-height:1.25; margin-bottom:24px; text-align:center; }
+    /* S2 headings — primary blue */
+    .h2-story { font-family:var(--fd); font-size:clamp(26px,3vw,38px); font-weight:700; color:var(--primary);   line-height:1.25; margin-bottom:24px; text-align:center; }
+
+    .gold-text { color: var(--gold); }
+
+    /* Body — weight 500 everywhere */
+    .body-dark  { font-family:var(--fb); font-size:16px; font-weight:500; line-height:1.78; color:rgba(255,255,255,0.85); }
+    .body-light { font-family:var(--fb); font-size:16px; font-weight:500; line-height:1.78; color:#000; }
+    .body-dark  strong { color:#fff;  font-weight:700; }
+    .body-light strong { color:#000;  font-weight:700; }
+
+    /* ── Badge ── */
+    .badge {
+      display:inline-flex; align-items:center; gap:8px;
+      padding:5px 14px 5px 9px; border-radius:var(--r-full);
+      font-family:var(--fb); font-size:11px; font-weight:700;
+      text-transform:uppercase; letter-spacing:.1em;
+    }
+    .badge--gold { background:rgba(226,194,122,.10); border:1px solid rgba(226,194,122,.30); color:var(--gold); }
+    .badge__dot  { width:7px; height:7px; border-radius:50%; flex-shrink:0; animation:pulse 2.4s ease-in-out infinite; }
+    .badge__dot--gold { background:var(--gold); }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.35} }
+
+    /* ── CTA Button ── */
+    .btn-cta {
+      position:relative; overflow:hidden;
+      display:flex; align-items:center; justify-content:center;
+      width:100%; max-width:480px; margin:0 auto;
+      min-height:56px; padding:18px 24px;
+      background:var(--primary); color:#fff;
+      font-family:var(--fd); font-size:18px; font-weight:700;
+      letter-spacing:.08em; text-transform:uppercase;
+      border:none; border-radius:var(--r-sm);
+      cursor:pointer; text-decoration:none;
+      transition:background .3s;
+    }
+    .btn-cta:hover { background:#0444bb; }
+    .btn-cta::before {
+      content:''; position:absolute; top:0; left:-75%;
+      width:50%; height:100%;
+      background:linear-gradient(120deg,transparent 0%,rgba(255,255,255,0) 35%,rgba(255,255,255,.45) 50%,rgba(255,255,255,0) 65%,transparent 100%);
+      transform:skewX(-15deg);
+      animation:shine 2.4s ease-in-out infinite; pointer-events:none;
+    }
+    @keyframes shine { 0%{left:-75%} 50%{left:130%} 100%{left:130%} }
+
+    .cta-note {
+      margin-top:12px; text-align:center;
+      font-family:var(--fb); font-size:16px; font-weight:500;
+      color:#fff; line-height:1.6;
+    }
+    .cta-note--light { color:#000; }
+    /* Per-section date colour overrides are handled inline */
+    .cta-note .date  { color:var(--gold); font-weight:700; }
+
+    .divider-gold {
+      width:48px; height:2px; background:var(--gold);
+      border-radius:2px; margin:0 auto 32px;
+    }
+
+    /* ════════════════════════════════════════
+       S1 — HERO
+    ════════════════════════════════════════ */
+    .hero {
+      position:relative; min-height:770px;
+      display:flex; align-items:center; overflow:hidden;
+    }
+    .hero__bg { position:absolute; inset:0; z-index:0; }
+    .hero__bg img { width:100%; height:100%; object-fit:cover; object-position:center top; }
+    .hero__bg::after { content:''; position:absolute; inset:0; background:rgba(10,14,38,.40); }
+
+    .hero__wrap {
+      position:relative; z-index:1; width:100%; max-width:var(--max);
+      margin:0 auto; padding:80px 16px;
+      display:flex; justify-content:flex-end;
+    }
+    .hero__card {
+      width:100%; max-width:680px;
+      background:rgba(18,25,54,.80);
+      backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+      border:1px solid rgba(226,194,122,.20);
+      border-radius:var(--r-lg); padding:52px 48px;
+      text-align:center;
+    }
+
+    /* Badge pill with pulsing gold dot */
+    .hero__badge-pill {
+      display:inline-flex; align-items:center; gap:9px;
+      padding:7px 16px 7px 10px;
+      border-radius:var(--r-full);
+      border:1px solid rgba(226,194,122,.35);
+      background:rgba(10,14,38,.55);
+      margin-bottom:28px;
+    }
+    .hero__badge-dot {
+      width:10px; height:10px; border-radius:50%; flex-shrink:0;
+      background:var(--gold);
+      box-shadow:0 0 7px 2px rgba(226,194,122,.55);
+      animation:pulse-glow 2.4s ease-in-out infinite;
+    }
+    @keyframes pulse-glow {
+      0%,100% { opacity:1;   box-shadow:0 0 7px 2px rgba(226,194,122,.55); }
+      50%      { opacity:.55; box-shadow:0 0 3px 1px rgba(226,194,122,.20); }
+    }
+    .hero__badge-text {
+      font-family:var(--fb); font-size:12px; font-weight:700;
+      text-transform:uppercase; letter-spacing:.10em; color:#fff;
+    }
+
+    .hero__headline {
+      font-family:var(--fd); font-size:32px;
+      font-weight:700; line-height:1.35; color:#fff;
+      margin-bottom:20px;
+    }
+    .hero__sub {
+      font-family:var(--fb); font-size:16px; font-weight:500; line-height:1.78;
+      color:rgba(255,255,255,.78); margin-bottom:36px;
+    }
+    .hero__sub strong { color:#fff; font-weight:700; }
+
+    /* ════════════════════════════════════════
+       S2 — STORY (light, plain text, primary blue accents)
+    ════════════════════════════════════════ */
+    /* Mobile-only image before "Cho Đến Khi Mình Nhận Ra" */
+    .story-mobile-img {
+      display:none;
+    }
+    .story-sec p {
+      font-family:var(--fb); font-size:16px; font-weight:500; line-height:1.80;
+      color:#000; margin-bottom:18px;
+    }
+    .story-sec p:last-of-type { margin-bottom:0; }
+    /* Highlighted words in story → primary blue */
+    .story-sec strong { color:var(--primary); font-weight:700; }
+    .story-sec em     { font-style:italic; }
+    .story-block      { margin-bottom:60px; }
+    .story-block:last-of-type { margin-bottom:0; }
+
+    /* ════════════════════════════════════════
+       S3 — MECHANISM / COMPARISON (dark)
+    ════════════════════════════════════════ */
+    .compare-grid {
+      display:grid; grid-template-columns:1fr 1fr;
+      gap:24px; margin-top:40px;
+    }
+    .compare-card { border-radius:var(--r-md); padding:36px 32px; }
+
+    /* "Cách cũ" card — white on dark section */
+    .compare-card--old {
+      background:#fff;
+      border:1px solid rgba(0,0,0,.08);
+    }
+    .compare-card--new {
+      background:rgba(255,255,255,.04);
+      border:1.5px solid var(--gold);
+    }
+    .compare-card__label {
+      font-family:var(--fd); font-size:20px; font-weight:700;
+      text-transform:none; letter-spacing:0; margin-bottom:16px;
+    }
+    .compare-card--old .compare-card__label { color:#121936; }
+    .compare-card--new .compare-card__label { color:var(--gold); }
+    .compare-card__title {
+      font-family:var(--fd); font-size:clamp(17px,1.8vw,22px);
+      font-weight:700; margin-bottom:24px; line-height:1.25;
+    }
+    .compare-card--old .compare-card__title { color:var(--dark); }
+    .compare-card--new .compare-card__title { color:#fff; }
+    .compare-list { list-style:none; display:flex; flex-direction:column; gap:14px; }
+    .compare-list li {
+      display:flex; gap:10px; align-items:flex-start;
+      font-family:var(--fb); font-size:16px; font-weight:500; line-height:1.65;
+    }
+    .compare-card--old .compare-list li { color:#1a1a1a; }
+    .compare-card--new .compare-list li { color:rgba(255,255,255,.86); }
+    .compare-list li .bullet-dot { flex-shrink:0; margin-top:8px; }
+
+    /* Formula — plain text, no box, dark context */
+    .formula-plain {
+      display:flex; flex-wrap:wrap; align-items:flex-start;
+      justify-content:center; gap:14px 20px;
+      margin-top:44px; text-align:center;
+    }
+    .formula-plain__item { display:flex; flex-direction:column; align-items:center; gap:4px; }
+    .formula-plain__term   { font-family:var(--fd); font-size:18px; font-weight:700; color:#fff; }
+    .formula-plain__sub    { font-family:var(--fb); font-size:13px; font-weight:500; color:rgba(255,255,255,.50); }
+    .formula-plain__op     { font-family:var(--fd); font-size:26px; font-weight:700; color:rgba(255,255,255,.25); align-self:center; }
+    .formula-plain__result { font-family:var(--fd); font-size:18px; font-weight:700; color:var(--gold); align-self:center; }
+
+    /* ════════════════════════════════════════
+       S4 — CURRICULUM (light bg, single-col centered)
+       Dark outer box → image → nested white body box
+    ════════════════════════════════════════ */
+    .sessions-v3 {
+      display:flex; flex-direction:column; gap:48px;
+      max-width:740px; margin:40px auto 0;
+    }
+    .session-v3 {
+      background:var(--dark);
+      border-radius:var(--r-lg);
+      border:1px solid rgba(226,194,122,.18);
+      overflow:hidden;
+    }
+    .session-v3__header {
+      padding:24px 16px 16px;
+      text-align:center;
+    }
+    .session-v3__tag {
+      display:block;
+      font-family:var(--fd); font-size:18px; font-weight:700;
+      color:var(--gold); margin-bottom:16px;
+    }
+    .session-v3__title {
+      font-family:var(--fd); font-size:20px; font-weight:700;
+      color:#fff; line-height:1.40; margin-bottom:16px;
+      text-align:center;
+    }
+    .session-v3__time {
+      font-family:var(--fd); font-size:18px; font-weight:400;
+      color:rgba(255,255,255,.85); text-align:center;
+    }
+    .session-v3__img {
+      margin:0 16px; aspect-ratio:16/9;
+      overflow:hidden; border-radius:var(--r-sm);
+    }
+    .session-v3__img img {
+      width:100%; height:100%; object-fit:cover; object-position:center;
+      display:block;
+    }
+    /* Nested white inner box for body content */
+    .session-v3__body {
+      margin:16px;
+      background:#fff;
+      border-radius:var(--r-md);
+      padding:24px 24px 28px;
+    }
+    .session-v3__intro {
+      font-family:var(--fb); font-size:14px; font-weight:500;
+      color:var(--muted); margin-bottom:16px;
+    }
+    .session-v3__list { list-style:none; display:flex; flex-direction:column; gap:14px; }
+    .session-v3__list li {
+      display:flex; gap:12px; align-items:flex-start;
+      font-family:var(--fb); font-size:16px; font-weight:500; line-height:1.65; color:#000;
+    }
+    .session-v3__list li .bullet-dot { flex-shrink:0; margin-top:7px; }
+    .session-v3__list li strong { color:#000; font-weight:700; }
+    .session-v3__outro {
+      margin-top:20px; padding-top:18px;
+      border-top:1px solid rgba(2,77,194,.10);
+      font-family:var(--fd); font-style:italic; font-size:16px;
+      color:var(--muted); line-height:1.65;
+    }
+
+    /* ════════════════════════════════════════
+       S5 — FOR WHOM (dark, one big box)
+    ════════════════════════════════════════ */
+    .forwhom-box {
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.09);
+      border-radius:var(--r-lg); padding:40px 44px;
+      margin-top:36px;
+    }
+    .forwhom-list { list-style:none; display:flex; flex-direction:column; gap:20px; }
+    .forwhom-list li {
+      display:flex; gap:14px; align-items:flex-start;
+      font-family:var(--fb); font-size:16px; font-weight:500; line-height:1.72;
+      color:rgba(255,255,255,.85);
+    }
+    .forwhom-list li svg  { flex-shrink:0; margin-top:1px; }
+    .forwhom-list li strong { color:#fff; font-weight:700; }
+
+    /* ════════════════════════════════════════
+       S6 — ABOUT SORA (light, white card)
+    ════════════════════════════════════════ */
+    .about-card {
+      background:#fff;
+      border-radius:var(--r-lg); padding:44px;
+      display:grid; grid-template-columns:360px 1fr;
+      gap:44px; align-items:start;
+    }
+    /* Square image, cropped top */
+    .about-card__img {
+      display:flex; flex-direction:column; align-items:center;
+    }
+    .about-card__img img {
+      width:327px; height:327px;
+      object-fit:cover; object-position:center 60%;
+      border-radius:var(--r-md); display:block;
+    }
+    /* Greeting headline — needs higher specificity than .about-card__text p */
+    .about-card__text .about-greeting {
+      font-family:var(--fd); font-size:24px; font-weight:700;
+      color:var(--primary); margin-bottom:18px; line-height:1.3;
+    }
+    .about-card__text p {
+      font-family:var(--fb); font-size:16px; font-weight:500; line-height:1.80;
+      color:#000; margin-bottom:16px;
+    }
+    .about-card__text p:last-child { margin-bottom:0; }
+    .about-card__text strong { color:#000; font-weight:700; }
+    .about-card__text em     { font-style:italic; }
+
+    /* Results — gold dot bullets */
+    .about-results { display:flex; flex-direction:column; gap:12px; margin:20px 0; }
+    .about-result {
+      display:flex; gap:12px; align-items:flex-start;
+      font-family:var(--fb); font-size:16px; font-weight:500; line-height:1.65; color:#000;
+    }
+    .about-result .bullet-dot { flex-shrink:0; margin-top:7px; }
+    .about-result strong { color:#000; font-weight:700; }
+
+    /* Quote & signature */
+    .about-quote {
+      margin-top:24px; padding-top:20px;
+      border-top:1px solid rgba(0,0,0,.08);
+    }
+    .about-quote blockquote {
+      font-family:var(--fd); font-style:italic;
+      font-size:17px; line-height:1.65; color:var(--dark); margin-bottom:8px;
+    }
+    .about-sig {
+      font-family:'Great Vibes', cursive;
+      font-size:40px; color:var(--primary);
+      display:block; margin-top:4px;
+    }
+
+    /* ════════════════════════════════════════
+       FOOTER
+    ════════════════════════════════════════ */
+    .site-footer {
+      background:var(--dark);
+      min-height:110px;
+      padding:0 24px;
+      text-align:center;
+      border-top:1px solid rgba(255,255,255,.06);
+      display:flex; align-items:center; justify-content:center;
+    }
+    .site-footer .wrap { padding-top:0; padding-bottom:0; }
+    .site-footer p {
+      font-family:var(--fb); font-size:14px; font-weight:500;
+      color:rgba(255,255,255,.40); line-height:1.7;
+    }
+    .site-footer p + p { margin-top:6px; }
+    .site-footer .footer-brand {
+      font-family:var(--fd); font-size:15px; font-weight:600;
+      color:rgba(255,255,255,.65); margin-bottom:10px;
+    }
+
+    /* ════════════════════════════════════════
+       RESPONSIVE
+    ════════════════════════════════════════ */
+    @media (max-width: 900px) {
+      .compare-grid  { grid-template-columns:1fr; }
+      .about-card    { grid-template-columns:1fr; gap:32px; }
+      .about-card__img { align-items:center; }
+      .about-card__img img { width:100%; max-width:327px; height:327px; }
+      .formula-plain { gap:10px 12px; }
+    }
+    @media (max-width: 768px) {
+      .sec             { padding:64px 0; }
+      .hero__wrap      { justify-content:center; padding:48px 20px 56px; }
+      .hero__card      { max-width:100%; padding:36px 20px; }
+      .hero__headline  { font-size:23px; }
+      .forwhom-box     { padding:28px 20px; }
+      /* On mobile, hero bg shows left part of photo, 200px from edge */
+      .hero__bg img    { object-position:-200px top; }
+      /* Mobile image in story section */
+      .story-mobile-img {
+        display:block;
+        width:100%; height:221px;
+        object-fit:cover; object-position:left center;
+        border-radius:var(--r-md);
+        margin-bottom:28px;
+      }
+    }
+    @media (max-width: 480px) {
+      .compare-card        { padding:24px 16px; }
+      .session-v3__img     { margin:0 12px; }
+      .session-v3__body    { margin:12px; padding:16px; }
+      .about-card          { padding:24px 16px; }
+      .hero__card          { padding:28px 16px; }
+    }
+
+    /* ════════════════════════════════════════
+       MODAL — REGISTRATION POPUP
+    ════════════════════════════════════════ */
+    .modal-overlay {
+      position:fixed; inset:0; z-index:9999;
+      background:rgba(10,14,38,.72);
+      backdrop-filter:blur(4px); -webkit-backdrop-filter:blur(4px);
+      display:flex; align-items:center; justify-content:center;
+      padding:16px;
+      opacity:0; visibility:hidden;
+      transition:opacity .28s ease, visibility .28s ease;
+    }
+    .modal-overlay.is-open { opacity:1; visibility:visible; }
+
+    .modal-box {
+      background:#fff;
+      border-radius:var(--r-lg);
+      width:100%; max-width:580px;
+      max-height:92vh;
+      display:flex; flex-direction:column;
+      box-shadow:0 24px 64px rgba(0,0,0,.35);
+      transform:translateY(24px);
+      transition:transform .28s ease;
+    }
+    .modal-overlay.is-open .modal-box { transform:translateY(0); }
+
+    /* Header — non-scrolling */
+    .modal-header {
+      flex-shrink:0;
+      position:relative;
+      padding:28px 40px 20px;
+      border-bottom:1px solid rgba(0,0,0,.07);
+      text-align:center;
+    }
+    .modal-title {
+      font-family:var(--fd); font-size:22px; font-weight:700;
+      color:var(--primary); line-height:1.3;
+    }
+    .modal-subtitle {
+      font-family:var(--fb); font-size:14px; font-weight:500;
+      color:var(--muted); margin-top:7px; line-height:1.6;
+    }
+    .modal-close {
+      position:absolute; top:14px; right:14px;
+      width:34px; height:34px;
+      background:none; border:none; cursor:pointer;
+      display:flex; align-items:center; justify-content:center;
+      border-radius:50%; color:var(--muted);
+      transition:background .2s, color .2s;
+    }
+    .modal-close:hover { background:rgba(0,0,0,.06); color:var(--dark); }
+
+    /* Scrollable body */
+    .modal-body {
+      overflow-y:auto; flex:1;
+      padding:24px 40px 36px;
+    }
+    .modal-body::-webkit-scrollbar { width:5px; }
+    .modal-body::-webkit-scrollbar-track { background:transparent; }
+    .modal-body::-webkit-scrollbar-thumb { background:rgba(0,0,0,.14); border-radius:3px; }
+
+    /* Form groups */
+    .form-group { margin-bottom:22px; }
+    .form-group:last-of-type { margin-bottom:0; }
+
+    .form-label {
+      display:block;
+      font-family:var(--fb); font-size:16px; font-weight:600;
+      color:#024dc2; margin-bottom:10px; line-height:1.45;
+    }
+    .form-label .req { color:#f56c6c; margin-left:2px; }
+
+    /* Text / tel / email inputs */
+    .form-input {
+      width:100%; height:55px; padding:0 16px;
+      font-family:var(--fb); font-size:15px; font-weight:400;
+      color:#1a1a1a; background:#fff;
+      border:1.5px solid rgba(0,0,0,.18);
+      border-radius:var(--r-sm); outline:none;
+      transition:border-color .2s, box-shadow .2s;
+    }
+    .form-input:focus {
+      border-color:var(--primary);
+      box-shadow:0 0 0 3px rgba(2,77,194,.10);
+    }
+    .form-input.is-error {
+      border-color:#f56c6c;
+      box-shadow:0 0 0 3px rgba(245,108,108,.10);
+    }
+
+    /* Textarea */
+    .form-textarea {
+      width:100%; min-height:96px; padding:12px 16px;
+      font-family:var(--fb); font-size:15px; font-weight:400;
+      color:#1a1a1a; background:#fff;
+      border:1.5px solid rgba(0,0,0,.18);
+      border-radius:var(--r-sm); outline:none;
+      resize:vertical; line-height:1.6;
+      transition:border-color .2s, box-shadow .2s;
+    }
+    .form-textarea:focus {
+      border-color:var(--primary);
+      box-shadow:0 0 0 3px rgba(2,77,194,.10);
+    }
+
+    /* Radio / Checkbox options */
+    .form-options { display:flex; flex-direction:column; gap:11px; }
+    .form-option  { display:flex; align-items:flex-start; gap:11px; cursor:pointer; }
+
+    .form-option input[type="radio"],
+    .form-option input[type="checkbox"] {
+      position:relative; flex-shrink:0;
+      appearance:none; -webkit-appearance:none;
+      width:20px; height:20px; margin-top:2px;
+      background:#fff; cursor:pointer;
+      transition:border-color .2s, background .2s;
+    }
+    .form-option input[type="radio"]    { border:2px solid rgba(0,0,0,.25); border-radius:50%; }
+    .form-option input[type="checkbox"] { border:2px solid rgba(0,0,0,.25); border-radius:4px; }
+
+    /* Checked states */
+    .form-option input[type="radio"]:checked    { border-color:var(--primary); }
+    .form-option input[type="radio"]:checked::after {
+      content:''; position:absolute;
+      top:50%; left:50%;
+      width:10px; height:10px;
+      background:var(--primary); border-radius:50%;
+      transform:translate(-50%,-50%);
+    }
+    .form-option input[type="checkbox"]:checked { border-color:var(--primary); background:var(--primary); }
+    .form-option input[type="checkbox"]:checked::after {
+      content:''; position:absolute;
+      top:50%; left:50%;
+      width:11px; height:6px;
+      border-left:2px solid #fff; border-bottom:2px solid #fff;
+      transform:translate(-50%,-65%) rotate(-45deg);
+    }
+    .form-option input:focus-visible {
+      outline:2px solid rgba(2,77,194,.35); outline-offset:2px;
+    }
+
+    /* Error states for radio/checkbox */
+    .form-option.is-error input[type="radio"],
+    .form-option.is-error input[type="checkbox"] { border-color:#f56c6c; }
+    .form-option.is-error .option-label { color:#f56c6c; }
+
+    .option-label {
+      font-family:var(--fb); font-size:15px; font-weight:400;
+      color:#1a1a1a; line-height:1.55; padding-top:2px;
+      transition:color .2s;
+    }
+
+    /* Submit button inside modal */
+    .modal-submit-wrap { margin-top:28px; }
+
+    /* Success screen */
+    .modal-success {
+      display:none; padding:52px 40px;
+      text-align:center;
+    }
+    .modal-success.is-visible { display:block; }
+    .modal-success__icon {
+      width:72px; height:72px;
+      background:rgba(2,77,194,.08); border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      margin:0 auto 24px;
+    }
+    .modal-success__title {
+      font-family:var(--fd); font-size:22px; font-weight:700;
+      color:var(--primary); margin-bottom:12px;
+    }
+    .modal-success__body {
+      font-family:var(--fb); font-size:15px; font-weight:400;
+      color:var(--muted); line-height:1.75;
+    }
+
+    @media (max-width:480px) {
+      .modal-header { padding:24px 20px 18px; }
+      .modal-body   { padding:20px 20px 28px; }
+      .modal-title  { font-size:18px; }
+      .modal-success { padding:40px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     S1 — HERO
+══════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero__bg">
+    <img src="assets/images/Section 1 upscale.jpg" alt="">
+  </div>
+  <div class="hero__wrap">
+    <div class="hero__card">
+
+      <div class="hero__badge-pill">
+        <span class="hero__badge-dot"></span>
+        <span class="hero__badge-text">Workshop Miễn Phí: X2 Kết Quả Không Cần Làm Thêm Giờ</span>
+      </div>
+
+      <h1 class="hero__headline">
+        Đây là công thức mình dùng để làm
+        <span class="gold-text">Team Lead</span> đạt
+        <span class="gold-text">X2 hiệu quả</span>,
+        thăng tiến mà vẫn
+        <span class="gold-text">trọn vẹn</span>
+        bằng sức mạnh nội lực và dòng chảy sẵn có
+      </h1>
+
+      <p class="hero__sub">
+        Khám phá toàn bộ cơ chế <strong>FLOW LEADER™</strong> đã giúp mình từ gánh team 12 tiếng/ngày, đau dạ dày, mất ngủ trở thành
+        <em><span class="gold-text">phiên bản giá trị cao</span></em> trong công việc —
+        ngay cả khi bạn đang kẹt giữa sếp áp lực và team chưa hiệu quả.
+      </p>
+
+      <a href="#register" class="btn-cta">Đăng Ký Giữ Chỗ Ngay</a>
+      <p class="cta-note">
+        Để lại thông tin để giữ chỗ cho workshop diễn ra ngày
+        <span class="date">8–9/06</span>
+      </p>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     S2 — PAIN + STORY (light, plain, blue accents)
+══════════════════════════════════════════ -->
+<section class="sec sec--light story-sec">
+  <div class="wrap">
+    <div class="col-text">
+
+      <!-- Block 1 -->
+      <div class="story-block">
+        <h2 class="h2-story">Nếu Bạn Từng Cảm Thấy…</h2>
+        <div class="divider-gold"></div>
+        <p>Đã lên làm lead, đã học thêm kỹ năng, đã cố gắng hết sức để hoàn thành KPI và giữ team ổn định…</p>
+        <p>Nhưng mỗi ngày đi làm vẫn cảm thấy như đang chạy mà không đến đâu?</p>
+        <p>Bạn luôn tự nhủ:</p>
+        <p><em>"Mình làm nhiều mà sao vẫn không được ghi nhận?"</em></p>
+        <p><em>"Mình hiền thì bị nhờn, nghiêm thì bị gồng"</em></p>
+        <p><em>"Về nhà mà đầu cứ ám ảnh công việc"</em></p>
+        <p>Biết mình đang cố gắng, biết team cũng đang vất vả… nhưng cứ mãi kẹt giữa sếp và nhân viên, không ai thực sự hiểu mình đang gánh gì?</p>
+        <p>Nếu vậy, không phải bạn thiếu nỗ lực. Không phải bạn thiếu kiến thức.</p>
+        <p>Mà là bạn chưa có một <strong>cơ chế</strong> lead phù hợp với vị trí của mình.</p>
+      </div>
+
+      <!-- Block 2 -->
+      <div class="story-block">
+        <h2 class="h2-story">Mình Cũng Từng Như Vậy</h2>
+        <div class="divider-gold"></div>
+        <p>Sau khi làm trưởng nhóm hơn 2 năm, mình kiệt sức.</p>
+        <p>Từ bên ngoài nhìn vào, mọi thứ có vẻ ổn. Kết quả tốt, thăng tiến nhanh, quản lý team mấy chục người. Nhưng mình mất ngủ, đau dạ dày thường xuyên. Đi làm 10–12 tiếng mỗi ngày, về đêm vẫn mở máy tính ra làm tiếp đến khuya.</p>
+        <p>Mình từng tin rằng:</p>
+        <p><em>"Làm lead thì phải là người giỏi nhất, biết nhiều nhất."</em></p>
+        <p><em>"Muốn team làm được việc thì phải tự tay mình làm mẫu, kiểm tra từng bước."</em></p>
+        <p><em>"Cứ cố gắng đủ nhiều thì sếp sẽ nhìn thấy, nhân viên sẽ phục."</em></p>
+        <p>Những niềm tin đó như một chiếc lồng vô hình.</p>
+        <p>Mình cãi nhau với sếp vì những áp đặt vô lý. Mình tự dọn rác cho nhân viên vì không muốn chất lượng đi xuống. Mình gồng vai chuyên nghiệp đến mức không còn nhớ mình là ai nữa.</p>
+        <p>Cuộc sống cống hiến hết cho công việc, nhưng tại sao mình lại cảm thấy <strong>trống rỗng</strong>?</p>
+      </div>
+
+      <!-- Block 3 -->
+      <div class="story-block">
+        <img class="story-mobile-img" src="assets/images/Section 1 upscale.jpg" alt="">
+        <h2 class="h2-story">Cho Đến Khi Mình Nhận Ra</h2>
+        <div class="divider-gold"></div>
+        <p>Vấn đề không phải mình thiếu gì.</p>
+        <p>Vấn đề là mình đang làm bằng một nguồn năng lượng dễ cạn kiệt: cố gánh, cố chứng minh, cố kiểm soát — mà không có gốc rễ bên trong vững chắc.</p>
+        <p>Cho đến khi mình dừng lại, lùi ra khỏi guồng quay và nhìn thật rõ vào bên trong, đó là khoảnh khắc mọi thứ dịch chuyển.</p>
+        <p>Nếu bên trong mình không vững, thì mình làm gì cũng méo mó. Dù kỹ thuật, kiến thức có nhiều đến mấy, nhưng không chạm đến con người, thì mọi kết quả chỉ là bề nổi.</p>
+        <p>Đặc biệt khi mình là một người phụ nữ, khi mình vô tình kết nối lại với năng lượng tĩnh tại, thấu cảm, và linh hoạt của <strong>DÒNG CHẢY</strong> thì kết quả công việc lại đến lớn hơn và dễ dàng hơn nhiều.</p>
+        <p>Mình bắt đầu xây dựng một cơ chế lead dựa trên <strong>nội lực thật sự, thấu hiểu con người và hệ thống vận hành</strong> nhẹ nhàng hơn.</p>
+        <p>Mình gọi nó là <strong>FLOW LEADER™</strong>.</p>
+        <p>Cơ chế đó đã giúp mình liên tục thăng tiến từ trưởng nhóm lên trưởng phòng, giám đốc vận hành. Từ những công ty ổn định, đến những môi trường khắc nghiệt và áp lực. Từ những sếp ôn hoà, đến những sếp khó tính nhất — cơ chế này vẫn thể hiện tính hiệu quả, giúp mình quản lý cấp trung dễ dàng mà vẫn thăng tiến, vẫn có cuộc sống cá nhân trọn vẹn.</p>
+        <p>Mình cũng giống bạn thôi. Bạn cũng có thể kết nối lại được một nguồn năng lượng FLOW mạnh mẽ — mà bạn đang có sẵn bên trong rồi.</p>
+      </div>
+
+      <div style="margin-top:48px;">
+        <a href="#register" class="btn-cta">Đăng Ký Giữ Chỗ Ngay</a>
+        <p class="cta-note cta-note--light">Để lại thông tin để giữ chỗ cho workshop diễn ra ngày <span class="date" style="color:#024dc2">8–9/06</span></p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     S3 — PHƯƠNG PHÁP (dark)
+══════════════════════════════════════════ -->
+<section class="sec sec--dark">
+  <div class="wrap">
+
+    <div style="text-align:center;">
+      <h2 class="h2-dark">Phương Pháp Độc Nhất Của FLOW LEADER™</h2>
+      <div class="divider-gold"></div>
+      <p class="body-dark" style="max-width:640px; margin:0 auto; text-align:center;">
+        Phần lớn trưởng nhóm, trưởng phòng kiệt sức không phải vì thiếu kỹ năng, mà vì đang lead theo cách làm cũ.
+      </p>
+    </div>
+
+    <div class="compare-grid">
+      <!-- Cách cũ -->
+      <div class="compare-card compare-card--old">
+        <p class="compare-card__label">Cách Lead Cũ</p>
+        <ul class="compare-list">
+          <li><svg class="bullet-dot" width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="rgba(0,0,0,0.22)"/></svg><span>Học thêm công cụ, bảng biểu, quy trình cứng nhắc — về nhà vẫn không tắt được đầu óc</span></li>
+          <li><svg class="bullet-dot" width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="rgba(0,0,0,0.22)"/></svg><span>Chỉ tập trung vào kỹ thuật — bỏ qua con người, cảm xúc, và những thứ không đo được</span></li>
+          <li><svg class="bullet-dot" width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="rgba(0,0,0,0.22)"/></svg><span>Quản trị bằng kiểm soát và áp lực — team làm cho xong chứ không thật sự phục</span></li>
+          <li><svg class="bullet-dot" width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="rgba(0,0,0,0.22)"/></svg><span>Càng cố gắng, càng rút cạn năng lượng — kết quả vẫn phụ thuộc vào bạn từng bước</span></li>
+          <li><svg class="bullet-dot" width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="rgba(0,0,0,0.22)"/></svg><span>Đánh đổi sức khỏe và cuộc sống cá nhân để đổi lấy hiệu quả công việc trước mắt</span></li>
+          <li><svg class="bullet-dot" width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="rgba(0,0,0,0.22)"/></svg><span>Chạy theo sếp, nhân viên, công việc mỗi ngày</span></li>
+        </ul>
+      </div>
+
+      <!-- FLOW LEADER™ -->
+      <div class="compare-card compare-card--new">
+        <p class="compare-card__label">Với FLOW LEADER™</p>
+        <ul class="compare-list">
+          <li><svg class="bullet-dot" width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="#E2C27A"/></svg><span>Hệ thống linh hoạt, áp dụng được vào mọi tình huống mà không làm mất đi sự sống động của bạn</span></li>
+          <li><svg class="bullet-dot" width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="#E2C27A"/></svg><span>Hoàn thiện cả khía cạnh con người: thấu cảm và trí tuệ cảm xúc trở thành đòn bẩy thực sự</span></li>
+          <li><svg class="bullet-dot" width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="#E2C27A"/></svg><span>Kết nối và thấu hiểu sâu — team tự vận hành vì họ muốn, không phải vì bị ép</span></li>
+          <li><svg class="bullet-dot" width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="#E2C27A"/></svg><span>Càng thực hành càng mở ra — năng lượng không bị rút cạn mà ngày càng dồi dào hơn</span></li>
+          <li><svg class="bullet-dot" width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="#E2C27A"/></svg><span>Coi trọng sự trọn vẹn — hiệu quả công việc và đời sống tinh thần cùng lớn lên một lúc</span></li>
+          <li><svg class="bullet-dot" width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="#E2C27A"/></svg><span style="color:#E2C27A; font-weight:500;">Trở thành phiên bản giá trị cao trong công việc</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Formula — plain text -->
+    <div class="formula-plain">
+      <div class="formula-plain__item">
+        <span class="formula-plain__term">Nội Lực Tinh Thần</span>
+        <span class="formula-plain__sub">(Bản thân trọn vẹn)</span>
+      </div>
+      <span class="formula-plain__op">+</span>
+      <div class="formula-plain__item">
+        <span class="formula-plain__term">Kết Nối Con Người</span>
+        <span class="formula-plain__sub">(Con người tâm phục)</span>
+      </div>
+      <span class="formula-plain__op">+</span>
+      <div class="formula-plain__item">
+        <span class="formula-plain__term">Hệ Thống Vận Hành</span>
+        <span class="formula-plain__sub">(Công việc hiệu quả)</span>
+      </div>
+      <span class="formula-plain__op">=</span>
+      <span class="formula-plain__result">FLOW LEADER™</span>
+    </div>
+
+    <div style="margin-top:48px;">
+      <a href="#register" class="btn-cta">Đăng Ký Giữ Chỗ Ngay</a>
+      <p class="cta-note">Để lại thông tin để giữ chỗ cho workshop diễn ra ngày <span class="date">8–9/06</span></p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     S4 — CURRICULUM (light, dark-header cards)
+══════════════════════════════════════════ -->
+<section class="sec sec--light" id="curriculum">
+  <div class="wrap">
+
+    <div style="text-align:center;">
+      <h2 class="h2-light">Trong 2 Buổi Workshop<br>Bạn Sẽ Được Trang Bị?</h2>
+      <div class="divider-gold"></div>
+    </div>
+
+    <div class="sessions-v3">
+
+      <!-- Buổi 1 -->
+      <div class="session-v3">
+        <div class="session-v3__header">
+          <p class="session-v3__tag">Buổi 1 — Thức Tỉnh</p>
+          <h3 class="session-v3__title">Thoát Khỏi Vòng Xoáy Kiệt Sức &amp; Kích Hoạt Động Lực Lead Tự Nhiên</h3>
+          <p class="session-v3__time">(20H tối ngày 8/06)</p>
+        </div>
+        <div class="session-v3__img">
+          <img src="assets/images/Buổi 1.png" alt="Buổi 1 — Thức Tỉnh">
+        </div>
+        <div class="session-v3__body">
+          <p class="session-v3__intro">Trong buổi này, bạn sẽ khám phá:</p>
+          <ul class="session-v3__list">
+            <li>
+              <svg class="bullet-dot" width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#E2C27A"/></svg>
+              <span>Cơ chế <strong>"Tạo khoảng hở"</strong> giúp lập tức thoát khỏi vòng xoáy deadlines, giải phóng 30% quỹ thời gian ngay trong tuần đầu tiên</span>
+            </li>
+            <li>
+              <svg class="bullet-dot" width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#E2C27A"/></svg>
+              <span>Cách thức thực tế để nhìn rõ bản chất định kiến giới hạn, từ đó chấm dứt các cuộc tranh cãi vặt vãnh, va đập quan điểm vô bổ tại công sở</span>
+            </li>
+            <li>
+              <svg class="bullet-dot" width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#E2C27A"/></svg>
+              <span><strong>Công Thức Động Lực Bền</strong> — xây lại tâm thế để vui vẻ chân thực mỗi ngày, không cần gồng, không cần chứng minh</span>
+            </li>
+            <li>
+              <svg class="bullet-dot" width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#E2C27A"/></svg>
+              <span>Thực hành: Bạn sẽ lên được <strong>"Kế Hoạch Giải Cứu Năng Lượng"</strong> cho mình</span>
+            </li>
+          </ul>
+          <p class="session-v3__outro">Bạn sẽ rời khỏi buổi này biết chính xác cách làm chủ năng lượng tinh thần cá nhân để bẻ gãy mọi vòng lặp bận rộn.</p>
+        </div>
+      </div>
+
+      <!-- Buổi 2 -->
+      <div class="session-v3">
+        <div class="session-v3__header">
+          <p class="session-v3__tag">Buổi 2 — Khai Mở</p>
+          <h3 class="session-v3__title">Nghệ Thuật Thấu Hiểu Con Người &amp; Cơ Chế Làm Việc Thảnh Thơi</h3>
+          <p class="session-v3__time">(20H tối ngày 9/06)</p>
+        </div>
+        <div class="session-v3__img">
+          <img src="assets/images/Buổi 2.png" alt="Buổi 2 — Khai Mở">
+        </div>
+        <div class="session-v3__body">
+          <p class="session-v3__intro">Trong buổi này, bạn sẽ nhận được:</p>
+          <ul class="session-v3__list">
+            <li>
+              <svg class="bullet-dot" width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#E2C27A"/></svg>
+              <span>Lý do <strong>90% người không hiểu Sếp</strong> và cách để không còn phải đoán</span>
+            </li>
+            <li>
+              <svg class="bullet-dot" width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#E2C27A"/></svg>
+              <span><strong>Framework Thấu Hiểu Nhân Viên</strong> để giao đúng việc đúng người mà không phải đi dọn rác phía sau</span>
+            </li>
+            <li>
+              <svg class="bullet-dot" width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#E2C27A"/></svg>
+              <span><strong>5 Tầng Lắng Nghe Sâu</strong> — Phương pháp nghe vượt ngoài lời nói để hiểu người khác sâu hơn chính họ hiểu mình</span>
+            </li>
+            <li>
+              <svg class="bullet-dot" width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#E2C27A"/></svg>
+              <span>Bí mật để về nhà tắt máy được, ngủ ngon, không còn đau dạ dày vì áp lực</span>
+            </li>
+          </ul>
+          <p class="session-v3__outro">Bạn sẽ rời khỏi buổi này với công thức để làm chủ khía cạnh con người trong quản lý, biến công việc từ gánh nặng thành dòng chảy thảnh thơi, hiệu quả.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="margin-top:56px;">
+      <a href="#register" class="btn-cta">Đăng Ký Giữ Chỗ Ngay</a>
+      <p class="cta-note" style="color:#000">Để lại thông tin để giữ chỗ cho workshop diễn ra ngày <span class="date" style="color:#024dc2">8–9/06</span></p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     S5 — FOR WHOM (dark, one big box)
+══════════════════════════════════════════ -->
+<section class="sec sec--dark">
+  <div class="wrap">
+    <div class="col-text">
+      <h2 class="h2-dark">Workshop Này Dành Cho Bạn Nếu…</h2>
+      <div class="divider-gold"></div>
+
+      <div class="forwhom-box">
+        <ul class="forwhom-list">
+          <li>
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="1.5" y="1.5" width="19" height="19" rx="4.5" fill="#E2C27A"/><path d="M6 11.5L9.5 15L16 8" stroke="#121936" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Bạn đang là <strong>team lead vừa được thăng lên vị trí quản lý</strong>, có team trong tay, nhưng chưa ai thật sự dạy bạn cách lead.</span>
+          </li>
+          <li>
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="1.5" y="1.5" width="19" height="19" rx="4.5" fill="#E2C27A"/><path d="M6 11.5L9.5 15L16 8" stroke="#121936" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Bạn đã là <strong>trưởng nhóm, trưởng phòng 1–3 năm+</strong>, chăm chỉ và có năng lực, nhưng cứ mãi cảm thấy kiệt sức, cô độc thay vì thăng hoa.</span>
+          </li>
+          <li>
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="1.5" y="1.5" width="19" height="19" rx="4.5" fill="#E2C27A"/><path d="M6 11.5L9.5 15L16 8" stroke="#121936" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Bạn nỗ lực áp dụng đủ công cụ quản trị, nhưng khi về nhà <strong>vẫn không thể tắt máy</strong>, đầu óc liên tục bị ám ảnh bởi lo âu và deadlines.</span>
+          </li>
+          <li>
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="1.5" y="1.5" width="19" height="19" rx="4.5" fill="#E2C27A"/><path d="M6 11.5L9.5 15L16 8" stroke="#121936" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Bạn đang <strong>kẹt giữa sếp và nhân viên</strong> — vừa chống đỡ áp lực, chạy theo sếp trên, vừa phải thúc ép và ôm việc hộ nhân viên bên dưới.</span>
+          </li>
+          <li>
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="1.5" y="1.5" width="19" height="19" rx="4.5" fill="#E2C27A"/><path d="M6 11.5L9.5 15L16 8" stroke="#121936" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Bạn muốn thăng tiến sự nghiệp nhưng đang phải đánh đổi bằng <strong>sức khỏe suy giảm, mất ngủ, đau dạ dày</strong> và không có thời gian cho bản thân, cho gia đình.</span>
+          </li>
+          <li>
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="1.5" y="1.5" width="19" height="19" rx="4.5" fill="#E2C27A"/><path d="M6 11.5L9.5 15L16 8" stroke="#121936" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Bạn muốn <strong>trở thành phiên bản giá trị cao</strong> trong công việc.</span>
+          </li>
+        </ul>
+      </div>
+
+      <div style="margin-top:48px;">
+        <a href="#register" class="btn-cta">Đăng Ký Giữ Chỗ Ngay</a>
+        <p class="cta-note" style="color:#fff">Để lại thông tin để giữ chỗ cho workshop diễn ra ngày <span class="date">8–9/06</span></p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     S6 — ABOUT SORA (light, white card)
+══════════════════════════════════════════ -->
+<section class="sec sec--light">
+  <div class="wrap">
+
+    <div style="text-align:center; margin-bottom:40px;">
+      <h2 class="h2-light">Người Đồng Hành Với Bạn<br>Trong Workshop Này</h2>
+      <div class="divider-gold"></div>
+    </div>
+
+    <div class="about-card">
+
+      <!-- Square photo -->
+      <div class="about-card__img">
+        <img src="assets/images/Profile.png" alt="Sora">
+      </div>
+
+      <!-- Bio -->
+      <div class="about-card__text">
+
+        <p class="about-greeting">Xin chào, mình là Sora.</p>
+
+        <p>Có thể bạn biết đến mình là nữ quản lý cấp trung rất tâm huyết về lãnh đạo và tính nữ.</p>
+
+        <p>Nhưng trên hết, mình chỉ là một người đã từng đứng tại chính nơi bạn đang đứng bây giờ. Mình từng mắc kẹt trong đúng những câu hỏi mà có lẽ bạn đang tự hỏi lúc này:</p>
+
+        <p><em>"Tại sao làm công việc mình yêu thích, mà thấy kiệt sức và khổ thế?"</em></p>
+        <p><em>"Liệu có đáng, hay chỉ lãng phí sức khỏe và đánh mất cuộc sống cá nhân?"</em></p>
+        <p><em>"Làm sao để vừa đạt hiệu quả công việc, vừa thăng tiến mà tâm trí vẫn được bình an, thảnh thơi?"</em></p>
+
+        <p>Mình đã từng chạy theo mọi công cụ quản trị phức tạp, ép mình vào đủ loại bảng biểu khô cứng và dùng áp lực để kiểm soát deadlines. Nhưng kết quả chỉ là mất ngủ, đau dạ dày, kiệt sức tinh thần trong khi đội ngũ thiếu hiệu quả và sếp còn chẳng coi trọng mình.</p>
+
+        <p>Cho đến khi mình ngừng hỏi <em>"Làm sao để quản lý nhiều hơn?"</em> và bắt đầu chuyển dịch sang: <strong>"Làm sao để xây dựng nội lực tinh thần cốt lõi và quản trị theo đúng nguồn năng lượng bên trong nhất, dễ dàng nhất?"</strong> — đó là khoảnh khắc mọi thứ dịch chuyển.</p>
+
+        <p>Hôm nay, hệ thống <strong>FLOW LEADER™</strong> đó giúp mình:</p>
+
+        <div class="about-results">
+          <div class="about-result">
+            <svg class="bullet-dot" width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#E2C27A"/></svg>
+            <span>Liên tục thăng tiến từ team lead nhóm 3 người, lên các cấp trưởng phòng và <strong>giám đốc vận hành</strong> công ty từ 20–50 người</span>
+          </div>
+          <div class="about-result">
+            <svg class="bullet-dot" width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#E2C27A"/></svg>
+            <span>Rút ngắn thời gian làm việc thực tế xuống chỉ còn <strong>4–6 tiếng/ngày</strong>, giải phóng hoàn toàn không gian cho sáng tạo, phát triển bản thân</span>
+          </div>
+          <div class="about-result">
+            <svg class="bullet-dot" width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#E2C27A"/></svg>
+            <span>Có thể nghỉ đi du lịch <strong>10 ngày, 3–4 lần/năm</strong> mà team vẫn vận hành, không cuộc gọi từ sếp trên</span>
+          </div>
+          <div class="about-result">
+            <svg class="bullet-dot" width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#E2C27A"/></svg>
+            <span>Nói không với OT và làm việc cuối tuần, để có <strong>thời gian trọn vẹn dành cho gia đình</strong>, cho sức mạnh nội tâm của bản thân</span>
+          </div>
+          <div class="about-result">
+            <svg class="bullet-dot" width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#E2C27A"/></svg>
+            <span>Kết quả làm ra <strong>gấp 30 lần</strong> so với hồi cày 12–14 tiếng/ngày</span>
+          </div>
+        </div>
+
+        <p>Nhưng mình không kể những điều đó để chứng minh mình giỏi. Mình kể vì mình muốn bạn biết: mình đã đi qua đúng nỗi đau kiệt quệ bạn đang chịu đựng. Và con đường phía trước không phải là cố gắng ôm nhiều việc hơn — mà là làm chủ năng lượng tinh thần và sở hữu một cơ chế đúng để giải phóng chính mình cùng đội ngũ.</p>
+
+        <div class="about-quote">
+          <blockquote>"Phiên bản giá trị cao trong công việc không nằm ở việc nỗ lực hơn. Mà ở việc quản trị dòng chảy bằng một nội lực tĩnh tại."</blockquote>
+          <span class="about-sig">Sora</span>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════ -->
+<footer class="site-footer" id="register">
+  <div class="wrap">
+    <p class="footer-brand">© Flow Leader</p>
+    <p>Dẫn dắt từ bên trong.<br>Lead nhẹ nhàng, hiệu quả và sống trọn vẹn hơn.</p>
+  </div>
+</footer>
+
+
+<!-- ══════════════════════════════════════════
+     REGISTRATION POPUP MODAL
+══════════════════════════════════════════ -->
+<div class="modal-overlay" id="regModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-box">
+
+    <!-- ── Header (sticky, non-scrolling) ── -->
+    <div class="modal-header">
+      <button class="modal-close" id="modalClose" aria-label="Đóng">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M2 2L14 14M14 2L2 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <h2 class="modal-title" id="modalTitle">Đăng Ký Giữ Chỗ Workshop</h2>
+      <p class="modal-subtitle">Điền thông tin để giữ chỗ — Workshop diễn ra ngày <strong style="color:var(--primary)">8–9/06</strong></p>
+    </div>
+
+    <!-- ── Scrollable body ── -->
+    <div class="modal-body" id="modalBody">
+
+      <!-- Form -->
+      <form id="regForm" novalidate>
+
+        <!-- Hidden: source URL (UTM tracking) -->
+        <input type="hidden" name="source_url" id="field_source_url">
+
+        <!-- Q1: Họ và tên -->
+        <div class="form-group">
+          <label class="form-label" for="field_name">
+            Họ và tên của bạn <span class="req">*</span>
+          </label>
+          <input class="form-input" type="text" id="field_name" name="name"
+            placeholder="Nhập họ và tên của bạn" autocomplete="name">
+        </div>
+
+        <!-- Q2: Số điện thoại -->
+        <div class="form-group">
+          <label class="form-label" for="field_phone">
+            Số điện thoại <span class="req">*</span>
+          </label>
+          <input class="form-input" type="tel" id="field_phone" name="phone"
+            placeholder="Nhập số điện thoại" autocomplete="tel">
+        </div>
+
+        <!-- Q3: Email -->
+        <div class="form-group">
+          <label class="form-label" for="field_email">
+            Email bạn thường dùng <span class="req">*</span>
+          </label>
+          <input class="form-input" type="email" id="field_email" name="email"
+            placeholder="example@email.com" autocomplete="email">
+        </div>
+
+        <!-- Q4: Độ tuổi (radio, single) -->
+        <div class="form-group" id="group_age">
+          <p class="form-label">Bạn đang ở độ tuổi nào? <span class="req">*</span></p>
+          <div class="form-options">
+            <label class="form-option">
+              <input type="radio" name="age" value="Dưới 24">
+              <span class="option-label">Dưới 24</span>
+            </label>
+            <label class="form-option">
+              <input type="radio" name="age" value="24-26">
+              <span class="option-label">24-26</span>
+            </label>
+            <label class="form-option">
+              <input type="radio" name="age" value="27-30">
+              <span class="option-label">27-30</span>
+            </label>
+            <label class="form-option">
+              <input type="radio" name="age" value="30-35">
+              <span class="option-label">30-35</span>
+            </label>
+            <label class="form-option">
+              <input type="radio" name="age" value="Trên 35">
+              <span class="option-label">Trên 35</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Q5: Tình trạng hiện tại (radio, single) -->
+        <div class="form-group" id="group_status">
+          <p class="form-label">Điều nào mô tả đúng nhất tình trạng hiện tại của bạn? <span class="req">*</span></p>
+          <div class="form-options">
+            <label class="form-option">
+              <input type="radio" name="status" value="Chuyên viên">
+              <span class="option-label">Chuyên viên</span>
+            </label>
+            <label class="form-option">
+              <input type="radio" name="status" value="Chuyên viên muốn lên leader trong 3-6 tháng tới">
+              <span class="option-label">Chuyên viên muốn lên leader trong 3-6 tháng tới</span>
+            </label>
+            <label class="form-option">
+              <input type="radio" name="status" value="Mới lên lead dưới 1 năm">
+              <span class="option-label">Mới lên lead dưới 1 năm</span>
+            </label>
+            <label class="form-option">
+              <input type="radio" name="status" value="Đã làm lead từ 1-3 năm">
+              <span class="option-label">Đã làm lead từ 1-3 năm</span>
+            </label>
+            <label class="form-option">
+              <input type="radio" name="status" value="Đã làm lead trên 3 năm">
+              <span class="option-label">Đã làm lead trên 3 năm</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Q6: Kết quả muốn đạt (checkbox, multiple) -->
+        <div class="form-group" id="group_goals">
+          <p class="form-label">Kết quả lớn nhất bạn muốn đạt được trong 3-6 tháng tới? <span class="req">*</span></p>
+          <div class="form-options">
+            <label class="form-option">
+              <input type="checkbox" name="goals" value="Trở thành đối tác giá trị cao của sếp">
+              <span class="option-label">Trở thành đối tác giá trị cao của sếp, được sếp tin tưởng, tôn trọng ý kiến và chủ động ghi nhận, không còn bị áp lực hay kiểm soát chặt.</span>
+            </label>
+            <label class="form-option">
+              <input type="checkbox" name="goals" value="Giao việc nhân viên tự làm, team nhịp nhàng">
+              <span class="option-label">Giao việc nhân viên tự làm, tự cam kết, team phối hợp nhịp nhàng hiệu quả và nhìn nhận bạn là người lãnh đạo truyền cảm hứng.</span>
+            </label>
+            <label class="form-option">
+              <input type="checkbox" name="goals" value="Không phải OT hay làm cuối tuần">
+              <span class="option-label">Không phải OT, làm cuối tuần nữa, tối ưu thời gian làm việc xuống 4–6 tiếng/ngày để có thời gian cho bản thân sáng tạo.</span>
+            </label>
+            <label class="form-option">
+              <input type="checkbox" name="goals" value="Sẵn sàng thăng tiến và nhận mức lương mới">
+              <span class="option-label">Biết rõ hướng phát triển, tự tin và ở vị thế sẵn sàng thăng tiến và nhận mức lương mới 125-200% không phải xin xỏ hay cố gắng chứng minh quá nhiều.</span>
+            </label>
+            <label class="form-option">
+              <input type="checkbox" name="goals" value="Về nhà tắt máy được, ngủ ngon, sống trọn vẹn">
+              <span class="option-label">Về nhà tắt máy được, ngủ ngon, không còn để công việc ám ảnh sau giờ làm. Sống động, chân thực và trọn vẹn, lead bằng con người thật của mình, không cần gồng hay dồn nén cảm xúc nữa.</span>
+            </label>
+            <label class="form-option">
+              <input type="checkbox" name="goals" value="Khác">
+              <span class="option-label">Khác</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Q7: Câu hỏi cho Sora (optional) -->
+        <div class="form-group">
+          <label class="form-label" for="field_question">
+            Bạn có câu hỏi nào dành cho Sora chứ?
+          </label>
+          <textarea class="form-textarea" id="field_question" name="question"
+            placeholder="Nhập câu hỏi của bạn (không bắt buộc)"></textarea>
+        </div>
+
+        <!-- Submit -->
+        <div class="modal-submit-wrap">
+          <button type="submit" class="btn-cta" style="max-width:100%; margin:0;">
+            Đăng Ký Giữ Chỗ Ngay
+          </button>
+        </div>
+
+      </form>
+
+      <!-- Success state (hidden until form submitted) -->
+      <div class="modal-success" id="modalSuccess">
+        <div class="modal-success__icon">
+          <svg width="38" height="38" viewBox="0 0 38 38" fill="none">
+            <circle cx="19" cy="19" r="19" fill="rgba(2,77,194,0.10)"/>
+            <path d="M11 19.5L16.5 25L27 14" stroke="#024dc2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3 class="modal-success__title">Đăng ký thành công!</h3>
+        <p class="modal-success__body">
+          Cảm ơn bạn đã đăng ký giữ chỗ.<br>
+          Mình sẽ liên hệ để xác nhận chỗ của bạn trước ngày <strong style="color:var(--primary)">8/06</strong>.
+        </p>
+      </div>
+
+    </div><!-- /.modal-body -->
+  </div><!-- /.modal-box -->
+</div><!-- /.modal-overlay -->
+
+
+<script>
+(function () {
+  'use strict';
+
+  var overlay   = document.getElementById('regModal');
+  var closeBtn  = document.getElementById('modalClose');
+  var form      = document.getElementById('regForm');
+  var modalBody = document.getElementById('modalBody');
+  var success   = document.getElementById('modalSuccess');
+  var srcField  = document.getElementById('field_source_url');
+
+  /* ─── Open ─── */
+  function openModal() {
+    srcField.value = window.location.href;
+    overlay.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    setTimeout(function () {
+      var first = form.querySelector('.form-input');
+      if (first) first.focus();
+    }, 300);
+  }
+
+  /* ─── Close ─── */
+  function closeModal() {
+    overlay.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+
+  /* ─── Wire every CTA button on the page ─── */
+  document.querySelectorAll('a.btn-cta').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      // If success was shown before, reset form for a fresh start
+      if (success.classList.contains('is-visible')) {
+        success.classList.remove('is-visible');
+        form.style.display = '';
+        form.reset();
+        clearAllErrors();
+      }
+      openModal();
+    });
+  });
+
+  /* ─── Close triggers ─── */
+  closeBtn.addEventListener('click', closeModal);
+
+  overlay.addEventListener('click', function (e) {
+    if (e.target === overlay) closeModal();
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && overlay.classList.contains('is-open')) closeModal();
+  });
+
+  /* ─── Error helpers ─── */
+  function clearAllErrors() {
+    form.querySelectorAll('.is-error').forEach(function (el) {
+      el.classList.remove('is-error');
+    });
+  }
+
+  function setInputError(el) {
+    el.classList.add('is-error');
+  }
+
+  function setGroupError(name) {
+    form.querySelectorAll('input[name="' + name + '"]').forEach(function (inp) {
+      inp.classList.add('is-error');
+      inp.closest('.form-option').classList.add('is-error');
+    });
+  }
+
+  function clearGroupError(name) {
+    form.querySelectorAll('input[name="' + name + '"]').forEach(function (inp) {
+      inp.classList.remove('is-error');
+      inp.closest('.form-option').classList.remove('is-error');
+    });
+  }
+
+  /* ─── Live error clearing ─── */
+  form.addEventListener('input', function (e) {
+    var inp = e.target;
+    if (inp.classList.contains('form-input') && inp.value.trim()) {
+      inp.classList.remove('is-error');
+    }
+  });
+
+  form.addEventListener('change', function (e) {
+    var inp = e.target;
+    if (inp.type === 'radio') {
+      clearGroupError(inp.name);
+    } else if (inp.type === 'checkbox' && inp.name === 'goals') {
+      // Clear all goals errors as soon as any box is checked
+      if (form.querySelectorAll('input[name="goals"]:checked').length > 0) {
+        clearGroupError('goals');
+      }
+    }
+  });
+
+  /* ─── Validate ─── */
+  function validate() {
+    clearAllErrors();
+    var ok = true;
+
+    // Q1 — name
+    var nameEl = document.getElementById('field_name');
+    if (!nameEl.value.trim()) { setInputError(nameEl); ok = false; }
+
+    // Q2 — phone
+    var phoneEl = document.getElementById('field_phone');
+    if (!phoneEl.value.trim()) { setInputError(phoneEl); ok = false; }
+
+    // Q3 — email
+    var emailEl = document.getElementById('field_email');
+    var emailVal = emailEl.value.trim();
+    if (!emailVal) {
+      setInputError(emailEl); ok = false;
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) {
+      setInputError(emailEl); ok = false;
+    }
+
+    // Q4 — age (radio)
+    if (!form.querySelector('input[name="age"]:checked')) {
+      setGroupError('age'); ok = false;
+    }
+
+    // Q5 — status (radio)
+    if (!form.querySelector('input[name="status"]:checked')) {
+      setGroupError('status'); ok = false;
+    }
+
+    // Q6 — goals (checkboxes, at least one)
+    if (form.querySelectorAll('input[name="goals"]:checked').length === 0) {
+      setGroupError('goals'); ok = false;
+    }
+
+    return ok;
+  }
+
+  /* ─── Submit ─── */
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    if (!validate()) {
+      var firstErr = form.querySelector('.is-error');
+      if (firstErr) {
+        firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+      return;
+    }
+
+    // Hide form, show success
+    form.style.display = 'none';
+    success.classList.add('is-visible');
+    // Scroll success into view
+    modalBody.scrollTop = 0;
+  });
+
+})();
+</script>
+
+</body>
+</html>

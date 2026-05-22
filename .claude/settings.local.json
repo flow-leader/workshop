@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls /Users/thucanh/Desktop/Project/)",
+      "Skill(anthropic-skills:pdf)",
+      "Skill(anthropic-skills:pdf:*)",
+      "Bash(python3 -c ' *)",
+      "Bash(pip install *)",
+      "Bash(pip3 install *)",
+      "Bash(cp \"/Users/thucanh/Desktop/Project/Section 1.png\" /Users/thucanh/Downloads/Website/assets/images/)",
+      "Bash(cp \"/Users/thucanh/Desktop/Project/Profile.png\" /Users/thucanh/Downloads/Website/assets/images/)",
+      "Bash(cp \"/Users/thucanh/Desktop/Project/Buổi 1.png\" /Users/thucanh/Downloads/Website/assets/images/)",
+      "Bash(cp \"/Users/thucanh/Desktop/Project/Buổi 2.png\" /Users/thucanh/Downloads/Website/assets/images/)",
+      "Bash(npx --version)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(find /Users/thucanh/Desktop -name \"*.md\" 2>/dev/null | head -20)"
+    ]
+  }
+}

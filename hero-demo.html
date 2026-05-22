@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FLOW LEADER™ — Hero Section Demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-dark:    #121936;
+      --color-primary: #024dc2;
+      --color-gold:    #E2C27A;
+      --color-light:   #dfedfc;
+      --color-muted:   #4A6080;
+      --font-display:  'Lora', Georgia, serif;
+      --font-body:     'Roboto', Arial, sans-serif;
+      --max-width:     1200px;
+      --radius-sm:     10px;
+      --radius-md:     20px;
+      --radius-full:   999px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--color-dark);
+      color: #ffffff;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─────────────────────────────────────────
+       HERO SECTION
+    ───────────────────────────────────────── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    /* Full-bleed background image */
+    .hero__bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .hero__bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    /* Subtle dark overlay on entire image */
+    .hero__bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(10, 14, 38, 0.38);
+    }
+
+    /* Layout container */
+    .hero__container {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 80px 48px;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    /* Semi-transparent card */
+    .hero__card {
+      width: 100%;
+      max-width: 560px;
+      background: rgba(18, 25, 54, 0.82);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(226, 194, 122, 0.18);
+      border-radius: var(--radius-md);
+      padding: 52px 44px;
+    }
+
+    /* Badge */
+    .hero__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 28px;
+    }
+    .hero__badge-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--color-gold);
+      border-radius: 50%;
+      flex-shrink: 0;
+      animation: pulse 2.4s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.4; }
+    }
+    .hero__badge-text {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.10em;
+      color: var(--color-gold);
+    }
+
+    /* Headline */
+    .hero__headline {
+      font-family: var(--font-display);
+      font-size: clamp(26px, 2.6vw, 40px);
+      font-weight: 700;
+      line-height: 1.30;
+      color: #ffffff;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .hero__headline .gold { color: var(--color-gold); }
+
+    /* Sub-headline */
+    .hero__sub {
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.78;
+      color: rgba(255, 255, 255, 0.78);
+      margin-bottom: 36px;
+      text-align: center;
+    }
+    .hero__sub strong {
+      color: #ffffff;
+      font-weight: 500;
+    }
+
+    /* Button */
+    .btn-cta {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-height: 56px;
+      padding: 18px 24px;
+      background: var(--color-primary);
+      color: #ffffff;
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-align: center;
+      border: none;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+    .btn-cta:hover { background: #0444bb; color: #ffffff; }
+    .btn-cta::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -75%;
+      width: 50%; height: 100%;
+      background: linear-gradient(
+        120deg,
+        transparent 0%,
+        rgba(255,255,255,0) 35%,
+        rgba(255,255,255,0.45) 50%,
+        rgba(255,255,255,0) 65%,
+        transparent 100%
+      );
+      transform: skewX(-15deg);
+      animation: shine 2.4s ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes shine {
+      0%   { left: -75%; }
+      50%  { left: 130%; }
+      100% { left: 130%; }
+    }
+
+    .hero__note {
+      margin-top: 14px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.45);
+      text-align: center;
+      line-height: 1.6;
+    }
+    .hero__note .date {
+      color: var(--color-gold);
+      font-weight: 500;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .hero__container {
+        justify-content: center;
+        padding: 48px 20px 56px;
+      }
+      .hero__card {
+        max-width: 100%;
+        padding: 36px 24px;
+      }
+      .hero__headline { font-size: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 1 — HERO
+═══════════════════════════════════════════ -->
+<section class="hero">
+
+  <!-- Full-bleed background -->
+  <div class="hero__bg">
+    <img src="assets/images/Section 1.png" alt="">
+  </div>
+
+  <!-- Content -->
+  <div class="hero__container">
+    <div class="hero__card">
+
+      <div class="hero__badge">
+        <span class="hero__badge-dot"></span>
+        <span class="hero__badge-text">Workshop Miễn Phí &nbsp;·&nbsp; X2 Kết Quả Không Cần Làm Thêm Giờ</span>
+      </div>
+
+      <h1 class="hero__headline">
+        Đây là công thức mình dùng để làm Team Lead đạt
+        <span class="gold">X2 hiệu quả</span>,
+        thăng tiến các cấp quản lý mà vẫn
+        <span class="gold">đời sống tinh thần trọn vẹn</span>
+        bằng sức mạnh nội lực và dòng chảy sẵn có
+      </h1>
+
+      <p class="hero__sub">
+        Khám phá toàn bộ cơ chế <strong>FLOW LEADER™</strong> đã giúp mình chuyển từ
+        gánh team 12 tiếng/ngày, đau dạ dày, mất ngủ trở thành
+        <strong>người giá trị cao trong công việc</strong> —
+        ngay cả khi bạn đang kẹt giữa sếp áp lực và team chưa hiệu quả.
+      </p>
+
+      <a href="#register" class="btn-cta">Đăng Ký Giữ Chỗ Ngay</a>
+      <p class="hero__note">
+        Để lại thông tin để giữ chỗ cho workshop diễn ra ngày
+        <span class="date">8–9/06</span>
+      </p>
+
+    </div>
+  </div>
+
+</section>
+
+</body>
+</html>
