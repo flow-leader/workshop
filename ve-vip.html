@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FLOW IN ACTION — Nâng Cấp Vé VIP Buổi 3</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     ANNOUNCE BAR (always top)
+══════════════════════════════════════════ -->
+<div class="announce-bar">
+  <p class="announce-bar__text">Đừng Vội Đóng Trang Này! Còn một điều đặc biệt mà Sora tin bạn không muốn bỏ lỡ!</p>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     S1 — HERO / ATTENTION (dark)
+══════════════════════════════════════════ -->
+<section class="sec sec--dark" style="padding-top:48px;">
+  <div class="wrap">
+
+    <!-- Progress banner lives inside section (no separate bg) -->
+    <div class="progress-banner">
+      <div class="progress-banner__inner">
+        <div class="progress-track">
+          <div class="progress-fill">
+            <span class="progress-fill__pct">80%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gold intro label -->
+    <p class="upsell-intro-text" style="margin-top:20px;">
+      Giới Thiệu Buổi Thực Hành Chuyên Sâu — FLOW IN ACTION &nbsp;·&nbsp; 20h ngày 11/06
+    </p>
+
+    <!-- Countdown -->
+    <div class="countdown" id="countdown" aria-label="Đồng hồ đếm ngược">
+      <div class="countdown__unit">
+        <span class="countdown__num" id="cd-days">00</span>
+        <span class="countdown__label">Ngày</span>
+      </div>
+      <span class="countdown__sep" aria-hidden="true">:</span>
+      <div class="countdown__unit">
+        <span class="countdown__num" id="cd-hours">00</span>
+        <span class="countdown__label">Giờ</span>
+      </div>
+      <span class="countdown__sep" aria-hidden="true">:</span>
+      <div class="countdown__unit">
+        <span class="countdown__num" id="cd-mins">00</span>
+        <span class="countdown__label">Phút</span>
+      </div>
+      <span class="countdown__sep" aria-hidden="true">:</span>
+      <div class="countdown__unit">
+        <span class="countdown__num" id="cd-secs">00</span>
+        <span class="countdown__label">Giây</span>
+      </div>
+    </div>
+
+    <!-- Main headline -->
+    <h1 class="upsell-h1">
+      Trong Buổi Workshop Đặc Biệt Này, Sora Sẽ Ngồi Cùng Bạn Và
+      <span class="hl-primary">Thực Hành Chuyên Sâu</span>
+      Trực Tiếp 3 Trên 6 Tình Huống Mà Bất Kỳ
+      <span class="hl-primary">Leader Nào Cũng Gặp</span>
+    </h1>
+
+    <!-- Sub headline -->
+    <p class="upsell-sub-main">
+      Hãy dành ít phút xem video dưới đây trong khi đăng ký workshop của bạn được xác nhận.
+      Bạn sẽ biết cách x10 hiệu quả từ 2 buổi workshop trước.
+    </p>
+
+    <!-- Video with sound overlay button -->
+    <div class="video-wrap" style="position:relative;">
+      <iframe
+        width="560" height="315"
+        src="https://www.youtube.com/embed/VuI96wnktuw?si=BqlzDw0aZNChruLu"
+        title="Workshop Flow Leader Buổi 3"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
+      <!-- Sound overlay button -->
+      <button class="video-sound-btn" id="sound-btn" aria-label="Bật âm thanh và xem video">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+          <circle cx="14" cy="14" r="13" stroke="rgba(255,255,255,.55)" stroke-width="1.4"/>
+          <polygon points="11,9 21,14 11,19" fill="#fff"/>
+        </svg>
+        <span class="video-sound-btn__text">BẬT ÂM THANH<br>VÀ XEM VIDEO</span>
+      </button>
+    </div>
+
+    <!-- CTA pair -->
+    <div class="cta-pair" style="margin-top:40px;">
+      <a href="#checkout" class="btn-cta btn-cta--sm">
+        CÓ! MÌNH MUỐN NÂNG CẤP KÝ VÉ VIP
+      </a>
+      <a href="#" class="btn-no" id="decline-s1">
+        Không, mình sẽ bỏ qua buổi thực hành chuyên sâu
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     S2 — BRIDGE / STORY (light)
+     3-column: left card | "hoặc" | right card
+══════════════════════════════════════════ -->
+<section class="sec sec--light">
+  <div class="wrap">
+
+    <h2 class="upsell-h2-light">
+      Lần Đầu Tiên Sora Chia Sẻ Toàn Bộ Cách Thức Áp Dụng Chi Tiết Của Mình Trong Workshop
+    </h2>
+    <div class="divider-gold"></div>
+
+    <!-- 3-column bridge layout -->
+    <div class="bridge-cols">
+
+      <!-- Left card — free path (sora-desk.jpg) -->
+      <!-- Lưu ảnh: assets/images/sora-desk.jpg -->
+      <div class="bridge-col-card">
+        <div class="bridge-col-card__img">
+          <img src="assets/images/sora-desk.jpg" alt="Hành trình tự mày mò">
+        </div>
+        <div class="bridge-col-card__body">
+          <p><strong>Trong 2 buổi workshop miễn phí, Sora sẽ trao cho bạn bản đồ.</strong></p>
+          <p>Một bản đồ chi tiết, đầy đủ cơ chế và hệ mindset mới.</p>
+          <p>Và nếu bạn tập trung, siêng năng, tự mày mò…</p>
+          <p>Sau nhiều lần thử và sai, bạn sẽ dần tìm ra cách làm đúng.</p>
+        </div>
+      </div>
+
+      <!-- Center — "hoặc" -->
+      <div class="bridge-or">hoặc</div>
+
+      <!-- Right card — VIP path (sora-selfie.jpg) -->
+      <!-- Lưu ảnh: assets/images/sora-selfie.jpg -->
+      <div class="bridge-col-card">
+        <div class="bridge-col-card__img">
+          <img src="assets/images/sora-selfie.jpg" alt="Sora đồng hành thực hành chuyên sâu">
+        </div>
+        <div class="bridge-col-card__body">
+          <p>Cùng cơ chế và hệ mindset đó. Nhưng bạn sẽ được <strong>Sora đồng hành thực hành chuyên sâu</strong> trực tiếp 3 tình huống thường gặp nhất khi làm lead.</p>
+          <p>Từ cách <strong>nhận việc từ sếp</strong> — Sora sẽ hỏi gì, xác nhận thế nào, để không bao giờ bị làm lại từ đầu.</p>
+          <p>Cách <strong>giao việc cho nhân viên</strong> — giao đúng người, đúng tiêu chuẩn, để team tự chạy mà không cần bạn theo sau dọn rác.</p>
+          <p>Cách <strong>feedback, show kết quả với sếp, và định vị bản thân</strong> để được thăng tiến — không cần xin xỏ hay chứng minh quá nhiều.</p>
+          <p style="margin-top:12px; padding-top:12px; border-top:1px solid rgba(0,0,0,.08);">Cùng một tấm bản đồ, cùng nguyên liệu, cùng công thức. Nhưng kết quả sẽ hoàn toàn khác.</p>
+        </div>
+      </div>
+
+    </div><!-- /.bridge-cols -->
+
+    <!-- Closing statement -->
+    <p class="bridge-closing">
+      <strong>Đó là sự khác biệt giữa Vé Miễn Phí và Vé VIP mà Sora sắp chia sẻ với bạn.</strong>
+    </p>
+
+    <!-- CTA pair -->
+    <div class="cta-pair">
+      <a href="#checkout" class="btn-cta btn-cta--sm">
+        CÓ! MÌNH MUỐN NÂNG CẤP KÝ VÉ VIP
+      </a>
+      <a href="#" class="btn-no btn-no--on-light" id="decline-s2">
+        Không, mình sẽ bỏ qua buổi thực hành chuyên sâu
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     S3 — TICKET COMPARISON (dark)
+══════════════════════════════════════════ -->
+<section class="sec sec--dark" id="ticket" style="padding-bottom: 36px;">
+  <div class="wrap">
+
+    <h2 class="upsell-h2-dark">Hãy Lựa Chọn Vé Của Bạn</h2>
+    <div class="divider-gold"></div>
+
+    <div class="ticket-grid">
+
+      <!-- Free ticket -->
+      <!-- Lưu ảnh: assets/images/ve-free.jpg -->
+      <div class="ticket-card ticket-card--free">
+        <div class="ticket-card__header">
+          <div class="ticket-card__header-img">
+            <img src="assets/images/ve-free.jpg" alt="Vé Miễn Phí">
+          </div>
+          <p class="ticket-card__price">0đ</p>
+          <p class="ticket-card__type">Vé Miễn Phí</p>
+        </div>
+        <div class="ticket-card__divider"></div>
+        <div class="ticket-card__body">
+          <ul class="ticket-features">
+            <li>
+              <!-- Square Check gold -->
+              <span class="feat-icon">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="1.5" y="1.5" width="15" height="15" rx="3" stroke="#E2C27A" stroke-width="1.4"/><path d="M5 9.5l3 3 5-5" stroke="#E2C27A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="feat-text">Buổi 1: Thức Tỉnh — Thoát vòng xoáy kiệt sức &amp; kích hoạt động lực lãnh đạo tự nhiên</span>
+            </li>
+            <li>
+              <span class="feat-icon">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="1.5" y="1.5" width="15" height="15" rx="3" stroke="#E2C27A" stroke-width="1.4"/><path d="M5 9.5l3 3 5-5" stroke="#E2C27A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="feat-text">Buổi 2: Khai Mở — Nghệ thuật thấu hiểu con người &amp; cơ chế làm việc thảnh thơi</span>
+            </li>
+            <li>
+              <span class="feat-icon">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="1.5" y="1.5" width="15" height="15" rx="3" stroke="#E2C27A" stroke-width="1.4"/><path d="M5 9.5l3 3 5-5" stroke="#E2C27A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="feat-text">Workbook 2 buổi</span>
+            </li>
+            <li>
+              <!-- Square X muted -->
+              <span class="feat-icon">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="1.5" y="1.5" width="15" height="15" rx="3" stroke="#4A6080" stroke-width="1.4"/><path d="M6 6l6 6M12 6l-6 6" stroke="#4A6080" stroke-width="1.7" stroke-linecap="round"/></svg>
+              </span>
+              <span class="feat-crossed">Buổi 3: Thực hành chuyên sâu — Cùng Sora thực hành áp dụng vào 3 tình huống các Lead thường gặp nhất</span>
+            </li>
+            <li>
+              <span class="feat-icon">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="1.5" y="1.5" width="15" height="15" rx="3" stroke="#4A6080" stroke-width="1.4"/><path d="M6 6l6 6M12 6l-6 6" stroke="#4A6080" stroke-width="1.7" stroke-linecap="round"/></svg>
+              </span>
+              <span class="feat-crossed">Q&amp;A cá nhân hoá — đặt câu hỏi về tình huống của bạn</span>
+            </li>
+            <li>
+              <span class="feat-icon">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="1.5" y="1.5" width="15" height="15" rx="3" stroke="#4A6080" stroke-width="1.4"/><path d="M6 6l6 6M12 6l-6 6" stroke="#4A6080" stroke-width="1.7" stroke-linecap="round"/></svg>
+              </span>
+              <span class="feat-crossed">BONUS: Checklist mẫu cho 3 tình huống</span>
+            </li>
+            <li>
+              <span class="feat-icon">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="1.5" y="1.5" width="15" height="15" rx="3" stroke="#4A6080" stroke-width="1.4"/><path d="M6 6l6 6M12 6l-6 6" stroke="#4A6080" stroke-width="1.7" stroke-linecap="round"/></svg>
+              </span>
+              <span class="feat-crossed">BONUS: Cộng đồng hỗ trợ</span>
+            </li>
+            <li>
+              <span class="feat-icon">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="1.5" y="1.5" width="15" height="15" rx="3" stroke="#4A6080" stroke-width="1.4"/><path d="M6 6l6 6M12 6l-6 6" stroke="#4A6080" stroke-width="1.7" stroke-linecap="round"/></svg>
+              </span>
+              <span class="feat-crossed">BONUS: Record tất cả buổi</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- VIP ticket -->
+      <!-- Lưu ảnh: assets/images/ve-vip.jpg -->
+      <div class="ticket-card ticket-card--vip">
+        <div class="ticket-card__header">
+          <div class="ticket-card__header-img">
+            <img src="assets/images/ve-vip.jpg" alt="Vé VIP">
+          </div>
+          <p class="ticket-card__price">269.000đ</p>
+          <p class="ticket-card__type">Vé VIP</p>
+        </div>
+        <div class="ticket-card__divider"></div>
+        <div class="ticket-card__body">
+          <ul class="ticket-features">
+            <li>
+              <!-- Square Check gold -->
+              <span class="feat-icon">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="1.5" y="1.5" width="15" height="15" rx="3" stroke="#E2C27A" stroke-width="1.4"/><path d="M5 9.5l3 3 5-5" stroke="#E2C27A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="feat-text">Buổi 1: Thức Tỉnh — Thoát vòng xoáy kiệt sức &amp; kích hoạt động lực lãnh đạo tự nhiên</span>
+            </li>
+            <li>
+              <span class="feat-icon">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="1.5" y="1.5" width="15" height="15" rx="3" stroke="#E2C27A" stroke-width="1.4"/><path d="M5 9.5l3 3 5-5" stroke="#E2C27A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="feat-text">Buổi 2: Khai Mở — Nghệ thuật thấu hiểu con người &amp; cơ chế làm việc thảnh thơi</span>
+            </li>
+            <li>
+              <span class="feat-icon">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="1.5" y="1.5" width="15" height="15" rx="3" stroke="#E2C27A" stroke-width="1.4"/><path d="M5 9.5l3 3 5-5" stroke="#E2C27A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="feat-text">Workbook 2 buổi</span>
+            </li>
+            <li>
+              <!-- Crown gold — VIP exclusive -->
+              <span class="feat-icon">
+                👑
+              </span>
+              <span class="feat-text">Buổi 3: Thực hành chuyên sâu — Cùng Sora thực hành áp dụng vào 3 tình huống các Lead thường gặp nhất</span>
+            </li>
+            <li>
+              <span class="feat-icon">
+                👑
+              </span>
+              <span class="feat-text">Q&amp;A cá nhân hoá — đặt câu hỏi về tình huống của bạn</span>
+            </li>
+            <li>
+              <span class="feat-icon">
+                👑
+              </span>
+              <span class="feat-text">BONUS: Checklist mẫu cho 3 tình huống</span>
+            </li>
+            <li>
+              <span class="feat-icon">
+                👑
+              </span>
+              <span class="feat-text">BONUS: Cộng đồng hỗ trợ</span>
+            </li>
+            <li>
+              <span class="feat-icon">
+                👑
+              </span>
+              <span class="feat-text">BONUS: Record tất cả buổi</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div><!-- /.ticket-grid -->
+
+    <!-- CTA pair -->
+    <div class="cta-pair" style="margin-top:48px;">
+      <a href="#checkout" class="btn-cta btn-cta--sm">
+        CÓ! MÌNH MUỐN NÂNG CẤP KÝ VÉ VIP
+      </a>
+      <a href="#" class="btn-no" id="decline-s3">
+        Không, mình sẽ bỏ qua buổi thực hành chuyên sâu
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     S4 — GUARANTEE (dark)
+══════════════════════════════════════════ -->
+<section class="sec sec--dark sec--tight-top" style="padding-bottom: 36px;">
+  <div class="wrap">
+
+    <!-- Lưu ảnh: assets/images/money-back.jpg -->
+    <div class="guarantee-dark">
+      <div class="guarantee-dark__img">
+        <img src="assets/images/money-back.jpg" alt="Cam kết hoàn tiền">
+      </div>
+      <h3 class="guarantee-dark__title">Cam Kết Hoàn Tiền</h3>
+      <div class="guarantee-dark__body">
+        <p>Nâng cấp lên VIP. Tham gia Buổi 3. Tận mắt xem Sora thực hành trực tiếp từ đầu đến cuối.</p>
+        <p>Và nếu trong vòng <strong>7 ngày sau workshop</strong>, bạn áp dụng ít nhất 1 tình huống theo cơ chế mới, bạn vẫn cảm thấy không có gì thay đổi trong cảm xúc, suy nghĩ bên trong bạn và từ sếp nhân viên, hoàn cảnh bên ngoài bạn và vẫn cảm thấy những gì nhận được không xứng đáng với mức đầu tư…</p>
+        <p>Mình sẽ vui vẻ <strong>hoàn lại tiền 100%</strong> cho bạn, và bạn vẫn được giữ toàn bộ tài liệu, video đã nhận được, coi như một lời cảm ơn vì đã dành thời gian trải nghiệm chương trình này.</p>
+        <p>Mình tự tin cam kết vì mình biết: Khi bạn tham gia buổi workshop đặc biệt này, giá trị bạn nhận lại sẽ còn nhiều hơn thế.</p>
+      </div>
+    </div>
+
+    <!-- CTA pair -->
+    <div class="cta-pair" style="margin-top:48px;">
+      <a href="#checkout" class="btn-cta btn-cta--sm">
+        CÓ! MÌNH MUỐN NÂNG CẤP KÝ VÉ VIP
+      </a>
+      <a href="#" class="btn-no" id="decline-s4">
+        Không, mình sẽ bỏ qua buổi thực hành chuyên sâu
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     S5 — WHAT YOU GET (light)
+══════════════════════════════════════════ -->
+<section class="sec sec--light sec--tight-top">
+  <div class="wrap">
+
+    <h2 class="upsell-h2-light">
+      Đây Là Tất Cả Những Gì Bạn Nhận Được Khi Nâng Cấp
+    </h2>
+    <div class="divider-gold" style="background:var(--primary);"></div>
+
+    <!-- Workshop box (light variant) -->
+    <div class="workshop-box workshop-box--light">
+      <p class="workshop-box__tag">Workshop Đặc Biệt</p>
+      <h3 class="workshop-box__title">
+        Buổi 3 — FLOW IN ACTION: Sora Đồng Hành Thực Hành Chuyên Sâu 3 Tình Huống Công Sở Thực Tế
+      </h3>
+      <p class="workshop-box__meta">11/06 &nbsp;|&nbsp; 20h tối &nbsp;|&nbsp; Giá trị: 1.800.000đ</p>
+      <p class="workshop-box__intro">
+        Buổi này không phải thêm một buổi giảng lý thuyết. Dựa trên vote của các bạn trong buổi workshop,
+        Sora sẽ thực hành chuyên sâu <strong>3 trên 6 tình huống</strong> thực tế sau:
+      </p>
+    </div>
+
+    <!-- 6 situations (light) -->
+    <ul class="situation-list">
+      <li class="situation-item situation-item--light">
+        <div class="situation-num">1</div>
+        <div class="situation-text">
+          <strong>Nhận việc &amp; Xây dựng chiến lược thực thi:</strong>
+          Nhận việc mà không nặng, đàm phán mà không gây xung đột, thực thi mà không lạc hướng.
+        </div>
+      </li>
+      <li class="situation-item situation-item--light">
+        <div class="situation-num">2</div>
+        <div class="situation-text">
+          <strong>Báo cáo &amp; Nhận feedback từ sếp:</strong>
+          Báo cáo mà không bị feedback chung chung, bạn vẫn được ghi nhận đều đặn, mà không cần xin xỏ.
+        </div>
+      </li>
+      <li class="situation-item situation-item--light">
+        <div class="situation-num">3</div>
+        <div class="situation-text">
+          <strong>Tuyển dụng:</strong>
+          Set up nhân sự đúng ngay từ đầu, để không mất công tuyển sai, mất thời gian đào tạo, mất chi phí cơ hội tuyển lại.
+        </div>
+      </li>
+      <li class="situation-item situation-item--light">
+        <div class="situation-num">4</div>
+        <div class="situation-text">
+          <strong>Giao việc &amp; Feedback cho nhân sự:</strong>
+          Giao việc để team tự chạy mà không phải dọn rác phía sau, feedback mà không gây phòng thủ.
+        </div>
+      </li>
+      <li class="situation-item situation-item--light">
+        <div class="situation-num">5</div>
+        <div class="situation-text">
+          <strong>Xây dựng quy trình:</strong>
+          Bộ máy đông nhân sự, nhiều team nhỏ có thể phối hợp với nhau dễ dàng — ngay cả khi bạn ngồi chơi.
+        </div>
+      </li>
+      <li class="situation-item situation-item--light">
+        <div class="situation-num">6</div>
+        <div class="situation-text">
+          <strong>Xây dựng vị thế thăng chức &amp; nhận mức lương mới:</strong>
+          Thăng tiến mà không cần chứng minh quá nhiều, để bạn được ghi nhận và sẵn sàng nhận mức lương mới 125–200%.
+        </div>
+      </li>
+    </ul>
+
+    <!-- CTA pair -->
+    <div class="cta-pair" style="margin-top:48px;">
+      <a href="#checkout" class="btn-cta btn-cta--sm">
+        CÓ! MÌNH MUỐN NÂNG CẤP KÝ VÉ VIP
+      </a>
+      <a href="#" class="btn-no btn-no--on-light" id="decline-s5">
+        Không, mình sẽ bỏ qua buổi thực hành chuyên sâu
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     S6 — BONUSES (light)
+══════════════════════════════════════════ -->
+<section class="sec sec--light">
+  <div class="wrap">
+
+    <h2 class="upsell-h2-light">
+      Không Dừng Lại Ở Đó, Bạn Còn Được Nhận Tất Cả Những Phần Quà Giá Trị Sau
+    </h2>
+    <div class="divider-gold" style="background:var(--primary);"></div>
+
+    <div class="bonus-list">
+
+      <!-- Bonus #1 — Checklist -->
+      <!-- Lưu ảnh: assets/images/bonus-1-checklist.jpg -->
+      <div class="bonus-card">
+        <div class="bonus-card__img">
+          <img src="assets/images/bonus-1-checklist.jpg" alt="Checklist 3 tình huống">
+        </div>
+        <div class="bonus-card__body bonus-card__body--col">
+          <p class="bonus-card__value">Bonus #1 &nbsp;·&nbsp; Giá trị: 500.000đ</p>
+          <h4 class="bonus-card__title">Bộ Câu Hỏi &amp; Kịch Bản Mẫu Cho 3 Tình Huống</h4>
+          <ul class="bonus-bullets">
+            <li><span class="bonus-bullet-dot"></span>Không phải lý thuyết — đây là những câu nói cụ thể, từng từ một.</li>
+            <li><span class="bonus-bullet-dot"></span>Hỏi sếp thế nào khi nhận việc mập mờ.</li>
+            <li><span class="bonus-bullet-dot"></span>Nói gì khi phản biện mà không muốn đối đầu.</li>
+            <li><span class="bonus-bullet-dot"></span>Feedback nhân viên ra sao khi kết quả không đạt.</li>
+            <li><span class="bonus-bullet-dot"></span>Tất cả đã được Sora đúc kết từ thực tế — bạn chỉ cần mở ra, áp dụng ngay.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bonus #2 — Cộng đồng -->
+      <!-- Lưu ảnh: assets/images/bonus-2-congdong.jpg -->
+      <div class="bonus-card">
+        <div class="bonus-card__img">
+          <img src="assets/images/bonus-2-congdong.jpg" alt="Cộng đồng hỗ trợ sau workshop">
+        </div>
+        <div class="bonus-card__body bonus-card__body--col">
+          <p class="bonus-card__value">Bonus #2 &nbsp;·&nbsp; Giá trị: 500.000đ</p>
+          <h4 class="bonus-card__title">Cộng Đồng Hỗ Trợ Sau Workshop</h4>
+          <ul class="bonus-bullets">
+            <li><span class="bonus-bullet-dot"></span>Bạn không đi một mình.</li>
+            <li><span class="bonus-bullet-dot"></span>Có cộng đồng những người cùng hành trình — cùng là nữ leader đang vừa gánh sếp vừa gánh team.</li>
+            <li><span class="bonus-bullet-dot"></span>Để hỏi đáp, chia sẻ tiến trình, và được hỗ trợ khi mắc kẹt.</li>
+            <li><span class="bonus-bullet-dot"></span>Vì lý do số 1 khiến người ta bỏ cuộc không phải vì thiếu kiến thức — mà vì không có ai đi cùng.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bonus #3 — Record -->
+      <!-- Lưu ảnh: assets/images/bonus-3-record.jpg -->
+      <div class="bonus-card">
+        <div class="bonus-card__img">
+          <img src="assets/images/bonus-3-record.jpg" alt="Record tất cả buổi">
+        </div>
+        <div class="bonus-card__body bonus-card__body--col">
+          <p class="bonus-card__value">Bonus #3 &nbsp;·&nbsp; Giá trị: 500.000đ</p>
+          <h4 class="bonus-card__title">Record Tất Cả Buổi</h4>
+          <ul class="bonus-bullets">
+            <li><span class="bonus-bullet-dot"></span>Bận tối đó? Muốn xem lại phần thực hành tình huống nào đó?</li>
+            <li><span class="bonus-bullet-dot"></span>Record cả 3 buổi — bạn xem lại bất cứ lúc nào, bao nhiêu lần cũng được.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div><!-- /.bonus-list -->
+
+    <!-- CTA pair -->
+    <div class="cta-pair" style="margin-top:48px;">
+      <a href="#checkout" class="btn-cta btn-cta--sm">
+        CÓ! MÌNH MUỐN NÂNG CẤP KÝ VÉ VIP
+      </a>
+      <a href="#" class="btn-no btn-no--on-light" id="decline-s6">
+        Không, mình sẽ bỏ qua buổi thực hành chuyên sâu
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     S7 — TICKET COMPARISON (repeat, dark)
+     id="checkout" — payment anchor
+══════════════════════════════════════════ -->
+<section class="sec sec--dark" id="checkout">
+  <div class="wrap">
+
+    <h2 class="upsell-h2-dark">Hãy Lựa Chọn Vé Của Bạn</h2>
+    <div class="divider-gold"></div>
+
+    <div class="ticket-grid">
+
+      <!-- Free ticket -->
+      <div class="ticket-card ticket-card--free">
+        <div class="ticket-card__header">
+          <div class="ticket-card__header-img">
+            <img src="assets/images/ve-free.jpg" alt="Vé Miễn Phí">
+          </div>
+          <p class="ticket-card__price">0đ</p>
+          <p class="ticket-card__type">Vé Miễn Phí</p>
+        </div>
+        <div class="ticket-card__divider"></div>
+        <div class="ticket-card__body">
+          <ul class="ticket-features">
+            <li>
+              <span class="feat-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="1.5" y="1.5" width="15" height="15" rx="3" stroke="#E2C27A" stroke-width="1.4"/><path d="M5 9.5l3 3 5-5" stroke="#E2C27A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="feat-text">Buổi 1: Thức Tỉnh</span>
+            </li>
+            <li>
+              <span class="feat-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="1.5" y="1.5" width="15" height="15" rx="3" stroke="#E2C27A" stroke-width="1.4"/><path d="M5 9.5l3 3 5-5" stroke="#E2C27A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="feat-text">Buổi 2: Khai Mở</span>
+            </li>
+            <li>
+              <span class="feat-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="1.5" y="1.5" width="15" height="15" rx="3" stroke="#E2C27A" stroke-width="1.4"/><path d="M5 9.5l3 3 5-5" stroke="#E2C27A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="feat-text">Workbook 2 buổi</span>
+            </li>
+            <li>
+              <span class="feat-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="1.5" y="1.5" width="15" height="15" rx="3" stroke="#4A6080" stroke-width="1.4"/><path d="M6 6l6 6M12 6l-6 6" stroke="#4A6080" stroke-width="1.7" stroke-linecap="round"/></svg></span>
+              <span class="feat-crossed">Buổi 3: Thực hành chuyên sâu</span>
+            </li>
+            <li>
+              <span class="feat-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="1.5" y="1.5" width="15" height="15" rx="3" stroke="#4A6080" stroke-width="1.4"/><path d="M6 6l6 6M12 6l-6 6" stroke="#4A6080" stroke-width="1.7" stroke-linecap="round"/></svg></span>
+              <span class="feat-crossed">Q&amp;A cá nhân hoá</span>
+            </li>
+            <li>
+              <span class="feat-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="1.5" y="1.5" width="15" height="15" rx="3" stroke="#4A6080" stroke-width="1.4"/><path d="M6 6l6 6M12 6l-6 6" stroke="#4A6080" stroke-width="1.7" stroke-linecap="round"/></svg></span>
+              <span class="feat-crossed">BONUS: Checklist mẫu</span>
+            </li>
+            <li>
+              <span class="feat-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="1.5" y="1.5" width="15" height="15" rx="3" stroke="#4A6080" stroke-width="1.4"/><path d="M6 6l6 6M12 6l-6 6" stroke="#4A6080" stroke-width="1.7" stroke-linecap="round"/></svg></span>
+              <span class="feat-crossed">BONUS: Cộng đồng hỗ trợ</span>
+            </li>
+            <li>
+              <span class="feat-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="1.5" y="1.5" width="15" height="15" rx="3" stroke="#4A6080" stroke-width="1.4"/><path d="M6 6l6 6M12 6l-6 6" stroke="#4A6080" stroke-width="1.7" stroke-linecap="round"/></svg></span>
+              <span class="feat-crossed">BONUS: Record tất cả buổi</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- VIP ticket -->
+      <div class="ticket-card ticket-card--vip">
+        <div class="ticket-card__header">
+          <div class="ticket-card__header-img">
+            <img src="assets/images/ve-vip.jpg" alt="Vé VIP">
+          </div>
+          <p class="ticket-card__price">269.000đ</p>
+          <p class="ticket-card__type">Vé VIP</p>
+        </div>
+        <div class="ticket-card__divider"></div>
+        <div class="ticket-card__body">
+          <ul class="ticket-features">
+            <li>
+              <span class="feat-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="1.5" y="1.5" width="15" height="15" rx="3" stroke="#E2C27A" stroke-width="1.4"/><path d="M5 9.5l3 3 5-5" stroke="#E2C27A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="feat-text">Buổi 1: Thức Tỉnh</span>
+            </li>
+            <li>
+              <span class="feat-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="1.5" y="1.5" width="15" height="15" rx="3" stroke="#E2C27A" stroke-width="1.4"/><path d="M5 9.5l3 3 5-5" stroke="#E2C27A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="feat-text">Buổi 2: Khai Mở</span>
+            </li>
+            <li>
+              <span class="feat-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="1.5" y="1.5" width="15" height="15" rx="3" stroke="#E2C27A" stroke-width="1.4"/><path d="M5 9.5l3 3 5-5" stroke="#E2C27A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="feat-text">Workbook 2 buổi</span>
+            </li>
+            <li>
+              <span class="feat-icon">👑</span>
+              <span class="feat-text">Buổi 3: Thực hành chuyên sâu</span>
+            </li>
+            <li>
+              <span class="feat-icon">👑</span>
+              <span class="feat-text">Q&amp;A cá nhân hoá</span>
+            </li>
+            <li>
+              <span class="feat-icon">👑</span>
+              <span class="feat-text">BONUS: Checklist mẫu cho 3 tình huống</span>
+            </li>
+            <li>
+              <span class="feat-icon">👑</span>
+              <span class="feat-text">BONUS: Cộng đồng hỗ trợ</span>
+            </li>
+            <li>
+              <span class="feat-icon">👑</span>
+              <span class="feat-text">BONUS: Record tất cả buổi</span>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+
+    </div><!-- /.ticket-grid -->
+
+    <!-- CTA pair -->
+    <div class="cta-pair" style="margin-top:48px;">
+      <a href="#checkout" class="btn-cta btn-cta--sm">
+        CÓ! MÌNH MUỐN NÂNG CẤP KÝ VÉ VIP
+      </a>
+      <a href="#" class="btn-no" id="decline-s7">
+        Không, mình sẽ bỏ qua buổi thực hành chuyên sâu
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     S8 — GUARANTEE (repeat, dark)
+══════════════════════════════════════════ -->
+<section class="sec sec--dark sec--tight-top">
+  <div class="wrap">
+
+    <div class="guarantee-dark">
+      <div class="guarantee-dark__img">
+        <img src="assets/images/money-back.jpg" alt="Cam kết hoàn tiền">
+      </div>
+      <h3 class="guarantee-dark__title">Cam Kết Hoàn Tiền</h3>
+      <div class="guarantee-dark__body">
+        <p>Nâng cấp lên VIP. Tham gia Buổi 3. Tận mắt xem Sora thực hành trực tiếp từ đầu đến cuối.</p>
+        <p>Và nếu trong vòng <strong>7 ngày sau workshop</strong>, bạn áp dụng ít nhất 1 tình huống theo cơ chế mới, bạn vẫn cảm thấy không có gì thay đổi trong cảm xúc, suy nghĩ bên trong bạn và từ sếp nhân viên, hoàn cảnh bên ngoài bạn và vẫn cảm thấy những gì nhận được không xứng đáng với mức đầu tư…</p>
+        <p>Mình sẽ vui vẻ <strong>hoàn lại tiền 100%</strong> cho bạn, và bạn vẫn được giữ toàn bộ tài liệu, video đã nhận được, coi như một lời cảm ơn vì đã dành thời gian trải nghiệm chương trình này.</p>
+        <p>Mình tự tin cam kết vì mình biết: Khi bạn tham gia buổi workshop đặc biệt này, giá trị bạn nhận lại sẽ còn nhiều hơn thế.</p>
+      </div>
+    </div>
+
+    <!-- CTA pair -->
+    <div class="cta-pair" style="margin-top:48px;">
+      <a href="#checkout" class="btn-cta btn-cta--sm">
+        CÓ! MÌNH MUỐN NÂNG CẤP KÝ VÉ VIP
+      </a>
+      <a href="#" class="btn-no" id="decline-s8">
+        Không, mình sẽ bỏ qua buổi thực hành chuyên sâu
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="footer-brand">© Flow Leader</p>
+    <p>Dẫn dắt từ bên trong.<br>Lead nhẹ nhàng, hiệu quả và sống trọn vẹn hơn.</p>
+  </div>
+</footer>
+
+
+<!--
+  ═══════════════════════════════════════════
+  HƯỚNG DẪN ẢNH — lưu vào thư mục assets/images/
+  ═══════════════════════════════════════════
+  sora-desk.jpg       — Ảnh Sora ngồi bàn marble (bridge trái)
+  sora-selfie.jpg     — Ảnh Sora selfie laptop (bridge phải)
+  ve-free.jpg         — Ảnh đại diện Vé Miễn Phí (ticket header)
+  ve-vip.jpg          — Ảnh đại diện Vé VIP (ticket header)
+  money-back.jpg      — Ảnh cam kết hoàn tiền (guarantee S4/S8)
+  bonus-1-checklist.jpg — Đĩa gỗ "Checklist 3 tình huống"
+  bonus-2-congdong.jpg  — Đĩa gỗ "Cộng đồng hỗ trợ"
+  bonus-3-record.jpg    — Đĩa gỗ "Record 3 buổi"
+-->
+
+<script>
+(function () {
+  'use strict';
+
+  /* ─── Countdown to June 11, 2026 20:00 ICT (UTC+7) ─── */
+  var TARGET = new Date('2026-06-11T20:00:00+07:00').getTime();
+
+  var elD = document.getElementById('cd-days');
+  var elH = document.getElementById('cd-hours');
+  var elM = document.getElementById('cd-mins');
+  var elS = document.getElementById('cd-secs');
+
+  function pad(n) { return n < 10 ? '0' + n : String(n); }
+
+  function tick() {
+    var now  = Date.now();
+    var diff = TARGET - now;
+
+    if (diff <= 0) {
+      elD.textContent = elH.textContent = elM.textContent = elS.textContent = '00';
+      return;
+    }
+
+    var days  = Math.floor(diff / 86400000);
+    var hours = Math.floor((diff % 86400000) / 3600000);
+    var mins  = Math.floor((diff % 3600000)  / 60000);
+    var secs  = Math.floor((diff % 60000)    / 1000);
+
+    elD.textContent = pad(days);
+    elH.textContent = pad(hours);
+    elM.textContent = pad(mins);
+    elS.textContent = pad(secs);
+  }
+
+  tick();
+  setInterval(tick, 1000);
+
+  /* ─── Decline links → navigate to main page ─── */
+  document.querySelectorAll('[id^="decline-"]').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      window.location.href = 'index.html';
+    });
+  });
+
+  /* ─── VIP CTA links → smooth scroll to #checkout ─── */
+  document.querySelectorAll('a[href="#checkout"]').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      var target = document.getElementById('checkout');
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      /* TODO: replace with actual payment link, e.g.:
+         window.location.href = 'https://payment.flowleader.vn/vip';
+      */
+    });
+  });
+
+  /* ─── Sound button — dismiss overlay ─── */
+  var soundBtn = document.getElementById('sound-btn');
+  if (soundBtn) {
+    soundBtn.addEventListener('click', function () {
+      soundBtn.style.display = 'none';
+    });
+  }
+
+})();
+</script>
+
+</body>
+</html>
