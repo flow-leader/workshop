@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FLOW IN ACTION — Vé Hành Động Buổi 3</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ─── Button overrides — match video width (740px), no text wrap ─── */
+    .btn-cta.btn-cta--sm {
+      font-size: clamp(13px, 3.8vw, 20px);
+      padding: 20px 24px;
+      min-height: 64px;
+      max-width: 740px;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    .btn-no {
+      font-size: clamp(13px, 3.8vw, 20px);
+      min-height: 56px;
+      max-width: 740px;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    /* ─── S2 feature list ─── */
+    .hanh-dong-list {
+      list-style: none;
+      padding: 0;
+      margin: 28px 0 0;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hanh-dong-list > li {
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      margin-bottom: 32px;
+    }
+    .hanh-dong-bullet {
+      color: #E2C27A;
+      font-size: 28px;
+      line-height: 1;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+    .hanh-dong-item__main {
+      display: block;
+      font-size: 20px;
+      font-weight: 700;
+      color: #0a1929;
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+    .hanh-dong-item__sub {
+      font-size: 15px;
+      color: #334;
+      line-height: 1.7;
+      margin: 0 0 8px;
+    }
+    .hanh-dong-item__sub em {
+      font-style: italic;
+      color: #444;
+    }
+    .hanh-dong-item__numbered {
+      padding-left: 22px;
+      margin: 8px 0 0;
+      color: #334;
+      font-size: 15px;
+      line-height: 1.8;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     ANNOUNCE BAR (always top)
+══════════════════════════════════════════ -->
+<div class="announce-bar">
+  <p class="announce-bar__text">Khoan đã! Sora có một lựa chọn khác dành cho bạn</p>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     S1 — HERO / ATTENTION (dark)
+══════════════════════════════════════════ -->
+<section class="sec sec--dark" style="padding-top:48px;">
+  <div class="wrap">
+
+    <!-- Progress banner -->
+    <div class="progress-banner">
+      <div class="progress-banner__inner">
+        <div class="progress-track">
+          <div class="progress-fill" style="width:90%;">
+            <span class="progress-fill__pct">90%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Headline under progress -->
+    <h1 class="upsell-h1" style="margin-top:28px;">
+      Khoan đã! Sora có <span class="hl-primary">một lựa chọn khác</span> dành cho bạn
+    </h1>
+
+    <!-- Video -->
+    <div class="video-wrap" style="margin-top:32px;">
+      <iframe
+        width="560" height="315"
+        src="https://www.youtube.com/embed/oJ-LSI0gODc?modestbranding=1&rel=0&iv_load_policy=3&disablekb=0"
+        title="Vé Hành Động"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <!-- CTA pair -->
+    <div class="cta-pair" style="margin-top:40px;">
+      <a href="#checkout" class="btn-cta btn-cta--sm">
+        CÓ! MÌNH CHỌN VÉ HÀNH ĐỘNG - 161,000đ
+      </a>
+      <a href="#" class="btn-no" id="decline-s1">
+        Không, mình sẽ bỏ qua buổi thực hành chuyên sâu
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     S2 — WHAT YOU GET (light)
+══════════════════════════════════════════ -->
+<section class="sec sec--light">
+  <div class="wrap">
+
+    <h2 class="upsell-h2-light">
+      Với Vé Hành Động, Bạn Vẫn Nhận Được
+    </h2>
+    <div class="divider-gold" style="background:var(--primary);"></div>
+
+    <!-- Workshop box -->
+    <div class="workshop-box workshop-box--light" style="max-width:700px; margin:0 auto;">
+      <p class="workshop-box__tag">Workshop Đặc Biệt</p>
+      <h3 class="workshop-box__title">
+        Buổi 3 — FLOW IN ACTION
+      </h3>
+      <p class="workshop-box__meta">11/06 &nbsp;|&nbsp; 20h tối &nbsp;|&nbsp; Giá trị: 1.800.000đ</p>
+    </div>
+
+    <!-- Feature list -->
+    <ul class="hanh-dong-list">
+
+      <!-- Bullet 1: Thực hành 3 tình huống -->
+      <li>
+        <span class="hanh-dong-bullet">●</span>
+        <div>
+          <strong class="hanh-dong-item__main">Sora Đồng Hành Thực Hành 3 Tình Huống Công Sở Thực Tế</strong>
+          <p class="hanh-dong-item__sub">Được vote chọn 3 trên 6 chủ đề Team Lead nào cũng gặp:</p>
+          <ol class="hanh-dong-item__numbered">
+            <li>Nhận việc &amp; Xây dựng chiến lược thực thi</li>
+            <li>Báo cáo &amp; Nhận feedback từ sếp</li>
+            <li>Tuyển dụng &amp; Set up nhân sự</li>
+            <li>Giao việc &amp; Feedback cho nhân sự</li>
+            <li>Xây dựng quy trình để bộ máy đông nhân sự</li>
+            <li>Xây dựng vị thế thăng chức &amp; nhận mức lương mới</li>
+          </ol>
+        </div>
+      </li>
+
+      <!-- Bullet 2: Tài liệu + Templates -->
+      <li>
+        <span class="hanh-dong-bullet">●</span>
+        <div>
+          <strong class="hanh-dong-item__main">Đầy Đủ Tài Liệu + Templates</strong>
+          <p class="hanh-dong-item__sub">Workbook thực hành. Templates sẵn sàng dùng. Tài liệu tổng hợp từ cả 3 buổi.</p>
+          <p class="hanh-dong-item__sub">Khác biệt duy nhất so với Vé VIP: Vé Hành Động không bao gồm cộng đồng hỗ trợ sau workshop, và record tất cả buổi.</p>
+          <p class="hanh-dong-item__sub"><em>Nhưng điều cốt lõi nhất — bạn vẫn được thực hành trực tiếp cùng Sora.</em></p>
+        </div>
+      </li>
+
+    </ul>
+
+    <!-- CTA pair -->
+    <div class="cta-pair" style="margin-top:12px;">
+      <a href="#checkout" class="btn-cta btn-cta--sm">
+        CÓ! MÌNH CHỌN VÉ HÀNH ĐỘNG - 161,000đ
+      </a>
+      <a href="#" class="btn-no btn-no--on-light" id="decline-s2">
+        Không, mình sẽ bỏ qua buổi thực hành chuyên sâu
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     S3 — TICKET COMPARISON (dark)
+     id="checkout" — payment anchor
+══════════════════════════════════════════ -->
+<section class="sec sec--dark" id="checkout" style="padding-bottom: 36px;">
+  <div class="wrap">
+
+    <h2 class="upsell-h2-dark">Hãy Lựa Chọn Vé Của Bạn</h2>
+    <div class="divider-gold"></div>
+
+    <div class="ticket-grid">
+
+      <!-- Free ticket -->
+      <div class="ticket-card ticket-card--free">
+        <div class="ticket-card__header">
+          <div class="ticket-card__header-img">
+            <img src="assets/images/ve-free.jpg" alt="Vé Miễn Phí">
+          </div>
+          <p class="ticket-card__price">0đ</p>
+          <p class="ticket-card__type">Vé Miễn Phí</p>
+        </div>
+        <div class="ticket-card__divider"></div>
+        <div class="ticket-card__body">
+          <ul class="ticket-features">
+            <li>
+              <span class="feat-icon">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="1.5" y="1.5" width="15" height="15" rx="3" stroke="#E2C27A" stroke-width="1.4"/><path d="M5 9.5l3 3 5-5" stroke="#E2C27A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="feat-text">Buổi 1: Thức Tỉnh — Thoát vòng xoáy kiệt sức &amp; kích hoạt động lực lãnh đạo tự nhiên</span>
+            </li>
+            <li>
+              <span class="feat-icon">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="1.5" y="1.5" width="15" height="15" rx="3" stroke="#E2C27A" stroke-width="1.4"/><path d="M5 9.5l3 3 5-5" stroke="#E2C27A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="feat-text">Buổi 2: Khai Mở — Nghệ thuật thấu hiểu con người &amp; cơ chế làm việc thảnh thơi</span>
+            </li>
+            <li>
+              <span class="feat-icon">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="1.5" y="1.5" width="15" height="15" rx="3" stroke="#E2C27A" stroke-width="1.4"/><path d="M5 9.5l3 3 5-5" stroke="#E2C27A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="feat-text">Workbook 2 buổi</span>
+            </li>
+            <li>
+              <span class="feat-icon">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="1.5" y="1.5" width="15" height="15" rx="3" stroke="#4A6080" stroke-width="1.4"/><path d="M6 6l6 6M12 6l-6 6" stroke="#4A6080" stroke-width="1.7" stroke-linecap="round"/></svg>
+              </span>
+              <span class="feat-crossed">Buổi 3: Thực hành chuyên sâu — Cùng Sora thực hành áp dụng vào 3 tình huống các Lead thường gặp nhất</span>
+            </li>
+            <li>
+              <span class="feat-icon">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="1.5" y="1.5" width="15" height="15" rx="3" stroke="#4A6080" stroke-width="1.4"/><path d="M6 6l6 6M12 6l-6 6" stroke="#4A6080" stroke-width="1.7" stroke-linecap="round"/></svg>
+              </span>
+              <span class="feat-crossed">BONUS: Checklist mẫu cho 3 tình huống</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Hành Động ticket (labeled Vé VIP per brief) -->
+      <div class="ticket-card ticket-card--vip">
+        <div class="ticket-card__header">
+          <div class="ticket-card__header-img">
+            <img src="assets/images/ve-hanh-dong.jpg" alt="Vé VIP">
+          </div>
+          <p class="ticket-card__price">161.000đ</p>
+          <p class="ticket-card__type">Vé VIP</p>
+        </div>
+        <div class="ticket-card__divider"></div>
+        <div class="ticket-card__body">
+          <ul class="ticket-features">
+            <li>
+              <span class="feat-icon">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="1.5" y="1.5" width="15" height="15" rx="3" stroke="#E2C27A" stroke-width="1.4"/><path d="M5 9.5l3 3 5-5" stroke="#E2C27A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="feat-text">Buổi 1: Thức Tỉnh — Thoát vòng xoáy kiệt sức &amp; kích hoạt động lực lãnh đạo tự nhiên</span>
+            </li>
+            <li>
+              <span class="feat-icon">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="1.5" y="1.5" width="15" height="15" rx="3" stroke="#E2C27A" stroke-width="1.4"/><path d="M5 9.5l3 3 5-5" stroke="#E2C27A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="feat-text">Buổi 2: Khai Mở — Nghệ thuật thấu hiểu con người &amp; cơ chế làm việc thảnh thơi</span>
+            </li>
+            <li>
+              <span class="feat-icon">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="1.5" y="1.5" width="15" height="15" rx="3" stroke="#E2C27A" stroke-width="1.4"/><path d="M5 9.5l3 3 5-5" stroke="#E2C27A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="feat-text">Workbook 2 buổi</span>
+            </li>
+            <li>
+              <span class="feat-icon">👑</span>
+              <span class="feat-text">Buổi 3: Thực hành chuyên sâu — Cùng Sora thực hành áp dụng vào 3 tình huống các Lead thường gặp nhất</span>
+            </li>
+            <li>
+              <span class="feat-icon">👑</span>
+              <span class="feat-text">BONUS: Checklist mẫu cho 3 tình huống</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div><!-- /.ticket-grid -->
+
+    <!-- CTA pair -->
+    <div class="cta-pair" style="margin-top:48px;">
+      <a href="#checkout" class="btn-cta btn-cta--sm">
+        CÓ! MÌNH CHỌN VÉ HÀNH ĐỘNG - 161,000đ
+      </a>
+      <a href="#" class="btn-no" id="decline-s3">
+        Không, mình sẽ bỏ qua buổi thực hành chuyên sâu
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     S4 — GUARANTEE (dark)
+══════════════════════════════════════════ -->
+<section class="sec sec--dark sec--tight-top" style="padding-bottom: 36px;">
+  <div class="wrap">
+
+    <div class="guarantee-dark">
+      <div class="guarantee-dark__img">
+        <img src="assets/images/money-back.jpg" alt="Cam kết hoàn tiền">
+      </div>
+      <h3 class="guarantee-dark__title">Cam Kết Hoàn Tiền 100%</h3>
+      <div class="guarantee-dark__body">
+        <p>Giống như vé Vip. Khi tham gia Buổi 3. Tận mắt xem mình thực hành trực tiếp từ đầu đến cuối.</p>
+        <p>Và nếu trong vòng <strong>7 ngày sau workshop</strong>, bạn áp dụng ít nhất 1 tình huống theo cơ chế mới, bạn vẫn cảm thấy không có gì thay đổi trong cảm xúc, suy nghĩ bên trong bạn và từ sếp nhân viên, hoàn cảnh bên ngoài bạn và vẫn cảm thấy những gì nhận được không xứng đáng với mức đầu tư…</p>
+        <p>Sora sẽ vui vẻ <strong>hoàn lại tiền 100%</strong> cho bạn. Và bạn vẫn được giữ toàn bộ tài liệu, kịch bản mẫu - coi như một lời cảm ơn vì đã dành thời gian trải nghiệm cùng Sora.</p>
+        <p>Sora tự tin cam kết vì Sora biết: Khi bạn ngồi thực hành trực tiếp các tình huống này - giá trị bạn mang về sẽ còn lớn hơn con số 161,000đ rất nhiều lần.</p>
+      </div>
+    </div>
+
+    <!-- CTA pair -->
+    <div class="cta-pair" style="margin-top:48px;">
+      <a href="#checkout" class="btn-cta btn-cta--sm">
+        CÓ! MÌNH CHỌN VÉ HÀNH ĐỘNG - 161,000đ
+      </a>
+      <a href="#" class="btn-no" id="decline-s4">
+        Không, mình sẽ bỏ qua buổi thực hành chuyên sâu
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="footer-brand">© Flow Leader</p>
+    <p>Dẫn dắt từ bên trong.<br>Lead nhẹ nhàng, hiệu quả và sống trọn vẹn hơn.</p>
+  </div>
+</footer>
+
+
+<script>
+(function () {
+  'use strict';
+
+  /* ─── Countdown to June 11, 2026 20:00 ICT (UTC+7) ─── */
+  var TARGET = new Date('2026-06-11T20:00:00+07:00').getTime();
+
+  var elD = document.getElementById('cd-days');
+  var elH = document.getElementById('cd-hours');
+  var elM = document.getElementById('cd-mins');
+  var elS = document.getElementById('cd-secs');
+
+  function pad(n) { return n < 10 ? '0' + n : String(n); }
+
+  function tick() {
+    var now  = Date.now();
+    var diff = TARGET - now;
+
+    if (!elD) return;
+    if (diff <= 0) {
+      elD.textContent = elH.textContent = elM.textContent = elS.textContent = '00';
+      return;
+    }
+
+    var days  = Math.floor(diff / 86400000);
+    var hours = Math.floor((diff % 86400000) / 3600000);
+    var mins  = Math.floor((diff % 3600000)  / 60000);
+    var secs  = Math.floor((diff % 60000)    / 1000);
+
+    elD.textContent = pad(days);
+    elH.textContent = pad(hours);
+    elM.textContent = pad(mins);
+    elS.textContent = pad(secs);
+  }
+
+  tick();
+  setInterval(tick, 1000);
+
+  /* ─── Decline links → navigate to main page ─── */
+  document.querySelectorAll('[id^="decline-"]').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      window.location.href = 'index.html';
+    });
+  });
+
+  /* ─── CTA links → smooth scroll to #checkout ─── */
+  document.querySelectorAll('a[href="#checkout"]').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      var target = document.getElementById('checkout');
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      /* TODO: replace with actual payment link */
+    });
+  });
+
+})();
+</script>
+
+</body>
+</html>

@@ -498,16 +498,17 @@ img { display: block; max-width: 100%; }
   align-items: center;
   justify-content: center;
   width: 100%;
-  max-width: 480px;
-  margin: 16px auto 0;
+  box-sizing: border-box;
+  margin: 16px 0 0;
   min-height: 52px;
   padding: 14px 20px;
   background: #fff;
   color: #000;
   font-family: var(--fd);
-  font-size: clamp(11px, 2.6vw, 15px);
+  font-size: clamp(14px, 2.6vw, 16px);
   font-weight: 700;
   text-align: center;
+  white-space: normal;
   border: 1px solid rgba(0,0,0,.14);
   border-radius: var(--r-sm);
   cursor: pointer;
@@ -685,9 +686,10 @@ img { display: block; max-width: 100%; }
 .cta-pair {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   gap: 0;
-  max-width: 480px;
+  width: 100%;
+  max-width: 740px;
   margin: 0 auto;
 }
 .btn-decline {
@@ -1239,32 +1241,36 @@ img { display: block; max-width: 100%; }
   margin-bottom: 36px;
   letter-spacing: .02em;
 }
+/* Hero S1 container — 800px, single source of truth for padding */
+.upsell-hero-wrap {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
 .upsell-h1 {
   font-family: var(--fd);
-  font-size: clamp(22px, 4.5vw, 42px);
+  font-size: clamp(24px, 4vw, 52px);
   font-weight: 700;
   color: #fff;
   line-height: 1.28;
   text-align: center;
   margin-bottom: 20px;
-  max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
 }
 .upsell-h1 .hl-primary { color: #E2C27A; }
 .upsell-sub-main {
   font-family: var(--fd);
-  font-size: 17px;
+  font-size: clamp(15px, 2vw, 18px);
   font-weight: 400;
   line-height: 1.72;
   color: rgba(255,255,255,.78);
   text-align: center;
-  max-width: 680px;
-  margin: 0 auto 36px;
-}
-@media (max-width: 768px) {
-  .upsell-h1      { font-size: 24px; }
-  .upsell-sub-main { font-size: 15px; }
+  margin: 0 0 36px;
 }
 /* Mobile headline size overrides */
 @media (max-width: 768px) {
@@ -1552,12 +1558,19 @@ img { display: block; max-width: 100%; }
 }
 
 /* ════════════════════════════════════════
-   UPSELL v2 — CTA BUTTON (small / upsell variant)
+   UPSELL v2 — CTA BUTTON (upsell full-width variant)
 ════════════════════════════════════════ */
 .btn-cta--sm {
-  font-size: clamp(11px, 2.5vw, 16px);
+  width: 100%;
+  max-width: none;
+  box-sizing: border-box;
+  font-size: clamp(13px, 3.8vw, 20px);
   letter-spacing: .06em;
-  padding: 16px 18px;
+  padding: 18px 24px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-align: center;
+  min-height: 56px;
 }
 
 /* ════════════════════════════════════════
