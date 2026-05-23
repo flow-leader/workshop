@@ -7,19 +7,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* ─── Button overrides — match video width (740px), no text wrap ─── */
+    /* ─── S1 hero: constrain to 800px like ve-vip, so button fills ~98% of container ─── */
     .btn-cta.btn-cta--sm {
       font-size: clamp(13px, 3.8vw, 20px);
       padding: 20px 24px;
       min-height: 64px;
-      max-width: 740px;
       white-space: nowrap;
       overflow: hidden;
     }
     .btn-no {
       font-size: clamp(13px, 3.8vw, 20px);
       min-height: 56px;
-      max-width: 740px;
       white-space: nowrap;
       overflow: hidden;
     }
@@ -87,7 +85,7 @@
      S1 — HERO / ATTENTION (dark)
 ══════════════════════════════════════════ -->
 <section class="sec sec--dark" style="padding-top:48px;">
-  <div class="wrap">
+  <div class="upsell-hero-wrap">
 
     <!-- Progress banner -->
     <div class="progress-banner">
@@ -128,7 +126,7 @@
       </a>
     </div>
 
-  </div>
+  </div><!-- /.upsell-hero-wrap -->
 </section>
 
 

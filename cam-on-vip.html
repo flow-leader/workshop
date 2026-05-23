@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cảm Ơn — FLOW LEADER™</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .thankyou-page { min-height:100vh; }
+
+    .checklist-label {
+      font-family: var(--fd);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin: 28px 0 18px;
+    }
+
+    .checklist {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      text-align: left;
+    }
+
+    .checklist-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .step-icon {
+      font-size: 22px;
+      line-height: 1;
+      flex-shrink: 0;
+      margin-top: 2px;
+      width: 32px;
+      text-align: center;
+    }
+
+    .step-zalo-icon {
+      width: 32px;
+      height: 32px;
+      object-fit: cover;
+      border-radius: 6px;
+      flex-shrink: 0;
+      margin-top: 0;
+    }
+
+    .step-content {
+      flex: 1;
+    }
+
+    .step-content p {
+      font-family: var(--fb);
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 1.65;
+      color: rgba(255,255,255,.90);
+      margin: 0;
+    }
+
+    .step-content p + p {
+      margin-top: 4px;
+    }
+
+    .step-content strong {
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .step-note {
+      font-size: 13px !important;
+      color: rgba(255,255,255,.60) !important;
+      font-style: italic;
+    }
+
+    .zalo-link {
+      color: var(--gold);
+      font-weight: 700;
+      text-decoration: none;
+      transition: opacity .2s;
+    }
+
+    .zalo-link:hover { opacity: .80; }
+
+    .thankyou-divider {
+      width: 48px;
+      height: 2px;
+      background: var(--gold);
+      border-radius: 2px;
+      margin: 24px auto 0;
+    }
+
+    .farewell-note {
+      margin-top: 28px;
+      font-family: var(--fb);
+      font-size: 15px;
+      font-weight: 500;
+      color: rgba(255,255,255,.80);
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    .farewell-note .date {
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    .vip-badge-wrap {
+      margin: 20px 0;
+    }
+
+    .vip-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--fd);
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: #C9A84C;
+      background: linear-gradient(135deg, rgba(201,168,76,.15) 0%, rgba(201,168,76,.06) 100%);
+      border: 1px solid rgba(201,168,76,.40);
+      border-radius: 50px;
+      padding: 12px 32px;
+    }
+
+    .vip-badge .crown {
+      font-size: 28px;
+      line-height: 1;
+    }
+
+    @media (max-width: 480px) {
+      .vip-badge { font-size: 23px; padding: 10px 22px; }
+      .vip-badge .crown { font-size: 22px; }
+    }
+  </style>
+</head>
+<body class="thankyou-page">
+
+<!-- ══════════════════════════════════════════
+     CẢM ƠN VIP — HERO LAYOUT
+══════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero__bg">
+    <img src="assets/images/Section 1 upscale.jpg" alt="">
+  </div>
+  <div class="hero__wrap">
+    <div class="hero__card">
+
+      <div class="hero__badge-pill">
+        <span class="hero__badge-dot"></span>
+        <span class="hero__badge-text">workshop FLOW LEADER™ X2</span>
+      </div>
+
+      <h1 class="hero__headline">
+        <span class="gold-text">Chúc Mừng!</span> Bạn Đã Giữ Chỗ Thành Công.
+      </h1>
+
+      <div class="vip-badge-wrap">
+        <span class="vip-badge"><span class="crown">👑</span> Hạng Vé: VIP</span>
+      </div>
+
+      <p class="hero__sub">
+        Workshop <strong>FLOW LEADER™</strong> X2 Kết Quả Không Cần Làm Thêm Giờ. Bạn đã sẵn sàng. Sora rất vui vì bạn chọn dành thời gian cho hành trình này.
+      </p>
+
+      <div class="divider-gold"></div>
+
+      <p class="checklist-label">CHECKLIST CẦN LÀM NGAY:</p>
+
+      <div class="checklist">
+
+        <!-- Bước 1 -->
+        <div class="checklist-item">
+          <span class="step-icon">📩</span>
+          <div class="step-content">
+            <p><strong>Bước 1:</strong> Kiểm tra email từ Sora</p>
+            <p class="step-note">(Lưu ý kiểm tra cả hòm thư rác và hòm thư quảng cáo — thư từ sora@flowleader.vn)</p>
+          </div>
+        </div>
+
+        <!-- Bước 2 -->
+        <div class="checklist-item">
+          <img src="assets/images/zalo.jpg" alt="Zalo" class="step-zalo-icon">
+          <div class="step-content">
+            <p><strong>Bước 2:</strong> Tham gia nhóm Zalo của workshop để nhận thông báo</p>
+            <p><a href="#" class="zalo-link">Bấm vào đây</a></p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="thankyou-divider"></div>
+
+      <p class="farewell-note">
+        Hẹn gặp lại bạn ở buổi workshop ngày <span class="date">8–9/06</span> nhé!
+      </p>
+
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

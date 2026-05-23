@@ -752,25 +752,19 @@
   tick();
   setInterval(tick, 1000);
 
-  /* ─── Decline links → navigate to main page ─── */
+  /* ─── Decline links → ve-hanh-dong ─── */
   document.querySelectorAll('[id^="decline-"]').forEach(function (btn) {
     btn.addEventListener('click', function (e) {
       e.preventDefault();
-      window.location.href = 'index.html';
+      window.location.href = 'https://www.flowleader.vn/ve-hanh-dong';
     });
   });
 
-  /* ─── VIP CTA links → smooth scroll to #checkout ─── */
+  /* ─── VIP CTA links → thanh-toan-vip ─── */
   document.querySelectorAll('a[href="#checkout"]').forEach(function (btn) {
     btn.addEventListener('click', function (e) {
       e.preventDefault();
-      var target = document.getElementById('checkout');
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-      /* TODO: replace with actual payment link, e.g.:
-         window.location.href = 'https://payment.flowleader.vn/vip';
-      */
+      window.location.href = 'https://www.flowleader.vn/thanh-toan-vip';
     });
   });
 
