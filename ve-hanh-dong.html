@@ -22,6 +22,11 @@
       overflow: hidden;
     }
 
+    /* ─── Desktop: match button width to widest content block (ticket-grid 860px) ─── */
+    .cta-pair {
+      max-width: 860px;
+    }
+
     /* ─── S2 feature list ─── */
     .hanh-dong-list {
       list-style: none;
@@ -395,23 +400,19 @@
   tick();
   setInterval(tick, 1000);
 
-  /* ─── Decline links → navigate to main page ─── */
+  /* ─── Decline links → cảm ơn miễn phí ─── */
   document.querySelectorAll('[id^="decline-"]').forEach(function (btn) {
     btn.addEventListener('click', function (e) {
       e.preventDefault();
-      window.location.href = 'index.html';
+      window.location.href = 'https://www.flowleader.vn/cam-on-mien-phi';
     });
   });
 
-  /* ─── CTA links → smooth scroll to #checkout ─── */
+  /* ─── CTA links → trang thanh toán Vé Hành Động ─── */
   document.querySelectorAll('a[href="#checkout"]').forEach(function (btn) {
     btn.addEventListener('click', function (e) {
       e.preventDefault();
-      var target = document.getElementById('checkout');
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-      /* TODO: replace with actual payment link */
+      window.location.href = 'https://www.flowleader.vn/thanh-toan-hanh-dong';
     });
   });
 
