@@ -13,7 +13,9 @@
       "Bash(cp \"/Users/thucanh/Desktop/Project/Buổi 2.png\" /Users/thucanh/Downloads/Website/assets/images/)",
       "Bash(npx --version)",
       "mcp__Claude_Preview__preview_start",
-      "Bash(find /Users/thucanh/Desktop -name \"*.md\" 2>/dev/null | head -20)"
+      "Bash(find /Users/thucanh/Desktop -name \"*.md\" 2>/dev/null | head -20)",
+      "Bash(find /Users/thucanh/Downloads -name \"upsell.html\" 2>/dev/null)",
+      "Bash(find /Users/thucanh -name \"upsell.html\" 2>/dev/null; ls /Users/thucanh/Downloads/Website/assets/)"
     ]
   }
 }
