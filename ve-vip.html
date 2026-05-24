@@ -7,9 +7,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* ─── S1 hero: button constrained by .upsell-hero-wrap (800px) — exclude from rule ─── */
+    /* ─── S1 hero: button constrained by .upsell-hero-wrap (800px) — uses global 780px ─── */
 
-    /* ─── S2–S8: all buttons match .workshop-box / S5 textbox width = 740px (cta-pair global) ─── */
+    /* ─── S2–S8: buttons match S5 textbox width (.workshop-box = 740px) ─── */
+    .wrap .cta-pair {
+      max-width: 740px;
+    }
+
     .btn-cta.btn-cta--sm {
       font-size: clamp(13px, 3.8vw, 20px);
       padding: 20px 24px;
@@ -683,7 +687,7 @@
 
     <div class="guarantee-dark">
       <div class="guarantee-dark__img">
-        <img src="assets/images/money-back.jpg" alt="Cam kết hoàn tiền">
+        <img src="assets/images/Profile.jpg" alt="Cam kết hoàn tiền">
       </div>
       <h3 class="guarantee-dark__title">Cam Kết Hoàn Tiền</h3>
       <div class="guarantee-dark__body">
