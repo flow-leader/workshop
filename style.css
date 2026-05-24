@@ -689,7 +689,7 @@ img { display: block; max-width: 100%; }
   align-items: stretch;
   gap: 0;
   width: 100%;
-  max-width: 740px;
+  max-width: 780px;
   margin: 0 auto;
 }
 .btn-decline {

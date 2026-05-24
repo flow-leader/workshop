@@ -6,6 +6,24 @@
   <title>FLOW IN ACTION — Nâng Cấp Vé VIP Buổi 3</title>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* ─── S1 hero: button constrained by .upsell-hero-wrap (800px) — exclude from rule ─── */
+
+    /* ─── S2–S8: all buttons match .workshop-box / S5 textbox width = 740px (cta-pair global) ─── */
+    .btn-cta.btn-cta--sm {
+      font-size: clamp(13px, 3.8vw, 20px);
+      padding: 20px 24px;
+      min-height: 64px;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    .btn-no {
+      font-size: clamp(13px, 3.8vw, 20px);
+      min-height: 56px;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+  </style>
 </head>
 <body>
 
@@ -36,7 +54,7 @@
 
     <!-- Gold intro label -->
     <p class="upsell-intro-text" style="margin-top:20px;">
-      Giới Thiệu Buổi Thực Hành Chuyên Sâu — FLOW IN ACTION &nbsp;·&nbsp; 20h ngày 11/06
+      Giới Thiệu Buổi Thực Hành Chuyên Sâu — FLOW IN ACTION &nbsp;·&nbsp; 20h ngày 10/06
     </p>
 
     <!-- Countdown -->
@@ -383,7 +401,7 @@
       <h3 class="workshop-box__title">
         Buổi 3 — FLOW IN ACTION: Sora Đồng Hành Thực Hành Chuyên Sâu 3 Tình Huống Công Sở Thực Tế
       </h3>
-      <p class="workshop-box__meta">11/06 &nbsp;|&nbsp; 20h tối &nbsp;|&nbsp; Giá trị: 1.800.000đ</p>
+      <p class="workshop-box__meta">10/06 &nbsp;|&nbsp; 20h tối &nbsp;|&nbsp; Giá trị: 1.800.000đ</p>
       <p class="workshop-box__intro">
         Buổi này không phải thêm một buổi giảng lý thuyết. Dựa trên vote của các bạn trong buổi workshop,
         Sora sẽ thực hành chuyên sâu <strong>3 trên 6 tình huống</strong> thực tế sau:
@@ -720,7 +738,7 @@
   'use strict';
 
   /* ─── Countdown to June 11, 2026 20:00 ICT (UTC+7) ─── */
-  var TARGET = new Date('2026-06-11T20:00:00+07:00').getTime();
+  var TARGET = new Date('2026-06-10T20:00:00+07:00').getTime();
 
   var elD = document.getElementById('cd-days');
   var elH = document.getElementById('cd-hours');
