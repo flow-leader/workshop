@@ -16,7 +16,8 @@
       "Bash(find /Users/thucanh/Desktop -name \"*.md\" 2>/dev/null | head -20)",
       "Bash(find /Users/thucanh/Downloads -name \"upsell.html\" 2>/dev/null)",
       "Bash(find /Users/thucanh -name \"upsell.html\" 2>/dev/null; ls /Users/thucanh/Downloads/Website/assets/)",
-      "Bash(ls /Users/thucanh/Downloads/Project/sepay-funnel)"
+      "Bash(ls /Users/thucanh/Downloads/Project/sepay-funnel)",
+      "Bash(python3)"
     ]
   }
 }
