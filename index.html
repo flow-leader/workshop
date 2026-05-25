@@ -737,6 +737,34 @@
       return;
     }
 
+    /* ── Gửi data lên Google Sheets ── */
+    var SHEET_URL = 'PASTE_YOUR_APPS_SCRIPT_URL_HERE';
+
+    var goals = Array.from(
+      form.querySelectorAll('input[name="goals"]:checked')
+    ).map(function (i) { return i.value; }).join(' | ');
+
+    var payload = {
+      name:       (document.getElementById('field_name')  || {}).value || '',
+      phone:      (document.getElementById('field_phone') || {}).value || '',
+      email:      (document.getElementById('field_email') || {}).value || '',
+      age:        (form.querySelector('input[name="age"]:checked')    || {}).value || '',
+      status:     (form.querySelector('input[name="status"]:checked') || {}).value || '',
+      goals:      goals,
+      question:   (document.getElementById('field_question')   || {}).value || '',
+      source_url: (document.getElementById('field_source_url') || {}).value || ''
+    };
+
+    /* fire-and-forget: redirect xảy ra ngay, không chờ response */
+    if (SHEET_URL !== 'PASTE_YOUR_APPS_SCRIPT_URL_HERE') {
+      fetch(SHEET_URL, {
+        method:  'POST',
+        mode:    'no-cors',
+        headers: { 'Content-Type': 'text/plain' },
+        body:    JSON.stringify(payload)
+      }).catch(function () {});
+    }
+
     // Redirect to VIP page
     window.location.href = 'https://www.flowleader.vn/ve-vip';
   });
