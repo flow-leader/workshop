@@ -765,24 +765,15 @@
   /* ═══════════════════════════════════════════
      CẤU HÌNH — điền thông tin ngân hàng tại đây
   ═══════════════════════════════════════════ */
+  var GAS_URL = 'https://script.google.com/macros/s/AKfycbwjRrSRVBbrSQRKW5NIOhZO7dujCDmr0CUaDR9mxQ0foM3uuasuYb3dxT_SwNPIGMdV/exec';
+
   var BANK = {
-    code:        'MB',              // Mã ngân hàng VietQR (VD: MB, VCB, TCB, ACB, BIDV, VTB...)
-    account:     '1234567890',      // Số tài khoản
-    owner:       'NGUYEN THI SORA', // Tên chủ tài khoản (IN HOA, không dấu)
-    displayName: 'MB Bank',         // Tên hiển thị
+    code:        'BIDV',
+    account:     '8898906157',
+    owner:       'DUONG HA THUC ANH',
+    displayName: 'BIDV',
   };
   var AMOUNT = 161000;
-  /* ─────────────────────────────────────────
-     SEPAY tự động xác nhận:
-     Sau khi có Sepay API token, tạo 1 serverless
-     function (VD: /api/check-payment?ref=FHDxxx)
-     gọi GET https://my.sepay.vn/userapi/transactions/list
-     với header Authorization: Bearer YOUR_TOKEN
-     rồi bỏ comment đoạn polling bên dưới.
-  ───────────────────────────────────────── */
-  var SEPAY_CHECK_URL = '/api/check-payment'; // endpoint serverless của bạn
-
-  /* ═══════════════════════════════════════════ */
 
   var step1 = document.getElementById('step-1');
   var step2 = document.getElementById('step-2');
@@ -792,6 +783,7 @@
   function goToStep2() {
     var name  = (document.getElementById('f-name').value  || '').trim();
     var email = (document.getElementById('f-email').value || '').trim();
+    var phone = (document.getElementById('f-phone').value || '').trim();
 
     var ok = true;
 
@@ -812,42 +804,57 @@
 
     if (!ok) return;
 
-    /* Generate unique order reference */
-    var ref = 'FHD' + Date.now().toString(36).toUpperCase().slice(-6);
+    btnSubmit.disabled = true;
+    btnSubmit.textContent = 'Đang xử lý...';
 
-    /* Populate step 2 */
-    document.getElementById('qr-show-name').textContent  = name;
-    document.getElementById('qr-show-email').textContent = email;
-    document.getElementById('qr-show-ref').textContent   = ref;
-    document.getElementById('b-bank').textContent        = BANK.displayName;
-    document.getElementById('b-account').textContent     = BANK.account;
-    document.getElementById('b-owner').textContent       = BANK.owner;
-    document.getElementById('b-ref').textContent         = ref;
+    /* Tạo order qua GAS */
+    fetch(GAS_URL, {
+      method: 'POST',
+      body: JSON.stringify({
+        action: 'createOrder',
+        data: { name: name, email: email, phone: phone, totalAmount: AMOUNT }
+      })
+    })
+    .then(function (r) { return r.json(); })
+    .then(function (res) {
+      if (!res.success) throw new Error(res.error || 'Lỗi tạo đơn hàng');
 
-    /* Copy-ref button */
-    document.getElementById('copy-ref-btn').onclick = function () {
-      copyStr(ref, this);
-    };
+      var orderId   = res.orderId;
+      var ckContent = res.ckContent;
 
-    /* VietQR URL */
-    var qrSrc = 'https://img.vietqr.io/image/' +
-      BANK.code + '-' + BANK.account + '-qr_only.png' +
-      '?amount=' + AMOUNT +
-      '&addInfo=' + encodeURIComponent(ref) +
-      '&accountName=' + encodeURIComponent(BANK.owner);
-    document.getElementById('qr-img').src = qrSrc;
+      document.getElementById('qr-show-name').textContent  = name;
+      document.getElementById('qr-show-email').textContent = email;
+      document.getElementById('qr-show-ref').textContent   = ckContent;
+      document.getElementById('b-bank').textContent        = BANK.displayName;
+      document.getElementById('b-account').textContent     = BANK.account;
+      document.getElementById('b-owner').textContent       = BANK.owner;
+      document.getElementById('b-ref').textContent         = ckContent;
 
-    /* Reset payment status */
-    document.getElementById('pay-waiting').style.display = 'flex';
-    document.getElementById('pay-success').classList.remove('is-visible');
+      document.getElementById('copy-ref-btn').onclick = function () {
+        copyStr(ckContent, this);
+      };
 
-    /* Show step 2 */
-    step1.style.display = 'none';
-    step2.style.display = 'block';
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+      var qrSrc = 'https://img.vietqr.io/image/' +
+        BANK.code + '-' + BANK.account + '-qr_only.png' +
+        '?amount=' + AMOUNT +
+        '&addInfo=' + encodeURIComponent(ckContent) +
+        '&accountName=' + encodeURIComponent(BANK.owner);
+      document.getElementById('qr-img').src = qrSrc;
 
-    /* Start polling */
-    startPolling(ref);
+      document.getElementById('pay-waiting').style.display = 'flex';
+      document.getElementById('pay-success').classList.remove('is-visible');
+
+      step1.style.display = 'none';
+      step2.style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      startPolling(orderId);
+    })
+    .catch(function (err) {
+      alert('Có lỗi xảy ra: ' + err.message + '. Vui lòng thử lại.');
+      btnSubmit.disabled = false;
+      btnSubmit.textContent = 'THANH TOÁN NGAY';
+    });
   }
 
   /* ── Form submit ── */
@@ -878,7 +885,7 @@
      Uncomment khi đã có /api/check-payment  ── */
   var pollTimer = null;
 
-  function startPolling(ref) {
+  function startPolling(orderId) {
     clearInterval(pollTimer);
     var attempts = 0;
     var maxAttempts = 120; /* 10 phút */
@@ -887,23 +894,24 @@
       attempts++;
       if (attempts >= maxAttempts) { clearInterval(pollTimer); return; }
 
-      /*
-      fetch(SEPAY_CHECK_URL + '?ref=' + encodeURIComponent(ref))
+      fetch(GAS_URL + '?action=getStatus&orderId=' + encodeURIComponent(orderId))
         .then(function (r) { return r.json(); })
         .then(function (data) {
-          if (data.confirmed) {
+          if (data.success && data.status === 'PAID') {
             clearInterval(pollTimer);
             onPaymentConfirmed();
           }
         })
-        .catch(function () {}); // silent fail — keep polling
-      */
+        .catch(function () {});
     }, 5000);
   }
 
   function onPaymentConfirmed() {
     document.getElementById('pay-waiting').style.display = 'none';
     document.getElementById('pay-success').classList.add('is-visible');
+    setTimeout(function () {
+      window.location.href = 'https://www.flowleader.vn/cam-on-vip';
+    }, 2000);
   }
 
   /* expose for manual testing: window.simulatePayment() */
