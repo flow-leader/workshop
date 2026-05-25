@@ -797,6 +797,9 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
       }).catch(function () {});
     }
 
+    // Track lead before redirect
+    fbq('track', 'Lead');
+
     // Redirect to VIP page (upsell)
     window.location.href = 'https://www.flowleader.vn/ve-vip';
   });
