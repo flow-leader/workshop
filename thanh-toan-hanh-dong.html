@@ -925,6 +925,7 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
   }
 
   function onPaymentConfirmed() {
+    fbq('track', 'Purchase', {value: 161000, currency: 'VND'});
     document.getElementById('pay-waiting').style.display = 'none';
     document.getElementById('pay-success').classList.add('is-visible');
     setTimeout(function () {
@@ -932,8 +933,7 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
     }, 2000);
   }
 
-  /* expose for manual testing: window.simulatePayment() */
-  window.simulatePayment = function () { onPaymentConfirmed(); };
+  /* simulatePayment() removed — was triggering false Purchase events on Facebook Pixel */
 
 })();
 
