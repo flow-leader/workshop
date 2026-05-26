@@ -772,19 +772,33 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
       source_url: (document.getElementById('field_source_url') || {}).value || ''
     };
 
-    /* ── Gửi data lên Google Sheets (fire-and-forget) ── */
+    /* ── Gửi data lên Google Sheets ──
+       Dùng sendBeacon thay fetch để đảm bảo gửi được ngay cả khi
+       browser navigate đi (fix lỗi mobile không lưu data)       */
     if (SHEET_URL !== 'PASTE_YOUR_APPS_SCRIPT_URL_HERE') {
-      fetch(SHEET_URL, {
-        method:  'POST',
-        mode:    'no-cors',
-        headers: { 'Content-Type': 'text/plain' },
-        body:    JSON.stringify(payload)
-      }).catch(function () {});
+      var body = JSON.stringify(payload);
+      if (navigator.sendBeacon) {
+        navigator.sendBeacon(SHEET_URL, new Blob([body], { type: 'text/plain' }));
+      } else {
+        fetch(SHEET_URL, {
+          method:  'POST',
+          mode:    'no-cors',
+          headers: { 'Content-Type': 'text/plain' },
+          body:    body
+        }).catch(function () {});
+      }
     }
 
-    /* ── Subscribe khách free vào Kit.com Sequence (fire-and-forget) ── */
+    /* ── Subscribe khách free vào Kit.com Sequence ──
+       Đợi Kit.com xong rồi mới redirect để tránh bị cancel trên mobile */
     var KIT_API_KEY  = 'NAlxSEIeH8ohfCIO8fW7vQ';
     var KIT_SEQ_ID   = '2768955';
+
+    function doRedirect() {
+      fbq('track', 'Lead');
+      window.location.href = 'https://www.flowleader.vn/ve-vip';
+    }
+
     if (KIT_SEQ_ID !== 'ĐẶT_SEQUENCE_ID_VÀO_ĐÂY' && payload.email) {
       fetch('https://api.convertkit.com/v3/sequences/' + KIT_SEQ_ID + '/subscribe', {
         method:  'POST',
@@ -794,14 +808,12 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
           email:      payload.email,
           first_name: payload.name || ''
         })
-      }).catch(function () {});
+      })
+      .catch(function () {})
+      .then(function () { doRedirect(); });
+    } else {
+      doRedirect();
     }
-
-    // Track lead before redirect
-    fbq('track', 'Lead');
-
-    // Redirect to VIP page (upsell)
-    window.location.href = 'https://www.flowleader.vn/ve-vip';
   });
 
 })();
