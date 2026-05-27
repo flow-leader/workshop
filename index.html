@@ -806,7 +806,14 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
         body:    JSON.stringify({
           api_key:    KIT_API_KEY,
           email:      payload.email,
-          first_name: payload.name || ''
+          first_name: payload.name || '',
+          fields: {
+            phone:      payload.phone      || '',
+            age:        payload.age        || '',
+            status:     payload.status     || '',
+            goals:      payload.goals      || '',
+            source_url: payload.source_url || ''
+          }
         })
       })
       .catch(function () {})
