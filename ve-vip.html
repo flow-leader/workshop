@@ -14,18 +14,23 @@
       max-width: 740px;
     }
 
+    /* Nút CÓ — text ngắn, giữ 1 dòng, scale font theo viewport */
     .btn-cta.btn-cta--sm {
-      font-size: clamp(13px, 3.8vw, 20px);
-      padding: 20px 24px;
+      font-size: clamp(11px, 3.8vw, 20px);
+      padding: 18px 20px;
       min-height: 64px;
       white-space: nowrap;
       overflow: hidden;
     }
+    /* Nút Không — text dài, cho wrap tự nhiên bên trong button */
     .btn-no {
-      font-size: clamp(13px, 3.8vw, 20px);
+      font-size: clamp(14px, 3.8vw, 18px);
       min-height: 56px;
-      white-space: nowrap;
-      overflow: hidden;
+      white-space: normal;
+      overflow: visible;
+      text-align: center;
+      line-height: 1.45;
+      padding: 14px 20px;
     }
   </style>
 <!-- Meta Pixel Code -->

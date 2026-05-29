@@ -7,12 +7,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* ─── S1 hero: constrain to 800px like ve-vip, so button fills ~98% of container ─── */
+    /* ─── Buttons: desktop 1 dòng, mobile wrap gọn ─── */
     .btn-cta.btn-cta--sm {
       font-size: clamp(13px, 3.8vw, 20px);
       padding: 20px 24px;
       min-height: 64px;
-      white-space: nowrap;
+      white-space: nowrap;   /* desktop: 1 dòng — button 740px thừa chỗ */
       overflow: hidden;
     }
     .btn-no {
@@ -20,6 +20,24 @@
       min-height: 56px;
       white-space: nowrap;
       overflow: hidden;
+    }
+
+    /* ─── Mobile ≤540px: cho phép wrap — text luôn hiện đủ, không bị clip ─── */
+    @media (max-width: 540px) {
+      .btn-cta.btn-cta--sm {
+        white-space: normal;
+        overflow: visible;
+        line-height: 1.35;
+        padding: 16px 18px;
+        min-height: unset;
+      }
+      .btn-no {
+        white-space: normal;
+        overflow: visible;
+        line-height: 1.35;
+        padding: 14px 18px;
+        min-height: unset;
+      }
     }
 
     /* ─── Desktop (~14"): button fixed 780px, responsive on smaller screens ─── */
