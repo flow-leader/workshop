@@ -1574,6 +1574,23 @@ img { display: block; max-width: 100%; }
 }
 
 /* ════════════════════════════════════════
+   UPSELL v2 — BTN-NO HINT TEXT
+════════════════════════════════════════ */
+.btn-no-hint {
+  font-family: var(--fb);
+  font-size: 13px;
+  color: #fff;
+  text-align: center;
+  margin-top: 10px;
+  line-height: 1.5;
+  opacity: 0.75;
+}
+.sec--light .btn-no-hint {
+  color: var(--primary);
+  opacity: 0.85;
+}
+
+/* ════════════════════════════════════════
    UPSELL v2 — TICKET CARD LAYER FIX
    Ensure header/body content sits on top of gradient bg
 ════════════════════════════════════════ */
