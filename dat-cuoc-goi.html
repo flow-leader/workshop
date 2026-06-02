@@ -8,8 +8,14 @@
   <link rel="stylesheet" href="style.css">
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
   <style>
-    /* Override primary color for this page */
-    :root { --primary: #121936; }
+    /* Override colors for this page */
+    :root { --primary: #121936; --gold: #c5a152; }
+
+    /* Wider desktop layout */
+    .wrap { max-width: 1320px; padding-left: 40px; padding-right: 40px; }
+    @media (max-width: 768px) { .wrap { padding-left: 20px; padding-right: 20px; } }
+    .booking-hero__wrap { max-width: 1100px; }
+    .cal-wrap { max-width: 800px; }
 
     /* ── GOLD VERTICAL LINE (Mẫu 2) ── */
     .gold-vline {
@@ -25,56 +31,79 @@
     /* ── S1 HERO ── */
     .booking-hero { background: #121936; padding: 72px 0 56px; }
     .booking-hero__wrap {
-      width: 100%; max-width: 760px;
-      margin: 0 auto; padding: 0 16px; text-align: center;
+      width: 100%; max-width: 920px;
+      margin: 0 auto; padding: 0 32px; text-align: center;
     }
     .booking-hero__badge {
-      display: inline-flex; align-items: center; gap: 9px;
-      padding: 7px 18px 7px 12px; border-radius: 999px;
-      border: 1px solid rgba(226,194,122,.35);
-      background: rgba(255,255,255,.06); margin-bottom: 28px;
-    }
-    .booking-hero__badge-dot {
-      width: 8px; height: 8px; border-radius: 50%;
-      background: var(--gold); flex-shrink: 0;
-      box-shadow: 0 0 7px 2px rgba(226,194,122,.55);
-      animation: pulse-glow 2.4s ease-in-out infinite;
+      display: block; margin-bottom: 24px;
     }
     .booking-hero__badge-text {
       font-family: var(--fb); font-size: 12px; font-weight: 700;
-      text-transform: uppercase; letter-spacing: .10em; color: #fff;
+      text-transform: uppercase; letter-spacing: .10em; color: var(--gold);
     }
     .booking-hero__headline {
-      font-family: var(--fd); font-size: clamp(24px,3.2vw,38px);
-      font-weight: 700; line-height: 1.35; color: #fff; margin-bottom: 20px;
+      font-family: var(--fd); font-size: clamp(22px,3.2vw,32px);
+      font-weight: 700; line-height: 1.40; color: #fff; margin-bottom: 20px;
     }
     .booking-hero__sub {
-      font-family: var(--fb); font-size: 16px; font-weight: 500;
-      line-height: 1.75; color: rgba(255,255,255,.75);
-      max-width: 600px; margin: 0 auto 24px;
+      font-family: var(--fd); font-size: clamp(18px,2.8vw,28px); font-weight: 700;
+      font-style: italic; line-height: 1.50; color: rgba(255,255,255,.85);
+      max-width: 780px; margin: 0 auto 24px;
     }
     .booking-hero__quote {
-      font-family: var(--fd); font-style: italic;
-      font-size: 15px; color: rgba(255,255,255,.50); margin-bottom: 40px;
+      font-family: var(--fb); font-style: italic; font-weight: 400;
+      font-size: 18px; color: rgba(255,255,255,.60); margin-bottom: 40px;
     }
     .booking-hero__img { max-width: 800px; margin: 0 auto; border-radius: 16px; overflow: hidden; }
     .booking-hero__img img { width: 100%; display: block; border-radius: 16px; }
 
-    /* ── S2 CALENDAR ── */
+    /* ── S2 + S11 CALENDAR ── */
     .cal-sec { background: #121936; padding: 0 0 80px; }
-    .cal-wrap { max-width: 900px; margin: 0 auto; padding: 0 16px; }
+    .cal-wrap { max-width: 800px; margin: 0 auto; padding: 0 16px; }
     .cal-box {
-      background: #fff; border-radius: 20px;
-      box-shadow: 0 16px 56px rgba(0,0,0,.25); overflow: hidden;
+      background: #ffffff; border-radius: 24px;
+      box-shadow: 0 24px 80px rgba(0,0,0,.30), 0 4px 16px rgba(0,0,0,.12);
+      overflow: hidden; display: flex;
+      aspect-ratio: 5 / 3;
     }
-    .cal-box img { width: 100%; display: block; border-radius: 20px; }
-    .cal-box iframe { width: 100%; min-height: 700px; border: none; display: block; }
+    /* Left info panel */
+    .cal-info {
+      width: 280px; flex-shrink: 0; padding: 40px 32px;
+      border-right: 1px solid rgba(0,0,0,.08);
+      display: flex; flex-direction: column; justify-content: flex-start;
+      background: #fff;
+    }
+    .cal-info__brand {
+      display: inline-block; background: #c5a152; color: #fff;
+      font-family: var(--fb); font-size: 10px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .10em;
+      padding: 5px 12px; border-radius: 6px; margin-bottom: 24px;
+      align-self: flex-start;
+    }
+    .cal-info__title {
+      font-family: var(--fd); font-size: 20px; font-weight: 700;
+      color: #121936; line-height: 1.35; margin-bottom: 28px;
+    }
+    .cal-info__meta { display: flex; flex-direction: column; gap: 14px; }
+    .cal-info__item {
+      display: flex; align-items: center; gap: 10px;
+      font-family: var(--fb); font-size: 14px; font-weight: 500; color: #444;
+    }
+    .cal-info__item svg { flex-shrink: 0; color: var(--gold); }
+    /* Right widget panel */
+    .cal-widget { flex: 1; min-width: 0; overflow: hidden; }
+    .cal-widget .calendly-inline-widget { width: 100% !important; height: 100% !important; min-height: unset !important; }
+    @media (max-width: 680px) {
+      .cal-box { flex-direction: column; aspect-ratio: unset; }
+      .cal-info { width: 100%; border-right: none; border-bottom: 1px solid rgba(0,0,0,.08); padding: 28px 24px; }
+      .cal-widget .calendly-inline-widget { height: 600px !important; }
+    }
 
-    /* ── S3 STORY (nền #fef3da) ── */
-    .dcg-story-sec { background: #fef3da; padding: 80px 0; }
+    /* ── S3 STORY (nền #f8f3ef) ── */
+    .dcg-story-sec { background: #f8f3ef; padding: 80px 0; }
     .dcg-story-sec h2 {
       font-family: var(--fd); font-size: clamp(20px,2.4vw,26px);
-      font-weight: 700; color: #121936;
+      font-weight: 700; color: #000;
       line-height: 1.35; margin-bottom: 20px; text-align: left;
     }
     .dcg-story-sec p {
@@ -84,6 +113,13 @@
     .dcg-story-sec p:last-of-type { margin-bottom: 0; }
     .dcg-story-sec strong { color: #000; font-weight: 700; }
     .dcg-story-sec em { font-style: italic; }
+    /* S3 gold → #c5a152 overrides */
+    .dcg-story-sec .bullet-star-list li .star { color: #c5a152; }
+    .dcg-story-sec .bullet-tick-list li .tick-gold { background: #c5a152; }
+    .dcg-story-sec .imagine-card { border-left-color: #c5a152; }
+    .dcg-story-sec .imagine-card__title { color: #c5a152; }
+    .dcg-story-sec .story-formula-line { color: #c5a152 !important; }
+    .dcg-story-sec .story-formula-box { background: #121936; }
     .story-break { font-family: var(--fd); font-size: 20px; color: rgba(0,0,0,.15); margin: 24px 0; text-align: left; }
     .story-block { margin-bottom: 52px; }
     .story-block:last-child { margin-bottom: 0; }
@@ -109,26 +145,25 @@
     }
     .bullet-tick-list li .tick-gold svg { display: block; }
 
-    /* Mẫu 1: 2x2 feature grid */
+    /* Horizontal blockquote-style imagine items */
     .imagine-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 20px; margin: 24px 0;
+      display: flex; flex-direction: column; gap: 0; margin: 24px 0;
     }
     .imagine-card {
-      background: #fff; border-radius: 16px;
-      border: 1px solid rgba(0,0,0,.07);
-      padding: 28px 28px;
+      display: flex; gap: 0;
+      border-left: 3px solid var(--gold);
+      padding: 20px 0 20px 24px;
+      border-bottom: 1px solid rgba(0,0,0,.08);
     }
-    .imagine-card__icon {
-      font-size: 28px; margin-bottom: 14px; display: block;
-    }
+    .imagine-card:last-child { border-bottom: none; }
+    .imagine-card__icon { display: none; }
     .imagine-card__title {
       font-family: var(--fd); font-size: 16px; font-weight: 700;
-      color: #121936; margin-bottom: 10px; line-height: 1.35;
+      color: var(--gold); margin-bottom: 8px; line-height: 1.35;
     }
     .imagine-card__body {
       font-family: var(--fb); font-size: 15px; font-weight: 500;
-      line-height: 1.72; color: #444;
+      line-height: 1.72; color: #121936; margin: 0;
     }
     .imagine-card__body strong { color: #121936; font-weight: 700; }
 
@@ -145,8 +180,16 @@
     .story-formula-box p:last-of-type { margin-bottom: 0; }
     .story-formula-line {
       font-family: var(--fd); font-size: 17px; font-weight: 700;
-      color: var(--gold) !important; line-height: 1.65;
+      color: var(--gold) !important; line-height: 1.9;
       display: block; margin-bottom: 16px; text-align: center;
+    }
+    .formula-sub {
+      font-family: var(--fb); font-size: 13px; font-weight: 400;
+      color: rgba(197,161,82,.55) !important; font-style: italic;
+    }
+    .formula-op {
+      font-family: var(--fb); font-size: 20px; font-weight: 300;
+      color: rgba(197,161,82,.50) !important; line-height: 1.2;
     }
     /* closing headline */
     .story-closing-headline {
@@ -174,7 +217,7 @@
     }
     .program-benefits-box {
       background: rgba(255,255,255,.04);
-      border: 1.5px solid rgba(226,194,122,.25);
+      border: 1.5px solid rgba(197,161,82,.25);
       border-radius: 20px; padding: 44px 48px;
       max-width: 740px; margin: 0 auto 40px;
     }
@@ -197,8 +240,8 @@
       text-align: center;
     }
 
-    /* ── S5 FOUNDER (nền #fef3da) ── */
-    .founder-sec { background: #fef3da; padding: 80px 0; }
+    /* ── S5 FOUNDER (nền #f8f3ef) ── */
+    .founder-sec { background: #f8f3ef; padding: 80px 0; }
     .founder-card {
       background: #121936; border-radius: 24px;
       padding: 52px 56px; max-width: 1000px; margin: 0 auto;
@@ -231,7 +274,7 @@
     }
     .founder-stat {
       background: rgba(255,255,255,.07); border-radius: 12px;
-      padding: 18px 20px; border: 1px solid rgba(226,194,122,.15);
+      padding: 18px 20px; border: 1px solid rgba(197,161,82,.15);
     }
     .founder-stat__value {
       font-family: var(--fd); font-size: 20px; font-weight: 700;
@@ -243,22 +286,20 @@
       color: rgba(255,255,255,.45);
     }
 
-    /* ── S6 FOR WHOM (nền #fef3da) ── */
-    .forwhom-sec { background: #fef3da; padding: 0 0 80px; }
+    /* ── S6 FOR WHOM (nền #f8f3ef) ── */
+    .forwhom-sec { background: #f8f3ef; padding: 0 0 80px; }
     .forwhom-not-box {
-      background: #fff; border: 1px solid rgba(0,0,0,.08);
-      border-radius: 16px; padding: 36px 44px;
-      max-width: 700px; margin: 0 auto 48px; text-align: center;
+      background: none; border: none;
+      padding: 0; max-width: 700px; margin: 0 auto 48px; text-align: center;
     }
     .forwhom-not-box p {
       font-family: var(--fb); font-size: 16px; font-weight: 500;
-      line-height: 1.72; color: #555; margin-bottom: 12px;
+      line-height: 1.72; color: #000; margin-bottom: 12px;
     }
     .forwhom-not-box p:last-of-type { margin-bottom: 0; }
     .forwhom-not-box .not-close {
       font-family: var(--fd); font-style: italic; font-size: 17px;
-      color: #888; margin-top: 20px;
-      border-top: 1px solid rgba(0,0,0,.08); padding-top: 20px;
+      color: #000; margin-top: 20px;
     }
     .forwhom-divider {
       display: flex; align-items: center; justify-content: center;
@@ -267,9 +308,8 @@
     .forwhom-divider__line { flex: 1; height: 1px; background: rgba(0,0,0,.12); }
     .forwhom-divider__icon { color: var(--gold); font-size: 20px; }
     .forwhom-box-light {
-      background: #fff; border-radius: 16px;
-      border: 1px solid rgba(0,0,0,.07);
-      padding: 36px 44px; max-width: 700px; margin: 0 auto;
+      background: none; border: none;
+      padding: 0; max-width: 700px; margin: 0 auto;
     }
     .forwhom-list-dark { list-style: none; display: flex; flex-direction: column; gap: 20px; }
     .forwhom-list-dark li {
@@ -285,7 +325,7 @@
     .roadmap-timeline::before {
       content: ''; position: absolute;
       left: 50%; top: 0; bottom: 0; width: 2px;
-      background: rgba(226,194,122,.20); transform: translateX(-50%);
+      background: rgba(197,161,82,.20); transform: translateX(-50%);
     }
     .tl-item {
       display: grid; grid-template-columns: 1fr 64px 1fr;
@@ -309,7 +349,7 @@
     .tl-item--right .tl-item__content { grid-column: 3; }
     .tl-content {
       background: rgba(255,255,255,.04);
-      border: 1px solid rgba(226,194,122,.15);
+      border: 1px solid rgba(197,161,82,.15);
       border-radius: 16px; padding: 28px 32px;
     }
     .tl-content__tag {
@@ -327,17 +367,17 @@
     }
     .tl-item--bonus { grid-template-columns: 1fr; justify-items: center; }
     .tl-item--bonus .tl-item__num-wrap { margin-bottom: 20px; }
-    .tl-item--bonus .tl-content { max-width: 540px; width: 100%; text-align: center; border-color: rgba(226,194,122,.30); }
+    .tl-item--bonus .tl-content { max-width: 540px; width: 100%; text-align: center; border-color: rgba(197,161,82,.30); }
 
-    /* ── S8 PACKAGE (light) ── */
-    .package-sec { background: var(--light); padding: 80px 0; }
+    /* ── S8 PACKAGE (nền #f8f3ef) ── */
+    .package-sec { background: #f8f3ef; padding: 80px 0; }
     .pkg-grid {
       display: grid; grid-template-columns: repeat(2,1fr);
       gap: 24px; max-width: 840px; margin: 48px auto 0;
     }
     .pkg-card2 {
-      background: #fff; border-radius: 20px;
-      border: 1px solid rgba(0,0,0,.07);
+      background: #121936; border-radius: 20px;
+      border: 1px solid rgba(197,161,82,.20);
       padding: 32px 28px; display: flex; flex-direction: column; gap: 12px;
     }
     .pkg-card2__head {
@@ -346,7 +386,7 @@
     }
     .pkg-card2__icon {
       width: 52px; height: 52px; border-radius: 14px;
-      background: rgba(226,194,122,.12); border: 1px solid rgba(226,194,122,.30);
+      background: rgba(197,161,82,.15); border: 1px solid rgba(197,161,82,.35);
       display: flex; align-items: center; justify-content: center;
       flex-shrink: 0; font-size: 24px;
     }
@@ -354,25 +394,25 @@
     .pkg-card2__num {
       font-family: var(--fb); font-size: 10px; font-weight: 700;
       text-transform: uppercase; letter-spacing: .12em;
-      color: var(--muted); display: block; margin-bottom: 4px;
+      color: rgba(255,255,255,.40); display: block; margin-bottom: 4px;
     }
     .pkg-card2__value {
       font-family: var(--fd); font-size: 20px; font-weight: 700; color: var(--gold);
     }
     .pkg-card2__title {
       font-family: var(--fd); font-size: 17px; font-weight: 700;
-      color: #121936; line-height: 1.35;
+      color: #fff; line-height: 1.35;
     }
     .pkg-card2__desc {
       font-family: var(--fb); font-size: 14px; font-weight: 400;
-      line-height: 1.72; color: var(--muted);
+      line-height: 1.72; color: rgba(255,255,255,.65);
     }
-    .pkg-card2__desc strong { color: #121936; font-weight: 700; }
+    .pkg-card2__desc strong { color: #fff; font-weight: 700; }
 
-    /* ── S9 GUARANTEE (light) ── */
-    .guarantee-sec { background: var(--light); padding: 80px 0; }
+    /* ── S9 GUARANTEE (nền #f8f3ef) ── */
+    .guarantee-sec { background: #f8f3ef; padding: 80px 0; }
     .guarantee-card2 {
-      background: #fff; border-radius: 20px;
+      background: #ede5da; border-radius: 20px;
       border: 1px solid rgba(0,0,0,.08);
       padding: 52px 56px; max-width: 760px; margin: 40px auto 0;
       position: relative;
@@ -380,30 +420,31 @@
     .guarantee-card2__star {
       position: absolute; top: -20px; right: 40px;
       width: 48px; height: 48px;
-      background: var(--gold); border-radius: 50%;
+      background: #121936; border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
-      font-size: 22px; line-height: 1;
-      box-shadow: 0 4px 16px rgba(226,194,122,.40);
+      font-size: 22px; line-height: 1; color: #c5a152;
+      box-shadow: 0 4px 16px rgba(0,0,0,.25);
     }
     .guarantee-card2__headline {
       font-family: var(--fd); font-size: clamp(20px,2.4vw,26px);
-      font-weight: 700; color: var(--gold); margin-bottom: 28px;
+      font-weight: 700; color: #121936; margin-bottom: 28px;
     }
     .guarantee-card2 .intro-text {
       font-family: var(--fd); font-style: italic; font-size: 16px;
-      line-height: 1.78; color: #555; margin-bottom: 28px;
+      line-height: 1.78; color: rgba(0,0,0,.75); margin-bottom: 28px;
     }
     .guarantee-quote-box {
-      border: 1.5px solid rgba(226,194,122,.45);
+      border: 1.5px solid rgba(0,0,0,.20);
       border-radius: 12px; padding: 28px 32px; margin: 0 0 28px;
+      background: rgba(255,255,255,.25);
     }
     .guarantee-quote-box p {
       font-family: var(--fd); font-size: 18px; font-weight: 700;
-      line-height: 1.65; color: #000;
+      line-height: 1.65; color: #121936;
     }
     .guarantee-outro {
       font-family: var(--fd); font-style: italic; font-size: 16px;
-      line-height: 1.72; color: #777; margin-bottom: 28px;
+      line-height: 1.72; color: rgba(0,0,0,.65); margin-bottom: 28px;
     }
     .guarantee-sig2 {
       font-family: 'Great Vibes', cursive; font-size: 44px;
@@ -411,7 +452,7 @@
     }
     .guarantee-role {
       font-family: var(--fb); font-size: 11px; font-weight: 700;
-      text-transform: uppercase; letter-spacing: .12em; color: var(--muted);
+      text-transform: uppercase; letter-spacing: .12em; color: rgba(0,0,0,.55);
     }
 
     /* ── S10 CTA + CAL (dark) ── */
@@ -445,8 +486,8 @@
       color: rgba(255,255,255,.40); margin-top: 20px; line-height: 1.6;
     }
 
-    /* ── FAQ ── */
-    .faq-sec { background: var(--light); padding: 80px 0; }
+    /* ── FAQ (S11, nền #f8f3ef) ── */
+    .faq-sec { background: #f8f3ef; padding: 80px 0; }
     .faq-list { max-width: 740px; margin: 40px auto 0; display: flex; flex-direction: column; gap: 20px; }
     .faq-item { background: #fff; border-radius: 14px; border: 1px solid rgba(0,0,0,.07); overflow: hidden; }
     .faq-q {
@@ -459,10 +500,10 @@
       color: #121936; line-height: 1.45; flex: 1;
     }
     .faq-q__icon {
-      flex-shrink: 0; width: 24px; height: 24px;
-      border: 2px solid #121936; border-radius: 50%;
+      flex-shrink: 0; width: 28px; height: 28px;
+      background: transparent; border: 2px solid #c5a152; border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
-      color: #121936; font-size: 18px; font-weight: 400;
+      color: #c5a152; font-size: 18px; font-weight: 700;
       transition: transform .2s; margin-top: 2px; line-height: 1;
     }
     .faq-item.is-open .faq-q__icon { transform: rotate(45deg); }
@@ -515,9 +556,9 @@
       .pkg-grid { grid-template-columns: 1fr; max-width: 100%; }
       .guarantee-card2 { padding: 40px 24px; }
       .guarantee-card2__star { right: 20px; }
-      .forwhom-not-box { padding: 28px 24px; }
+      .forwhom-not-box { padding: 0; }
       .program-benefits-box { padding: 32px 24px; }
-      .forwhom-box-light { padding: 28px 24px; }
+      .forwhom-box-light { padding: 0; }
       .imagine-grid { grid-template-columns: 1fr; }
     }
   </style>
@@ -552,13 +593,11 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
   <div class="booking-hero__wrap">
 
     <div class="booking-hero__badge">
-      <span class="booking-hero__badge-dot"></span>
-      <span class="booking-hero__badge-text">Dành cho Team Lead, Trưởng phòng khao khát lead hiệu quả, được ghi nhận và sống trọn vẹn hơn</span>
+      <span class="booking-hero__badge-text">DÀNH CHO TEAM LEAD, TRƯỞNG PHÒNG KHAO KHÁT LEAD HIỆU QUẢ, ĐƯỢC GHI NHẬN VÀ SỐNG TRỌN VẸN HƠN</span>
     </div>
 
     <h1 class="booking-hero__headline">
-      Sora Muốn Đồng Hành Trực Tiếp Cùng Bạn Trong <span class="gold-text">8 Tuần</span> Để Bạn Trở Thành <span class="gold-text">Phiên Bản Giá Trị Cao</span> Trong Công Việc<br>
-      Lead Hiệu Quả, Thăng Tiến Và Trọn Vẹn
+      Sora Muốn Đồng Hành Trực Tiếp Cùng Bạn Trong <span class="gold-text">8 Tuần</span> Để Bạn Trở Thành <span class="gold-text">Phiên Bản Giá Trị Cao</span> Trong Công Việc <span style="color:#c5a152;">Lead Hiệu Quả, Thăng Tiến Và Trọn Vẹn</span>
     </h1>
 
     <p class="booking-hero__sub">
@@ -581,7 +620,26 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
 <section class="cal-sec">
   <div class="cal-wrap">
     <div class="cal-box">
-      <img src="assets/images/Lịch.png" alt="Đặt lịch cuộc gọi với Sora">
+      <div class="cal-info">
+        <span class="cal-info__brand">Flow Leader Mastery</span>
+        <h2 class="cal-info__title">Đặt lịch tư vấn<br>Flow Leader Mastery</h2>
+        <div class="cal-info__meta">
+          <div class="cal-info__item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            45 phút
+          </div>
+          <div class="cal-info__item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="15" height="12" rx="2"/><path d="M17 11l5-3v8l-5-3V11z"/></svg>
+            Qua Zoom
+          </div>
+        </div>
+      </div>
+      <div class="cal-widget">
+        <!-- Calendly inline widget begin -->
+        <div class="calendly-inline-widget" data-url="https://calendly.com/sora-flowleader/new-meeting?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=c5a152" style="min-width:320px;height:100%;"></div>
+        <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+        <!-- Calendly inline widget end -->
+      </div>
     </div>
   </div>
 </section>
@@ -625,7 +683,7 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
 
       <!-- 3.2 Lý do -->
       <div class="story-block">
-        <h2>Và đó là lý do mình xây dựng nên<br>chương trình <span style="color:#E2C27A;">Flow Leader Mastery</span></h2>
+        <h2>Và đó là lý do mình xây dựng nên<br>chương trình <span style="color:#c5a152;">Flow Leader Mastery</span></h2>
 
         <p>Đây không phải là một khóa học để bạn tiếp tục ngồi học lý thuyết về quản lý. Đây là 8 tuần đồng hành thực sự — làm cùng nhau, từng bước một.</p>
         <p>Bởi vì mình tin vào tiềm năng bạn đang có. Có thể vì một lý do nào đó, bạn chưa tìm được cách khai thác nó đúng hướng. Nhưng điều đó không có nghĩa là bạn không đủ năng lực. Điều đó chỉ có nghĩa là bạn cần:</p>
@@ -649,33 +707,37 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
 
       <!-- 3.3 Phiên bản giá trị cao -->
       <div class="story-block">
-        <h2>Tại sao lại là <span style="color:#E2C27A;">Phiên bản Giá trị cao trong công việc</span>?</h2>
+        <h2>Tại sao lại là <span style="color:#c5a152;">Phiên bản Giá trị cao trong công việc</span>?</h2>
 
         <p>Có thể bạn đang tự hỏi: <em>"Phiên bản giá trị cao trong công việc — điều đó có nghĩa gì?"</em></p>
         <p>Không phải là người làm nhiều nhất. Không phải là người giỏi chuyên môn nhất. Và chắc chắn không phải là người gánh nhiều nhất.</p>
         <p><strong>Hãy tưởng tượng:</strong></p>
 
-        <!-- Mẫu 1: 2x2 grid cards -->
+        <!-- Horizontal blockquote-style imagine items -->
         <div class="imagine-grid">
           <div class="imagine-card">
-            <span class="imagine-card__icon">🎯</span>
-            <div class="imagine-card__title">Lead không bị lệch hướng</div>
-            <p class="imagine-card__body">Sếp giao việc — bạn biết cách nhận, biết cách đàm phán KPI, biết cách làm mà không bị lệch hướng. Sếp yên tâm, không cần gọi vào cuối tuần.<br>Nhân viên nhận việc — làm đúng ý, không phải hỏi lại, không cần bạn đi dọn rác phía sau. Team tự chạy được.</p>
+            <div>
+              <div class="imagine-card__title">Lead không bị lệch hướng</div>
+              <p class="imagine-card__body">Sếp giao việc — bạn biết cách nhận, biết cách đàm phán KPI, biết cách làm mà không bị lệch hướng. Sếp yên tâm, không cần gọi vào cuối tuần. Nhân viên nhận việc — làm đúng ý, không phải hỏi lại, không cần bạn đi dọn rác phía sau. Team tự chạy được.</p>
+            </div>
           </div>
           <div class="imagine-card">
-            <span class="imagine-card__icon">⏱️</span>
-            <div class="imagine-card__title">Làm việc 4–6 tiếng/ngày</div>
-            <p class="imagine-card__body">Không còn OT, không còn làm cuối tuần. Thời gian làm việc tối ưu xuống 4–6 tiếng/ngày — còn lại là thời gian cho bản thân, cho những thứ thực sự quan trọng với bạn.</p>
+            <div>
+              <div class="imagine-card__title">Làm việc 4–6 tiếng/ngày</div>
+              <p class="imagine-card__body">Không còn OT, không còn làm cuối tuần. Thời gian làm việc tối ưu xuống 4–6 tiếng/ngày — còn lại là thời gian cho bản thân, cho những thứ thực sự quan trọng với bạn.</p>
+            </div>
           </div>
           <div class="imagine-card">
-            <span class="imagine-card__icon">📈</span>
-            <div class="imagine-card__title">Thăng tiến &amp; lương mới 125–200%</div>
-            <p class="imagine-card__body">Biết rõ hướng phát triển của mình. Tự tin đứng ở vị thế sẵn sàng thăng tiến và nhận mức lương mới <strong>125–200%</strong> — không phải xin xỏ, không phải cố chứng minh quá nhiều.</p>
+            <div>
+              <div class="imagine-card__title">Thăng tiến &amp; lương mới 125–200%</div>
+              <p class="imagine-card__body">Biết rõ hướng phát triển của mình. Tự tin đứng ở vị thế sẵn sàng thăng tiến và nhận mức lương mới <strong>125–200%</strong> — không phải xin xỏ, không phải cố chứng minh quá nhiều.</p>
+            </div>
           </div>
           <div class="imagine-card">
-            <span class="imagine-card__icon">🌿</span>
-            <div class="imagine-card__title">Sống trọn vẹn sau giờ làm</div>
-            <p class="imagine-card__body">Về nhà tắt máy được. Ngủ ngon. Không còn để công việc ám ảnh sau giờ làm. Sống động, chân thực và trọn vẹn — lead bằng con người thật của mình, không cần gồng hay dồn nén cảm xúc nữa.</p>
+            <div>
+              <div class="imagine-card__title">Sống trọn vẹn sau giờ làm</div>
+              <p class="imagine-card__body">Về nhà tắt máy được. Ngủ ngon. Không còn để công việc ám ảnh sau giờ làm. Sống động, chân thực và trọn vẹn — lead bằng con người thật của mình, không cần gồng hay dồn nén cảm xúc nữa.</p>
+            </div>
           </div>
         </div>
 
@@ -685,10 +747,21 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
         <p>Khi bạn ổn từ bên trong — bạn mới thực sự dẫn dắt được. Kết quả bên ngoài sẽ đi theo sau đó, tự nhiên và bền vững hơn bất kỳ cách nào bạn đã thử.</p>
 
         <div class="story-formula-box">
-          <p>Đó chính là nền tảng của Flow Leader:</p>
-          <span class="story-formula-line">Nội Lực Tinh Thần (Bản thân trọn vẹn) + Kết Nối Con Người (Con người tâm phục)<br>+ Hệ Thống Vận Hành (Công việc hiệu quả) = FLOW LEADER™</span>
+          <p style="text-align:center;color:rgba(255,255,255,.80);">Đó chính là nền tảng của Flow Leader:</p>
+          <span class="story-formula-line">
+            Nội Lực Tinh Thần<br>
+            <span class="formula-sub">(Bản thân trọn vẹn)</span><br>
+            <span class="formula-op">+</span><br>
+            Kết Nối Con Người<br>
+            <span class="formula-sub">(Con người tâm phục)</span><br>
+            <span class="formula-op">+</span><br>
+            Hệ Thống Vận Hành<br>
+            <span class="formula-sub">(Công việc hiệu quả)</span><br>
+            <span class="formula-op">=</span><br>
+            FLOW LEADER™
+          </span>
           <p class="story-closing-headline">
-            "Định danh mới không đến từ chức danh. Nó đến từ cách bạn <span style="color:#E2C27A;">Dẫn dắt Dòng chảy</span> — với sếp, với team và với chính mình."
+            "Định danh mới không đến từ chức danh. Nó đến từ cách bạn <span style="color:#c5a152;">Dẫn dắt Dòng chảy</span> — với sếp, với team và với chính mình."
           </p>
         </div>
       </div>
@@ -718,11 +791,7 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
     </h2>
     <p class="program-name">Flow Leader Mastery</p>
 
-    <p style="font-family:var(--fb);font-size:16px;font-weight:500;line-height:1.78;color:rgba(255,255,255,.70);max-width:640px;margin:0 auto 48px;text-align:center;">
-      Bạn sẽ có Sora cùng đội ngũ đồng hành trực tiếp, làm cùng nhau, từng bước một, trong suốt 8 tuần.
-    </p>
-
-    <div class="program-benefits-box">
+    <div class="program-benefits-box" style="margin-top:0;">
       <p>Bạn sẽ có Sora cùng đội ngũ đồng hành trực tiếp,<br>làm cùng nhau, từng bước một, cho đến khi bạn có kết quả.</p>
       <ul class="program-benefits-list">
         <li>
@@ -816,7 +885,7 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
 
   <div class="wrap" style="padding-top: 64px;">
 
-    <h2 class="h2-dark" style="color:#121936;">Nhưng cộng đồng này<br>không dành cho tất cả mọi người</h2>
+    <h2 class="h2-dark" style="color:#000;">Nhưng cộng đồng này<br>không dành cho tất cả mọi người</h2>
     <div class="divider-gold"></div>
 
     <div class="forwhom-not-box">
@@ -832,34 +901,34 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
       <span class="forwhom-divider__line"></span>
     </div>
 
-    <p style="text-align:center;font-family:var(--fd);font-size:20px;font-weight:700;color:#121936;margin-bottom:28px;">Nhưng nếu bạn:</p>
+    <p style="text-align:center;font-family:var(--fd);font-size:20px;font-weight:700;color:#000;margin-bottom:28px;">Nhưng nếu bạn:</p>
 
     <div class="forwhom-box-light">
       <ul class="forwhom-list-dark">
         <li>
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="11" fill="rgba(226,194,122,0.20)"/><path d="M6 11L9.5 14.5L16 7.5" stroke="#E2C27A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="11" fill="rgba(197,161,82,0.20)"/><path d="M6 11L9.5 14.5L16 7.5" stroke="#c5a152" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           <span>Đang là Team Lead, Trưởng nhóm, Trưởng phòng và cảm thấy mình đang gánh quá nhiều mà chưa được ghi nhận xứng đáng</span>
         </li>
         <li>
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="11" fill="rgba(226,194,122,0.20)"/><path d="M6 11L9.5 14.5L16 7.5" stroke="#E2C27A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="11" fill="rgba(197,161,82,0.20)"/><path d="M6 11L9.5 14.5L16 7.5" stroke="#c5a152" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           <span>Đã thử nhiều cách nhưng vẫn bị kẹt giữa sếp và nhân viên, không biết thoát ra từ đâu</span>
         </li>
         <li>
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="11" fill="rgba(226,194,122,0.20)"/><path d="M6 11L9.5 14.5L16 7.5" stroke="#E2C27A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="11" fill="rgba(197,161,82,0.20)"/><path d="M6 11L9.5 14.5L16 7.5" stroke="#c5a152" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           <span>Muốn lead hiệu quả hơn mà không cần gồng, không cần ôm hết việc, không cần đánh đổi cuộc sống</span>
         </li>
         <li>
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="11" fill="rgba(226,194,122,0.20)"/><path d="M6 11L9.5 14.5L16 7.5" stroke="#E2C27A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="11" fill="rgba(197,161,82,0.20)"/><path d="M6 11L9.5 14.5L16 7.5" stroke="#c5a152" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           <span>Sẵn sàng thay đổi cách vận hành — từ bên trong ra ngoài</span>
         </li>
         <li>
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="11" fill="rgba(226,194,122,0.20)"/><path d="M6 11L9.5 14.5L16 7.5" stroke="#E2C27A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="11" fill="rgba(197,161,82,0.20)"/><path d="M6 11L9.5 14.5L16 7.5" stroke="#c5a152" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           <span>Muốn có một người đồng hành thực sự thay vì tiếp tục tự bơi một mình</span>
         </li>
       </ul>
     </div>
 
-    <p style="text-align:center;font-family:var(--fd);font-size:22px;font-weight:700;color:#121936;margin-top:40px;">Thì đây chính xác là điều bạn đang cần.</p>
+    <p style="text-align:center;font-family:var(--fd);font-size:22px;font-weight:700;color:#000;margin-top:40px;">Thì đây chính xác là điều bạn đang cần.</p>
 
   </div>
 
@@ -877,9 +946,8 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
 <section class="roadmap-sec">
   <div class="wrap">
 
-    <h2 class="h2-dark">Lộ trình 8 tuần trở thành phiên bản giá trị cao trong công việc</h2>
+    <h2 class="h2-dark" style="max-width:780px;margin-left:auto;margin-right:auto;">Lộ trình 8 tuần trở thành phiên bản giá trị cao trong công việc cùng <span style="color:#c5a152;">Flow Leader Mastery</span></h2>
     <div class="divider-gold"></div>
-    <p style="text-align:center;font-family:var(--fd);font-size:20px;font-weight:700;color:var(--gold);margin-bottom:0;">Flow Leader Mastery</p>
 
     <div class="roadmap-timeline">
 
@@ -954,7 +1022,7 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
   <div class="wrap">
 
     <p style="font-family:var(--fb);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);text-align:center;margin-bottom:16px;">Full Package</p>
-    <h2 class="h2-light" style="color:#121936;">Đây là những gì bạn nhận được khi tham gia <span style="color:#E2C27A;">Flow Leader Mastery</span></h2>
+    <h2 class="h2-light" style="color:#121936;max-width:760px;margin-left:auto;margin-right:auto;">Đây là những gì bạn nhận được khi tham gia <span style="color:#c5a152;">Flow Leader Mastery</span></h2>
     <div class="divider-gold"></div>
 
     <!-- 2x2 grid -->
@@ -965,16 +1033,16 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
           <div class="pkg-card2__icon">
             <!-- Roadmap / Journey icon -->
             <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4 22C4 22 7 16 14 16C21 16 24 22 24 22" stroke="#E2C27A" stroke-width="2" stroke-linecap="round"/>
-              <circle cx="14" cy="10" r="4" stroke="#E2C27A" stroke-width="2"/>
-              <path d="M14 6V4" stroke="#E2C27A" stroke-width="2" stroke-linecap="round"/>
-              <path d="M8 8L6.5 6.5" stroke="#E2C27A" stroke-width="2" stroke-linecap="round"/>
-              <path d="M20 8L21.5 6.5" stroke="#E2C27A" stroke-width="2" stroke-linecap="round"/>
+              <path d="M4 22C4 22 7 16 14 16C21 16 24 22 24 22" stroke="#c5a152" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="14" cy="10" r="4" stroke="#c5a152" stroke-width="2"/>
+              <path d="M14 6V4" stroke="#c5a152" stroke-width="2" stroke-linecap="round"/>
+              <path d="M8 8L6.5 6.5" stroke="#c5a152" stroke-width="2" stroke-linecap="round"/>
+              <path d="M20 8L21.5 6.5" stroke="#c5a152" stroke-width="2" stroke-linecap="round"/>
             </svg>
           </div>
           <div class="pkg-card2__meta">
             <span class="pkg-card2__num">Quyền lợi 01</span>
-            <span class="pkg-card2__value" style="color:#121936;">Lộ Trình</span>
+            <span class="pkg-card2__value">Lộ Trình</span>
           </div>
         </div>
         <h3 class="pkg-card2__title">8 Tuần Đồng Hành</h3>
@@ -986,8 +1054,8 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
           <div class="pkg-card2__icon">
             <!-- Video / Zoom icon -->
             <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="2" y="7" width="17" height="14" rx="3" stroke="#E2C27A" stroke-width="2"/>
-              <path d="M19 11L26 7.5V20.5L19 17V11Z" stroke="#E2C27A" stroke-width="2" stroke-linejoin="round"/>
+              <rect x="2" y="7" width="17" height="14" rx="3" stroke="#c5a152" stroke-width="2"/>
+              <path d="M19 11L26 7.5V20.5L19 17V11Z" stroke="#c5a152" stroke-width="2" stroke-linejoin="round"/>
             </svg>
           </div>
           <div class="pkg-card2__meta">
@@ -1004,12 +1072,12 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
           <div class="pkg-card2__icon">
             <!-- Notebook / Practice icon -->
             <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="5" y="3" width="16" height="22" rx="2" stroke="#E2C27A" stroke-width="2"/>
-              <path d="M9 9H19" stroke="#E2C27A" stroke-width="1.8" stroke-linecap="round"/>
-              <path d="M9 13H19" stroke="#E2C27A" stroke-width="1.8" stroke-linecap="round"/>
-              <path d="M9 17H15" stroke="#E2C27A" stroke-width="1.8" stroke-linecap="round"/>
-              <path d="M19 17L22 20L19 23" stroke="#E2C27A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M22 20H16" stroke="#E2C27A" stroke-width="1.8" stroke-linecap="round"/>
+              <rect x="5" y="3" width="16" height="22" rx="2" stroke="#c5a152" stroke-width="2"/>
+              <path d="M9 9H19" stroke="#c5a152" stroke-width="1.8" stroke-linecap="round"/>
+              <path d="M9 13H19" stroke="#c5a152" stroke-width="1.8" stroke-linecap="round"/>
+              <path d="M9 17H15" stroke="#c5a152" stroke-width="1.8" stroke-linecap="round"/>
+              <path d="M19 17L22 20L19 23" stroke="#c5a152" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M22 20H16" stroke="#c5a152" stroke-width="1.8" stroke-linecap="round"/>
             </svg>
           </div>
           <div class="pkg-card2__meta">
@@ -1026,12 +1094,12 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
           <div class="pkg-card2__icon">
             <!-- Community / People icon -->
             <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="14" cy="9" r="4" stroke="#E2C27A" stroke-width="2"/>
-              <path d="M6 23C6 19.134 9.582 16 14 16C18.418 16 22 19.134 22 23" stroke="#E2C27A" stroke-width="2" stroke-linecap="round"/>
-              <circle cx="5" cy="11" r="3" stroke="#E2C27A" stroke-width="1.6"/>
-              <path d="M1 23C1 20.239 2.791 18 5 18" stroke="#E2C27A" stroke-width="1.6" stroke-linecap="round"/>
-              <circle cx="23" cy="11" r="3" stroke="#E2C27A" stroke-width="1.6"/>
-              <path d="M27 23C27 20.239 25.209 18 23 18" stroke="#E2C27A" stroke-width="1.6" stroke-linecap="round"/>
+              <circle cx="14" cy="9" r="4" stroke="#c5a152" stroke-width="2"/>
+              <path d="M6 23C6 19.134 9.582 16 14 16C18.418 16 22 19.134 22 23" stroke="#c5a152" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="5" cy="11" r="3" stroke="#c5a152" stroke-width="1.6"/>
+              <path d="M1 23C1 20.239 2.791 18 5 18" stroke="#c5a152" stroke-width="1.6" stroke-linecap="round"/>
+              <circle cx="23" cy="11" r="3" stroke="#c5a152" stroke-width="1.6"/>
+              <path d="M27 23C27 20.239 25.209 18 23 18" stroke="#c5a152" stroke-width="1.6" stroke-linecap="round"/>
             </svg>
           </div>
           <div class="pkg-card2__meta">
@@ -1128,9 +1196,25 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
   <div class="cta-cal-calendar">
     <div class="cal-wrap">
       <div class="cal-box">
-        <div class="calendly-inline-widget"
-             data-url="https://calendly.com/sora-flowleader/new-meeting?hide_gdpr_banner=1&background_color=121936&text_color=ffffff&primary_color=E2C27A"
-             style="min-width:320px; height:700px;">
+        <div class="cal-info">
+          <span class="cal-info__brand">Flow Leader Mastery</span>
+          <h2 class="cal-info__title">Đặt lịch tư vấn<br>Flow Leader Mastery</h2>
+          <div class="cal-info__meta">
+            <div class="cal-info__item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              45 phút
+            </div>
+            <div class="cal-info__item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="15" height="12" rx="2"/><path d="M17 11l5-3v8l-5-3V11z"/></svg>
+              Qua Zoom
+            </div>
+          </div>
+        </div>
+        <div class="cal-widget">
+          <!-- Calendly inline widget begin -->
+          <div class="calendly-inline-widget" data-url="https://calendly.com/sora-flowleader/new-meeting?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=c5a152" style="min-width:320px;height:100%;"></div>
+          <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+          <!-- Calendly inline widget end -->
         </div>
       </div>
     </div>
@@ -1150,7 +1234,7 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
 <section class="faq-sec">
   <div class="wrap">
 
-    <h2 class="h2-light" style="color:#121936;">Câu Hỏi Thường Gặp</h2>
+    <h2 class="h2-light" style="color:#000;">Câu Hỏi Thường Gặp</h2>
     <div class="divider-gold"></div>
 
     <div class="faq-list">
