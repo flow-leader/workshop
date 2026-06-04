@@ -791,39 +791,9 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
       }
     }
 
-    /* ── Subscribe khách free vào Kit.com Sequence ──
-       Đợi Kit.com xong rồi mới redirect để tránh bị cancel trên mobile */
-    var KIT_API_KEY  = 'NAlxSEIeH8ohfCIO8fW7vQ';
-    var KIT_SEQ_ID   = '2768955';
-
-    function doRedirect() {
-      fbq('track', 'Lead');
-      window.location.href = 'https://www.flowleader.vn/ve-vip';
-    }
-
-    if (KIT_SEQ_ID !== 'ĐẶT_SEQUENCE_ID_VÀO_ĐÂY' && payload.email) {
-      fetch('https://api.convertkit.com/v3/sequences/' + KIT_SEQ_ID + '/subscribe', {
-        method:  'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body:    JSON.stringify({
-          api_key:    KIT_API_KEY,
-          email:      payload.email,
-          first_name: payload.name || '',
-          fields: {
-            phone:      payload.phone      || '',
-            age:        payload.age        || '',
-            status:     payload.status     || '',
-            goals:      payload.goals      || '',
-            source_url: payload.source_url || '',
-            free: payload.ws_package || 'Free'
-          }
-        })
-      })
-      .catch(function () {})
-      .then(function () { doRedirect(); });
-    } else {
-      doRedirect();
-    }
+    // Kit.com được xử lý server-side trong GAS — redirect ngay
+    fbq('track', 'Lead');
+    window.location.href = 'https://www.flowleader.vn/ve-vip';
   });
 
 })();
