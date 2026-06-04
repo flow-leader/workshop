@@ -451,6 +451,8 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
 
         <!-- Hidden: source URL (UTM tracking) -->
         <input type="hidden" name="source_url" id="field_source_url">
+        <!-- Hidden: WS Package — phân loại khách hàng Kit -->
+        <input type="hidden" name="ws_package" id="field_ws_package" value="Free">
 
         <!-- Q1: Họ và tên -->
         <div class="form-group">
@@ -768,7 +770,8 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
       status:     (form.querySelector('input[name="status"]:checked') || {}).value || '',
       goals:      goals,
       question:   (document.getElementById('field_question')   || {}).value || '',
-      source_url: (document.getElementById('field_source_url') || {}).value || ''
+      source_url: (document.getElementById('field_source_url') || {}).value || '',
+      ws_package: (document.getElementById('field_ws_package') || {}).value || 'Free'
     };
 
     /* ── Gửi data lên Google Sheets ──
@@ -811,7 +814,8 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
             age:        payload.age        || '',
             status:     payload.status     || '',
             goals:      payload.goals      || '',
-            source_url: payload.source_url || ''
+            source_url: payload.source_url || '',
+            ws_package: payload.ws_package || 'Free'
           }
         })
       })
