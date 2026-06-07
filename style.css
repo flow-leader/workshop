@@ -1619,6 +1619,22 @@ img { display: block; max-width: 100%; }
 }
 
 /* ════════════════════════════════════════
+   UPSELL v2 — EVENT NOTE BELOW BUTTONS
+════════════════════════════════════════ */
+.cta-event-note {
+  font-family: var(--fb);
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  text-align: center;
+  margin-top: 12px;
+  line-height: 1.5;
+}
+.cta-event-note .hl-gold { color: #E2C27A; font-weight: 700; }
+.sec--light .cta-event-note { color: #333; }
+.sec--light .cta-event-note .hl-gold { color: #9a6d00; }
+
+/* ════════════════════════════════════════
    UPSELL v2 — BTN-NO HINT TEXT
 ════════════════════════════════════════ */
 .btn-no-hint {
