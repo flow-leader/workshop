@@ -23,6 +23,17 @@
     .wrap .cta-pair { max-width: 740px; }
 
     /* ─── S3: problem block ─── */
+    .problem-box {
+      max-width: 740px;
+      margin: 0 auto;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 14px;
+      padding: 28px 32px;
+    }
+    @media (max-width: 600px) {
+      .problem-box { padding: 20px 20px; }
+    }
     .problem-block { max-width: 740px; margin: 0 auto; }
     .problem-intro {
       font-family: var(--fd);
@@ -252,6 +263,142 @@
     }
     .faq-a-vip__inner strong { font-weight: 700; color: #000; }
 
+    /* ─── Spots counter (thay countdown) ─── */
+    .spots-counter {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin: 20px auto 24px;
+    }
+    .spots-prefix, .spots-suffix {
+      font-family: var(--fd);
+      font-size: clamp(18px, 3vw, 24px);
+      font-weight: 700;
+      color: #fff;
+      white-space: nowrap;
+    }
+    .spots-box {
+      position: relative;
+      overflow: hidden;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(180deg, #f5e9ac 0%, #e8cb6c 35%, #c9a84c 100%);
+      border-radius: 10px;
+      padding: 8px 24px;
+      min-width: 72px;
+      animation: spots-pulse 2.8s ease-in-out infinite;
+    }
+    @keyframes spots-pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(226,194,122,0); }
+      50%       { box-shadow: 0 0 0 8px rgba(226,194,122,.28); }
+    }
+    .spots-box::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -75%;
+      width: 50%; height: 100%;
+      background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0) 35%, rgba(255,255,255,.52) 50%, rgba(255,255,255,0) 65%, transparent 100%);
+      transform: skewX(-15deg);
+      animation: shine 2.4s ease-in-out infinite;
+      pointer-events: none;
+    }
+    .spots-num {
+      font-family: var(--fd);
+      font-size: clamp(34px, 7vw, 54px);
+      font-weight: 700;
+      color: #5a3200;
+      line-height: 1;
+      position: relative;
+      z-index: 1;
+      animation: spot-drop .55s cubic-bezier(.22,.88,.36,1) both;
+    }
+    @keyframes spot-drop {
+      from { transform: translateY(-14px); opacity: 0; }
+      to   { transform: translateY(0);     opacity: 1; }
+    }
+
+    /* ─── Exit intent popup ─── */
+    .exit-overlay {
+      position: fixed; inset: 0; z-index: 9999;
+      background: rgba(10, 16, 40, 0.72);
+      display: flex; align-items: center; justify-content: center;
+      padding: 16px; box-sizing: border-box;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s ease;
+    }
+    .exit-overlay.is-visible {
+      opacity: 1; pointer-events: all;
+    }
+    .exit-modal {
+      background: #fff;
+      border-radius: 20px;
+      max-width: 460px; width: 100%;
+      position: relative;
+      box-shadow: 0 28px 64px rgba(0,0,0,.40);
+      overflow: hidden;
+      transform: translateY(20px) scale(.97);
+      transition: transform .32s cubic-bezier(.22,.88,.36,1);
+    }
+    .exit-overlay.is-visible .exit-modal {
+      transform: translateY(0) scale(1);
+    }
+    .exit-modal__top {
+      background: var(--dark);
+      padding: 28px 28px 24px;
+      text-align: center;
+    }
+    .exit-modal__tag {
+      font-family: var(--fb); font-size: 12px; font-weight: 700;
+      color: var(--gold); letter-spacing: .1em; text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .exit-modal__title {
+      font-family: var(--fd); font-size: clamp(18px, 4vw, 22px); font-weight: 700;
+      color: #fff; line-height: 1.28; margin-bottom: 8px;
+    }
+    .exit-modal__sub {
+      font-family: var(--fd); font-size: clamp(13px, 2.5vw, 15px); font-weight: 600;
+      color: var(--gold); line-height: 1.4;
+    }
+    .exit-modal__body {
+      padding: 24px 28px 28px;
+      text-align: center;
+    }
+    .exit-modal__desc {
+      font-family: var(--fb); font-size: 15px; font-weight: 500;
+      color: #444; line-height: 1.72; margin-bottom: 22px;
+    }
+    .exit-modal__btn {
+      display: flex; align-items: center; justify-content: center;
+      width: 100%;
+      padding: 17px 24px;
+      background: linear-gradient(180deg, #f5e9ac 0%, #e8cb6c 35%, #c9a84c 100%);
+      color: #5a3200;
+      font-family: var(--fd); font-size: clamp(14px, 3.5vw, 17px); font-weight: 700;
+      letter-spacing: .07em; text-transform: uppercase;
+      border: none; border-radius: 10px;
+      cursor: pointer; text-decoration: none;
+      transition: background .2s;
+      position: relative; overflow: hidden;
+    }
+    .exit-modal__btn:hover {
+      background: linear-gradient(180deg, #faedb8 0%, #efd478 35%, #d4b458 100%);
+    }
+    .exit-modal__close {
+      position: absolute; top: 12px; right: 14px;
+      background: rgba(255,255,255,.15); border: none; cursor: pointer;
+      width: 28px; height: 28px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; line-height: 1; color: rgba(255,255,255,.70);
+      transition: background .2s, color .2s;
+    }
+    .exit-modal__close:hover {
+      background: rgba(255,255,255,.28); color: #fff;
+    }
+
     /* S2 right card bullet list */
     .bridge-check-list {
       list-style: none; margin: 12px 0 0; padding: 0;
@@ -318,33 +465,19 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
       Giới Thiệu Workshop Đặc Biệt: Thực Hành Chuyên Sâu (20h ngày 2/7)
     </p>
 
-    <!-- Countdown -->
-    <div class="countdown" id="countdown" aria-label="Đồng hồ đếm ngược">
-      <div class="countdown__unit">
-        <span class="countdown__num" id="cd-days">00</span>
-        <span class="countdown__label">Ngày</span>
-      </div>
-      <span class="countdown__sep" aria-hidden="true">:</span>
-      <div class="countdown__unit">
-        <span class="countdown__num" id="cd-hours">00</span>
-        <span class="countdown__label">Giờ</span>
-      </div>
-      <span class="countdown__sep" aria-hidden="true">:</span>
-      <div class="countdown__unit">
-        <span class="countdown__num" id="cd-mins">00</span>
-        <span class="countdown__label">Phút</span>
-      </div>
-      <span class="countdown__sep" aria-hidden="true">:</span>
-      <div class="countdown__unit">
-        <span class="countdown__num" id="cd-secs">00</span>
-        <span class="countdown__label">Giây</span>
-      </div>
-    </div>
-
     <!-- Main headline -->
     <h1 class="upsell-h1">
-      Mình Sẽ Trực Tiếp Hướng Bạn Cách <span class="hl-primary">Thiết Kế Hệ Thống Năng Suất Với AI</span>, Giúp Bạn <span class="hl-primary">Tự Động Hoá 80% Công Việc</span> Lặp Lại Và Khuếch Đại Hiệu Suất Công Việc.
+      Mình Sẽ Trực Tiếp Hướng Dẫn Bạn Cách <span class="hl-primary">Thiết Kế Hệ Thống Năng Suất Với AI</span>, Giúp Bạn <span class="hl-primary">Tự Động Hoá 80% Công Việc</span> Lặp Lại Và Khuếch Đại Hiệu Suất Công Việc
     </h1>
+
+    <!-- Spots counter -->
+    <div class="spots-counter" aria-live="polite" aria-label="Số suất còn lại">
+      <span class="spots-prefix">Chỉ còn</span>
+      <div class="spots-box">
+        <span class="spots-num" id="spots-num">12</span>
+      </div>
+      <span class="spots-suffix">suất tham gia</span>
+    </div>
 
     <!-- Sub headline -->
     <p class="upsell-sub-main">
@@ -371,7 +504,7 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
         CÓ! MÌNH MUỐN NÂNG CẤP KÝ VÉ VIP
       </a>
     </div>
-    <p class="cta-event-note">Buổi 3 Thực Hành Chuyên Sâu <span class="hl-gold">Online Zoom 20h ngày 2/7</span></p>
+    <p class="cta-event-note">Tham Gia Buổi 3 Thực Hành Chuyên Sâu <span class="hl-gold">Online Zoom 20h ngày 2/7</span></p>
 
   </div>
 </section>
@@ -435,7 +568,7 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
         CÓ! MÌNH MUỐN NÂNG CẤP KÝ VÉ VIP
       </a>
     </div>
-    <p class="cta-event-note">Buổi 3 Thực Hành Chuyên Sâu <span class="hl-gold">Online Zoom 20h ngày 2/7</span></p>
+    <p class="cta-event-note">Tham Gia Buổi 3 Thực Hành Chuyên Sâu <span class="hl-gold">Online Zoom 20h ngày 2/7</span></p>
 
   </div>
 </section>
@@ -447,11 +580,11 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
 <section class="sec sec--dark">
   <div class="wrap">
 
-    <h2 class="upsell-h2-dark">Buổi Này Sẽ Giải Quyết Đúng Những Vấn Đề Khiến Bạn Chưa Tận Dụng Được Hết AI</h2>
+    <h2 class="upsell-h2-dark" style="max-width:740px; margin-left:auto; margin-right:auto;">Buổi Này Sẽ Giải Quyết Đúng Những Vấn Đề Khiến Bạn Chưa Tận Dụng Được Hết AI</h2>
     <div class="divider-gold"></div>
 
     <!-- Block 1: Problem list -->
-    <div class="problem-block">
+    <div class="problem-box">
       <p class="problem-intro">Nếu bạn đã từng thử AI và thấy:</p>
       <ul class="problem-list">
         <li>AI trả lời không như ý mình muốn</li>
@@ -518,7 +651,7 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
         CÓ! MÌNH MUỐN NÂNG CẤP KÝ VÉ VIP
       </a>
     </div>
-    <p class="cta-event-note">Buổi 3 Thực Hành Chuyên Sâu <span class="hl-gold">Online Zoom 20h ngày 2/7</span></p>
+    <p class="cta-event-note">Tham Gia Buổi 3 Thực Hành Chuyên Sâu <span class="hl-gold">Online Zoom 20h ngày 2/7</span></p>
 
   </div>
 </section>
@@ -619,7 +752,7 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
         CÓ! MÌNH MUỐN NÂNG CẤP KÝ VÉ VIP
       </a>
     </div>
-    <p class="cta-event-note">Buổi 3 Thực Hành Chuyên Sâu <span class="hl-gold">Online Zoom 20h ngày 2/7</span></p>
+    <p class="cta-event-note">Tham Gia Buổi 3 Thực Hành Chuyên Sâu <span class="hl-gold">Online Zoom 20h ngày 2/7</span></p>
 
   </div>
 </section>
@@ -727,7 +860,7 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
         CÓ! MÌNH MUỐN NÂNG CẤP KÝ VÉ VIP
       </a>
     </div>
-    <p class="cta-event-note">Buổi 3 Thực Hành Chuyên Sâu <span class="hl-gold">Online Zoom 20h ngày 2/7</span></p>
+    <p class="cta-event-note">Tham Gia Buổi 3 Thực Hành Chuyên Sâu <span class="hl-gold">Online Zoom 20h ngày 2/7</span></p>
 
   </div>
 </section>
@@ -745,42 +878,51 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
 </footer>
 
 
+<!-- ══════════════════════════════════════════
+     EXIT INTENT POPUP
+══════════════════════════════════════════ -->
+<div id="exit-overlay" class="exit-overlay" aria-hidden="true" role="dialog" aria-labelledby="exit-title">
+  <div class="exit-modal">
+    <!-- Close button -->
+    <button class="exit-modal__close" id="exit-close" aria-label="Đóng">✕</button>
+
+    <!-- Dark header -->
+    <div class="exit-modal__top">
+      <p class="exit-modal__tag">🎉 Bạn đã đăng ký thành công</p>
+      <h2 class="exit-modal__title" id="exit-title">Chúc Mừng! Bạn Đã Giữ Chỗ Thành Công.</h2>
+      <p class="exit-modal__sub">Workshop FLOW LEADER™ X2 Kết Quả Không Cần Ôm Việc.</p>
+    </div>
+
+    <!-- Body -->
+    <div class="exit-modal__body">
+      <p class="exit-modal__desc">Tham gia nhóm Zalo của workshop để nhận thông báo và link phòng Zoom nhé</p>
+      <!-- ⚠️ Cập nhật link Zalo vào href bên dưới -->
+      <a href="https://zalo.me/g/flowleader" class="exit-modal__btn" id="exit-zalo-btn" target="_blank" rel="noopener">
+        VÀO NHÓM ZALO
+      </a>
+    </div>
+  </div>
+</div>
+
+
 <script>
 (function () {
   'use strict';
 
-  /* ─── Countdown to July 2, 2026 20:00 ICT (UTC+7) ─── */
-  var TARGET = new Date('2026-07-02T20:00:00+07:00').getTime();
+  /* ─── Spots counter: giảm -1 mỗi 3 ngày kể từ 16/06/2026 ─── */
+  (function () {
+    var SPOTS_START    = 12;   // số suất ban đầu
+    var SPOTS_FLOOR    = 3;    // không xuống dưới 3
+    var DECAY_DAYS     = 3;    // giảm 1 suất mỗi 3 ngày
+    var EPOCH_MS       = new Date('2026-06-16T00:00:00+07:00').getTime();
 
-  var elD = document.getElementById('cd-days');
-  var elH = document.getElementById('cd-hours');
-  var elM = document.getElementById('cd-mins');
-  var elS = document.getElementById('cd-secs');
+    var daysPassed  = Math.floor((Date.now() - EPOCH_MS) / 86400000);
+    var decrements  = Math.floor(Math.max(0, daysPassed) / DECAY_DAYS);
+    var spots       = Math.max(SPOTS_FLOOR, SPOTS_START - decrements);
 
-  function pad(n) { return n < 10 ? '0' + n : String(n); }
-
-  function tick() {
-    var now  = Date.now();
-    var diff = TARGET - now;
-
-    if (diff <= 0) {
-      elD.textContent = elH.textContent = elM.textContent = elS.textContent = '00';
-      return;
-    }
-
-    var days  = Math.floor(diff / 86400000);
-    var hours = Math.floor((diff % 86400000) / 3600000);
-    var mins  = Math.floor((diff % 3600000)  / 60000);
-    var secs  = Math.floor((diff % 60000)    / 1000);
-
-    elD.textContent = pad(days);
-    elH.textContent = pad(hours);
-    elM.textContent = pad(mins);
-    elS.textContent = pad(secs);
-  }
-
-  tick();
-  setInterval(tick, 1000);
+    var el = document.getElementById('spots-num');
+    if (el) el.textContent = spots;
+  })();
 
   /* ─── VIP CTA links → thanh-toan-vip ─── */
   document.querySelectorAll('a[href="#checkout"]').forEach(function (btn) {
@@ -788,6 +930,52 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
       e.preventDefault();
       window.location.href = 'https://www.flowleader.vn/thanh-toan-vip';
     });
+  });
+
+  /* ─── Exit intent popup ─── */
+  var exitOverlay  = document.getElementById('exit-overlay');
+  var exitCloseBtn = document.getElementById('exit-close');
+  var exitShown    = false;
+  var pageReadyMs  = 5000; // chỉ hiện sau khi ở trang ≥5 giây
+  var enteredAt    = Date.now();
+
+  function showExitPopup() {
+    // Không hiện nếu đã hiện, hoặc user chưa ở đủ lâu
+    if (exitShown) return;
+    if (Date.now() - enteredAt < pageReadyMs) return;
+    exitShown = true;
+    exitOverlay.classList.add('is-visible');
+    exitOverlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function hideExitPopup() {
+    exitOverlay.classList.remove('is-visible');
+    exitOverlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  // Desktop: chuột rời khỏi viewport từ phía trên
+  document.addEventListener('mouseleave', function (e) {
+    if (e.clientY <= 0) showExitPopup();
+  });
+
+  // Mobile: trang bị ẩn (chuyển tab, nhấn Home)
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) showExitPopup();
+  });
+
+  // Đóng popup
+  exitCloseBtn.addEventListener('click', hideExitPopup);
+
+  // Click ra ngoài modal
+  exitOverlay.addEventListener('click', function (e) {
+    if (e.target === exitOverlay) hideExitPopup();
+  });
+
+  // Phím Esc
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') hideExitPopup();
   });
 
   /* ─── FAQ accordion ─── */
