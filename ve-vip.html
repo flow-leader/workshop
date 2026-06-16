@@ -351,7 +351,7 @@
     }
     .exit-modal__title {
       font-family: var(--fd); font-size: clamp(18px, 4vw, 22px); font-weight: 700;
-      color: #121936; line-height: 1.32; margin-bottom: 16px;
+      color: #024dc2; line-height: 1.32; margin-bottom: 16px;
     }
     .exit-modal__desc {
       font-family: var(--fb); font-size: 15px; font-weight: 500;
@@ -874,9 +874,9 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
     <!-- Body (all white) -->
     <div class="exit-modal__body">
       <h2 class="exit-modal__title" id="exit-title">
-        Workshop FLOW LEADER™<br>X2 Kết Quả Không Cần Ôm Việc.
+        Workshop FLOW LEADER™<br>X2 Kết Quả Không Cần Ôm Việc
       </h2>
-      <p class="exit-modal__desc">Tham gia nhóm Zalo của Workshop để nhận thông báo và link phòng Zoom nhé</p>
+      <p class="exit-modal__desc">Tham gia nhóm Zalo của Workshop để nhận thông báo và link phòng Zoom nhé 👉</p>
       <!-- ⚠️ Cập nhật link Zalo vào href bên dưới -->
       <a href="https://zalo.me/g/flowleader" class="exit-modal__btn" id="exit-zalo-btn" target="_blank" rel="noopener">
         VÀO NHÓM ZALO
@@ -917,13 +917,13 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
   var exitOverlay  = document.getElementById('exit-overlay');
   var exitCloseBtn = document.getElementById('exit-close');
   var exitShown    = false;
-  var pageReadyMs  = 5000; // chỉ hiện sau khi ở trang ≥5 giây
   var enteredAt    = Date.now();
+  var MIN_TIME_MS  = 5000; // chỉ hiện sau ≥5 giây ở trang
+  var isMobile     = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
   function showExitPopup() {
-    // Không hiện nếu đã hiện, hoặc user chưa ở đủ lâu
     if (exitShown) return;
-    if (Date.now() - enteredAt < pageReadyMs) return;
+    if (Date.now() - enteredAt < MIN_TIME_MS) return;
     exitShown = true;
     exitOverlay.classList.add('is-visible');
     exitOverlay.setAttribute('aria-hidden', 'false');
@@ -936,25 +936,32 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
     document.body.style.overflow = '';
   }
 
-  // Desktop: chuột rời khỏi viewport từ phía trên
-  document.addEventListener('mouseleave', function (e) {
-    if (e.clientY <= 0) showExitPopup();
-  });
+  // ── DESKTOP: chuột di lên góc trình duyệt (hướng nút đóng cửa sổ/tab) ──
+  if (!isMobile) {
+    document.addEventListener('mouseleave', function (e) {
+      if (e.clientY <= 0) showExitPopup();
+    });
+  }
 
-  // Mobile: trang bị ẩn (chuyển tab, nhấn Home)
-  document.addEventListener('visibilitychange', function () {
-    if (document.hidden) showExitPopup();
-  });
+  // ── MOBILE: lướt xuống rồi kéo nhanh trở lên đầu trang ──
+  // Lưu ý kỹ thuật: trình duyệt di động không cho phép JS phát hiện
+  // chính xác khi nào người dùng nhấn nút X của tab. Tín hiệu tốt nhất
+  // là khi người dùng đã đọc nội dung (cuộn xuống ≥300px) rồi kéo
+  // nhanh trở lại đầu trang — hành vi phổ biến nhất trước khi thoát.
+  if (isMobile) {
+    var mobileMaxScroll = 0;
+    window.addEventListener('scroll', function () {
+      var sy = window.scrollY || window.pageYOffset;
+      if (sy > mobileMaxScroll) mobileMaxScroll = sy;
+      if (mobileMaxScroll >= 300 && sy < 80) showExitPopup();
+    }, { passive: true });
+  }
 
   // Đóng popup
   exitCloseBtn.addEventListener('click', hideExitPopup);
-
-  // Click ra ngoài modal
   exitOverlay.addEventListener('click', function (e) {
     if (e.target === exitOverlay) hideExitPopup();
   });
-
-  // Phím Esc
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') hideExitPopup();
   });
