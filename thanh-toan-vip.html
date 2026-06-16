@@ -417,6 +417,49 @@
     }
     .qr-back a:hover { color: var(--primary); }
 
+    /* ── Benefit items (from ve-vip S4) ── */
+    .benefit-list {
+      display: flex; flex-direction: column; gap: 16px;
+      margin: 24px 0 0;
+    }
+    .benefit-item {
+      background: #fff;
+      border: 1px solid rgba(0,0,0,.09);
+      border-radius: 14px;
+      padding: 22px 24px;
+      display: flex; gap: 18px; align-items: flex-start;
+    }
+    .benefit-item__badge {
+      flex-shrink: 0; min-width: 64px;
+      padding: 8px 10px;
+      background: linear-gradient(175deg, #E8CA6C 0%, #D4A520 40%, #9E6C0C 100%);
+      border-radius: 8px; text-align: center;
+      font-family: var(--fd); font-size: 9px; font-weight: 700;
+      color: #1a0800; line-height: 1.3;
+      text-transform: uppercase; letter-spacing: .04em;
+    }
+    .benefit-item__badge .badge-num {
+      display: block; font-size: 18px; font-weight: 700; margin-top: 2px;
+    }
+    .benefit-item__body { flex: 1; min-width: 0; }
+    .benefit-item__title {
+      font-family: var(--fd);
+      font-size: clamp(14px, 1.8vw, 16px); font-weight: 700;
+      color: var(--dark); margin-bottom: 4px; line-height: 1.35;
+    }
+    .benefit-item__value {
+      font-family: var(--fb); font-size: 13px; font-weight: 700;
+      color: #9a6d00; margin-bottom: 8px;
+    }
+    .benefit-item__desc {
+      font-family: var(--fb); font-size: 14px;
+      color: #555; line-height: 1.68;
+    }
+    .s4-intro {
+      font-family: var(--fb); font-size: 15px; font-weight: 400;
+      line-height: 1.72; color: #444; margin-bottom: 0;
+    }
+
     /* ═══════════════════════════════════════
        RESPONSIVE
     ═══════════════════════════════════════ */
@@ -488,11 +531,11 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
                 <img src="assets/images/ve-vip.jpg" alt="Vé VIP">
               </div>
               <span class="order-item__name">Vé VIP</span>
-              <span class="order-item__price">269.000 đ</span>
+              <span class="order-item__price">239.000 đ</span>
             </div>
             <div class="order-total-row">
               <span class="ot-label">Tổng</span>
-              <span class="ot-amount">269.000 đ</span>
+              <span class="ot-amount">239.000 đ</span>
             </div>
           </div>
 
@@ -544,123 +587,73 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
         <img src="assets/images/ve-vip.jpg" alt="Vé VIP" class="co-hero-img">
 
         <h2 class="co-benefits-h">Đây Là Tất Cả Những Gì Bạn Nhận Được Khi Nâng Cấp</h2>
-        <div class="divider-gold" style="background:var(--primary); margin-bottom:28px;"></div>
+        <div class="divider-gold" style="background:var(--primary); margin-bottom:20px;"></div>
 
-        <!-- Workshop box (S5) -->
-        <div class="workshop-box workshop-box--light" style="margin-bottom:24px; max-width:none;">
-          <p class="workshop-box__tag">Workshop Đặc Biệt</p>
-          <h3 class="workshop-box__title">
-            Buổi 3 — FLOW IN ACTION: Sora Đồng Hành Thực Hành Chuyên Sâu 3 Tình Huống Công Sở Thực Tế
-          </h3>
-          <p class="workshop-box__meta">10/06 &nbsp;|&nbsp; 20h tối &nbsp;|&nbsp; Giá trị: 1.800.000đ</p>
-          <p class="workshop-box__intro">
-            Buổi này không phải thêm một buổi giảng lý thuyết. Dựa trên vote của các bạn trong buổi workshop,
-            Sora sẽ thực hành chuyên sâu <strong>3 trên 6 tình huống</strong> thực tế sau:
-          </p>
-        </div>
+        <p class="s4-intro">Buổi 1 &amp; Buổi 2 (Vé Miễn Phí) cho bạn bản đồ — cơ chế và mindset. Buổi 3 (Vé VIP) là nơi bạn thấy bản đồ đó vận hành thật, và mang về một hệ thống dùng được ngay.</p>
 
-        <!-- 6 situations (S5) -->
-        <ul class="situation-list" style="max-width:none; margin-top:0;">
-          <li class="situation-item situation-item--light">
-            <div class="situation-num">1</div>
-            <div class="situation-text">
-              <strong>Nhận việc &amp; Xây dựng chiến lược thực thi:</strong>
-              Nhận việc mà không nặng, đàm phán mà không gây xung đột, thực thi mà không lạc hướng.
-            </div>
-          </li>
-          <li class="situation-item situation-item--light">
-            <div class="situation-num">2</div>
-            <div class="situation-text">
-              <strong>Báo cáo &amp; Nhận feedback từ sếp:</strong>
-              Báo cáo mà không bị feedback chung chung, bạn vẫn được ghi nhận đều đặn, mà không cần xin xỏ.
-            </div>
-          </li>
-          <li class="situation-item situation-item--light">
-            <div class="situation-num">3</div>
-            <div class="situation-text">
-              <strong>Tuyển dụng:</strong>
-              Set up nhân sự đúng ngay từ đầu, để không mất công tuyển sai, mất thời gian đào tạo, mất chi phí cơ hội tuyển lại.
-            </div>
-          </li>
-          <li class="situation-item situation-item--light">
-            <div class="situation-num">4</div>
-            <div class="situation-text">
-              <strong>Giao việc &amp; Feedback cho nhân sự:</strong>
-              Giao việc để team tự chạy mà không phải dọn rác phía sau, feedback mà không gây phòng thủ.
-            </div>
-          </li>
-          <li class="situation-item situation-item--light">
-            <div class="situation-num">5</div>
-            <div class="situation-text">
-              <strong>Xây dựng quy trình:</strong>
-              Bộ máy đông nhân sự, nhiều team nhỏ có thể phối hợp với nhau dễ dàng — ngay cả khi bạn ngồi chơi.
-            </div>
-          </li>
-          <li class="situation-item situation-item--light">
-            <div class="situation-num">6</div>
-            <div class="situation-text">
-              <strong>Xây dựng vị thế thăng chức &amp; nhận mức lương mới:</strong>
-              Thăng tiến mà không cần chứng minh quá nhiều, để bạn được ghi nhận và sẵn sàng nhận mức lương mới 125–200%.
-            </div>
-          </li>
-        </ul>
+        <!-- 5 benefit items (S4 ve-vip.html) -->
+        <div class="benefit-list">
 
-        <!-- S6: Bonuses -->
-        <h2 class="co-benefits-h" style="margin-top:48px;">
-          Không Dừng Lại Ở Đó, Bạn Còn Được Nhận Tất Cả Những Phần Quà Giá Trị Sau
-        </h2>
-        <div class="divider-gold" style="background:var(--primary); margin-bottom:28px;"></div>
-
-        <div class="bonus-list" style="max-width:none; margin-top:0;">
-
-          <div class="bonus-card">
-            <div class="bonus-card__img">
-              <img src="assets/images/bonus-1-checklist.jpg" alt="Bộ câu hỏi &amp; kịch bản mẫu">
+          <div class="benefit-item">
+            <div class="benefit-item__badge">
+              Workshop<br>Đặc Biệt
+              <span class="badge-num">B3</span>
             </div>
-            <div class="bonus-card__body bonus-card__body--col">
-              <p class="bonus-card__value">Bonus #1 &nbsp;·&nbsp; Giá trị: 500.000đ</p>
-              <h4 class="bonus-card__title">Bộ Câu Hỏi &amp; Kịch Bản Mẫu Cho 3 Tình Huống</h4>
-              <ul class="bonus-bullets">
-                <li><span class="bonus-bullet-dot"></span>Không phải lý thuyết — đây là những câu nói cụ thể, từng từ một.</li>
-                <li><span class="bonus-bullet-dot"></span>Hỏi sếp thế nào khi nhận việc mập mờ.</li>
-                <li><span class="bonus-bullet-dot"></span>Nói gì khi phản biện mà không muốn đối đầu.</li>
-                <li><span class="bonus-bullet-dot"></span>Feedback nhân viên ra sao khi kết quả không đạt.</li>
-                <li><span class="bonus-bullet-dot"></span>Tất cả đã được Sora đúc kết từ thực tế — bạn chỉ cần mở ra, áp dụng ngay.</li>
-              </ul>
+            <div class="benefit-item__body">
+              <p class="benefit-item__title">Workshop Đặc Biệt Buổi 3 — Thực Hành Chuyên Sâu</p>
+              <p class="benefit-item__value">10/06 &nbsp;|&nbsp; 20h tối</p>
+              <p class="benefit-item__desc">Sora thực hành trực tiếp một ngày làm việc của Team Lead, kết hợp kết nối con người và AI ở từng bước.</p>
             </div>
           </div>
 
-          <div class="bonus-card">
-            <div class="bonus-card__img">
-              <img src="assets/images/bonus-2-congdong.jpg" alt="Cộng đồng hỗ trợ">
+          <div class="benefit-item">
+            <div class="benefit-item__badge">
+              Bonus
+              <span class="badge-num">#1</span>
             </div>
-            <div class="bonus-card__body bonus-card__body--col">
-              <p class="bonus-card__value">Bonus #2 &nbsp;·&nbsp; Giá trị: 500.000đ</p>
-              <h4 class="bonus-card__title">Cộng Đồng Hỗ Trợ Sau Workshop</h4>
-              <ul class="bonus-bullets">
-                <li><span class="bonus-bullet-dot"></span>Bạn không đi một mình.</li>
-                <li><span class="bonus-bullet-dot"></span>Có cộng đồng những người cùng hành trình — cùng là nữ leader đang vừa gánh sếp vừa gánh team.</li>
-                <li><span class="bonus-bullet-dot"></span>Để hỏi đáp, chia sẻ tiến trình, và được hỗ trợ khi mắc kẹt.</li>
-                <li><span class="bonus-bullet-dot"></span>Vì lý do số 1 khiến người ta bỏ cuộc không phải vì thiếu kiến thức — mà vì không có ai đi cùng.</li>
-              </ul>
+            <div class="benefit-item__body">
+              <p class="benefit-item__title">Bộ AI Prompt Cho Team Lead</p>
+              <p class="benefit-item__value">Giá trị: 590.000đ</p>
+              <p class="benefit-item__desc">Không phải ngồi nghĩ prompt từ đầu mỗi lần. Áp dụng ngay sau workshop, tiết kiệm hàng trăm giờ làm việc lặp lại.</p>
             </div>
           </div>
 
-          <div class="bonus-card">
-            <div class="bonus-card__img">
-              <img src="assets/images/bonus-3-record.jpg" alt="Record tất cả buổi">
+          <div class="benefit-item">
+            <div class="benefit-item__badge">
+              Bonus
+              <span class="badge-num">#2</span>
             </div>
-            <div class="bonus-card__body bonus-card__body--col">
-              <p class="bonus-card__value">Bonus #3 &nbsp;·&nbsp; Giá trị: 500.000đ</p>
-              <h4 class="bonus-card__title">Record Tất Cả Buổi</h4>
-              <ul class="bonus-bullets">
-                <li><span class="bonus-bullet-dot"></span>Bận tối đó? Muốn xem lại phần thực hành tình huống nào đó?</li>
-                <li><span class="bonus-bullet-dot"></span>Record cả 3 buổi — bạn xem lại bất cứ lúc nào, bao nhiêu lần cũng được.</li>
-              </ul>
+            <div class="benefit-item__body">
+              <p class="benefit-item__title">Workbook Buổi 3 — Cách Thiết Kế Hệ Thống Năng Suất Với AI, Giúp Bạn Tự Động Hoá 80% Công Việc Lặp Lại Và Khuếch Đại Hiệu Suất Công Việc</p>
+              <p class="benefit-item__value">Giá trị: 590.000đ</p>
+              <p class="benefit-item__desc">Khung làm việc đi kèm từng bước trong buổi, để bạn vừa nghe vừa điền, vừa áp dụng luôn vào tình huống của mình.</p>
             </div>
           </div>
 
-        </div><!-- /.bonus-list -->
+          <div class="benefit-item">
+            <div class="benefit-item__badge">
+              Bonus
+              <span class="badge-num">#3</span>
+            </div>
+            <div class="benefit-item__body">
+              <p class="benefit-item__title">Hỏi Đáp Cá Nhân Hoá</p>
+              <p class="benefit-item__desc">Bạn đặt câu hỏi trực tiếp về tình huống thực tế của riêng mình. Sora phân tích và gợi ý hướng áp dụng AI phù hợp nhất với công việc của bạn.</p>
+            </div>
+          </div>
+
+          <div class="benefit-item">
+            <div class="benefit-item__badge">
+              Bonus
+              <span class="badge-num">#4</span>
+            </div>
+            <div class="benefit-item__body">
+              <p class="benefit-item__title">Recording Toàn Bộ Buổi 3</p>
+              <p class="benefit-item__value">Giá trị: 250.000đ</p>
+              <p class="benefit-item__desc">Bận tối đó hoặc muốn xem lại phần demo nào đó — xem lại bao nhiêu lần tuỳ thích trong cửa sổ 7 ngày.</p>
+            </div>
+          </div>
+
+        </div><!-- /.benefit-list -->
 
       </div><!-- /.co-right -->
 
@@ -683,12 +676,6 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
           <p>Mình sẽ vui vẻ <strong>hoàn lại tiền 100%</strong> cho bạn, và bạn vẫn được giữ toàn bộ tài liệu, video đã nhận được, coi như một lời cảm ơn vì đã dành thời gian trải nghiệm chương trình này.</p>
           <p>Mình tự tin cam kết vì mình biết: Khi bạn tham gia buổi workshop đặc biệt này, giá trị bạn nhận lại sẽ còn nhiều hơn thế.</p>
         </div>
-      </div>
-
-      <div class="cta-pair" style="margin-top:48px;">
-        <a href="#" class="btn-cta btn-cta--sm" id="s4-cta">
-          CÓ! MÌNH MUỐN NÂNG CẤP KÝ VÉ VIP
-        </a>
       </div>
 
     </div>
@@ -725,7 +712,7 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
       </div>
       <div class="qr-summary__row total">
         <span class="k">Số tiền</span>
-        <span class="v">269.000đ</span>
+        <span class="v">239.000đ</span>
       </div>
     </div>
 
@@ -756,8 +743,8 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
         <tr>
           <td>Số tiền</td>
           <td>
-            <span>269.000đ</span>
-            <button class="copy-btn" onclick="copyStr('269000', this)">Sao chép</button>
+            <span>239.000đ</span>
+            <button class="copy-btn" onclick="copyStr('239000', this)">Sao chép</button>
           </td>
         </tr>
         <tr>
@@ -819,7 +806,7 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
     owner:       'DUONG HA THUC ANH',
     displayName: 'BIDV',
   };
-  var AMOUNT = 269000;
+  var AMOUNT = 239000;
 
   var step1 = document.getElementById('step-1');
   var step2 = document.getElementById('step-2');
@@ -941,11 +928,11 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
   }
 
   function onPaymentConfirmed() {
-    fbq('track', 'Purchase', {value: 269000, currency: 'VND'});
+    fbq('track', 'Purchase', {value: 239000, currency: 'VND'});
     document.getElementById('pay-waiting').style.display = 'none';
     document.getElementById('pay-success').classList.add('is-visible');
     setTimeout(function () {
-      window.location.href = 'https://www.flowleader.vn/cam-on-vip?amount=269000';
+      window.location.href = 'https://www.flowleader.vn/cam-on-vip?amount=239000';
     }, 2000);
   }
 
