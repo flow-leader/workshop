@@ -384,6 +384,46 @@
       background: rgba(0,0,0,.14); color: #000;
     }
 
+    /* ─── Image grid section (S1b) ─── */
+    .imgrid-sec { background: #f8f3ef; padding: 80px 0; }
+    .imgrid-all {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 10px;
+    }
+    .imgrid-item {
+      margin: 0;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #2a3a4a;
+      aspect-ratio: 16 / 9;
+    }
+    .imgrid-item--sm { grid-column: span 3; }
+    .imgrid-item img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+    }
+    .imgrid-row3 {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 10px;
+    }
+    .imgrid-row3 .imgrid-item { flex: 0 0 calc(25% - 7.5px); }
+    @media (max-width: 860px) {
+      .imgrid-all { grid-template-columns: repeat(6, 1fr); gap: 8px; }
+      .imgrid-item--sm { grid-column: span 3; }
+      .imgrid-row3 { gap: 8px; margin-top: 8px; }
+      .imgrid-row3 .imgrid-item { flex: 0 0 calc(50% - 4px); }
+    }
+    @media (max-width: 500px) {
+      .imgrid-all { grid-template-columns: repeat(2, 1fr); gap: 6px; }
+      .imgrid-item--sm { grid-column: span 1; }
+      .imgrid-row3 { gap: 6px; margin-top: 6px; }
+      .imgrid-row3 .imgrid-item { flex: 0 0 calc(50% - 3px); }
+    }
+
     /* S2 right card bullet list */
     .bridge-check-list {
       list-style: none; margin: 12px 0 0; padding: 0;
@@ -498,6 +538,50 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
       </a>
     </div>
     <p class="cta-event-note">Tham Gia Buổi 3 Thực Hành Chuyên Sâu <span class="hl-gold">Online Zoom 20h ngày 2/7</span></p>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     S1b — HỆ THỐNG KHUẾCH ĐẠI NĂNG SUẤT (cream)
+══════════════════════════════════════════ -->
+<section class="imgrid-sec">
+  <div class="wrap">
+
+    <h2 class="upsell-h2-light" style="color:#121936; text-align:center;">
+      Hệ Thống Khuếch Đại Năng Suất Với AI Dành Riêng cho Team Lead
+    </h2>
+    <div class="divider-gold"></div>
+
+    <!-- Lưới 11 ảnh: hàng 1 & 2 mỗi hàng 4 ảnh, hàng 3 có 3 ảnh căn giữa -->
+    <!-- Đặt tên file ảnh: system-01.jpg đến system-11.jpg trong assets/images/ -->
+    <div class="imgrid-all">
+      <!-- Hàng 1 -->
+      <figure class="imgrid-item imgrid-item--sm"><img src="assets/images/system-01.jpg" alt="" loading="lazy" onerror="this.style.opacity=0"></figure>
+      <figure class="imgrid-item imgrid-item--sm"><img src="assets/images/system-02.jpg" alt="" loading="lazy" onerror="this.style.opacity=0"></figure>
+      <figure class="imgrid-item imgrid-item--sm"><img src="assets/images/system-03.jpg" alt="" loading="lazy" onerror="this.style.opacity=0"></figure>
+      <figure class="imgrid-item imgrid-item--sm"><img src="assets/images/system-04.jpg" alt="" loading="lazy" onerror="this.style.opacity=0"></figure>
+      <!-- Hàng 2 -->
+      <figure class="imgrid-item imgrid-item--sm"><img src="assets/images/system-05.jpg" alt="" loading="lazy" onerror="this.style.opacity=0"></figure>
+      <figure class="imgrid-item imgrid-item--sm"><img src="assets/images/system-06.jpg" alt="" loading="lazy" onerror="this.style.opacity=0"></figure>
+      <figure class="imgrid-item imgrid-item--sm"><img src="assets/images/system-07.jpg" alt="" loading="lazy" onerror="this.style.opacity=0"></figure>
+      <figure class="imgrid-item imgrid-item--sm"><img src="assets/images/system-08.jpg" alt="" loading="lazy" onerror="this.style.opacity=0"></figure>
+    </div>
+    <!-- Hàng 3: căn giữa, cùng kích thước với hàng trên -->
+    <div class="imgrid-row3">
+      <figure class="imgrid-item"><img src="assets/images/system-09.jpg" alt="" loading="lazy" onerror="this.style.opacity=0"></figure>
+      <figure class="imgrid-item"><img src="assets/images/system-10.jpg" alt="" loading="lazy" onerror="this.style.opacity=0"></figure>
+      <figure class="imgrid-item"><img src="assets/images/system-11.jpg" alt="" loading="lazy" onerror="this.style.opacity=0"></figure>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-pair" style="margin-top:48px;">
+      <a href="#checkout" class="btn-cta btn-cta--sm">
+        CÓ! MÌNH MUỐN NHẬN NGAY VÉ VIP
+      </a>
+    </div>
+    <p class="cta-event-note" style="color:#444;">Tham Gia Buổi 3 Thực Hành Chuyên Sâu <span class="hl-gold" style="color:#9a6d00; font-weight:700;">Online Zoom 20h ngày 2/7</span></p>
 
   </div>
 </section>
