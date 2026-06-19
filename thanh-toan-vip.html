@@ -460,6 +460,50 @@
       line-height: 1.72; color: #444; margin-bottom: 0;
     }
 
+    /* ─── Spots counter ─── */
+    .spots-counter {
+      display: flex; align-items: center; justify-content: center;
+      gap: 10px; flex-wrap: wrap;
+      margin: 16px 0 4px;
+    }
+    .spots-prefix, .spots-suffix {
+      font-family: var(--fd); font-size: clamp(14px, 2vw, 17px);
+      font-weight: 700; color: var(--dark); white-space: nowrap;
+    }
+    .spots-box {
+      position: relative; overflow: hidden;
+      display: inline-flex; align-items: center; justify-content: center;
+      background: linear-gradient(180deg, #f5e9ac 0%, #e8cb6c 35%, #c9a84c 100%);
+      border-radius: 7px; padding: 3px 14px; min-width: 46px;
+      animation: spots-pulse 2.8s ease-in-out infinite;
+    }
+    @keyframes spots-pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(226,194,122,0); }
+      50%       { box-shadow: 0 0 0 8px rgba(226,194,122,.28); }
+    }
+    .spots-box::after {
+      content: ''; position: absolute;
+      top: 0; left: -75%; width: 50%; height: 100%;
+      background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0) 35%, rgba(255,255,255,.52) 50%, rgba(255,255,255,0) 65%, transparent 100%);
+      transform: skewX(-15deg);
+      animation: spots-shine 2.4s ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes spots-shine {
+      0%   { left: -75%; }
+      100% { left: 125%; }
+    }
+    .spots-num {
+      font-family: var(--fd); font-size: clamp(20px, 3.5vw, 28px);
+      font-weight: 700; color: #5a3200; line-height: 1;
+      position: relative; z-index: 1;
+      animation: spot-drop .55s cubic-bezier(.22,.88,.36,1) both;
+    }
+    @keyframes spot-drop {
+      from { transform: translateY(-14px); opacity: 0; }
+      to   { transform: translateY(0);     opacity: 1; }
+    }
+
     /* ═══════════════════════════════════════
        RESPONSIVE
     ═══════════════════════════════════════ */
@@ -545,6 +589,15 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
               <span class="ot-label">Tổng</span>
               <span class="ot-amount">239.000 đ</span>
             </div>
+          </div>
+
+          <!-- Spots counter -->
+          <div class="spots-counter" aria-live="polite" aria-label="Số suất còn lại">
+            <span class="spots-prefix">Chỉ còn</span>
+            <div class="spots-box">
+              <span class="spots-num" id="spots-num">12</span>
+            </div>
+            <span class="spots-suffix">suất tham gia</span>
           </div>
 
           <!-- Customer info -->
@@ -807,6 +860,19 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
   'use strict';
 
   var GAS_URL = 'https://script.google.com/macros/s/AKfycbwjRrSRVBbrSQRKW5NIOhZO7dujCDmr0CUaDR9mxQ0foM3uuasuYb3dxT_SwNPIGMdV/exec';
+
+  /* ─── Spots counter ─── */
+  (function () {
+    var SPOTS_START = 12;
+    var SPOTS_FLOOR = 3;
+    var DECAY_DAYS  = 3;
+    var EPOCH_MS    = new Date('2026-06-16T00:00:00+07:00').getTime();
+    var daysPassed  = Math.floor((Date.now() - EPOCH_MS) / 86400000);
+    var decrements  = Math.floor(Math.max(0, daysPassed) / DECAY_DAYS);
+    var spots       = Math.max(SPOTS_FLOOR, SPOTS_START - decrements);
+    var el = document.getElementById('spots-num');
+    if (el) el.textContent = spots;
+  })();
 
   var BANK = {
     code:        'BIDV',
