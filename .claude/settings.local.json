@@ -17,7 +17,10 @@
       "Bash(find /Users/thucanh/Downloads -name \"upsell.html\" 2>/dev/null)",
       "Bash(find /Users/thucanh -name \"upsell.html\" 2>/dev/null; ls /Users/thucanh/Downloads/Website/assets/)",
       "Bash(ls /Users/thucanh/Downloads/Project/sepay-funnel)",
-      "Bash(python3)"
+      "Bash(python3)",
+      "Bash(curl -s http://localhost:3456/inside-out-leadership-demo.html)",
+      "Bash(curl -s http://localhost:3456/inside-out-leadership-demo)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code} %{redirect_url}\\\\n\" http://localhost:3456/)"
     ]
   }
 }

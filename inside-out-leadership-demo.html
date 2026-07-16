@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inside-Out Leadership™ — Demo Sections</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,600&family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --brown-950:#170e08;
+    --brown-900:#241408;
+    --brown-800:#33200f;
+    --brown-700:#472c17;
+    --brown-600:#5c3b20;
+    --brown-500:#7a4f2a;
+
+    --gold-700:#8a6420;
+    --gold-600:#a9812f;
+    --gold-500:#c69a3f;
+    --gold-400:#dcb968;
+    --gold-300:#e9cd8c;
+    --gold-200:#f2ddaa;
+
+    --beige-050:#fdf9f1;
+    --beige-100:#f8f0e0;
+    --beige-200:#f0e3c9;
+    --beige-300:#e4d1ac;
+
+    --ink:#241509;
+    --muted:#8a7a68;
+
+    --font-display:'Fraunces', serif;
+    --font-body:'Be Vietnam Pro', sans-serif;
+
+    --radius-sm:10px;
+    --radius-md:16px;
+    --radius-lg:22px;
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  body{
+    font-family:var(--font-body);
+    background:var(--beige-050);
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+  }
+  img,svg{ display:block; max-width:100%; }
+  a{ text-decoration:none; }
+  ul{ list-style:none; }
+
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:14px;
+    font-family:var(--font-body);
+    font-weight:600;
+    letter-spacing:.22em;
+    font-size:12.5px;
+    text-transform:uppercase;
+  }
+  .eyebrow .diamond{
+    width:6px; height:6px;
+    background:var(--gold-400);
+    transform:rotate(45deg);
+    flex:none;
+  }
+  .eyebrow .rule{
+    height:1px;
+    width:34px;
+    background:linear-gradient(90deg, transparent, var(--gold-400));
+    flex:none;
+  }
+  .eyebrow .rule.right{
+    background:linear-gradient(90deg, var(--gold-400), transparent);
+  }
+
+  .btn-gold{
+    position:relative;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    padding:19px 44px;
+    font-family:var(--font-body);
+    font-weight:700;
+    font-size:15.5px;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    color:var(--brown-950);
+    background:linear-gradient(135deg, var(--gold-300), var(--gold-500) 55%, var(--gold-600));
+    border-radius:var(--radius-sm);
+    box-shadow:0 14px 30px -10px rgba(169,129,47,.55), inset 0 1px 0 rgba(255,255,255,.5);
+    border:1px solid var(--gold-200);
+    cursor:pointer;
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .btn-gold:hover{
+    transform:translateY(-2px);
+    box-shadow:0 18px 36px -8px rgba(169,129,47,.65), inset 0 1px 0 rgba(255,255,255,.6);
+  }
+  .btn-gold svg{ width:16px; height:16px; flex:none; }
+
+  .btn-sub{
+    margin-top:16px;
+    font-size:13.5px;
+    letter-spacing:.01em;
+  }
+
+  /* ============ SECTION 1 — HERO ============ */
+  .hero{
+    position:relative;
+    background:
+      radial-gradient(ellipse 900px 700px at 82% 8%, rgba(220,185,104,.16), transparent 60%),
+      radial-gradient(ellipse 1000px 800px at 10% 100%, rgba(122,79,42,.35), transparent 60%),
+      linear-gradient(160deg, var(--brown-900) 0%, var(--brown-950) 55%, #0f0904 100%);
+    color:var(--beige-100);
+    overflow:hidden;
+    padding:120px 8vw 110px;
+    min-height:92vh;
+    display:flex;
+    align-items:center;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(233,205,140,.045) 0 1px, transparent 1px 88px),
+      repeating-linear-gradient(90deg, rgba(233,205,140,.045) 0 1px, transparent 1px 88px);
+    mask-image: radial-gradient(ellipse 90% 80% at 60% 40%, black 20%, transparent 75%);
+    pointer-events:none;
+  }
+  .hero-grid{
+    position:relative;
+    z-index:2;
+    width:100%;
+    max-width:1280px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:1.15fr .85fr;
+    gap:50px;
+    align-items:center;
+  }
+  .hero-inner .eyebrow{ color:var(--gold-300); }
+  .hero-title{
+    font-family:var(--font-display);
+    font-optical-sizing:auto;
+    font-weight:700;
+    font-size:clamp(34px, 4.1vw, 56px);
+    line-height:1.18;
+    margin:26px 0 26px;
+    color:var(--beige-050);
+    max-width:16ch;
+  }
+  .hero-title .accent{
+    background:linear-gradient(100deg, var(--gold-200), var(--gold-500) 60%, var(--gold-300));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+  .hero-desc{
+    font-size:16.5px;
+    line-height:1.75;
+    color:#e4d7c4;
+    max-width:56ch;
+    margin-bottom:40px;
+  }
+  .hero-desc strong{ color:var(--gold-300); font-weight:700; }
+  .hero-sub{ color:#c9b79b; }
+
+  /* map/route graphic */
+  .hero-graphic{
+    position:relative;
+    z-index:2;
+    aspect-ratio:1/1;
+    width:100%;
+  }
+  .hero-graphic svg{ width:100%; height:100%; }
+  .badge-x2{
+    font-family:var(--font-display);
+    font-optical-sizing:auto;
+    font-weight:800;
+  }
+
+  /* ============ SECTION 2 — COMPARISON ============ */
+  .compare{
+    position:relative;
+    background:
+      radial-gradient(circle at 12% 15%, rgba(198,154,63,.08), transparent 42%),
+      radial-gradient(circle at 90% 85%, rgba(198,154,63,.08), transparent 45%),
+      var(--beige-100);
+    padding:110px 8vw 130px;
+    overflow:hidden;
+  }
+  .compare::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image: radial-gradient(rgba(122,79,42,.14) 1px, transparent 1.4px);
+    background-size:26px 26px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, black, transparent 72%);
+    pointer-events:none;
+  }
+  .compare-head{
+    position:relative;
+    z-index:2;
+    max-width:780px;
+    margin:0 auto 66px;
+    text-align:center;
+  }
+  .compare-head .eyebrow{
+    justify-content:center;
+    width:100%;
+    color:var(--gold-700);
+    margin-bottom:22px;
+  }
+  .compare-title{
+    font-family:var(--font-display);
+    font-optical-sizing:auto;
+    font-weight:700;
+    font-size:clamp(28px, 3.4vw, 42px);
+    color:var(--brown-900);
+    line-height:1.28;
+    margin-bottom:20px;
+  }
+  .compare-title em{
+    font-style:normal;
+    background:linear-gradient(100deg, var(--gold-700), var(--gold-500));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+  .compare-sub{
+    font-size:16.5px;
+    line-height:1.7;
+    color:#5c4a37;
+  }
+
+  .cards{
+    position:relative;
+    z-index:2;
+    max-width:1180px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:34px;
+    align-items:stretch;
+  }
+  .vs-badge{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:64px; height:64px;
+    border-radius:50%;
+    background:linear-gradient(135deg, var(--gold-300), var(--gold-600));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:var(--font-display);
+    font-optical-sizing:auto;
+    font-weight:700;
+    font-size:14px;
+    letter-spacing:.05em;
+    color:var(--brown-950);
+    box-shadow:0 16px 34px -8px rgba(169,129,47,.55), 0 0 0 6px var(--beige-100);
+    z-index:3;
+  }
+
+  .card{
+    position:relative;
+    border-radius:var(--radius-lg);
+    padding:44px 38px 40px;
+  }
+  .card-head{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:28px;
+  }
+  .card-head .tag{
+    font-family:var(--font-body);
+    font-weight:700;
+    font-size:13px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    padding:6px 14px;
+    border-radius:999px;
+  }
+  .card-title{
+    font-family:var(--font-display);
+    font-optical-sizing:auto;
+    font-weight:700;
+    font-size:24px;
+  }
+
+  .card-old{
+    background:#f1e6d2;
+    border:1px solid #e0cead;
+  }
+  .card-old .card-head .tag{
+    background:#e6d5b6;
+    color:#7a6440;
+  }
+  .card-old .card-title{ color:#6e5a3e; }
+  .card-old li{
+    color:#6a5a44;
+  }
+
+  .card-new{
+    background:linear-gradient(160deg, var(--brown-800), var(--brown-950) 85%);
+    border:1px solid var(--gold-600);
+    box-shadow:0 26px 60px -22px rgba(23,14,8,.55);
+    color:var(--beige-100);
+  }
+  .card-new::before,
+  .card-new::after{
+    content:"";
+    position:absolute;
+    width:26px; height:26px;
+    border:2px solid var(--gold-400);
+    opacity:.85;
+  }
+  .card-new::before{ top:14px; left:14px; border-right:none; border-bottom:none; border-top-left-radius:6px; }
+  .card-new::after{ bottom:14px; right:14px; border-left:none; border-top:none; border-bottom-right-radius:6px; }
+  .card-new .card-head .tag{
+    background:linear-gradient(135deg, var(--gold-300), var(--gold-600));
+    color:var(--brown-950);
+  }
+  .card-new .card-title{ color:var(--gold-200); }
+  .card-new li{ color:#e7dac2; }
+
+  .list{ display:flex; flex-direction:column; gap:16px; }
+  .list li{
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+    font-size:15px;
+    line-height:1.65;
+  }
+  .list li .icon{
+    flex:none;
+    width:22px; height:22px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-top:2px;
+  }
+  .card-old .icon{
+    background:rgba(122,90,52,.16);
+  }
+  .card-old .icon svg{ stroke:#8a7350; }
+  .card-new .icon{
+    background:rgba(220,185,104,.16);
+  }
+  .card-new .icon svg{ stroke:var(--gold-300); }
+  .list li .icon svg{ width:12px; height:12px; }
+
+  .compare-cta{
+    position:relative;
+    z-index:2;
+    text-align:center;
+    margin-top:64px;
+  }
+  .compare-cta .btn-sub{ color:#5c4a37; }
+
+  @media (max-width: 980px){
+    .hero{ padding:90px 6vw 70px; min-height:auto; }
+    .hero-grid{ grid-template-columns:1fr; }
+    .hero-title{ max-width:none; }
+    .hero-graphic{ max-width:340px; margin:20px auto 0; }
+    .compare{ padding:80px 6vw 90px; }
+    .cards{ grid-template-columns:1fr; }
+    .vs-badge{ top:0; left:50%; transform:translate(-50%,-50%); }
+    .card{ margin-top:18px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ SECTION 1 : HERO ============ -->
+<section class="hero">
+  <div class="hero-grid">
+    <div class="hero-inner">
+      <div class="eyebrow">
+        <span class="rule"></span>
+        <span class="diamond"></span>
+        WORKSHOP X2 KẾT QUẢ TỪ NỘI LỰC
+        <span class="diamond"></span>
+        <span class="rule right"></span>
+      </div>
+
+      <h1 class="hero-title">
+        Đây là hệ thống giúp mình làm Team Lead đạt
+        <span class="accent">X2 Hiệu Suất Từ Nội Lực</span>
+        Trong Thời Đại AI
+      </h1>
+
+      <p class="hero-desc">
+        Khám phá toàn bộ cơ chế <strong>Inside-Out Leadership™</strong> đã giúp mình từ gánh team 12 tiếng/ngày, đau dạ dày, mất ngủ trở thành phiên bản giá trị cao trong công việc — ngay cả khi bạn đang kẹt giữa sếp áp lực và team chưa hiệu quả.
+      </p>
+
+      <a href="#" class="btn-gold">
+        ĐĂNG KÝ GIỮ CHỖ NGAY
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <p class="btn-sub">Để lại thông tin giữ chỗ cho workshop Online Zoom 20h ngày 30/6 và 1/7</p>
+    </div>
+
+    <div class="hero-graphic">
+      <svg viewBox="0 0 480 480" fill="none">
+        <circle cx="240" cy="240" r="210" stroke="#dcb968" stroke-opacity=".18" stroke-width="1"/>
+        <circle cx="240" cy="240" r="160" stroke="#dcb968" stroke-opacity=".22" stroke-width="1"/>
+        <circle cx="240" cy="240" r="110" stroke="#dcb968" stroke-opacity=".3" stroke-width="1"/>
+
+        <g stroke="#e9cd8c" stroke-opacity=".55" stroke-width="1.4">
+          <line x1="240" y1="18" x2="240" y2="46"/>
+          <line x1="240" y1="434" x2="240" y2="462"/>
+          <line x1="18" y1="240" x2="46" y2="240"/>
+          <line x1="434" y1="240" x2="462" y2="240"/>
+        </g>
+
+        <path d="M84 358 C 140 300, 150 230, 210 210 C 270 190, 300 150, 344 96"
+              stroke="#dcb968" stroke-width="2" stroke-dasharray="2 10" stroke-linecap="round"/>
+
+        <circle cx="84" cy="358" r="6" fill="#7a4f2a" stroke="#dcb968" stroke-width="1.5"/>
+        <circle cx="210" cy="210" r="6" fill="#7a4f2a" stroke="#dcb968" stroke-width="1.5"/>
+
+        <circle cx="344" cy="96" r="30" fill="url(#goldDot)"/>
+        <circle cx="344" cy="96" r="30" stroke="#f2ddaa" stroke-width="1.5"/>
+        <text x="344" y="103" text-anchor="middle" font-family="Playfair Display, serif" font-weight="800" font-size="20" fill="#241509">X2</text>
+
+        <defs>
+          <radialGradient id="goldDot" cx="35%" cy="30%" r="80%">
+            <stop offset="0%" stop-color="#f2ddaa"/>
+            <stop offset="100%" stop-color="#a9812f"/>
+          </radialGradient>
+        </defs>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 2 : COMPARISON ============ -->
+<section class="compare">
+  <div class="compare-head">
+    <div class="eyebrow">
+      <span class="rule"></span>
+      <span class="diamond"></span>
+      INSIDE-OUT LEADERSHIP™
+      <span class="diamond"></span>
+      <span class="rule right"></span>
+    </div>
+    <h2 class="compare-title">Phương Pháp Độc Nhất Của <em>Inside-Out Leadership™</em></h2>
+    <p class="compare-sub">Phần lớn trưởng nhóm, trưởng phòng kiệt sức không phải vì thiếu kỹ năng, mà vì đang lead theo cách làm cũ.</p>
+  </div>
+
+  <div class="cards">
+    <div class="vs-badge">VS</div>
+
+    <div class="card card-old">
+      <div class="card-head">
+        <span class="tag">Trước đây</span>
+      </div>
+      <h3 class="card-title">Cách Lead Cũ</h3>
+      <ul class="list" style="margin-top:24px;">
+        <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Học thêm công cụ, bảng biểu, quy trình cứng nhắc — nhưng về nhà vẫn không tắt được đầu óc</li>
+        <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Chỉ tập trung vào kỹ thuật — bỏ qua con người, cảm xúc, và những thứ không đo được</li>
+        <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Tự làm mọi việc, không biết dùng AI vào đâu, hoặc chỉ hỏi đáp cơ bản</li>
+        <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Càng cố gắng, càng rút cạn năng lượng — kết quả vẫn phụ thuộc vào bạn từng bước</li>
+        <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Đánh đổi sức khỏe và cuộc sống cá nhân để đổi lấy hiệu quả công việc trước mắt</li>
+        <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Chạy theo sếp, nhân viên, công việc mỗi ngày</li>
+      </ul>
+    </div>
+
+    <div class="card card-new">
+      <div class="card-head">
+        <span class="tag">Chuyển hoá</span>
+      </div>
+      <h3 class="card-title">Với FLOW LEADER™</h3>
+      <ul class="list" style="margin-top:24px;">
+        <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Vững từ bên trong, không bị dắt bởi áp lực bên ngoài — về nhà là về nhà thực sự</li>
+        <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Thấu hiểu và tạo ra kết quả thông qua người khác — team vận hành vì họ muốn, không phải vì bị ép</li>
+        <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Dùng AI như một đòn bẩy thực thi — làm ít hơn, đạt nhiều hơn</li>
+        <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Càng thực hành càng mở ra — năng lượng không bị rút cạn mà ngày càng dồi dào hơn</li>
+        <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Coi trọng sự trọn vẹn — hiệu quả công việc và đời sống tinh thần cùng lớn lên một lúc</li>
+        <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Trở thành phiên bản giá trị cao trong công việc</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="compare-cta">
+    <a href="#" class="btn-gold">
+      ĐĂNG KÝ GIỮ CHỖ NGAY
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+    <p class="btn-sub">Để lại thông tin giữ chỗ cho workshop Online Zoom 20h ngày 30/6 và 1/7</p>
+  </div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Font Compare — Headline</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Fraunces:opsz,wght@9..144,700&family=Bodoni+Moda:opsz,wght@6..96,800;6..96,900&family=Domine:wght@700&family=Spectral:wght@700;800&family=Epilogue:wght@700;800&family=Be+Vietnam+Pro:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --brown-950:#170e08; --brown-900:#241408;
+    --gold-300:#e9cd8c; --gold-400:#dcb968; --gold-500:#c69a3f;
+    --beige-050:#fdf9f1;
+  }
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  body{ background:var(--beige-050); font-family:'Be Vietnam Pro', sans-serif; padding:50px 40px 100px; }
+  h1.page-title{ text-align:center; color:var(--brown-900); font-size:20px; letter-spacing:.08em; text-transform:uppercase; margin-bottom:40px; font-weight:600; }
+  .row{
+    background: radial-gradient(ellipse 900px 700px at 82% 8%, rgba(220,185,104,.16), transparent 60%), linear-gradient(160deg, var(--brown-900) 0%, var(--brown-950) 55%, #0f0904 100%);
+    border-radius:18px;
+    padding:36px 44px;
+    margin-bottom:34px;
+    position:relative;
+  }
+  .row .label{
+    display:inline-block;
+    background:var(--gold-400);
+    color:var(--brown-950);
+    font-family:'Be Vietnam Pro', sans-serif;
+    font-weight:700;
+    font-size:12px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    padding:5px 12px;
+    border-radius:999px;
+    margin-bottom:18px;
+  }
+  .headline{
+    color:var(--beige-050);
+    font-size:38px;
+    line-height:1.22;
+    max-width:18ch;
+  }
+  .headline .accent{
+    background:linear-gradient(100deg, #f2ddaa, var(--gold-500) 60%, var(--gold-300));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+
+  .f0 .headline{ font-family:'Playfair Display', serif; font-weight:700; }
+  .f1 .headline{ font-family:'Fraunces', serif; font-weight:700; font-optical-sizing:auto; }
+  .f2 .headline{ font-family:'Bodoni Moda', serif; font-weight:900; font-optical-sizing:auto; }
+  .f3 .headline{ font-family:'Domine', serif; font-weight:700; }
+  .f4 .headline{ font-family:'Spectral', serif; font-weight:800; }
+  .f5 .headline{ font-family:'Epilogue', sans-serif; font-weight:800; }
+</style>
+</head>
+<body>
+  <h1 class="page-title">So sánh font Headline — vòng 2 (cao ráo hơn)</h1>
+
+  <div class="row f0">
+    <span class="label">0 · Playfair Display (bản gốc — để so sánh)</span>
+    <div class="headline">Đây là hệ thống giúp mình làm Team Lead đạt <span class="accent">X2 Hiệu Suất Từ Nội Lực</span> Trong Thời Đại AI</div>
+  </div>
+
+  <div class="row f1">
+    <span class="label">1 · Fraunces (đã chọn — giữ để so sánh)</span>
+    <div class="headline">Đây là hệ thống giúp mình làm Team Lead đạt <span class="accent">X2 Hiệu Suất Từ Nội Lực</span> Trong Thời Đại AI</div>
+  </div>
+
+  <div class="row f2">
+    <span class="label">2 · Bodoni Moda (serif tương phản cao, cao ráo, thời trang)</span>
+    <div class="headline">Đây là hệ thống giúp mình làm Team Lead đạt <span class="accent">X2 Hiệu Suất Từ Nội Lực</span> Trong Thời Đại AI</div>
+  </div>
+
+  <div class="row f3">
+    <span class="label">3 · Domine (serif cao ráo, chắc chắn, hiện đại)</span>
+    <div class="headline">Đây là hệ thống giúp mình làm Team Lead đạt <span class="accent">X2 Hiệu Suất Từ Nội Lực</span> Trong Thời Đại AI</div>
+  </div>
+
+  <div class="row f4">
+    <span class="label">4 · Spectral (serif cao ráo, editorial, tinh tế)</span>
+    <div class="headline">Đây là hệ thống giúp mình làm Team Lead đạt <span class="accent">X2 Hiệu Suất Từ Nội Lực</span> Trong Thời Đại AI</div>
+  </div>
+
+  <div class="row f5">
+    <span class="label">5 · Epilogue (sans cao ráo, công nghệ, hiện đại)</span>
+    <div class="headline">Đây là hệ thống giúp mình làm Team Lead đạt <span class="accent">X2 Hiệu Suất Từ Nội Lực</span> Trong Thời Đại AI</div>
+  </div>
+</body>
+</html>
