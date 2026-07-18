@@ -152,6 +152,27 @@
     font-size:15px; font-weight:500; color:var(--gold-300);
     line-height:1.6;
   }
+  .hero-tag{
+    position:relative; z-index:2;
+    display:inline-flex; align-items:center; gap:10px;
+    margin:0 auto 24px;
+    padding:8px 18px;
+    border:1px solid var(--gold-600);
+    background:rgba(220,185,104,.1);
+    border-radius:999px;
+    color:var(--gold-300);
+    font-size:13px; font-weight:600; letter-spacing:.03em;
+  }
+  .hero-tag .dot{ width:3px; height:3px; border-radius:50%; background:var(--gold-500); flex:none; }
+  .hero-lead{
+    position:relative; z-index:2;
+    font-size:18px; font-weight:500;
+    line-height:1.75;
+    color:var(--beige-100);
+    max-width:660px;
+    margin:0 auto 22px;
+  }
+  .hero-lead .accent{ color:var(--gold-300); font-weight:700; }
   .hero-title{
     position:relative; z-index:2;
     font-family:var(--font-display);
@@ -198,13 +219,15 @@
     position:relative; z-index:2;
     max-width:880px;
     margin:56px auto 0;
-    aspect-ratio:16/8;
+    aspect-ratio:2382/1596;
     border-radius:var(--radius-lg);
     border:1px solid var(--gold-600);
     background:linear-gradient(160deg, var(--brown-800), var(--brown-950));
     display:flex; align-items:center; justify-content:center;
+    overflow:hidden;
     box-shadow:0 30px 70px -24px rgba(0,0,0,.6);
   }
+  .hero-img img{ width:100%; height:100%; object-fit:cover; display:block; }
   .img-tag{
     display:flex; flex-direction:column; align-items:center; gap:10px;
     color:var(--gold-400);
@@ -251,12 +274,14 @@
 
   .img-placeholder{
     max-width:720px; margin:44px auto;
-    aspect-ratio:16/9;
     border-radius:var(--radius-lg);
-    border:1.5px dashed var(--gold-500);
+    border:1px solid var(--gold-400);
     background:var(--beige-100);
     display:flex; align-items:center; justify-content:center;
+    overflow:hidden;
+    box-shadow:0 20px 50px -22px rgba(51,32,15,.35);
   }
+  .img-placeholder img{ width:100%; height:100%; object-fit:cover; display:block; }
   .img-placeholder .img-tag{ color:var(--gold-700); }
   .img-placeholder .img-tag svg{ stroke:var(--gold-700); }
 
@@ -370,10 +395,10 @@
   /* ============ TESTIMONIAL GRID (Section 5) ============ */
   .testimonial-grid{
     position:relative; z-index:2;
-    max-width:1140px; margin:0 auto;
-    display:grid; grid-template-columns:repeat(3, 1fr); gap:28px;
+    max-width:900px; margin:0 auto;
+    display:grid; grid-template-columns:repeat(2, 1fr); gap:28px;
   }
-  .testimonial-grid .img-placeholder{ margin:0; aspect-ratio:3/4; max-width:100%; }
+  .testimonial-grid .img-placeholder{ margin:0; max-width:100%; background:none; border-color:var(--gold-500); }
 
   /* ============ PRICING CARD (Section 8) ============ */
   .pricing-card{
@@ -472,7 +497,9 @@
     border:1px solid var(--gold-500);
     background:linear-gradient(160deg, var(--brown-800), var(--brown-950));
     display:flex; align-items:center; justify-content:center;
+    overflow:hidden;
   }
+  .founder-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
   .founder-photo .img-tag{ color:var(--gold-400); }
   .founder-photo .img-tag svg{ stroke:var(--gold-400); }
   .founder-hello{ font-family:var(--font-display); font-optical-sizing:auto; font-weight:700; font-size:28px; color:var(--brown-900); margin-bottom:20px; }
@@ -506,11 +533,13 @@
 
 <!-- ============ SECTION 1 — HERO ============ -->
 <section class="hero on-dark grid-bg">
-  <p class="hero-audience">Dành cho Team Lead, đang làm việc 12 tiếng/ngày, kẹt giữa sếp áp lực và nhân viên chưa hiệu quả.</p>
+  <p class="hero-audience">Dành cho Team Lead mới được thăng chức, đang loay hoay giữa sếp áp lực và nhân viên chưa hiệu quả.</p>
 
-  <h1 class="hero-title">Tấm Bản Đồ <span class="accent">Team Lead Đạt X2 Hiệu Suất</span> Bằng Nội Lực Mà Không Cần Làm Việc Nhiều Hơn</h1>
+  <div class="hero-tag">Workshop Online<span class="dot"></span>20h ngày 3-4/8</div>
 
-  <p class="hero-desc">Ngay cả khi bạn là người hướng nội, không giỏi công nghệ, không muốn đánh đổi gia đình với sự nghiệp. Không phải chỉ là AI. Đây là hệ thống <span class="accent">Lãnh Đạo Đòn Bẩy™ toàn diện</span> 3 tầng, giúp bạn thoát khỏi vòng lặp kiệt sức, trở thành lãnh đạo hiệu suất và cân bằng đời sống.</p>
+  <h1 class="hero-title">Từ Chuyên Viên Giỏi Đến <span class="accent">Team Lead Có Đòn Bẩy</span></h1>
+
+  <p class="hero-lead">Sau hai buổi, bạn sẽ xác định được nút thắt lớn nhất đang khiến mình làm quản lý nhưng vẫn phải sống như một chuyên viên, đồng thời có <span class="accent">tấm bản đồ 90 ngày</span> để <span class="accent">xây nội lực, đội ngũ và ứng dụng AI</span> đúng cách, tăng hiệu suất mà không cần làm thêm giờ.</p>
 
   <div class="hero-meta">
     <span>Workshop Online qua Zoom</span><span class="dot"></span>
@@ -531,10 +560,7 @@
   </div>
 
   <div class="hero-img">
-    <div class="img-tag">
-      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M3 17l5-4 4 3 4-5 5 6"/></svg>
-      Ảnh Sora
-    </div>
+    <img src="assets/images/Section 1.jpg" alt="Sora">
   </div>
 </section>
 
@@ -557,48 +583,28 @@
     <p>Nếu bạn thấy mình trong những dòng trên, có lẽ bạn đang ở đúng chỗ rồi. Vì mình cũng từng đứng ở đúng chỗ đó.</p>
 
     <h3>Mình cũng từng y hệt vậy</h3>
-    <p>Mình làm lead từ rất trẻ.</p>
-    <p>Ngày làm 12, có hôm 14 tiếng.</p>
+    <p>Mình được thăng chức lên làm quản lý khi còn rất trẻ. Vẫn nhớ cảm giác ngày đầu ngồi vào vị trí đó, vừa mừng vừa run, tự nhủ mình phải chứng minh cho mọi người thấy mình xứng đáng.</p>
+    <p>Thế là mình lao vào làm. Ngày làm 12, có hôm 14 tiếng. Nhân viên báo cáo trễ, mình tự làm lại cho kịp. Có việc gấp lúc 10 giờ tối, mình vẫn ngồi sửa cho xong trước khi sếp thấy. Không dám nghỉ, vì sợ mọi thứ đổ vỡ nếu mình vắng một ngày.</p>
     <p>Đau dạ dày. Mất ngủ triền miên. Mặt nổi mụn, người gầy đi mà không lên nổi cân nào.</p>
-    <p>Mỗi lần cần lên tiếng trước sếp, mình nói nhỏ, hụt hơi, như có gì đó chặn ngay trong cổ họng.</p>
-    <p>Gia đình phản đối việc mình đi làm nhiều đến vậy. Bữa cơm nấu dở dang vì về muộn triền miên.</p>
-    <p>Có những ngày mình quên mất mình là ai, đang làm vì điều gì.</p>
+    <p>Mỗi lần cần lên tiếng trước sếp, mình nói nhỏ, hụt hơi, như có gì đó chặn ngay trong cổ họng. Vì trong đầu mình lúc nào cũng chỉ có một nỗi sợ: nếu làm sai, nếu bị đánh giá thấp, thì đúng là mình không xứng đáng ngồi ở vị trí này thật.</p>
+    <p>Gia đình phản đối việc mình đi làm nhiều đến vậy. Bữa cơm nấu dở dang vì về muộn triền miên. Có những ngày mình quên mất mình là ai, đang làm vì điều gì.</p>
     <p>Lương không hề thấp. Nhưng sau 3 năm, mình chọn nghỉ việc, dù không thực sự biết vấn đề của mình nằm ở đâu.</p>
     <p>Mình nghĩ chỉ cần đổi công ty, gặp sếp tử tế hơn, mọi thứ sẽ ổn.</p>
     <p>Nhưng 6 tháng sau, rồi 1 năm sau, những vấn đề y hệt lại quay về.</p>
 
-    <div class="img-placeholder">
-      <div class="img-tag">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M3 17l5-4 4 3 4-5 5 6"/></svg>
-        Ảnh Sora
-      </div>
+    <div class="img-placeholder" style="aspect-ratio:2940/1654;">
+      <img src="assets/images/Section 2.png" alt="Sora">
     </div>
 
     <h3>Cho đến khi mình nhận ra</h3>
-    <p>Vấn đề không nằm ở bên ngoài. Nó nằm ở bên trong mình.</p>
-    <p>Mình bắt đầu tìm hiểu về năng lượng, về tâm lý, thử sai ngay trên chính công việc mỗi ngày. Trả giá bằng không ít nước mắt, và cả những đêm mất ngủ vì tự vấn bản thân.</p>
-    <p>Dần dần, giọng nói của mình trầm hơn, có lực hơn. Mình không còn mang việc về nhà mỗi tối. Hết mất ngủ. Bỏ được cả thuốc đau dạ dày.</p>
-    <p>Chỉ còn cần 4 đến 6 tiếng một ngày là xong việc, thay vì 12.</p>
-    <p>Nhưng đây mới là phần khiến mọi thứ khác đi hoàn toàn.</p>
-    <p>Khi bên trong vững hơn, mình dùng đúng cách đó để kết nối với con người, không chỉ với chính mình. Mình bắt đầu thu phục được cả những nhân sự khó nhất, làm việc được với những người sếp khắt khe nhất.</p>
-    <p>Mình nhận ra: chỉ vững nội lực thôi là chưa đủ. Phải có thêm một đội ngũ đủ mạnh để đỡ được những gì mình xây.</p>
-    <p>Kết quả công việc tăng gấp 30 lần so với những ngày đầu. Từ quản lý 3 người, mình dần dẫn dắt lên đến 50 người. Từ trưởng nhóm, lên trưởng phòng, rồi giám đốc vận hành.</p>
-    <p>Mình giao được gần như toàn bộ việc thực thi cho đội ngũ. Những nhân viên từng nghi ngờ mình, những người lớn tuổi hơn mình, giờ lại là người tin tưởng và quý mến mình nhất.</p>
-    <p>Đó là 10 năm đầu tiên trong hành trình của mình. Vững nội lực. Mạnh đội ngũ. Hai điều này, mình đã kiểm chứng bằng chính công việc, chính những đêm mất ngủ của mình.</p>
-
-    <h3>Nhưng thời đại AI đến</h3>
-    <p>2 năm trước, mình thấy một team khác trong công ty, ít người hơn hẳn, lại ra kết quả nhanh hơn mình rất nhiều.</p>
-    <p>Lúc đầu mình sợ AI sẽ thay thế mình. Nhưng khi thử dùng AI, mình nhận ra: những kỹ năng mình mất 10 năm mới luyện được, giờ có thể trao cho người khác dùng ngay lập tức.</p>
-    <p>Nhưng mình cũng để ý: có người dùng AI hàng ngày, mà vẫn làm 12 tiếng một ngày, vẫn kiệt sức, chỉ là bận theo một kiểu mới.</p>
-    <blockquote>Mình chợt nhớ đến câu nói của nhà khoa học Archimedes: "Cho tôi một điểm tựa, tôi sẽ nhấc bổng cả Trái Đất."</blockquote>
-    <p>AI là thanh đòn bẩy mạnh nhất thời đại này. Nhưng nếu đặt nó lên một điểm tựa không vững, thanh đòn dù mạnh đến đâu cũng vô dụng.</p>
-
-    <h3>Cơ chế Lãnh Đạo Đòn Bẩy</h3>
-    <p>Đến đây, mình mới thực sự nhìn thấy đủ 3 mảnh ghép.</p>
-    <p>Vững nội lực. Mạnh đội ngũ. Và đòn bẩy AI để khuếch đại cả hai thứ đó lên gấp nhiều lần.</p>
-    <p>Thiếu một trong ba, cả hệ thống đều lung lay. Chỉ khi đủ cả ba, mọi thứ mới thực sự vận hành trơn tru.</p>
-    <p>Mình gọi đây là cơ chế Lãnh Đạo Đòn Bẩy.</p>
-    <p>Không phải lý thuyết đọc trong sách. Mà là 10 năm mình tự mình đi qua, ở nhiều vị trí, từ trưởng nhóm 3 người đến giám đốc vận hành 50 người, qua nhiều ngành khác nhau, qua cả những giai đoạn công ty ổn định lẫn tăng trưởng nóng.</p>
+    <p>Vấn đề không nằm ở sếp mới hay công ty mới. Nó nằm ở cách mình đang làm quản lý.</p>
+    <p>Mình không thiếu năng lực. Mình chỉ đang dùng năng lực của một chuyên viên để giải bài toán của một người lãnh đạo.</p>
+    <p>Đọc lại câu đó, mình mới hiểu vì sao mọi thứ luẩn quẩn suốt bao năm. Là chuyên viên, giỏi nghĩa là tự tay làm ra kết quả tốt nhất. Nhưng làm lead, cứ tiếp tục tự tay làm, thì càng làm càng ôm việc, càng ôm càng kiệt sức, mà đội ngũ thì không lớn lên được.</p>
+    <p>Từ khoảnh khắc đó, mình bắt đầu xây lại cách vận hành của chính mình, theo ba hướng:</p>
+    <p>Làm chủ bản thân, để không còn lãnh đạo từ nỗi sợ bị đánh giá hay thói quen phải chứng minh.</p>
+    <p>Làm chủ đội ngũ, để không còn là người duy nhất gánh mọi việc.</p>
+    <p>Và sau này, khi AI đến, tận dụng nó như một đòn bẩy thật sự, chứ không phải một công cụ làm nhanh hơn việc của một chuyên viên.</p>
+    <p>Ba điều đó, mình gọi là cơ chế Lãnh Đạo Đòn Bẩy. Không phải lý thuyết đọc trong sách, mà là 10 năm mình tự mình đi qua, từ trưởng nhóm 3 người đến giám đốc vận hành 50 người.</p>
     <p>Giờ mình có thể nghỉ 10 ngày mà team vẫn tự chạy được. Chỉ còn làm 4 đến 6 tiếng một ngày.</p>
 
     <div class="article-divider"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
@@ -606,7 +612,6 @@
     <div class="closing">
       <p>Mình kể câu chuyện này không phải để bạn ngưỡng mộ mình, mà vì mình tin bạn cũng đang sở hữu đúng loại nội lực đó, đúng khả năng dẫn dắt đó, ngay bên trong con người bạn đang là mỗi ngày.</p>
       <p>Chỉ là chưa có ai chỉ cho bạn cách nhìn ra và xây nó thành một hệ thống.</p>
-      <p>Bạn đã đi qua bao nhiêu năm làm việc, bao nhiêu lần tự chứng minh bản thân, bao nhiêu đêm mất ngủ để tìm cách làm tốt hơn. Mỗi trải nghiệm đó là một bài học đắt giá, mà hầu hết mọi người xem là chuyện bình thường của nghề quản lý, rồi bỏ qua.</p>
       <p>Đó là lý do mình tổ chức 2 buổi workshop này.</p>
       <p>Trong 2 buổi tối, mình sẽ trao cho bạn toàn bộ tấm bản đồ Lãnh Đạo Đòn Bẩy mà mình đã mất 10 năm để đúc kết, để bạn không cần đi con đường dò dẫm một mình như mình đã từng đi.</p>
     </div>
@@ -634,7 +639,7 @@
       <div class="card-head"><span class="tag">Quan niệm sai</span></div>
       <h3 class="card-title">Không phải</h3>
       <ul class="list">
-        <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Một khoá học công cụ AI để bạn học thêm rồi quên</li>
+        <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Một công cụ AI để bạn học thêm rồi quên</li>
         <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Vài mẹo dùng ChatGPT nhanh hơn người khác</li>
         <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Bí kíp thăng tiến nhanh, bỏ qua gốc rễ vấn đề</li>
         <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Công thức chung chung, copy từ người này sang người khác</li>
@@ -670,39 +675,34 @@
 
   <div class="feature-card">
     <div class="feature-num"><span class="num-circle">01</span>Buổi 1</div>
-    <h3 class="feature-title">Tấm Bản Đồ Lãnh Đạo Đòn Bẩy</h3>
-    <div class="img-placeholder">
-      <div class="img-tag">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M3 17l5-4 4 3 4-5 5 6"/></svg>
-        Ảnh Sora
-      </div>
+    <h3 class="feature-title">Từ Chuyên Viên Giỏi Đến Team Lead Có Đòn Bẩy</h3>
+    <div class="img-placeholder" style="aspect-ratio:2326/1654;">
+      <img src="assets/images/Buổi 1.jpg" alt="Buổi 1 · Từ Chuyên Viên Giỏi Đến Team Lead Có Đòn Bẩy">
     </div>
-    <p class="feature-q">"Bạn đang thiếu điểm tựa nào khiến mình chưa X2 được hiệu suất?"</p>
+    <p class="feature-q">"Bạn đang mắc bẫy chuyên viên ở đâu, khiến mình chưa X2 được hiệu suất?"</p>
     <ul class="feature-list">
-      <li><span class="dot-mark"></span>Nhìn rõ 3 bẫy đang khiến bạn kiệt sức: bẫy chuyên viên ôm việc, bẫy bỏ phí trợ lý AI, bẫy dùng AI mà chưa hệ thống</li>
-      <li><span class="dot-mark"></span>Tự chấm điểm 3 tầng của mình: Nội lực, Đội ngũ, Đòn bẩy AI, biết chính xác mình đang lún ở đâu</li>
+      <li><span class="dot-mark"></span>Nhìn rõ 3 dấu hiệu bạn đang mắc bẫy chuyên viên: vẫn là người giải quyết hầu hết vấn đề, chưa có hệ thống để đội ngũ tự vận hành, dùng AI để làm nhanh việc cũ chứ chưa thực sự tạo đòn bẩy</li>
+      <li><span class="dot-mark"></span>Làm bài Leadership Bottleneck Audit, tự chấm 3 nhóm: nút thắt bản thân, nút thắt đội ngũ, nút thắt trong cách dùng AI, để biết chính xác mình đang lún ở đâu</li>
       <li><span class="dot-mark"></span>Hiểu vì sao những biểu hiện kiệt sức này không phải lỗi của bạn, mà là niềm tin hình thành tự nhiên khi một chuyên viên giỏi được cất nhắc lên vai trò lead</li>
       <li><span class="dot-mark"></span>Nắm được cơ chế Lãnh Đạo Đòn Bẩy: Vững Nội Lực, Mạnh Đội Ngũ, Nhân Hiệu Suất Bằng AI</li>
     </ul>
-    <div class="result-box"><strong>Kết quả:</strong> Biết chính xác điểm tựa nào mình cần xây trước, thay vì tiếp tục dùng AI một cách rời rạc.</div>
+    <div class="result-box"><strong>Kết quả:</strong> Xác định được nút thắt số 1 đang khiến mình chưa thể làm đúng vai trò Team Lead hiện tại, thay vì tiếp tục dùng AI một cách rời rạc.</div>
   </div>
 
   <div class="feature-card">
     <div class="feature-num"><span class="num-circle">02</span>Buổi 2</div>
-    <h3 class="feature-title">Xem Trực Tiếp Sora Vận Hành Cỗ Máy Hiệu Suất</h3>
-    <div class="img-placeholder">
-      <div class="img-tag">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M3 17l5-4 4 3 4-5 5 6"/></svg>
-        Ảnh Sora
-      </div>
+    <h3 class="feature-title">Xây Bản Đồ Lãnh Đạo 90 Ngày Với Đòn Bẩy AI</h3>
+    <div class="img-placeholder" style="aspect-ratio:2792/1650;">
+      <img src="assets/images/Buổi 2.jpg" alt="Buổi 2 · Xây Bản Đồ Lãnh Đạo 90 Ngày Với Đòn Bẩy AI">
     </div>
     <p class="feature-q">"Làm sao dùng AI như một hệ thống, không phải hỏi đáp lẻ tẻ?"</p>
     <ul class="feature-list">
-      <li><span class="dot-mark"></span>Xem trực tiếp cách hệ thống của Sora vận hành để ra kết quả bạn vốn tốn cả vài ngày, giờ chỉ mất vài phút chỉ bằng một nút bấm</li>
+      <li><span class="dot-mark"></span>Xem trực tiếp Sora demo một tình huống thật: sếp yêu cầu tổng hợp báo cáo 6 tháng, đánh giá KPI, tìm điểm lệch, đề xuất kế hoạch 6 tháng cuối năm, việc vốn tốn vài ngày giờ chỉ mất vài phút bằng một nút bấm</li>
+      <li><span class="dot-mark"></span>Nhận bản đồ hành động 90 ngày: 30 ngày đầu thoát khỏi bẫy chuyên viên, 30 ngày tiếp xây nền đội ngũ, 30 ngày cuối tạo đòn bẩy bằng AI</li>
       <li><span class="dot-mark"></span>Nhận miễn phí bộ hướng dẫn Skill AI hiệu quả nhất Sora đang dùng</li>
       <li><span class="dot-mark"></span>Biết cách áp dụng ngay vào công việc quản lý của mình, dù chưa từng giỏi công nghệ</li>
     </ul>
-    <div class="result-box"><strong>Kết quả:</strong> Có công cụ để bắt đầu dùng AI như một đòn bẩy thật sự, ngay từ ngày mai, theo đúng lộ trình đã đưa Sora từ 12 tiếng xuống 4-6 tiếng/ngày.</div>
+    <div class="result-box"><strong>Kết quả:</strong> Có bản đồ 90 ngày và công cụ để bắt đầu dùng AI như một đòn bẩy thật sự, ngay từ ngày mai, theo đúng lộ trình đã đưa Sora từ 12 tiếng xuống 4-6 tiếng/ngày.</div>
   </div>
 
   <div class="btn-wrap" style="margin-top:50px;">
@@ -714,7 +714,7 @@
 </section>
 
 <!-- ============ SECTION 5 — TESTIMONIALS ============ -->
-<section style="background:var(--beige-100);">
+<section class="on-dark grid-bg">
   <div class="section-head">
     <div class="eyebrow"><span class="rule"></span><span class="diamond"></span>HỌC VIÊN NÓI GÌ<span class="diamond"></span><span class="rule right"></span></div>
     <h2 class="section-title">Những chia sẻ từ học viên trong các workshop trước</h2>
@@ -722,23 +722,11 @@
   </div>
 
   <div class="testimonial-grid">
-    <div class="img-placeholder">
-      <div class="img-tag">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M7 15a4 4 0 0 1-4-4V8a2 2 0 0 1 2-2h3v6H5"/><path d="M17 15a4 4 0 0 1-4-4V8a2 2 0 0 1 2-2h3v6h-3"/></svg>
-        Cảm nhận 1
-      </div>
+    <div class="img-placeholder" style="aspect-ratio:2940/1654;">
+      <img src="assets/images/Testi1.jpg" alt="Cảm nhận học viên 1">
     </div>
-    <div class="img-placeholder">
-      <div class="img-tag">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M7 15a4 4 0 0 1-4-4V8a2 2 0 0 1 2-2h3v6H5"/><path d="M17 15a4 4 0 0 1-4-4V8a2 2 0 0 1 2-2h3v6h-3"/></svg>
-        Cảm nhận 2
-      </div>
-    </div>
-    <div class="img-placeholder">
-      <div class="img-tag">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M7 15a4 4 0 0 1-4-4V8a2 2 0 0 1 2-2h3v6H5"/><path d="M17 15a4 4 0 0 1-4-4V8a2 2 0 0 1 2-2h3v6h-3"/></svg>
-        Cảm nhận 3
-      </div>
+    <div class="img-placeholder" style="aspect-ratio:2074/1354;">
+      <img src="assets/images/Testi2.jpg" alt="Cảm nhận học viên 2">
     </div>
   </div>
 
@@ -764,8 +752,8 @@
       <div class="card-head"><span class="tag">Trước</span></div>
       <ul class="list" style="margin-top:0;">
         <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Bạn giỏi việc nhưng luôn tự làm lại, tự chứng minh mình xứng đáng</li>
-        <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Bạn giao việc rồi phải nhắc lại nhiều lần</li>
-        <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Bạn dùng AI vài lần rồi quay lại tự làm vì chưa hiệu quả</li>
+        <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Bạn giao việc rồi phải nhắc lại nhiều lần, hay lại quay lại tự làm</li>
+        <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Bạn dùng AI vài lần rồi lại làm thủ công vì chưa hiệu quả</li>
         <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Bạn nghĩ mình chưa đủ giỏi để làm Team Lead</li>
       </ul>
     </div>
@@ -773,9 +761,9 @@
     <div class="card card-new">
       <div class="card-head"><span class="tag">Sau</span></div>
       <ul class="list" style="margin-top:0;">
-        <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Bạn biết vững nội lực nghĩa là gì và bắt đầu chăm sóc chính mình</li>
+        <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Bạn biết chính xác mình đang mắc bẫy chuyên viên ở đâu, và vững nội lực nghĩa là gì</li>
         <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Bạn nhìn thấy đội ngũ mình đang thiếu hệ thống hay thiếu kết nối, hay cả hai</li>
-        <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Bạn hiểu vì sao AI chưa phát huy tác dụng và biết bước tiếp theo cần làm gì</li>
+        <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Bạn hiểu vì sao AI chưa phát huy tác dụng, và có bản đồ 90 ngày cho bước tiếp theo</li>
         <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Bạn hiểu đây không phải lỗi của bạn, mà là những khoảng trống hoàn toàn xây lại được</li>
       </ul>
     </div>
@@ -929,7 +917,7 @@
     </div>
     <div class="path-card path-2">
       <div class="path-label">Con đường 2</div>
-      <p>Hoặc dành 2 buổi tối để nhìn ra điểm tựa mình đang thiếu, và bắt đầu xây một hệ thống Lãnh đạo Đòn bẩy thật sự cho cả 3 tầng: Nội lực, Đội ngũ, Đòn bẩy AI.</p>
+      <p>Hoặc dành 2 buổi tối để tìm ra đúng nút thắt bẫy chuyên viên đang giữ bạn lại, và có bản đồ 90 ngày để xây một hệ thống Lãnh đạo Đòn bẩy thật sự cho cả 3 tầng: Nội lực, Đội ngũ, Đòn bẩy AI.</p>
     </div>
   </div>
 
@@ -947,10 +935,7 @@
 <section style="background:var(--beige-100);">
   <div class="founder-row">
     <div class="founder-photo">
-      <div class="img-tag">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg>
-        Ảnh Sora
-      </div>
+      <img src="assets/images/Section 12.jpg" alt="Sora">
     </div>
     <div class="founder-bio">
       <div class="eyebrow" style="margin-bottom:18px;"><span class="rule"></span><span class="diamond"></span>NGƯỜI ĐỒNG HÀNH<span class="diamond"></span></div>
