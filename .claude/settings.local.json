@@ -29,7 +29,15 @@
       "Bash(curl -s -i http://localhost:3456/cam-on.html)",
       "Bash(curl -s -L http://localhost:3456/cam-on)",
       "mcp__4857d191-72b9-4c82-aa16-9bbab7c76e3f__read_file_content",
-      "mcp__4857d191-72b9-4c82-aa16-9bbab7c76e3f__get_file_metadata"
+      "mcp__4857d191-72b9-4c82-aa16-9bbab7c76e3f__get_file_metadata",
+      "Bash(curl -s -i -m 15 -L \"https://script.google.com/macros/s/AKfycbxCGOoKYrACIS7mmwmtZmt7cMSyEI3UDtla1j6twATuIMyrKV2M9DSzILtHmV3pF8X_/exec?action=health\")",
+      "Bash(curl -s -i -m 15 -X POST -L \"https://script.google.com/macros/s/AKfycbxCGOoKYrACIS7mmwmtZmt7cMSyEI3UDtla1j6twATuIMyrKV2M9DSzILtHmV3pF8X_/exec\" -d '{\"action\":\"createOrder\",\"data\":{\"name\":\"Curl Test\",\"email\":\"curltest@example.com\",\"phone\":\"0900000000\",\"status\":\"Team Lead 1-2 năm\",\"totalAmount\":96000}}')",
+      "Bash(curl -s \"https://api.convertkit.com/v3/custom_fields?api_key=NAlxSEIeH8ohfCIO8fW7vQ\")",
+      "Bash(python3 -m json.tool)",
+      "Bash(curl -s -X POST \"https://api.convertkit.com/v3/tags/21306001/subscribe\" -H \"Content-Type: application/json\" -d '{\"api_key\":\"NAlxSEIeH8ohfCIO8fW7vQ\",\"email\":\"curltest-tag@example.com\",\"first_name\":\"Curl Test\",\"fields\":{\"type\":\"WS348ok\"}}')",
+      "Bash(curl -s \"https://api.convertkit.com/v3/subscribers?api_secret=NAlxSEIeH8ohfCIO8fW7vQ&email_address=curltest-tag@example.com\")",
+      "Bash(curl -s \"https://api.convertkit.com/v3/subscribers?api_secret=W9Kruf5pczTvAr-vw2r1ur_iSEguHAKF5ssOGKBA6xk&email_address=curltest-tag@example.com\")",
+      "Bash(curl -s -i -X DELETE \"https://api.convertkit.com/v3/subscribers/4216044003/tags/21306148?api_secret=W9Kruf5pczTvAr-vw2r1ur_iSEguHAKF5ssOGKBA6xk\")"
     ]
   }
 }
