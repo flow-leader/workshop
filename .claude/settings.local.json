@@ -37,7 +37,8 @@
       "Bash(curl -s -X POST \"https://api.convertkit.com/v3/tags/21306001/subscribe\" -H \"Content-Type: application/json\" -d '{\"api_key\":\"NAlxSEIeH8ohfCIO8fW7vQ\",\"email\":\"curltest-tag@example.com\",\"first_name\":\"Curl Test\",\"fields\":{\"type\":\"WS348ok\"}}')",
       "Bash(curl -s \"https://api.convertkit.com/v3/subscribers?api_secret=NAlxSEIeH8ohfCIO8fW7vQ&email_address=curltest-tag@example.com\")",
       "Bash(curl -s \"https://api.convertkit.com/v3/subscribers?api_secret=W9Kruf5pczTvAr-vw2r1ur_iSEguHAKF5ssOGKBA6xk&email_address=curltest-tag@example.com\")",
-      "Bash(curl -s -i -X DELETE \"https://api.convertkit.com/v3/subscribers/4216044003/tags/21306148?api_secret=W9Kruf5pczTvAr-vw2r1ur_iSEguHAKF5ssOGKBA6xk\")"
+      "Bash(curl -s -i -X DELETE \"https://api.convertkit.com/v3/subscribers/4216044003/tags/21306148?api_secret=W9Kruf5pczTvAr-vw2r1ur_iSEguHAKF5ssOGKBA6xk\")",
+      "Bash(grep -oE \"#[0-9a-fA-F]{3,6}\" /Users/thucanh/Downloads/Website/style2.css)"
     ]
   }
 }
