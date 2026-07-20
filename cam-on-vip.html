@@ -3,171 +3,149 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cảm Ơn — FLOW LEADER™</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <title>Đăng Ký Thành Công — FLOW LEADER™ VIP</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    .thankyou-page { min-height:100vh; }
+    body { background: var(--light); min-height: 100vh; }
 
-    .checklist-label {
-      font-family: var(--fd);
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin: 28px 0 18px;
+    /* ── Nav ── */
+    .co-nav {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; padding: 20px 6vw;
+      background: rgba(10,14,38,.95);
+      border-bottom: 1px solid rgba(226,194,122,.15);
+    }
+    .co-nav__brand {
+      font-family: var(--fd); font-weight: 700; font-size: 16px; color: var(--gold);
+    }
+    .co-nav__back {
+      font-size: 13.5px; font-weight: 600; color: rgba(255,255,255,.65);
+      display: inline-flex; align-items: center; gap: 6px;
+      text-decoration: none; transition: color .2s;
+    }
+    .co-nav__back:hover { color: var(--gold); }
+
+    /* ── Section ── */
+    .co-section { padding: 70px 6vw 90px; text-align: center; }
+
+    /* ── Check icon ── */
+    .co-check {
+      width: 80px; height: 80px; margin: 0 auto 26px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), #c9a057);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 16px 34px -10px rgba(226,194,122,.40);
+    }
+    .co-check svg { width: 36px; height: 36px; stroke: var(--dark); }
+
+    /* ── Eyebrow ── */
+    .co-eyebrow {
+      display: flex; align-items: center; justify-content: center; gap: 12px;
+      margin-bottom: 20px;
+      font-family: var(--fb); font-size: 11px; font-weight: 700;
+      letter-spacing: .14em; text-transform: uppercase; color: var(--primary);
+    }
+    .co-eyebrow .rule {
+      flex: 1; max-width: 60px; height: 1px;
+      background: var(--primary); opacity: .35;
     }
 
-    .checklist {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      text-align: left;
+    /* ── Headline ── */
+    .co-headline {
+      font-family: var(--fd); font-weight: 700;
+      font-size: clamp(26px, 3.4vw, 40px); line-height: 1.28;
+      color: var(--dark); max-width: 680px; margin: 0 auto 14px;
+    }
+    .co-headline .accent { color: var(--primary); }
+
+    .co-sub {
+      font-size: 16px; line-height: 1.7; color: var(--muted);
+      max-width: 560px; margin: 0 auto 52px;
     }
 
-    .checklist-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
+    /* ── Step cards ── */
+    .co-steps {
+      max-width: 760px; margin: 0 auto 46px;
+      display: flex; flex-direction: column; gap: 22px; text-align: left;
+    }
+    .co-step-card {
+      background: #fff;
+      border: 1px solid rgba(2,77,194,.15);
+      border-radius: var(--r-lg); padding: 32px 34px;
+      display: flex; gap: 22px; align-items: flex-start;
+      box-shadow: 0 4px 20px rgba(2,77,194,.08);
+    }
+    .co-step-num {
+      flex: none; width: 38px; height: 38px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), #0360f0);
+      color: #fff; display: flex; align-items: center; justify-content: center;
+      font-family: var(--fd); font-weight: 800; font-size: 16px;
+    }
+    .co-step-title {
+      font-family: var(--fd); font-weight: 700; font-size: 19px;
+      color: var(--dark); margin-bottom: 8px;
+    }
+    .co-step-desc {
+      font-size: 15px; line-height: 1.7; color: var(--muted); margin-bottom: 16px;
+    }
+    .co-step-desc:last-child { margin-bottom: 0; }
+    .co-step-desc strong { color: var(--dark); }
+
+    .btn-zalo {
+      display: flex; align-items: center; justify-content: center;
+      width: 100%; padding: 19px 44px;
+      font-family: var(--fb); font-weight: 700; font-size: 15.5px;
+      letter-spacing: .03em; text-decoration: none;
+      color: #fff; background: var(--primary);
+      border-radius: var(--r-sm);
+      box-shadow: 0 14px 30px -10px rgba(2,77,194,.45);
+      transition: transform .25s, box-shadow .25s, background .2s;
+    }
+    .btn-zalo:hover {
+      background: #0360f0; transform: translateY(-2px);
+      box-shadow: 0 18px 36px -8px rgba(2,77,194,.60);
     }
 
-    .step-icon {
-      font-size: 22px;
-      line-height: 1;
-      flex-shrink: 0;
-      margin-top: 2px;
-      width: 32px;
-      text-align: center;
+    /* ── Schedule ── */
+    .co-schedule {
+      max-width: 760px; margin: 0 auto 46px;
+      background: var(--dark);
+      border: 1px solid rgba(226,194,122,.30);
+      border-radius: var(--r-lg); padding: 36px 40px; text-align: left;
+    }
+    .co-schedule__title {
+      font-family: var(--fd); font-weight: 700; font-size: 19px;
+      color: var(--gold); margin-bottom: 22px; text-align: center;
+    }
+    .co-schedule-table { width: 100%; border-collapse: collapse; }
+    .co-schedule-table tr { border-bottom: 1px dashed rgba(226,194,122,.18); }
+    .co-schedule-table tr:last-child { border-bottom: none; }
+    .co-schedule-table td { padding: 14px 4px; vertical-align: top; }
+    .co-schedule-table td:first-child {
+      width: 34%; font-size: 13px; font-weight: 700;
+      letter-spacing: .06em; text-transform: uppercase; color: var(--gold);
+    }
+    .co-schedule-table td:last-child { font-size: 15px; color: rgba(255,255,255,.85); line-height: 1.6; }
+    .co-schedule-note { font-size: 13.5px; color: rgba(255,255,255,.45); }
+
+    /* ── Sign-off ── */
+    .co-signoff { max-width: 560px; margin: 0 auto; }
+    .co-signoff p { font-size: 16.5px; line-height: 1.8; color: var(--muted); margin-bottom: 22px; }
+    p.co-sign {
+      font-family: var(--fd); font-style: italic; font-weight: 700;
+      font-size: 46px; color: var(--primary); margin-bottom: 6px;
+    }
+    p.co-sign-role {
+      font-size: 11.5px; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--muted); font-weight: 600; opacity: .6;
     }
 
-    .step-zalo-icon {
-      width: 32px;
-      height: 32px;
-      object-fit: cover;
-      border-radius: 6px;
-      flex-shrink: 0;
-      margin-top: 0;
-    }
-
-    .step-content {
-      flex: 1;
-    }
-
-    .step-content p {
-      font-family: var(--fb);
-      font-size: 15px;
-      font-weight: 500;
-      line-height: 1.65;
-      color: rgba(255,255,255,.90);
-      margin: 0;
-    }
-
-    .step-content p + p {
-      margin-top: 4px;
-    }
-
-    .step-content strong {
-      color: #fff;
-      font-weight: 700;
-    }
-
-    .step-note {
-      font-size: 13px !important;
-      color: rgba(255,255,255,.60) !important;
-      font-style: italic;
-    }
-
-    .zalo-link {
-      color: var(--gold);
-      font-weight: 700;
-      text-decoration: none;
-      transition: opacity .2s;
-    }
-
-    .zalo-link:hover { opacity: .80; }
-
-    .thankyou-divider {
-      width: 48px;
-      height: 2px;
-      background: var(--gold);
-      border-radius: 2px;
-      margin: 24px auto 0;
-    }
-
-    .farewell-note {
-      margin-top: 28px;
-      font-family: var(--fb);
-      font-size: 15px;
-      font-weight: 500;
-      color: rgba(255,255,255,.80);
-      text-align: center;
-      line-height: 1.6;
-    }
-
-    .farewell-note .date {
-      color: var(--gold);
-      font-weight: 700;
-    }
-
-    .vip-badge-wrap {
-      margin: 20px 0;
-    }
-
-    .vip-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      font-family: var(--fd);
-      font-size: 22px;
-      font-weight: 700;
-      letter-spacing: .04em;
-      text-transform: uppercase;
-      color: #C9A84C;
-      background: linear-gradient(135deg, rgba(201,168,76,.15) 0%, rgba(201,168,76,.06) 100%);
-      border: 1px solid rgba(201,168,76,.40);
-      border-radius: 50px;
-      padding: 12px 32px;
-    }
-
-    .vip-badge .crown {
-      font-size: 28px;
-      line-height: 1;
-    }
-
-    @media (max-width: 480px) {
-      .vip-badge { font-size: 18px; padding: 10px 18px; }
-      .vip-badge .crown { font-size: 17px; }
-    }
-
-    .zalo-btn {
-      display: block;
-      width: 100%;
-      margin-top: 8px;
-      padding: 18px 24px;
-      background: #024dc2;
-      color: #ffffff;
-      font-family: var(--fd);
-      font-size: 17px;
-      font-weight: 700;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      text-align: center;
-      text-decoration: none;
-      border-radius: 10px;
-      box-shadow: 0 6px 24px rgba(2,77,194,.45);
-      transition: background .2s, transform .15s, box-shadow .2s;
-    }
-
-    .zalo-btn:hover {
-      background: #0360f0;
-      box-shadow: 0 8px 30px rgba(2,77,194,.60);
-      transform: translateY(-2px);
-    }
-
-    .zalo-btn:active {
-      transform: translateY(0);
-      box-shadow: 0 4px 16px rgba(2,77,194,.40);
+    @media (max-width: 640px) {
+      .co-nav { padding: 16px 5vw; }
+      .co-section { padding: 48px 5vw 64px; }
+      .co-step-card { flex-direction: column; gap: 14px; padding: 26px 24px; }
+      .co-schedule { padding: 28px 24px; }
     }
   </style>
 <!-- Meta Pixel Code -->
@@ -196,70 +174,89 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
   gtag('config', 'G-J7VEM7L844');
 </script>
 </head>
-<body class="thankyou-page">
+<body>
 
-<!-- ══════════════════════════════════════════
-     CẢM ƠN VIP — HERO LAYOUT
-══════════════════════════════════════════ -->
-<section class="hero">
-  <div class="hero__bg">
-    <img src="assets/images/Section 1 upscale.jpg" alt="">
+<!-- ══ NAV ══ -->
+<header class="co-nav">
+  <span class="co-nav__brand">FLOW LEADER™</span>
+  <a href="https://www.flowleader.vn" class="co-nav__back">← Quay lại trang workshop</a>
+</header>
+
+<!-- ══ CẢM ƠN ══ -->
+<section class="co-section">
+
+  <div class="co-check">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 12l5 5L20 6"/>
+    </svg>
   </div>
-  <div class="hero__wrap">
-    <div class="hero__card">
 
-      <div class="hero__badge-pill">
-        <span class="hero__badge-dot"></span>
-        <span class="hero__badge-text">workshop FLOW LEADER™ X2</span>
+  <div class="co-eyebrow">
+    <span class="rule"></span>
+    ĐĂNG KÝ THÀNH CÔNG
+    <span class="rule"></span>
+  </div>
+
+  <h1 class="co-headline">Chào mừng bạn đến với <span class="accent">hành trình</span></h1>
+  <p class="co-sub">Chỉ còn 2 bước nhỏ nữa để bạn không bỏ lỡ bất cứ điều gì trước buổi học.</p>
+
+  <!-- ── STEPS ── -->
+  <div class="co-steps">
+
+    <div class="co-step-card">
+      <div class="co-step-num">1</div>
+      <div>
+        <p class="co-step-title">Vào nhóm Zalo</p>
+        <p class="co-step-desc">Tham gia nhóm Zalo để nhận cập nhật và link Zoom trước ngày học.</p>
+        <a href="https://zalo.me/g/s6nahame3rris7ftrgzm" target="_blank" rel="noopener" class="btn-zalo">Bấm Vào Đây Để Tham Gia Nhóm Zalo →</a>
       </div>
-
-      <h1 class="hero__headline">
-        <span class="gold-text">Chúc Mừng!</span> Bạn Đã Giữ Chỗ Thành Công.
-      </h1>
-
-      <div class="vip-badge-wrap">
-        <span class="vip-badge">👑 Buổi 3: FLOW IN ACTION: Thực Hành Chuyên Sâu</span>
-      </div>
-
-      <p class="hero__sub">
-        Workshop <strong>FLOW LEADER™</strong> X2 Kết Quả Không Cần Ôm Việc. Bạn đã sẵn sàng. Sora rất vui vì bạn chọn dành thời gian cho hành trình này.
-      </p>
-
-      <div class="divider-gold"></div>
-
-      <p class="checklist-label">CHECKLIST CẦN LÀM NGAY:</p>
-
-      <div class="checklist">
-
-        <!-- Bước 1 -->
-        <div class="checklist-item">
-          <div class="step-content">
-            <p><strong>Bước 1:</strong> Kiểm tra email từ Sora</p>
-          </div>
-        </div>
-
-        <!-- Bước 2 -->
-        <div class="checklist-item">
-          <div class="step-content">
-            <p><strong>Bước 2:</strong> Tham gia nhóm Zalo của workshop để nhận thông báo</p>
-          </div>
-        </div>
-
-        <a href="https://zalo.me/g/xxanc72yclftndtqvb74" target="_blank" class="zalo-btn">
-          Bấm Vào Đây Để Tham Gia Nhóm Zalo
-        </a>
-
-      </div>
-
-      <div class="thankyou-divider"></div>
-
-      <p class="farewell-note">
-        Hẹn gặp lại bạn ở buổi Workshop Online Zoom vào ngày <span class="date">30/6, 1/7 và 2/7</span> nhé!
-      </p>
-
     </div>
+
+    <div class="co-step-card">
+      <div class="co-step-num">2</div>
+      <div>
+        <p class="co-step-title">Kiểm tra Email</p>
+        <p class="co-step-desc">Bạn hãy kiểm tra email xác nhận đăng ký từ Sora. Và chuyển email về hòm thư chính để không bỏ lỡ các tài liệu giá trị tiếp theo từ Workshop nhé.</p>
+      </div>
+    </div>
+
   </div>
+
+  <!-- ── SCHEDULE ── -->
+  <div class="co-schedule">
+    <p class="co-schedule__title">Lịch học của bạn</p>
+    <table class="co-schedule-table">
+      <tr>
+        <td>Ngày</td>
+        <td>3 &amp; 4 tháng 8, 2026</td>
+      </tr>
+      <tr>
+        <td>Giờ</td>
+        <td>20h00 – 21h30</td>
+      </tr>
+      <tr>
+        <td>Hình thức</td>
+        <td>
+          Online qua Zoom<br>
+          <span class="co-schedule-note">Link Zoom sẽ được gửi trước ngày học qua nhóm Zalo &amp; email.</span>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- ── SIGN-OFF ── -->
+  <div class="co-signoff">
+    <p>Chúc bạn một hành trình tuyệt vời!</p>
+    <p class="co-sign">Sora</p>
+    <p class="co-sign-role">FLOW LEADER™</p>
+  </div>
+
 </section>
+
+<footer class="site-footer" style="padding:24px 8vw;">
+  <div class="foot-brand">FLOW LEADER™</div>
+  <div>By Sora Flow © 2025 · All Rights Reserved · <a href="https://www.flowleader.vn/policy" style="color:rgba(255,255,255,.4); text-decoration:underline;">Chính sách &amp; Điều khoản</a></div>
+</footer>
 
 </body>
 </html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,500;1,9..144,600&family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  html,body{ margin:0; padding:0; background:#0c0603; display:flex; align-items:center; justify-content:center; }
+  svg{ display:block; }
+</style>
+</head>
+<body>
+<svg width="700" height="700" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="42%" r="75%">
+      <stop offset="0%" stop-color="#3a2412"/>
+      <stop offset="55%" stop-color="#241408"/>
+      <stop offset="100%" stop-color="#140b04"/>
+    </radialGradient>
+    <radialGradient id="circleFill" cx="50%" cy="38%" r="70%">
+      <stop offset="0%" stop-color="#33200f"/>
+      <stop offset="70%" stop-color="#1f1206"/>
+      <stop offset="100%" stop-color="#170e08"/>
+    </radialGradient>
+    <linearGradient id="goldText" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f5e3b8"/>
+      <stop offset="45%" stop-color="#dcb968"/>
+      <stop offset="100%" stop-color="#a9812f"/>
+    </linearGradient>
+    <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f2ddaa"/>
+      <stop offset="50%" stop-color="#c69a3f"/>
+      <stop offset="100%" stop-color="#8a6420"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#c69a3f" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#c69a3f" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- background -->
+  <rect x="0" y="0" width="1000" height="1000" fill="url(#bgGrad)"/>
+
+  <!-- corner accents -->
+  <g stroke="#a9812f" stroke-width="2" opacity="0.55" fill="none">
+    <path d="M50,110 L50,50 L110,50"/>
+    <path d="M890,50 L950,50 L950,110"/>
+    <path d="M950,890 L950,950 L890,950"/>
+    <path d="M110,950 L50,950 L50,890"/>
+  </g>
+  <g fill="#c69a3f" opacity="0.8">
+    <circle cx="50" cy="50" r="3.5"/>
+    <circle cx="950" cy="50" r="3.5"/>
+    <circle cx="950" cy="950" r="3.5"/>
+    <circle cx="50" cy="950" r="3.5"/>
+  </g>
+
+  <!-- outer ring -->
+  <circle cx="500" cy="500" r="428" fill="none" stroke="url(#ringGrad)" stroke-width="3"/>
+  <!-- inner ring -->
+  <circle cx="500" cy="500" r="404" fill="none" stroke="#dcb968" stroke-width="1.2" opacity="0.85"/>
+
+  <!-- circle interior fill -->
+  <circle cx="500" cy="500" r="399" fill="url(#circleFill)"/>
+  <ellipse cx="500" cy="470" rx="330" ry="260" fill="url(#glow)"/>
+
+  <!-- tick marks between the two rings -->
+  <g stroke="#c69a3f" stroke-width="1.4" opacity="0.5">
+    <line x1="500" y1="80" x2="500" y2="96"/>
+    <line x1="500" y1="904" x2="500" y2="920"/>
+    <line x1="80" y1="500" x2="96" y2="500"/>
+    <line x1="904" y1="500" x2="920" y2="500"/>
+    <line x1="209" y1="209" x2="220" y2="220"/>
+    <line x1="791" y1="209" x2="780" y2="220"/>
+    <line x1="209" y1="791" x2="220" y2="780"/>
+    <line x1="791" y1="791" x2="780" y2="780"/>
+  </g>
+
+  <!-- top ornament -->
+  <g transform="translate(500,150)" fill="#dcb968">
+    <path d="M0,-9 L7,0 L0,9 L-7,0 Z"/>
+  </g>
+
+  <!-- top label -->
+  <text x="500" y="288" text-anchor="middle" font-family="'Be Vietnam Pro', sans-serif" font-size="30" font-weight="600" letter-spacing="7" fill="#e9cd8c">TEAM LEAD</text>
+
+  <!-- divider under top label -->
+  <g stroke="#a9812f" stroke-width="1.4" opacity="0.7">
+    <line x1="424" y1="318" x2="576" y2="318"/>
+  </g>
+
+  <!-- giant X2 -->
+  <text x="500" y="608" text-anchor="middle" font-family="'Fraunces', serif" font-optical-sizing="auto" font-weight="800" font-size="322" fill="url(#goldText)">X2</text>
+
+  <!-- divider with diamond -->
+  <g>
+    <line x1="380" y1="672" x2="465" y2="672" stroke="#a9812f" stroke-width="1.4" opacity="0.7"/>
+    <line x1="535" y1="672" x2="620" y2="672" stroke="#a9812f" stroke-width="1.4" opacity="0.7"/>
+    <path transform="translate(500,672)" d="M0,-6 L6,0 L0,6 L-6,0 Z" fill="#dcb968"/>
+  </g>
+
+  <!-- subtitle -->
+  <text x="500" y="716" text-anchor="middle" font-family="'Be Vietnam Pro', sans-serif" font-size="25" font-weight="600" letter-spacing="4" fill="#e9cd8c">ĐÒN BẨY</text>
+
+  <!-- brand -->
+  <text x="500" y="768" text-anchor="middle" font-family="'Be Vietnam Pro', sans-serif" font-size="21" font-weight="500" letter-spacing="6" fill="#a9812f">SORA FLOW</text>
+
+  <!-- bottom ornament -->
+  <g transform="translate(500,850)" fill="#dcb968">
+    <path d="M0,-9 L7,0 L0,9 L-7,0 Z"/>
+  </g>
+</svg>
+</body>
+</html>

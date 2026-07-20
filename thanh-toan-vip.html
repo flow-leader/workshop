@@ -1,527 +1,297 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thanh Toán Vé VIP — Flow Leader</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <style>
-    /* ═══════════════════════════════════════
-       CHECKOUT PAGE — OVERRIDES & SPECIFIC
-    ═══════════════════════════════════════ */
-    body { background: var(--light); color: var(--dark); }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thanh Toán Vé VIP — Flow Leader</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  /* ============================================================
+     THANH TOÁN VIP — page-specific (style.css tokens)
+     ============================================================ */
+  body { background: var(--light); color: var(--dark); }
 
-    /* ── Page header ── */
-    .co-header {
-      background: var(--light);
-      padding: 40px 16px 24px;
-      text-align: center;
-    }
-    .co-header__pre {
-      font-family: var(--fd);
-      font-size: clamp(16px, 2vw, 20px);
-      font-weight: 400;
-      color: var(--primary);
-      margin-bottom: 6px;
-    }
-    .co-header__h1 {
-      font-family: var(--fd);
-      font-size: clamp(22px, 3.2vw, 34px);
-      font-weight: 700;
-      color: var(--dark);
-      line-height: 1.3;
-    }
-    .co-header__h1 .hl-vip   { color: var(--primary); }
-    .co-header__h1 .hl-gift  { color: var(--primary); }
+  /* ---------- Nav ---------- */
+  .ckt-nav {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px; padding: 18px 6vw;
+    background: var(--dark);
+  }
+  .ckt-nav__brand {
+    font-family: var(--fd); font-weight: 700; font-size: 16px;
+    color: var(--gold);
+  }
+  .ckt-nav__back {
+    font-family: var(--fb); font-size: 13.5px; font-weight: 600;
+    color: rgba(223,237,252,.75); text-decoration: none;
+    display: inline-flex; align-items: center; gap: 6px;
+    transition: color .2s;
+  }
+  .ckt-nav__back:hover { color: var(--gold); }
 
-    /* ── Main grid wrapper ── */
-    .co-section {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 24px 16px 64px;
-    }
+  /* ---------- Section ---------- */
+  .ckt-section { padding: 56px 6vw 80px; }
+  .ckt-head { text-align: center; margin-bottom: 44px; }
+  .ckt-head__pre {
+    font-family: var(--fd); font-size: clamp(14px, 1.8vw, 17px);
+    color: var(--primary); margin-bottom: 8px;
+  }
+  .ckt-head__h1 {
+    font-family: var(--fd); font-size: clamp(22px, 3vw, 32px);
+    font-weight: 700; color: var(--dark); line-height: 1.25;
+  }
+  .ckt-head__h1 .hl { color: var(--primary); }
 
-    /* ── Two-column sticky grid ── */
-    .co-grid {
-      display: grid;
-      grid-template-columns: 460px 1fr;
-      gap: 32px;
-      align-items: start;
-    }
+  /* ---------- Grid ---------- */
+  .ckt-grid {
+    max-width: 1180px; margin: 0 auto;
+    display: grid; grid-template-columns: 420px 1fr;
+    gap: 32px; align-items: start;
+  }
 
-    /* ── Left: sticky form ── */
-    .co-left {
-      position: sticky;
-      top: 24px;
-    }
+  /* ---------- Left sticky card ---------- */
+  .ckt-left { position: sticky; top: 24px; }
+  .ckt-left-card {
+    background: linear-gradient(160deg, #1c2d5e, var(--dark) 90%);
+    border: 1px solid rgba(226,194,122,.4);
+    border-radius: 18px; padding: 28px 24px;
+  }
+  .ckt-left-section { padding: 20px 0; }
+  .ckt-left-section:first-child { padding-top: 0; }
+  .ckt-left-section:last-child  { padding-bottom: 0; }
+  .ckt-left-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(226,194,122,.28), transparent);
+  }
+  .ckt-card__title {
+    font-family: var(--fb); font-weight: 700; font-size: 11.5px;
+    letter-spacing: .13em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 14px;
+  }
+  .ckt-workshop-name {
+    font-family: var(--fd); font-weight: 700; font-size: 18px;
+    color: #fff; margin-bottom: 18px; line-height: 1.38;
+  }
+  .ckt-meta-row {
+    display: flex; flex-direction: column; gap: 2px;
+    padding: 11px 0; border-bottom: 1px dashed rgba(226,194,122,.2);
+  }
+  .ckt-meta-row:first-of-type { padding-top: 0; }
+  .ckt-meta-row:last-child     { border-bottom: none; padding-bottom: 0; }
+  .ckt-meta-row .k { font-family: var(--fb); font-weight: 700; font-size: 14px; color: var(--light); }
+  .ckt-meta-row .v { font-family: var(--fb); font-size: 13px; color: rgba(223,237,252,.6); }
 
-    /* ── Order card ── */
-    .order-card {
-      background: #fff;
-      border: 1px solid rgba(0,0,0,.10);
-      border-radius: var(--r-lg);
-      overflow: hidden;
-      box-shadow: 0 4px 24px rgba(0,0,0,.09);
-    }
-    .oc-block {
-      padding: 20px 24px;
-      border-bottom: 1px solid rgba(0,0,0,.07);
-    }
-    .oc-block:last-child { border-bottom: none; padding: 0; }
-    .oc-block__title {
-      font-family: var(--fd);
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .10em;
-      color: var(--dark);
-      margin-bottom: 16px;
-    }
+  .ckt-benefit-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 13px; }
+  .ckt-benefit-list li {
+    display: flex; gap: 11px; align-items: flex-start;
+    font-family: var(--fb); font-size: 14px; line-height: 1.6;
+    color: rgba(223,237,252,.88);
+  }
+  .ckt-benefit-list li .icon {
+    flex: none; width: 20px; height: 20px; border-radius: 50%;
+    background: rgba(226,194,122,.14);
+    display: flex; align-items: center; justify-content: center; margin-top: 2px;
+  }
+  .ckt-benefit-list li .icon svg { width: 11px; height: 11px; stroke: var(--gold); }
 
-    /* Order item row */
-    .order-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 16px;
-    }
-    .order-item__thumb {
-      width: 56px; height: 56px;
-      border-radius: 8px;
-      overflow: hidden;
-      flex-shrink: 0;
-      background: rgba(0,0,0,.04);
-    }
-    .order-item__thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .order-item__name {
-      flex: 1;
-      font-family: var(--fb);
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--dark);
-    }
-    .order-item__price {
-      font-family: var(--fd);
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--dark);
-      white-space: nowrap;
-    }
-    .order-total-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-top: 12px;
-      border-top: 1px solid rgba(0,0,0,.07);
-    }
-    .order-total-row .ot-label {
-      font-family: var(--fb);
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--dark);
-    }
-    .order-total-row .ot-amount {
-      font-family: var(--fd);
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--dark);
-    }
+  .ckt-price-row {
+    display: flex; align-items: center; justify-content: center;
+    gap: 10px; margin-bottom: 8px; flex-wrap: wrap;
+  }
+  .ckt-price-old  { font-family: var(--fb); font-size: 15px; color: rgba(223,237,252,.45); text-decoration: line-through; }
+  .ckt-save-badge {
+    display: inline-block; padding: 3px 10px; border-radius: 999px;
+    background: rgba(226,194,122,.13); border: 1px solid rgba(226,194,122,.45);
+    color: var(--gold); font-family: var(--fb); font-size: 11px; font-weight: 700; letter-spacing: .04em;
+  }
+  .ckt-price-new  { font-family: var(--fd); font-weight: 700; font-size: 36px; color: var(--gold); text-align: center; }
 
-    /* Form overrides inside card */
-    .oc-block .form-group { margin-bottom: 12px; }
-    .oc-block .form-group:last-child { margin-bottom: 0; }
-    .oc-block .form-input {
-      height: 48px;
-      background: #fff;
-      color: var(--dark);
-      border-color: rgba(0,0,0,.16);
-    }
-    .oc-block .form-input:focus { border-color: var(--primary); }
+  /* ── Spots counter (inside left card) ── */
+  .spots-row {
+    display: flex; align-items: center; justify-content: center;
+    gap: 8px; flex-wrap: wrap; margin-top: 14px;
+  }
+  .spots-row__label {
+    font-family: var(--fd); font-size: 14px; font-weight: 700;
+    color: rgba(223,237,252,.8); white-space: nowrap;
+  }
+  .spots-box {
+    position: relative; overflow: hidden;
+    display: inline-flex; align-items: center; justify-content: center;
+    background: linear-gradient(180deg, #f5e9ac 0%, #e8cb6c 35%, #c9a84c 100%);
+    border-radius: 7px; padding: 2px 12px; min-width: 40px;
+    animation: spots-pulse 2.8s ease-in-out infinite;
+  }
+  @keyframes spots-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(226,194,122,0); }
+    50%       { box-shadow: 0 0 0 7px rgba(226,194,122,.22); }
+  }
+  .spots-box::after {
+    content: ''; position: absolute;
+    top: 0; left: -75%; width: 50%; height: 100%;
+    background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0) 35%, rgba(255,255,255,.5) 50%, rgba(255,255,255,0) 65%, transparent 100%);
+    transform: skewX(-15deg);
+    animation: spots-shine 2.4s ease-in-out infinite;
+    pointer-events: none;
+  }
+  @keyframes spots-shine { 0% { left: -75%; } 100% { left: 125%; } }
+  .spots-num {
+    font-family: var(--fd); font-size: 22px; font-weight: 700;
+    color: #5a3200; line-height: 1; position: relative; z-index: 1;
+  }
 
-    /* Phone row */
-    .phone-row {
-      display: flex;
-      border: 1.5px solid rgba(0,0,0,.16);
-      border-radius: var(--r-sm);
-      overflow: hidden;
-      transition: border-color .2s, box-shadow .2s;
-    }
-    .phone-row:focus-within {
-      border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(2,77,194,.10);
-    }
-    .phone-prefix {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      padding: 0 10px;
-      background: #f4f6f9;
-      border-right: 1px solid rgba(0,0,0,.10);
-      font-family: var(--fb);
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--dark);
-      white-space: nowrap;
-      user-select: none;
-      flex-shrink: 0;
-    }
-    .phone-row .form-input {
-      border: none;
-      border-radius: 0;
-      flex: 1;
-      box-shadow: none !important;
-    }
+  /* ---------- Right: form card ---------- */
+  .ckt-form-card {
+    background: #fff;
+    border: 1px solid rgba(2,77,194,.14);
+    border-radius: 18px; padding: 36px 32px;
+    box-shadow: 0 16px 48px -24px rgba(18,25,54,.2);
+  }
+  .ckt-form-card__title {
+    font-family: var(--fd); font-weight: 700; font-size: 20px;
+    color: var(--dark); margin-bottom: 24px;
+  }
 
-    /* Field error */
-    .field-error {
-      font-family: var(--fb);
-      font-size: 12px;
-      color: #f56c6c;
-      margin-top: 4px;
-      display: none;
-    }
-    .field-error.is-visible { display: block; }
+  .ckt-field { margin-bottom: 18px; }
+  .ckt-field label {
+    display: block; font-family: var(--fb); font-size: 13.5px;
+    font-weight: 600; color: var(--dark); margin-bottom: 7px;
+  }
+  .ckt-field label .req { color: #c0392b; margin-left: 2px; }
+  .ckt-field input[type="text"],
+  .ckt-field input[type="email"],
+  .ckt-field input[type="tel"] {
+    width: 100%; height: 48px; padding: 0 16px; box-sizing: border-box;
+    border: 1.5px solid rgba(2,77,194,.18); border-radius: 10px;
+    font-family: var(--fb); font-size: 15px; color: var(--dark);
+    background: var(--light); transition: border-color .2s, box-shadow .2s;
+  }
+  .ckt-field input:focus {
+    outline: none; border-color: var(--primary); background: #fff;
+    box-shadow: 0 0 0 3px rgba(2,77,194,.1);
+  }
+  .field-error { font-family: var(--fb); font-size: 12.5px; color: #c0392b; margin-top: 6px; display: none; }
+  .field-error.is-visible { display: block; }
 
-    /* Payment method */
-    .payment-opt {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 14px;
-      border: 1.5px solid var(--primary);
-      border-radius: var(--r-sm);
-      background: rgba(2,77,194,.04);
-      cursor: pointer;
-    }
-    .payment-opt input[type="radio"] {
-      flex-shrink: 0;
-      width: 18px; height: 18px;
-      accent-color: var(--primary);
-      cursor: pointer;
-    }
-    .payment-opt__label {
-      font-family: var(--fb);
-      font-size: 15px;
-      font-weight: 500;
-      color: var(--dark);
-      line-height: 1.4;
-    }
-    .payment-desc {
-      margin-top: 10px;
-      font-family: var(--fb);
-      font-size: 13px;
-      font-weight: 400;
-      line-height: 1.65;
-      color: var(--muted);
-    }
+  .ckt-radio-group { display: flex; flex-direction: column; gap: 10px; }
+  .ckt-radio {
+    display: flex; align-items: center; gap: 12px;
+    padding: 11px 14px;
+    border: 1.5px solid rgba(2,77,194,.18); border-radius: 10px;
+    cursor: pointer; transition: border-color .2s, background .2s;
+  }
+  .ckt-radio:has(input:checked) { border-color: var(--primary); background: rgba(2,77,194,.06); }
+  .ckt-radio input  { width: 17px; height: 17px; accent-color: var(--primary); flex: none; cursor: pointer; }
+  .ckt-radio span   { font-family: var(--fb); font-size: 14px; color: var(--dark); }
 
-    /* Submit button — full bleed bottom of card */
-    .oc-submit .btn-cta {
-      max-width: none;
-      width: 100%;
-      border-radius: 0 0 var(--r-lg) var(--r-lg);
-      min-height: 60px;
-      font-size: clamp(14px, 3vw, 17px);
-      letter-spacing: .10em;
-    }
+  .ckt-btn-block    { width: 100%; justify-content: center; margin-top: 24px; }
+  .ckt-secure-note  {
+    margin-top: 12px; text-align: center;
+    font-family: var(--fb); font-size: 12.5px; color: var(--muted);
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+  }
+  .ckt-secure-note svg { width: 13px; height: 13px; stroke: var(--primary); flex: none; }
 
-    /* ── Right column ── */
-    .co-hero-img {
-      width: 100%;
-      border-radius: var(--r-lg);
-      display: block;
-      margin-bottom: 32px;
-      aspect-ratio: 16/9;
-      object-fit: cover;
-    }
-    .co-benefits-h {
-      font-family: var(--fd);
-      font-size: clamp(18px, 2.5vw, 26px);
-      font-weight: 700;
-      color: var(--primary);
-      text-align: center;
-      margin-bottom: 20px;
-      line-height: 1.3;
-    }
+  /* ---------- Step 2 ---------- */
+  .ckt-edit-row { text-align: right; margin-bottom: 12px; }
+  .ckt-edit-link {
+    background: none; border: none; cursor: pointer;
+    font-family: var(--fb); font-size: 13px; font-weight: 700;
+    color: var(--primary); padding: 0;
+    display: inline-flex; align-items: center; gap: 5px;
+  }
+  .ckt-edit-link:hover { text-decoration: underline; }
 
-    /* ═══════════════════════════════════════
-       STEP 2 — QR PAYMENT
-    ═══════════════════════════════════════ */
-    .qr-page {
-      max-width: 620px;
-      margin: 0 auto;
-      padding: 48px 16px 80px;
-    }
-    .qr-page__header {
-      text-align: center;
-      margin-bottom: 28px;
-    }
-    .qr-page__title {
-      font-family: var(--fd);
-      font-size: clamp(22px, 3vw, 30px);
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 8px;
-    }
-    .qr-page__sub {
-      font-family: var(--fb);
-      font-size: 15px;
-      color: var(--muted);
-      line-height: 1.65;
-    }
+  .ckt-summary {
+    background: var(--light); border: 1px solid rgba(2,77,194,.12);
+    border-radius: 12px; padding: 16px 18px; margin-bottom: 26px;
+  }
+  .ckt-summary__row {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    gap: 12px; padding: 8px 0; border-bottom: 1px solid rgba(2,77,194,.09);
+    font-family: var(--fb); font-size: 14px;
+  }
+  .ckt-summary__row:last-child { border-bottom: none; }
+  .ckt-summary__row .k { color: var(--muted); white-space: nowrap; }
+  .ckt-summary__row .v { color: var(--dark); font-weight: 600; text-align: right; }
 
-    /* Order summary mini */
-    .qr-summary {
-      background: #fff;
-      border: 1px solid rgba(0,0,0,.09);
-      border-radius: var(--r-md);
-      padding: 16px 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 2px 10px rgba(0,0,0,.06);
-    }
-    .qr-summary__row {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 12px;
-      padding: 5px 0;
-      font-family: var(--fb);
-      font-size: 14px;
-      border-bottom: 1px solid rgba(0,0,0,.05);
-    }
-    .qr-summary__row:last-child { border-bottom: none; }
-    .qr-summary__row .k { color: var(--muted); white-space: nowrap; }
-    .qr-summary__row .v { color: var(--dark); font-weight: 600; text-align: right; word-break: break-all; }
-    .qr-summary__row.total .v {
-      color: var(--primary);
-      font-family: var(--fd);
-      font-size: 16px;
-    }
+  .ckt-pay-method {
+    display: flex; align-items: center; gap: 10px;
+    padding: 12px 16px;
+    border: 1.5px solid var(--primary); border-radius: 10px;
+    background: rgba(2,77,194,.06); margin-bottom: 8px;
+  }
+  .ckt-pay-method svg   { width: 18px; height: 18px; stroke: var(--primary); flex: none; }
+  .ckt-pay-method span  { font-family: var(--fb); font-size: 14.5px; font-weight: 600; color: var(--dark); }
+  .ckt-pay-desc {
+    font-family: var(--fb); font-size: 13px; color: var(--muted);
+    line-height: 1.6; margin-bottom: 22px;
+  }
 
-    /* QR card */
-    .qr-card {
-      background: #fff;
-      border: 1px solid rgba(0,0,0,.09);
-      border-radius: var(--r-lg);
-      padding: 28px 28px 24px;
-      box-shadow: 0 4px 20px rgba(0,0,0,.09);
-      margin-bottom: 16px;
-    }
-    .qr-card__label {
-      font-family: var(--fd);
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--dark);
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    .qr-img-wrap {
-      width: 240px;
-      margin: 0 auto 24px;
-      border: 1px solid rgba(0,0,0,.10);
-      border-radius: var(--r-md);
-      overflow: hidden;
-      background: #f8fafc;
-    }
-    .qr-img-wrap img {
-      width: 100%;
-      display: block;
-    }
+  .ckt-qr-wrap {
+    width: 260px; margin: 0 auto 22px;
+    border: 1px solid rgba(2,77,194,.14); border-radius: 12px;
+    overflow: hidden; background: #fff;
+  }
+  .ckt-qr-wrap img { width: 100%; display: block; }
 
-    /* Bank info table */
-    .bank-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-bottom: 20px;
-    }
-    .bank-table tr { border-bottom: 1px solid rgba(0,0,0,.06); }
-    .bank-table tr:last-child { border-bottom: none; }
-    .bank-table td {
-      padding: 10px 4px;
-      font-family: var(--fb);
-      font-size: 14px;
-      line-height: 1.4;
-      vertical-align: middle;
-    }
-    .bank-table td:first-child {
-      color: var(--muted);
-      font-weight: 500;
-      width: 38%;
-    }
-    .bank-table td:last-child {
-      color: var(--dark);
-      font-weight: 700;
-    }
-    .copy-btn {
-      background: none;
-      border: 1px solid rgba(2,77,194,.25);
-      border-radius: 4px;
-      padding: 2px 8px;
-      font-size: 11px;
-      font-family: var(--fb);
-      color: var(--primary);
-      cursor: pointer;
-      margin-left: 6px;
-      vertical-align: middle;
-      transition: background .15s;
-    }
-    .copy-btn:hover { background: rgba(2,77,194,.06); }
+  .ckt-bank-title {
+    font-family: var(--fd); font-weight: 700; font-size: 14px;
+    color: var(--dark); margin-bottom: 12px;
+  }
+  .ckt-bank-table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+  .ckt-bank-table tr { border-bottom: 1px solid rgba(2,77,194,.09); }
+  .ckt-bank-table tr:last-child { border-bottom: none; }
+  .ckt-bank-table td {
+    padding: 11px 4px; font-family: var(--fb); font-size: 14px;
+    line-height: 1.4; vertical-align: middle;
+  }
+  .ckt-bank-table td:first-child { color: var(--muted); font-weight: 500; width: 40%; }
+  .ckt-bank-table td:last-child  { color: var(--dark); font-weight: 700; }
+  .copy-btn {
+    background: none; border: 1px solid var(--primary); border-radius: 5px;
+    padding: 3px 9px; font-size: 11px; font-family: var(--fb); font-weight: 600;
+    color: var(--primary); cursor: pointer; margin-left: 8px; vertical-align: middle;
+    transition: background .15s;
+  }
+  .copy-btn:hover { background: rgba(2,77,194,.08); }
 
-    /* Payment status */
-    .pay-status {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 14px 16px;
-      border-radius: var(--r-sm);
-    }
-    .pay-status--waiting {
-      background: rgba(2,77,194,.06);
-      border: 1px solid rgba(2,77,194,.15);
-    }
-    .pay-status--success {
-      background: rgba(34,197,94,.08);
-      border: 1px solid rgba(34,197,94,.28);
-      display: none;
-    }
-    .pay-status--success.is-visible { display: flex; }
-    .pay-status__text {
-      font-family: var(--fb);
-      font-size: 14px;
-      font-weight: 500;
-      line-height: 1.5;
-    }
-    .pay-status--waiting .pay-status__text { color: var(--primary); }
-    .pay-status--success .pay-status__text { color: #166534; font-weight: 600; }
-    .spinner {
-      width: 18px; height: 18px;
-      border: 2.5px solid rgba(2,77,194,.18);
-      border-top-color: var(--primary);
-      border-radius: 50%;
-      animation: spin .8s linear infinite;
-      flex-shrink: 0;
-    }
-    @keyframes spin { to { transform: rotate(360deg); } }
+  .pay-status {
+    display: flex; align-items: center; gap: 10px;
+    padding: 13px 15px; border-radius: 10px; margin-bottom: 20px;
+  }
+  .pay-status--waiting {
+    background: rgba(2,77,194,.06); border: 1px solid rgba(2,77,194,.2);
+  }
+  .pay-status--success {
+    background: rgba(34,197,94,.08); border: 1px solid rgba(34,197,94,.3); display: none;
+  }
+  .pay-status--success.is-visible { display: flex; }
+  .pay-status__text { font-family: var(--fb); font-size: 13.5px; font-weight: 500; line-height: 1.5; }
+  .pay-status--waiting .pay-status__text { color: var(--primary); }
+  .pay-status--success .pay-status__text { color: #166534; font-weight: 600; }
+  .spinner {
+    width: 17px; height: 17px;
+    border: 2.5px solid rgba(2,77,194,.18); border-top-color: var(--primary);
+    border-radius: 50%; animation: spin .8s linear infinite; flex: none;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .ckt-help-note { font-family: var(--fb); font-size: 12.5px; color: var(--muted); line-height: 1.6; }
+  .ckt-help-note a { color: var(--primary); font-weight: 600; text-decoration: underline; }
 
-    .qr-back {
-      text-align: center;
-      margin-top: 20px;
-    }
-    .qr-back a {
-      font-family: var(--fb);
-      font-size: 14px;
-      color: var(--muted);
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
-    .qr-back a:hover { color: var(--primary); }
-
-    /* ── Benefit items (from ve-vip S4) ── */
-    .benefit-list {
-      display: flex; flex-direction: column; gap: 16px;
-      margin: 24px 0 0;
-    }
-    .benefit-item {
-      background: #fff;
-      border: 1px solid rgba(0,0,0,.09);
-      border-radius: 14px;
-      padding: 22px 24px;
-      display: flex; gap: 18px; align-items: flex-start;
-    }
-    .benefit-item__badge {
-      flex-shrink: 0; min-width: 64px;
-      padding: 8px 10px;
-      background: linear-gradient(175deg, #E8CA6C 0%, #D4A520 40%, #9E6C0C 100%);
-      border-radius: 8px; text-align: center;
-      font-family: var(--fd); font-size: 9px; font-weight: 700;
-      color: #1a0800; line-height: 1.3;
-      text-transform: uppercase; letter-spacing: .04em;
-    }
-    .benefit-item__badge .badge-num {
-      display: block; font-size: 18px; font-weight: 700; margin-top: 2px;
-    }
-    .benefit-item__body { flex: 1; min-width: 0; }
-    .benefit-item__title {
-      font-family: var(--fd);
-      font-size: clamp(14px, 1.8vw, 16px); font-weight: 700;
-      color: var(--dark); margin-bottom: 4px; line-height: 1.35;
-    }
-    .benefit-item__value {
-      font-family: var(--fb); font-size: 13px; font-weight: 700;
-      color: #9a6d00; margin-bottom: 8px;
-    }
-    .benefit-item__desc {
-      font-family: var(--fb); font-size: 14px;
-      color: #555; line-height: 1.68;
-    }
-    .s4-intro {
-      font-family: var(--fb); font-size: 15px; font-weight: 400;
-      line-height: 1.72; color: #444; margin-bottom: 0;
-    }
-
-    /* ─── Spots counter ─── */
-    .spots-counter {
-      display: flex; align-items: center; justify-content: center;
-      gap: 10px; flex-wrap: wrap;
-      margin: 16px 0 4px;
-    }
-    .spots-prefix, .spots-suffix {
-      font-family: var(--fd); font-size: clamp(14px, 2vw, 17px);
-      font-weight: 700; color: var(--dark); white-space: nowrap;
-    }
-    .spots-box {
-      position: relative; overflow: hidden;
-      display: inline-flex; align-items: center; justify-content: center;
-      background: linear-gradient(180deg, #f5e9ac 0%, #e8cb6c 35%, #c9a84c 100%);
-      border-radius: 7px; padding: 3px 14px; min-width: 46px;
-      animation: spots-pulse 2.8s ease-in-out infinite;
-    }
-    @keyframes spots-pulse {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(226,194,122,0); }
-      50%       { box-shadow: 0 0 0 8px rgba(226,194,122,.28); }
-    }
-    .spots-box::after {
-      content: ''; position: absolute;
-      top: 0; left: -75%; width: 50%; height: 100%;
-      background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0) 35%, rgba(255,255,255,.52) 50%, rgba(255,255,255,0) 65%, transparent 100%);
-      transform: skewX(-15deg);
-      animation: spots-shine 2.4s ease-in-out infinite;
-      pointer-events: none;
-    }
-    @keyframes spots-shine {
-      0%   { left: -75%; }
-      100% { left: 125%; }
-    }
-    .spots-num {
-      font-family: var(--fd); font-size: clamp(20px, 3.5vw, 28px);
-      font-weight: 700; color: #5a3200; line-height: 1;
-      position: relative; z-index: 1;
-      animation: spot-drop .55s cubic-bezier(.22,.88,.36,1) both;
-    }
-    @keyframes spot-drop {
-      from { transform: translateY(-14px); opacity: 0; }
-      to   { transform: translateY(0);     opacity: 1; }
-    }
-
-    /* ═══════════════════════════════════════
-       RESPONSIVE
-    ═══════════════════════════════════════ */
-    @media (max-width: 980px) {
-      .co-grid {
-        grid-template-columns: 1fr;
-        max-width: 560px;
-        margin: 0 auto;
-      }
-      .co-left { position: static; }
-    }
-    @media (max-width: 640px) {
-      .co-section { padding: 20px 12px 48px; }
-      .qr-page    { padding: 32px 12px 60px; }
-      .qr-card    { padding: 20px 16px 18px; }
-      .qr-img-wrap { width: 200px; }
-    }
-  </style>
+  /* ---------- Responsive ---------- */
+  @media (max-width: 980px) {
+    .ckt-grid { grid-template-columns: 1fr; max-width: 560px; margin: 0 auto; }
+    .ckt-left { position: static; }
+  }
+  @media (max-width: 640px) {
+    .ckt-section   { padding: 36px 5vw 56px; }
+    .ckt-form-card { padding: 24px 18px; }
+    .ckt-left-card { padding: 22px 18px; }
+    .ckt-nav       { padding: 14px 5vw; }
+  }
+</style>
 <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -550,373 +320,238 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
 </head>
 <body>
 
+<!-- ============ NAV ============ -->
+<header class="ckt-nav">
+  <span class="ckt-nav__brand">Flow Leader — Vé VIP</span>
+  <a href="https://www.flowleader.vn/ve-vip" class="ckt-nav__back">← Quay lại trang workshop</a>
+</header>
 
-<!-- ══════════════════════════════════════════
-     STEP 1 — THÔNG TIN & THANH TOÁN
-══════════════════════════════════════════ -->
-<div id="step-1">
+<!-- ============ CHECKOUT SECTION ============ -->
+<section class="ckt-section">
 
-  <!-- Page header -->
-  <div class="co-header">
-    <p class="co-header__pre">Còn 1 bước nữa thôi...</p>
-    <h1 class="co-header__h1">
-      bạn sẽ chính thức sở hữu <span class="hl-vip">Vé VIP</span> và các phần quà giá trị
-    </h1>
+  <div class="ckt-head">
+    <p class="ckt-head__pre">Còn 1 bước nữa thôi...</p>
+    <h1 class="ckt-head__h1">Hoàn tất đăng ký <span class="hl">Vé VIP</span></h1>
   </div>
 
+  <div class="ckt-grid">
 
-  <!-- ── Section 1: Two-column checkout ── -->
-  <div class="co-section">
-    <div class="co-grid">
+    <!-- ══════════ LEFT — sticky info ══════════ -->
+    <div class="ckt-left">
+      <div class="ckt-left-card">
 
-      <!-- ────────────────────────
-           LEFT — Sticky form
-      ──────────────────────── -->
-      <div class="co-left">
-        <div class="order-card">
-
-          <!-- Order summary -->
-          <div class="oc-block">
-            <p class="oc-block__title">Thông Tin Đơn Hàng</p>
-            <div class="order-item">
-              <div class="order-item__thumb">
-                <img src="assets/images/ve-vip.jpg" alt="Vé VIP">
-              </div>
-              <span class="order-item__name">Vé VIP</span>
-              <span class="order-item__price">269.000 đ</span>
-            </div>
-            <div class="order-total-row">
-              <span class="ot-label">Tổng</span>
-              <span class="ot-amount">269.000 đ</span>
-            </div>
+        <div class="ckt-left-section">
+          <p class="ckt-card__title">Thông Tin Buổi Học</p>
+          <p class="ckt-workshop-name">Workshop X2 Hiệu Suất Team Lead</p>
+          <div class="ckt-meta-row">
+            <span class="k">3 &amp; 4/08/2026</span>
+            <span class="v">Thứ Hai &amp; Thứ Ba</span>
           </div>
-
-          <!-- Spots counter -->
-          <div class="spots-counter" aria-live="polite" aria-label="Số suất còn lại">
-            <span class="spots-prefix">Chỉ còn</span>
-            <div class="spots-box">
-              <span class="spots-num" id="spots-num">12</span>
-            </div>
-            <span class="spots-suffix">suất tham gia</span>
+          <div class="ckt-meta-row">
+            <span class="k">20h00 – 21h30</span>
+            <span class="v">90 phút × 2 buổi</span>
           </div>
-
-          <!-- Customer info -->
-          <div class="oc-block">
-            <p class="oc-block__title">Thông Tin Đăng Ký</p>
-            <div class="form-group">
-              <input type="text" id="f-name" class="form-input" placeholder="Tên *" autocomplete="name">
-              <p class="field-error" id="err-name">Vui lòng nhập tên của bạn</p>
-            </div>
-            <div class="form-group">
-              <input type="email" id="f-email" class="form-input" placeholder="Email *" autocomplete="email">
-              <p class="field-error" id="err-email">Vui lòng nhập email hợp lệ</p>
-            </div>
-            <div class="form-group">
-              <div class="phone-row">
-                <span class="phone-prefix">🇻🇳 +84</span>
-                <input type="tel" id="f-phone" class="form-input" placeholder="Phone (tuỳ chọn)" autocomplete="tel">
-              </div>
-            </div>
+          <div class="ckt-meta-row">
+            <span class="k">Online qua Zoom</span>
+            <span class="v">Link gửi sau khi đăng ký</span>
           </div>
+        </div>
 
-          <!-- Payment method -->
-          <div class="oc-block">
-            <p class="oc-block__title">Payment Information</p>
-            <label class="payment-opt">
-              <input type="radio" name="payment" value="bank" checked>
-              <span class="payment-opt__label">Chuyển khoản ngân hàng (Quét mã QR)</span>
+        <div class="ckt-left-divider"></div>
+
+        <div class="ckt-left-section">
+          <p class="ckt-card__title">Bạn Sẽ Nhận Được</p>
+          <ul class="ckt-benefit-list">
+            <li>
+              <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>
+              Buổi Coaching Nhóm Trực Tiếp — đào sâu đúng vấn đề nhân viên bạn đang vướng theo 3 bước FLOW LEADER™
+            </li>
+            <li>
+              <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>
+              Workbook X2 Hiệu Suất Team Lead — khung tự chẩn đoán đóng gói lại để dùng mãi sau này
+            </li>
+            <li>
+              <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>
+              Q&amp;A Cá Nhân Hoá — đặt câu hỏi về tình huống thực tế của riêng bạn, Sora phân tích cụ thể
+            </li>
+            <li>
+              <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>
+              Record Toàn Bộ 3 Buổi — xem lại bao nhiêu lần tuỳ thích
+            </li>
+          </ul>
+        </div>
+
+        <div class="ckt-left-divider"></div>
+
+        <div class="ckt-left-section" style="text-align:center;">
+          <div class="ckt-price-row">
+            <span class="ckt-price-old">1.299.000đ</span>
+            <span class="ckt-save-badge">TIẾT KIỆM 90%</span>
+          </div>
+          <div class="ckt-price-new">96.000 đ</div>
+        </div>
+
+      </div><!-- /.ckt-left-card -->
+    </div><!-- /.ckt-left -->
+
+
+    <!-- ══════════ RIGHT — steps ══════════ -->
+    <div class="ckt-right">
+
+      <!-- ── STEP 1: form ── -->
+      <div class="ckt-form-card" id="step-1">
+        <p class="ckt-form-card__title">Bước 1: Thông tin đăng ký</p>
+
+        <div class="ckt-field">
+          <label for="f-name">Họ tên <span class="req">*</span></label>
+          <input type="text" id="f-name" autocomplete="name">
+          <p class="field-error" id="err-name">Vui lòng nhập họ tên của bạn</p>
+        </div>
+
+        <div class="ckt-field">
+          <label for="f-email">Email <span class="req">*</span></label>
+          <input type="email" id="f-email" autocomplete="email">
+          <p class="field-error" id="err-email">Vui lòng nhập email hợp lệ</p>
+        </div>
+
+        <div class="ckt-field">
+          <label for="f-phone">Số điện thoại <span class="req">*</span></label>
+          <input type="tel" id="f-phone" autocomplete="tel">
+          <p class="field-error" id="err-phone">Vui lòng nhập số điện thoại của bạn</p>
+        </div>
+
+        <div class="ckt-field">
+          <label>Trạng thái của bạn <span class="req">*</span></label>
+          <div class="ckt-radio-group">
+            <label class="ckt-radio">
+              <input type="radio" name="status" value="Chuyên viên muốn lên Team Lead trong 6 tháng">
+              <span>Chuyên viên muốn lên Team Lead trong 6 tháng</span>
             </label>
-            <p class="payment-desc">
-              Chuyển khoản vào tài khoản của chúng tôi (Có thể quét mã QR). Đơn hàng sẽ được xác nhận ngay sau khi chuyển khoản thành công.
-            </p>
+            <label class="ckt-radio">
+              <input type="radio" name="status" value="Team Lead < 1 năm">
+              <span>Team Lead &lt; 1 năm</span>
+            </label>
+            <label class="ckt-radio">
+              <input type="radio" name="status" value="Team Lead 1-2 năm">
+              <span>Team Lead 1-2 năm</span>
+            </label>
+            <label class="ckt-radio">
+              <input type="radio" name="status" value="Team Lead 2-3 năm">
+              <span>Team Lead 2-3 năm</span>
+            </label>
+            <label class="ckt-radio">
+              <input type="radio" name="status" value="Team Lead > 3 năm">
+              <span>Team Lead &gt; 3 năm</span>
+            </label>
           </div>
-
-          <!-- Submit -->
-          <div class="oc-submit">
-            <button type="button" id="btn-submit" class="btn-cta">THANH TOÁN NGAY</button>
-          </div>
-
-        </div><!-- /.order-card -->
-      </div><!-- /.co-left -->
-
-
-      <!-- ────────────────────────
-           RIGHT — Benefits (S5)
-      ──────────────────────── -->
-      <div class="co-right">
-
-        <img src="assets/images/ve-vip.jpg" alt="Vé VIP" class="co-hero-img">
-
-        <h2 class="co-benefits-h">Đây Là Tất Cả Những Gì Bạn Nhận Được Khi Nâng Cấp</h2>
-        <div class="divider-gold" style="background:var(--primary); margin-bottom:20px;"></div>
-
-        <p class="s4-intro">Buổi 1 &amp; Buổi 2 (Vé Miễn Phí) cho bạn bản đồ — cơ chế và mindset. Buổi 3 (Vé VIP) là nơi bạn thấy bản đồ đó vận hành thật, và mang về một hệ thống dùng được ngay.</p>
-
-        <div class="benefit-list">
-
-          <!-- Main session -->
-          <div class="benefit-item" style="flex-direction:column; gap:20px;">
-            <div style="display:flex; gap:18px; align-items:flex-start;">
-              <div class="benefit-item__badge">
-                Buổi<br>Đặc Biệt
-                <span class="badge-num">B3</span>
-              </div>
-              <div class="benefit-item__body">
-                <p class="benefit-item__title">Đây Là Buổi Sora Sẽ Coaching Nhóm Trực Tiếp Theo Cơ Chế FLOW LEADER™ Để Bạn Tìm Ra Chính Xác Gốc Rễ Và Giải Pháp Cho Vấn Đề Nhân Viên Đang Khiến Bạn Kiệt Sức</p>
-                <p class="benefit-item__value">2/7 &nbsp;|&nbsp; 20h tối &nbsp;|&nbsp; Giá trị: 1.500.000đ</p>
-              </div>
-            </div>
-
-            <div style="padding-left:82px;">
-              <p class="benefit-item__desc" style="margin-bottom:20px;">Đây là một buổi coaching nhóm thật, nơi mình cùng bạn đào sâu đúng vấn đề nhân viên bạn đang vướng, để bạn rời đi với hướng đi rõ ràng, áp dụng được ngay theo cơ chế FLOW LEADER™: Nội lực + Đội ngũ + Công cụ AI.</p>
-
-              <p class="benefit-item__desc" style="margin-bottom:14px;">Mỗi vấn đề mang vào buổi sẽ được đào sâu theo đúng 3 bước:</p>
-
-              <div style="display:flex; flex-direction:column; gap:18px;">
-
-                <!-- Bước 1 -->
-                <div>
-                  <p style="font-family:var(--fb); font-size:14px; font-weight:700; color:var(--primary); margin-bottom:8px;">Bước 1 - Nội Lực: Nhìn Lại Chính Mình</p>
-                  <ul style="list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:6px;">
-                    <li style="display:flex; gap:8px; font-family:var(--fb); font-size:14px; color:#444; line-height:1.65;"><span style="flex-shrink:0; color:var(--primary); font-weight:700;">•</span><span>Nhìn ra phản ứng đang lặp lại khi nhân viên gây ra vấn đề</span></li>
-                    <li style="display:flex; gap:8px; font-family:var(--fb); font-size:14px; color:#444; line-height:1.65;"><span style="flex-shrink:0; color:var(--primary); font-weight:700;">•</span><span>Gọi tên niềm tin giới hạn đang khiến bạn phản ứng như vậy</span></li>
-                    <li style="display:flex; gap:8px; font-family:var(--fb); font-size:14px; color:#444; line-height:1.65;"><span style="flex-shrink:0; color:var(--primary); font-weight:700;">•</span><span>Tìm ra bạn đang Sợ điều gì, đang cố Lấy điều gì</span></li>
-                  </ul>
-                </div>
-
-                <!-- Bước 2 -->
-                <div>
-                  <p style="font-family:var(--fb); font-size:14px; font-weight:700; color:var(--primary); margin-bottom:8px;">Bước 2 - Kết Nối Con Người: Định Vị Đúng &amp; Giải Quyết Vấn Đề Của Nhân Viên</p>
-                  <p style="font-family:var(--fb); font-size:14px; color:#444; line-height:1.65; margin-bottom:8px;">Đi qua 5 cấp kết nối để biết chính xác vấn đề đang kẹt ở đâu:</p>
-                  <ul style="list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:6px;">
-                    <li style="display:flex; gap:8px; font-family:var(--fb); font-size:14px; color:#444; line-height:1.65;"><span style="flex-shrink:0; color:var(--primary); font-weight:700;">•</span><span><strong>Làm Rõ</strong> — nhân viên hiểu đúng mục tiêu từ đầu, hay đang tự đoán?</span></li>
-                    <li style="display:flex; gap:8px; font-family:var(--fb); font-size:14px; color:#444; line-height:1.65;"><span style="flex-shrink:0; color:var(--primary); font-weight:700;">•</span><span><strong>Tìm Cốt Lõi</strong> — vấn đề thật là thiếu kỹ năng, thiếu động lực, hay rào cản khác?</span></li>
-                    <li style="display:flex; gap:8px; font-family:var(--fb); font-size:14px; color:#444; line-height:1.65;"><span style="flex-shrink:0; color:var(--primary); font-weight:700;">•</span><span><strong>Giảm Rào Cản</strong> — nhân viên có đủ nguồn lực, quy trình để làm đúng?</span></li>
-                    <li style="display:flex; gap:8px; font-family:var(--fb); font-size:14px; color:#444; line-height:1.65;"><span style="flex-shrink:0; color:var(--primary); font-weight:700;">•</span><span><strong>Giảm Giới Hạn</strong> — nhân viên dám thử, dám nói thật, hay đang giấu vấn đề?</span></li>
-                    <li style="display:flex; gap:8px; font-family:var(--fb); font-size:14px; color:#444; line-height:1.65;"><span style="flex-shrink:0; color:var(--primary); font-weight:700;">•</span><span><strong>Tạo Động Lực</strong> — họ làm vì bị giao, hay vì thấy mục tiêu của chính mình trong đó?</span></li>
-                  </ul>
-                </div>
-
-                <!-- Bước 3 -->
-                <div>
-                  <p style="font-family:var(--fb); font-size:14px; font-weight:700; color:var(--primary); margin-bottom:8px;">Bước 3 - Công Cụ: Nhận Giải Pháp Để Áp Dụng Ngay</p>
-                  <ul style="list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:6px;">
-                    <li style="display:flex; gap:8px; font-family:var(--fb); font-size:14px; color:#444; line-height:1.65;"><span style="flex-shrink:0; color:var(--primary); font-weight:700;">•</span><span>Nhận bộ cấu trúc giải pháp cho đúng tình huống của bạn</span></li>
-                    <li style="display:flex; gap:8px; font-family:var(--fb); font-size:14px; color:#444; line-height:1.65;"><span style="flex-shrink:0; color:var(--primary); font-weight:700;">•</span><span>Biết chỗ nào dùng kết nối con người, chỗ nào AI hỗ trợ tăng tốc</span></li>
-                    <li style="display:flex; gap:8px; font-family:var(--fb); font-size:14px; color:#444; line-height:1.65;"><span style="flex-shrink:0; color:var(--primary); font-weight:700;">•</span><span>Có khung dùng lại được cho mọi vấn đề nhân viên sau này</span></li>
-                  </ul>
-                </div>
-
-              </div>
-
-              <p class="benefit-item__desc" style="margin-top:20px; margin-bottom:12px;">Một vài tình huống thường được mang vào những buổi coaching như thế này:</p>
-              <ul style="list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px;">
-                <li style="display:flex; gap:10px; align-items:flex-start; font-family:var(--fb); font-size:14px; color:#444; line-height:1.65;">
-                  <span style="flex-shrink:0; color:var(--primary); font-weight:700; margin-top:1px;">→</span>
-                  <span>Nhân viên làm sai hoài, không biết có phải do mình không</span>
-                </li>
-                <li style="display:flex; gap:10px; align-items:flex-start; font-family:var(--fb); font-size:14px; color:#444; line-height:1.65;">
-                  <span style="flex-shrink:0; color:var(--primary); font-weight:700; margin-top:1px;">→</span>
-                  <span>Mới lên lead, nhân viên chưa phục, chưa biết cách kết nối</span>
-                </li>
-                <li style="display:flex; gap:10px; align-items:flex-start; font-family:var(--fb); font-size:14px; color:#444; line-height:1.65;">
-                  <span style="flex-shrink:0; color:var(--primary); font-weight:700; margin-top:1px;">→</span>
-                  <span>Tuyển đúng người ngay từ đầu, để không mất công đào tạo lại</span>
-                </li>
-                <li style="display:flex; gap:10px; align-items:flex-start; font-family:var(--fb); font-size:14px; color:#444; line-height:1.65;">
-                  <span style="flex-shrink:0; color:var(--primary); font-weight:700; margin-top:1px;">→</span>
-                  <span>Giao việc mà nhân viên hiểu đúng ý, không phải dọn rác phía sau</span>
-                </li>
-                <li style="display:flex; gap:10px; align-items:flex-start; font-family:var(--fb); font-size:14px; color:#444; line-height:1.65;">
-                  <span style="flex-shrink:0; color:var(--primary); font-weight:700; margin-top:1px;">→</span>
-                  <span>Feedback mà không gây phòng thủ, để nhân viên thực sự rút kinh nghiệm</span>
-                </li>
-                <li style="display:flex; gap:10px; align-items:flex-start; font-family:var(--fb); font-size:14px; color:#444; line-height:1.65;">
-                  <span style="flex-shrink:0; color:var(--primary); font-weight:700; margin-top:1px;">→</span>
-                  <span>Xử lý vi phạm kỷ luật mà không mất kết nối với cả team</span>
-                </li>
-                <li style="display:flex; gap:10px; align-items:flex-start; font-family:var(--fb); font-size:14px; color:#444; line-height:1.65;">
-                  <span style="flex-shrink:0; color:var(--primary); font-weight:700; margin-top:1px;">→</span>
-                  <span>Tạo động lực để nhân viên chủ động, thay vì chỉ làm vì bị giao</span>
-                </li>
-              </ul>
-              <p style="font-family:var(--fb); font-size:13px; color:#888; line-height:1.6; margin-top:12px; font-style:italic;">(đây không phải danh sách cố định — buổi sẽ đi theo đúng tình huống thật của những người tham gia hôm đó)</p>
-            </div>
-          </div>
-
-          <!-- Bonus #1 -->
-          <div class="benefit-item">
-            <div class="benefit-item__badge">
-              Bonus
-              <span class="badge-num">#1</span>
-            </div>
-            <div class="benefit-item__body">
-              <p class="benefit-item__title">BONUS: Workbook X2 Hiệu Suất Team Lead</p>
-              <p class="benefit-item__desc">Khung tự chẩn đoán 6 bước ở trên, đóng gói lại để bạn dùng cho mọi vấn đề nhân viên gặp sau này — không chỉ trong buổi hôm đó.</p>
-            </div>
-          </div>
-
-          <!-- Bonus #2 -->
-          <div class="benefit-item">
-            <div class="benefit-item__badge">
-              Bonus
-              <span class="badge-num">#2</span>
-            </div>
-            <div class="benefit-item__body">
-              <p class="benefit-item__title">BONUS: Q&amp;A Cá Nhân Hoá</p>
-              <p class="benefit-item__desc">Bạn đặt câu hỏi trực tiếp về tình huống thực tế của riêng mình. Sora phân tích cụ thể và đồng hành tìm ra cách xử lý phù hợp nhất với bạn.</p>
-            </div>
-          </div>
-
-          <!-- Bonus #3 -->
-          <div class="benefit-item">
-            <div class="benefit-item__badge">
-              Bonus
-              <span class="badge-num">#3</span>
-            </div>
-            <div class="benefit-item__body">
-              <p class="benefit-item__title">BONUS: Record Toàn Bộ 3 Buổi</p>
-              <p class="benefit-item__desc">Xem lại bao nhiêu lần tuỳ thích — không lo bỏ lỡ bất kỳ nội dung nào từ cả 3 buổi.</p>
-            </div>
-          </div>
-
-        </div><!-- /.benefit-list -->
-
-      </div><!-- /.co-right -->
-
-    </div><!-- /.co-grid -->
-  </div><!-- /.co-section -->
-
-
-  <!-- ── Section 2: Guarantee (S4) — dark ── -->
-  <section class="sec sec--dark sec--tight-top" style="padding-bottom:64px;">
-    <div class="wrap">
-
-      <div class="guarantee-dark">
-        <div class="guarantee-dark__img">
-          <img src="assets/images/money-back.jpg" alt="Cam kết hoàn tiền">
+          <p class="field-error" id="err-status">Vui lòng chọn trạng thái của bạn</p>
         </div>
-        <h3 class="guarantee-dark__title">Cam Kết Hoàn Tiền</h3>
-        <div class="guarantee-dark__body">
-          <p>Nâng cấp lên VIP. Tham gia Buổi 3. Tận mắt xem Sora thực hành trực tiếp từ đầu đến cuối.</p>
-          <p>Và nếu trong vòng <strong>7 ngày sau workshop</strong>, bạn áp dụng ít nhất 1 tình huống theo cơ chế mới, bạn vẫn cảm thấy không có gì thay đổi trong cảm xúc, suy nghĩ bên trong bạn và từ sếp nhân viên, hoàn cảnh bên ngoài bạn và vẫn cảm thấy những gì nhận được không xứng đáng với mức đầu tư…</p>
-          <p>Mình sẽ vui vẻ <strong>hoàn lại tiền 100%</strong> cho bạn, và bạn vẫn được giữ toàn bộ tài liệu, video đã nhận được, coi như một lời cảm ơn vì đã dành thời gian trải nghiệm chương trình này.</p>
-          <p>Mình tự tin cam kết vì mình biết: Khi bạn tham gia buổi workshop đặc biệt này, giá trị bạn nhận lại sẽ còn nhiều hơn thế.</p>
+
+        <button type="button" id="btn-step1-submit" class="btn-cta ckt-btn-block">
+          Tiếp tục thanh toán →
+        </button>
+
+        <p class="ckt-secure-note">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+          Thông tin của bạn được bảo mật tuyệt đối.
+        </p>
+      </div>
+
+      <!-- ── STEP 2: QR payment ── -->
+      <div class="ckt-form-card" id="step-2" style="display:none;">
+
+        <div class="ckt-edit-row">
+          <button type="button" id="btn-edit" class="ckt-edit-link">✎ Sửa thông tin</button>
         </div>
-      </div>
 
+        <div class="ckt-summary">
+          <div class="ckt-summary__row"><span class="k">Họ tên</span><span class="v" id="sum-name">—</span></div>
+          <div class="ckt-summary__row"><span class="k">Email</span><span class="v" id="sum-email">—</span></div>
+          <div class="ckt-summary__row"><span class="k">Số điện thoại</span><span class="v" id="sum-phone">—</span></div>
+          <div class="ckt-summary__row"><span class="k">Trạng thái</span><span class="v" id="sum-status">—</span></div>
+        </div>
+
+        <p class="ckt-form-card__title" style="margin-bottom:16px;">Bước 2: Thanh toán</p>
+
+        <div class="ckt-pay-method">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>
+          <span>Chuyển khoản ngân hàng (VietQR)</span>
+        </div>
+        <p class="ckt-pay-desc">Vui lòng quét mã QR bên dưới, nội dung chuyển khoản sẽ tự động điền đúng cú pháp.</p>
+
+        <div class="ckt-qr-wrap">
+          <img id="qr-img" src="" alt="Mã QR thanh toán" loading="lazy">
+        </div>
+
+        <p class="ckt-bank-title">Thông tin chuyển khoản</p>
+        <table class="ckt-bank-table">
+          <tr><td>Ngân hàng</td><td>BIDV</td></tr>
+          <tr>
+            <td>Số tài khoản</td>
+            <td>
+              <span id="b-account">96247FLOWLEADER</span>
+              <button type="button" class="copy-btn" onclick="copyEl('b-account', this)">Sao chép</button>
+            </td>
+          </tr>
+          <tr><td>Chủ tài khoản</td><td>DUONG HA THUC ANH</td></tr>
+          <tr><td>Số tiền</td><td>96.000đ</td></tr>
+          <tr>
+            <td>Nội dung CK</td>
+            <td>
+              <span id="b-ref">—</span>
+              <button type="button" class="copy-btn" id="copy-ref-btn">Sao chép</button>
+            </td>
+          </tr>
+        </table>
+
+        <div class="pay-status pay-status--waiting" id="pay-waiting">
+          <div class="spinner"></div>
+          <span class="pay-status__text">Đang chờ xác nhận thanh toán...</span>
+        </div>
+
+        <div class="pay-status pay-status--success" id="pay-success">
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <circle cx="10" cy="10" r="10" fill="#22c55e"/>
+            <path d="M5 10.5l3.5 3.5 7-7" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="pay-status__text">Thanh toán thành công! Đang chuyển trang...</span>
+        </div>
+
+        <p class="ckt-help-note"><strong>Quan trọng:</strong> Đừng tắt trang! Sau khi chuyển khoản xong, vui lòng giữ trang này mở và đợi trang xác nhận hiện ra. Nếu sau 15 phút chưa thấy, liên hệ Sora qua <a href="https://www.facebook.com/profile.php?id=61575346547617" target="_blank" rel="noopener">Fanpage</a>.</p>
+
+      </div><!-- /#step-2 -->
+
+    </div><!-- /.ckt-right -->
+
+  </div><!-- /.ckt-grid -->
+</section>
+
+<!-- ============ CAM KẾT HOÀN TIỀN ============ -->
+<section class="sec sec--dark sec--tight-top" style="padding-bottom:64px;">
+  <div class="wrap">
+    <div class="guarantee-dark">
+      <div class="guarantee-dark__img">
+        <img src="assets/images/money-back.jpg" alt="Cam kết hoàn tiền">
+      </div>
+      <h3 class="guarantee-dark__title">Cam Kết Hoàn Tiền</h3>
+      <div class="guarantee-dark__body">
+        <p>Nâng cấp lên VIP. Tham gia Buổi 3. Tận mắt xem Sora coaching nhóm trực tiếp từ đầu đến cuối.</p>
+        <p>Và nếu trong vòng <strong>7 ngày sau workshop</strong>, bạn áp dụng ít nhất 1 tình huống theo cơ chế FLOW LEADER™, bạn vẫn cảm thấy không có gì thay đổi trong cảm xúc, suy nghĩ bên trong bạn và từ sếp nhân viên, hoàn cảnh bên ngoài bạn và vẫn cảm thấy những gì nhận được không xứng đáng với mức đầu tư…</p>
+        <p>Mình sẽ vui vẻ <strong>hoàn lại tiền 100%</strong> cho bạn, và bạn vẫn được giữ toàn bộ tài liệu, video đã nhận được, coi như một lời cảm ơn vì đã dành thời gian trải nghiệm chương trình này.</p>
+        <p>Mình tự tin cam kết vì mình biết: Khi bạn tham gia buổi coaching nhóm thật này, giá trị bạn nhận lại sẽ còn nhiều hơn thế.</p>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
-</div><!-- /#step-1 -->
-
-
-<!-- ══════════════════════════════════════════
-     STEP 2 — QR CODE THANH TOÁN
-══════════════════════════════════════════ -->
-<div id="step-2" style="display:none;">
-
-  <div class="qr-page">
-
-    <div class="qr-page__header">
-      <h1 class="qr-page__title">Quét mã QR để thanh toán</h1>
-      <p class="qr-page__sub">Chuyển khoản <strong>đúng số tiền</strong> và <strong>đúng nội dung</strong> để đơn hàng được xác nhận tự động</p>
-    </div>
-
-    <!-- Mini order summary -->
-    <div class="qr-summary">
-      <div class="qr-summary__row">
-        <span class="k">Họ tên</span>
-        <span class="v" id="qr-show-name">—</span>
-      </div>
-      <div class="qr-summary__row">
-        <span class="k">Email</span>
-        <span class="v" id="qr-show-email">—</span>
-      </div>
-      <div class="qr-summary__row">
-        <span class="k">Mã đơn hàng</span>
-        <span class="v" id="qr-show-ref">—</span>
-      </div>
-      <div class="qr-summary__row total">
-        <span class="k">Số tiền</span>
-        <span class="v">269.000đ</span>
-      </div>
-    </div>
-
-    <!-- QR + Bank info card -->
-    <div class="qr-card">
-      <p class="qr-card__label">Quét QR bằng ứng dụng ngân hàng</p>
-
-      <div class="qr-img-wrap">
-        <img id="qr-img" src="" alt="QR Code thanh toán" loading="lazy">
-      </div>
-
-      <table class="bank-table">
-        <tr>
-          <td>Ngân hàng</td>
-          <td id="b-bank">—</td>
-        </tr>
-        <tr>
-          <td>Số tài khoản</td>
-          <td>
-            <span id="b-account">—</span>
-            <button class="copy-btn" onclick="copyEl('b-account', this)">Sao chép</button>
-          </td>
-        </tr>
-        <tr>
-          <td>Chủ tài khoản</td>
-          <td id="b-owner">—</td>
-        </tr>
-        <tr>
-          <td>Số tiền</td>
-          <td>
-            <span>269.000đ</span>
-            <button class="copy-btn" onclick="copyStr('269000', this)">Sao chép</button>
-          </td>
-        </tr>
-        <tr>
-          <td>Nội dung CK</td>
-          <td>
-            <span id="b-ref">—</span>
-            <button class="copy-btn" id="copy-ref-btn">Sao chép</button>
-          </td>
-        </tr>
-      </table>
-
-      <!-- Waiting -->
-      <div class="pay-status pay-status--waiting" id="pay-waiting">
-        <div class="spinner"></div>
-        <span class="pay-status__text">Đang chờ xác nhận thanh toán...</span>
-      </div>
-
-      <!-- Success -->
-      <div class="pay-status pay-status--success" id="pay-success">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-          <circle cx="10" cy="10" r="10" fill="#22c55e"/>
-          <path d="M5 10.5l3.5 3.5 7-7" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <span class="pay-status__text">Thanh toán thành công! Kiểm tra email để nhận thông tin tham gia.</span>
-      </div>
-
-    </div><!-- /.qr-card -->
-
-    <div class="qr-back">
-      <a href="#" id="btn-back">← Quay lại chỉnh sửa thông tin</a>
-    </div>
-
-  </div><!-- /.qr-page -->
-
-</div><!-- /#step-2 -->
-
-
-<!-- ══════════════════════════════════════════
-     FOOTER
-══════════════════════════════════════════ -->
+<!-- ============ FOOTER ============ -->
 <footer class="site-footer">
   <div class="wrap">
     <p class="footer-brand">© Flow Leader</p>
-    <p>Dẫn dắt từ bên trong.<br>Lead nhẹ nhàng, hiệu quả và sống trọn vẹn hơn.</p>
-    <p style="margin-top:12px;"><a href="/policy" style="color:rgba(255,255,255,.5); font-size:13px; text-decoration:underline;">Chính sách & Điều khoản</a></p>
+    <p>Dẫn dắt từ bên trong. Lead nhẹ nhàng, hiệu quả và sống trọn vẹn hơn.</p>
+    <p style="margin-top:12px;">
+      <a href="/policy" style="color:rgba(255,255,255,.5); font-size:13px; text-decoration:underline;">Chính sách &amp; Điều khoản</a>
+    </p>
   </div>
 </footer>
 
@@ -925,68 +560,58 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
 (function () {
   'use strict';
 
-  var GAS_URL = 'https://script.google.com/macros/s/AKfycbwjRrSRVBbrSQRKW5NIOhZO7dujCDmr0CUaDR9mxQ0foM3uuasuYb3dxT_SwNPIGMdV/exec';
+  /* ─── Config ───────────────────────────────────────────────
+     GAS_URL: Google Apps Script phải được bind vào spreadsheet
+     https://docs.google.com/spreadsheets/d/1600bWejeavit1vCydX37zfAzWpj4BYCdXJKqMAQAGgQ
+     Sheet tab: "VIP Orders" (tạo thêm nếu chưa có)
+  ─────────────────────────────────────────────────────────── */
+  var GAS_URL   = 'https://script.google.com/macros/s/AKfycbwjRrSRVBbrSQRKW5NIOhZO7dujCDmr0CUaDR9mxQ0foM3uuasuYb3dxT_SwNPIGMdV/exec';
+  var BANK      = { code: 'BIDV', account: '96247FLOWLEADER', owner: 'DUONG HA THUC ANH' };
+  var AMOUNT    = 96000;
+  var CK_PREFIX = 'WSFL';
+  var CK_DIGITS = 3;
 
-  /* ─── Spots counter ─── */
-  (function () {
-    var SPOTS_START = 12;
-    var SPOTS_FLOOR = 3;
-    var DECAY_DAYS  = 3;
-    var EPOCH_MS    = new Date('2026-06-16T00:00:00+07:00').getTime();
-    var daysPassed  = Math.floor((Date.now() - EPOCH_MS) / 86400000);
-    var decrements  = Math.floor(Math.max(0, daysPassed) / DECAY_DAYS);
-    var spots       = Math.max(SPOTS_FLOOR, SPOTS_START - decrements);
-    var el = document.getElementById('spots-num');
-    if (el) el.textContent = spots;
-  })();
+  var step1     = document.getElementById('step-1');
+  var step2     = document.getElementById('step-2');
+  var btnSubmit = document.getElementById('btn-step1-submit');
+  var btnEdit   = document.getElementById('btn-edit');
+  var pollTimer = null;
 
-  var BANK = {
-    code:        'BIDV',
-    account:     '96247FLOWLEADER',
-    owner:       'DUONG HA THUC ANH',
-    displayName: 'BIDV',
-  };
-  var AMOUNT = 269000;
-
-  var step1 = document.getElementById('step-1');
-  var step2 = document.getElementById('step-2');
-  var btnSubmit = document.getElementById('btn-submit');
-  var btnBack   = document.getElementById('btn-back');
-
-  /* ── Form submit ── */
+  /* ── Step 1 → Step 2 ── */
   btnSubmit.addEventListener('click', function () {
-    var name  = (document.getElementById('f-name').value  || '').trim();
-    var email = (document.getElementById('f-email').value || '').trim();
-    var phone = (document.getElementById('f-phone').value || '').trim();
-
+    var name        = (document.getElementById('f-name').value  || '').trim();
+    var email       = (document.getElementById('f-email').value || '').trim();
+    var phone       = (document.getElementById('f-phone').value || '').trim();
+    var statusInput = document.querySelector('input[name="status"]:checked');
     var ok = true;
 
-    if (!name) {
-      document.getElementById('err-name').classList.add('is-visible');
-      ok = false;
-    } else {
-      document.getElementById('err-name').classList.remove('is-visible');
+    function setErr(id, isErr) {
+      var el = document.getElementById(id);
+      if (isErr) { el.classList.add('is-visible'); ok = false; }
+      else        { el.classList.remove('is-visible'); }
     }
 
-    var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!email || !emailRe.test(email)) {
-      document.getElementById('err-email').classList.add('is-visible');
-      ok = false;
-    } else {
-      document.getElementById('err-email').classList.remove('is-visible');
-    }
+    setErr('err-name',   !name);
+    setErr('err-email',  !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email));
+    setErr('err-phone',  !phone);
+    setErr('err-status', !statusInput);
 
     if (!ok) return;
 
-    btnSubmit.disabled = true;
+    btnSubmit.disabled    = true;
     btnSubmit.textContent = 'Đang xử lý...';
 
-    /* Tạo order qua GAS */
     fetch(GAS_URL, {
       method: 'POST',
       body: JSON.stringify({
         action: 'createOrder',
-        data: { name: name, email: email, phone: phone, totalAmount: AMOUNT }
+        data: {
+          name: name, email: email, phone: phone,
+          totalAmount: AMOUNT,
+          ckPrefix: CK_PREFIX, ckDigits: CK_DIGITS,
+          status: statusInput.value,
+          product: 'Ve VIP B3'
+        }
       })
     })
     .then(function (r) { return r.json(); })
@@ -996,65 +621,51 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
       var orderId   = res.orderId;
       var ckContent = res.ckContent;
 
-      /* Populate step 2 */
-      document.getElementById('qr-show-name').textContent  = name;
-      document.getElementById('qr-show-email').textContent = email;
-      document.getElementById('qr-show-ref').textContent   = ckContent;
-      document.getElementById('b-bank').textContent        = BANK.displayName;
-      document.getElementById('b-account').textContent     = BANK.account;
-      document.getElementById('b-owner').textContent       = BANK.owner;
-      document.getElementById('b-ref').textContent         = ckContent;
+      document.getElementById('sum-name').textContent   = name;
+      document.getElementById('sum-email').textContent  = email;
+      document.getElementById('sum-phone').textContent  = phone;
+      document.getElementById('sum-status').textContent = statusInput.value;
 
-      document.getElementById('copy-ref-btn').onclick = function () {
-        copyStr(ckContent, this);
-      };
+      document.getElementById('b-ref').textContent = ckContent;
+      document.getElementById('copy-ref-btn').onclick = function () { copyStr(ckContent, this); };
 
-      /* VietQR URL */
-      var qrSrc = 'https://img.vietqr.io/image/' +
-        BANK.code + '-' + BANK.account + '-qr_only.png' +
-        '?amount=' + AMOUNT +
-        '&addInfo=' + encodeURIComponent(ckContent) +
-        '&accountName=' + encodeURIComponent(BANK.owner);
+      var qrSrc = 'https://qr.sepay.vn/img'
+        + '?acc='    + BANK.account
+        + '&bank='   + BANK.code
+        + '&amount=' + AMOUNT
+        + '&des='    + encodeURIComponent(ckContent)
+        + '&template=compact';
       document.getElementById('qr-img').src = qrSrc;
-
-      document.getElementById('pay-waiting').style.display = 'flex';
-      document.getElementById('pay-success').classList.remove('is-visible');
 
       step1.style.display = 'none';
       step2.style.display = 'block';
       window.scrollTo({ top: 0, behavior: 'smooth' });
 
+      if (typeof fbq !== 'undefined') fbq('track', 'Lead');
+
       startPolling(orderId);
     })
     .catch(function (err) {
       alert('Có lỗi xảy ra: ' + err.message + '. Vui lòng thử lại.');
-      btnSubmit.disabled = false;
-      btnSubmit.textContent = 'THANH TOÁN NGAY';
+      btnSubmit.disabled    = false;
+      btnSubmit.textContent = 'Tiếp tục thanh toán →';
     });
   });
 
-  /* ── Back button ── */
-  btnBack.addEventListener('click', function (e) {
-    e.preventDefault();
+  /* ── Sửa → back to step 1 ── */
+  btnEdit.addEventListener('click', function () {
+    clearInterval(pollTimer);
     step2.style.display = 'none';
     step1.style.display = 'block';
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-  /* ── Sepay payment polling ──
-     Gọi endpoint serverless mỗi 5 giây.
-     Uncommment khi đã có /api/check-payment  ── */
-  var pollTimer = null;
-
+  /* ── Polling mỗi 5 giây ── */
   function startPolling(orderId) {
     clearInterval(pollTimer);
     var attempts = 0;
-    var maxAttempts = 120; /* 10 phút */
-
     pollTimer = setInterval(function () {
-      attempts++;
-      if (attempts >= maxAttempts) { clearInterval(pollTimer); return; }
-
+      if (++attempts >= 120) { clearInterval(pollTimer); return; }
       fetch(GAS_URL + '?action=getStatus&orderId=' + encodeURIComponent(orderId))
         .then(function (r) { return r.json(); })
         .then(function (data) {
@@ -1068,53 +679,31 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
   }
 
   function onPaymentConfirmed() {
-    fbq('track', 'Purchase', {value: 269000, currency: 'VND'});
+    if (typeof fbq !== 'undefined') fbq('track', 'Purchase', { value: 96000, currency: 'VND' });
     document.getElementById('pay-waiting').style.display = 'none';
     document.getElementById('pay-success').classList.add('is-visible');
     setTimeout(function () {
-      window.location.href = 'https://www.flowleader.vn/cam-on-vip?amount=269000';
+      window.location.href = 'https://www.flowleader.vn/cam-on-vip?amount=96000';
     }, 2000);
   }
 
-  /* S4 CTA — scroll to form */
-  var s4cta = document.getElementById('s4-cta');
-  if (s4cta) {
-    s4cta.addEventListener('click', function (e) {
-      e.preventDefault();
-      var form = document.querySelector('.co-left');
-      if (form) form.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-  }
-
-  /* simulatePayment() removed — was triggering false Purchase events on Facebook Pixel */
+  /* simulatePayment() removed — triggers false Purchase events on Facebook Pixel */
 
 })();
 
-
-/* ── Copy helpers ── */
-function copyEl(id, btn) {
-  var el = document.getElementById(id);
-  doCopy(el ? el.textContent.trim() : '', btn);
-}
-function copyStr(str, btn) {
-  doCopy(str, btn);
-}
+function copyEl(id, btn) { doCopy(document.getElementById(id).textContent.trim(), btn); }
+function copyStr(str, btn) { doCopy(str, btn); }
 function doCopy(text, btn) {
-  if (navigator.clipboard) {
-    navigator.clipboard.writeText(text).catch(function () {});
-  } else {
+  if (navigator.clipboard) { navigator.clipboard.writeText(text).catch(function(){}); }
+  else {
     var t = document.createElement('textarea');
-    t.value = text;
-    t.style.position = 'fixed';
-    t.style.opacity  = '0';
-    document.body.appendChild(t);
-    t.select();
-    try { document.execCommand('copy'); } catch (e) {}
+    t.value = text; t.style.cssText = 'position:fixed;opacity:0';
+    document.body.appendChild(t); t.select();
+    try { document.execCommand('copy'); } catch(e) {}
     document.body.removeChild(t);
   }
-  var orig = btn.textContent;
-  btn.textContent = 'Đã sao chép!';
-  setTimeout(function () { btn.textContent = orig; }, 1600);
+  var orig = btn.textContent; btn.textContent = 'Đã sao chép!';
+  setTimeout(function() { btn.textContent = orig; }, 1600);
 }
 </script>
 

@@ -62,7 +62,7 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
         ngay cả khi bạn đang kẹt giữa sếp áp lực và team chưa hiệu quả.
       </p>
 
-      <a href="#register" class="btn-cta">Đăng Ký Giữ Chỗ Ngay</a>
+      <a href="https://www.flowleader.vn/thanh-toan-vip" class="btn-cta">Đăng Ký Giữ Chỗ Ngay</a>
       <p class="cta-note">
         Để lại thông tin giữ chỗ cho workshop <strong style="color:#E2C27A">Online Zoom 20h ngày 30/6 và 1/7</strong>
       </p>
@@ -127,7 +127,7 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
       </div>
 
       <div style="margin-top:48px;">
-        <a href="#register" class="btn-cta">Đăng Ký Giữ Chỗ Ngay</a>
+        <a href="https://www.flowleader.vn/thanh-toan-vip" class="btn-cta">Đăng Ký Giữ Chỗ Ngay</a>
         <p class="cta-note cta-note--light">Để lại thông tin giữ chỗ cho workshop <strong style="color:#8B6914">Online Zoom 20h ngày 30/6 và 1/7</strong></p>
       </div>
 
@@ -199,7 +199,7 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
     </div>
 
     <div style="margin-top:48px;">
-      <a href="#register" class="btn-cta">Đăng Ký Giữ Chỗ Ngay</a>
+      <a href="https://www.flowleader.vn/thanh-toan-vip" class="btn-cta">Đăng Ký Giữ Chỗ Ngay</a>
       <p class="cta-note">Để lại thông tin giữ chỗ cho workshop <strong style="color:#E2C27A">Online Zoom 20h ngày 30/6 và 1/7</strong></p>
     </div>
 
@@ -303,7 +303,7 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
     </div>
 
     <div style="margin-top:56px;">
-      <a href="#register" class="btn-cta">Đăng Ký Giữ Chỗ Ngay</a>
+      <a href="https://www.flowleader.vn/thanh-toan-vip" class="btn-cta">Đăng Ký Giữ Chỗ Ngay</a>
       <p class="cta-note" style="color:#000">Để lại thông tin giữ chỗ cho workshop <strong style="color:#8B6914">Online Zoom 20h ngày 30/6 và 1/7</strong></p>
     </div>
 
@@ -354,7 +354,7 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
       </div>
 
       <div style="margin-top:48px;">
-        <a href="#register" class="btn-cta">Đăng Ký Giữ Chỗ Ngay</a>
+        <a href="https://www.flowleader.vn/thanh-toan-vip" class="btn-cta">Đăng Ký Giữ Chỗ Ngay</a>
         <p class="cta-note" style="color:#fff">Để lại thông tin giữ chỗ cho workshop <strong style="color:#E2C27A">Online Zoom 20h ngày 30/6 và 1/7</strong></p>
       </div>
 
@@ -676,20 +676,6 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
     document.body.style.overflow = '';
   }
 
-  /* ─── Wire every CTA button on the page ─── */
-  document.querySelectorAll('a.btn-cta').forEach(function (btn) {
-    btn.addEventListener('click', function (e) {
-      e.preventDefault();
-      // If success was shown before, reset form for a fresh start
-      if (success.classList.contains('is-visible')) {
-        success.classList.remove('is-visible');
-        form.style.display = '';
-        form.reset();
-        clearAllErrors();
-      }
-      openModal();
-    });
-  });
 
   /* ─── Close triggers ─── */
   closeBtn.addEventListener('click', closeModal);
