@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Đăng Ký Thành Công — Workshop Lãnh Đạo Đòn Bẩy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,500;1,9..144,600&family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style2.css">
+<style>
+  /* ============================================================
+     CẢM ƠN PAGE — page-specific styles (dùng chung style2.css)
+     ============================================================ */
+  body{ background:var(--beige-050); }
+
+  /* ---------- Nav bar ---------- */
+  .co-nav{
+    display:flex; align-items:center; justify-content:space-between;
+    gap:16px; padding:20px 6vw;
+    background:var(--brown-950);
+  }
+  .co-nav__brand{
+    font-family:var(--font-display); font-optical-sizing:auto;
+    font-weight:700; font-size:16px; color:var(--gold-300);
+  }
+  .co-nav__back{
+    font-size:13.5px; font-weight:600; color:var(--beige-200);
+    display:inline-flex; align-items:center; gap:6px;
+    transition:color .2s ease;
+  }
+  .co-nav__back:hover{ color:var(--gold-300); }
+
+  /* ---------- Success section ---------- */
+  .co-section{ padding:70px 6vw 90px; text-align:center; }
+  .co-check{
+    width:80px; height:80px; margin:0 auto 26px;
+    border-radius:50%;
+    background:linear-gradient(135deg, var(--gold-300), var(--gold-600));
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 16px 34px -10px rgba(169,129,47,.5);
+  }
+  .co-check svg{ width:36px; height:36px; stroke:var(--brown-950); }
+  .co-eyebrow{ margin-bottom:20px; justify-content:center; }
+  .co-headline{
+    font-family:var(--font-display); font-optical-sizing:auto; font-weight:700;
+    font-size:clamp(28px, 3.4vw, 42px); line-height:1.28;
+    color:var(--brown-900); max-width:680px; margin:0 auto 14px;
+  }
+  .co-headline .accent{
+    background:linear-gradient(100deg, var(--gold-700), var(--gold-500));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .co-sub{ font-size:16px; line-height:1.7; color:var(--text-body); max-width:560px; margin:0 auto 52px; }
+
+  /* ---------- Step cards ---------- */
+  .co-steps{
+    max-width:760px; margin:0 auto 46px;
+    display:flex; flex-direction:column; gap:22px;
+    text-align:left;
+  }
+  .co-step-card{
+    background:var(--beige-100); border:1px solid var(--beige-300);
+    border-radius:var(--radius-lg); padding:32px 34px;
+    display:flex; gap:22px; align-items:flex-start;
+  }
+  .co-step-num{
+    flex:none; width:38px; height:38px; border-radius:50%;
+    background:linear-gradient(135deg, var(--gold-300), var(--gold-600));
+    color:var(--brown-950); display:flex; align-items:center; justify-content:center;
+    font-family:var(--font-display); font-weight:800; font-size:16px;
+  }
+  .co-step-title{
+    font-family:var(--font-display); font-optical-sizing:auto; font-weight:700;
+    font-size:19px; color:var(--brown-900); margin-bottom:8px;
+  }
+  .co-step-desc{ font-size:15px; line-height:1.7; color:var(--text-body); margin-bottom:16px; }
+  .co-step-desc:last-child{ margin-bottom:0; }
+  .co-step-desc strong{ color:var(--brown-900); }
+  .btn-zalo{
+    display:inline-flex; align-items:center; justify-content:center; gap:10px;
+    width:100%; padding:19px 44px;
+    font-family:var(--font-body); font-weight:700; font-size:15.5px;
+    letter-spacing:.03em; text-transform:none;
+    color:#fff; background:#0068FF;
+    border-radius:var(--radius-sm); border:1px solid #0068FF;
+    box-shadow:0 14px 30px -10px rgba(0,104,255,.45);
+    cursor:pointer; transition:transform .25s ease, box-shadow .25s ease, background .2s ease;
+  }
+  .btn-zalo:hover{ background:#0055d4; transform:translateY(-2px); box-shadow:0 18px 36px -8px rgba(0,104,255,.55); }
+
+  /* ---------- Schedule card ---------- */
+  .co-schedule{
+    max-width:760px; margin:0 auto 46px;
+    background:linear-gradient(160deg, var(--brown-800), var(--brown-950) 85%);
+    border:1px solid var(--gold-600);
+    border-radius:var(--radius-lg);
+    padding:36px 40px;
+    text-align:left;
+  }
+  .co-schedule__title{
+    font-family:var(--font-display); font-optical-sizing:auto; font-weight:700;
+    font-size:19px; color:var(--gold-300); margin-bottom:22px; text-align:center;
+  }
+  .co-schedule-table{ width:100%; border-collapse:collapse; }
+  .co-schedule-table tr{ border-bottom:1px dashed rgba(220,185,104,.25); }
+  .co-schedule-table tr:last-child{ border-bottom:none; }
+  .co-schedule-table td{ padding:14px 4px; vertical-align:top; }
+  .co-schedule-table td:first-child{
+    width:34%; font-size:13px; font-weight:700; letter-spacing:.06em;
+    text-transform:uppercase; color:var(--gold-300);
+  }
+  .co-schedule-table td:last-child{ font-size:15px; color:var(--beige-100); line-height:1.6; }
+  .co-schedule-note{ font-size:13.5px; color:#c9b79b; }
+
+  /* ---------- Sign-off ---------- */
+  .co-signoff{ max-width:560px; margin:0 auto; }
+  .co-signoff p{ font-size:16.5px; line-height:1.8; color:var(--text-body); margin-bottom:22px; }
+  p.co-sign{
+    font-family:var(--font-display); font-style:italic; font-weight:700;
+    font-size:46px; color:var(--gold-500); margin-bottom:6px;
+  }
+  p.co-sign-role{ font-size:11.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); font-weight:600; }
+
+  @media (max-width: 640px){
+    .co-nav{ padding:16px 5vw; }
+    .co-nav__brand{ font-size:14px; }
+    .co-section{ padding:48px 5vw 64px; }
+    .co-step-card{ flex-direction:column; gap:14px; padding:26px 24px; }
+    .co-schedule{ padding:28px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV BAR ============ -->
+<header class="co-nav">
+  <span class="co-nav__brand">Workshop Lãnh Đạo Đòn Bẩy</span>
+  <a href="https://www.flowleader.vn" class="co-nav__back">← Quay lại trang workshop</a>
+</header>
+
+<!-- ============ CẢM ƠN SECTION ============ -->
+<section class="co-section">
+
+  <div class="co-check">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>
+  </div>
+
+  <div class="eyebrow co-eyebrow"><span class="rule"></span><span class="diamond"></span>ĐĂNG KÝ THÀNH CÔNG<span class="diamond"></span><span class="rule right"></span></div>
+
+  <h1 class="co-headline">Chào mừng bạn đến với <span class="accent">hành trình</span></h1>
+  <p class="co-sub">Chỉ còn 2 bước nhỏ nữa để bạn không bỏ lỡ bất cứ điều gì trước buổi học.</p>
+
+  <!-- ── STEPS ── -->
+  <div class="co-steps">
+
+    <div class="co-step-card">
+      <div class="co-step-num">1</div>
+      <div>
+        <p class="co-step-title">Vào nhóm Zalo</p>
+        <p class="co-step-desc">Tham gia nhóm Zalo để nhận cập nhật và link Zoom trước ngày học.</p>
+        <a href="https://zalo.me/g/s6nahame3rris7ftrgzm" target="_blank" rel="noopener" class="btn-zalo">Vào nhóm Zalo →</a>
+      </div>
+    </div>
+
+    <div class="co-step-card">
+      <div class="co-step-num">2</div>
+      <div>
+        <p class="co-step-title">Kiểm tra Email</p>
+        <p class="co-step-desc">Bạn hãy kiểm tra email xác nhận đăng ký từ Sora. Và chuyển email về hòm thư chính để không bỏ lỡ các tài liệu giá trị tiếp theo từ Workshop nhé.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── SCHEDULE ── -->
+  <div class="co-schedule">
+    <p class="co-schedule__title">Lịch học của bạn</p>
+    <table class="co-schedule-table">
+      <tr>
+        <td>Ngày</td>
+        <td>3 &amp; 4 tháng 8, 2026</td>
+      </tr>
+      <tr>
+        <td>Giờ</td>
+        <td>20h00 – 21h30</td>
+      </tr>
+      <tr>
+        <td>Hình thức</td>
+        <td>
+          Online qua Zoom<br>
+          <span class="co-schedule-note">Link Zoom sẽ được gửi vào ngày 3/08/2026 qua Zalo &amp; email.</span>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- ── SIGN-OFF ── -->
+  <div class="co-signoff">
+    <p>Chúc bạn một hành trình tuyệt vời!</p>
+    <p class="co-sign">Sora</p>
+    <p class="co-sign-role">Lãnh Đạo Đòn Bẩy</p>
+  </div>
+
+</section>
+
+</body>
+</html>

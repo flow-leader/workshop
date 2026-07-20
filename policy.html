@@ -3,85 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chính Sách & Điều Khoản — Flow Leader</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <title>Chính Sách & Điều Khoản — Team Lead X2 Hiệu Suất</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,500;1,9..144,600&family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style2.css">
   <style>
-    body { background: #fff; color: var(--dark); }
-    .policy-wrap {
-      max-width: 780px;
-      margin: 0 auto;
-      padding: 64px 24px 80px;
+    .policy-updated{
+      position:relative; z-index:2;
+      font-size:13.5px; color:#c9b79b;
+      margin:0 auto 30px;
     }
-    .policy-brand {
-      font-family: var(--fd);
-      font-size: 13px;
-      color: var(--primary);
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      margin-bottom: 8px;
+    .policy-nav{
+      position:relative; z-index:2;
+      display:flex; flex-wrap:wrap; align-items:center; justify-content:center;
+      gap:10px; max-width:560px; margin:0 auto;
     }
-    .policy-h1 {
-      font-family: var(--fd);
-      font-size: clamp(24px, 3.5vw, 36px);
-      font-weight: 700;
-      color: var(--dark);
-      margin-bottom: 8px;
-      line-height: 1.25;
+    .policy-nav a{
+      font-family:var(--font-body); font-weight:600; font-size:13px;
+      color:var(--gold-300);
+      border:1px solid var(--gold-600);
+      background:rgba(220,185,104,.1);
+      border-radius:999px;
+      padding:8px 18px;
+      transition:background .2s ease;
     }
-    .policy-updated {
-      font-family: var(--fb);
-      font-size: 13px;
-      color: var(--muted);
-      margin-bottom: 40px;
+    .policy-nav a:hover{ background:rgba(220,185,104,.2); }
+    .policy-list{ display:flex; flex-direction:column; gap:14px; margin:24px 0 28px; }
+    .policy-list li{ display:flex; gap:12px; align-items:flex-start; font-size:15.5px; line-height:1.7; color:var(--text-body); }
+    .policy-list li .dot-mark{ flex:none; width:8px; height:8px; margin-top:8px; background:var(--gold-500); transform:rotate(45deg); }
+    .policy-contact-list{ display:flex; flex-direction:column; gap:16px; max-width:560px; margin:28px auto 0; }
+    .policy-contact-list li{ display:flex; gap:14px; align-items:flex-start; font-size:15.5px; color:var(--text-body); }
+    .policy-contact-list li .icon{ flex:none; width:26px; height:26px; border-radius:50%; background:rgba(169,129,47,.14); display:flex; align-items:center; justify-content:center; margin-top:1px; }
+    .policy-contact-list li .icon svg{ width:14px; height:14px; stroke:var(--gold-700); }
+    .policy-contact-list a{ color:var(--gold-700); text-decoration:underline; }
+    .back-link{
+      position:relative; z-index:2; display:inline-block;
+      margin:0 auto 26px; font-size:13.5px; color:var(--gold-300);
+      text-decoration:underline; text-align:center; width:100%;
     }
-    .policy-section {
-      margin-bottom: 48px;
-    }
-    .policy-section h2 {
-      font-family: var(--fd);
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--dark);
-      margin-bottom: 12px;
-      padding-bottom: 8px;
-      border-bottom: 2px solid #E2C27A;
-    }
-    .policy-section p,
-    .policy-section li {
-      font-family: var(--fb);
-      font-size: 15px;
-      line-height: 1.8;
-      color: #333;
-      margin-bottom: 10px;
-    }
-    .policy-section ul {
-      padding-left: 20px;
-    }
-    .policy-section a {
-      color: var(--primary);
-      text-decoration: underline;
-    }
-    .policy-nav {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 48px;
-      padding-bottom: 32px;
-      border-bottom: 1px solid rgba(0,0,0,.08);
-    }
-    .policy-nav a {
-      font-family: var(--fb);
-      font-size: 13px;
-      color: var(--primary);
-      background: rgba(2,77,194,.06);
-      border: 1px solid rgba(2,77,194,.18);
-      border-radius: 20px;
-      padding: 5px 14px;
-      text-decoration: none;
-      transition: background .15s;
-    }
-    .policy-nav a:hover { background: rgba(2,77,194,.12); }
   </style>
 <!-- Meta Pixel Code -->
 <script>
@@ -111,11 +71,12 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
 </head>
 <body>
 
-<div class="policy-wrap">
-
-  <p class="policy-brand">Flow Leader™</p>
-  <h1 class="policy-h1">Chính Sách & Điều Khoản</h1>
-  <p class="policy-updated">Cập nhật lần cuối: tháng 5/2026</p>
+<!-- ============ HEADER ============ -->
+<section class="hero on-dark grid-bg" style="padding:90px 8vw 70px;">
+  <a href="https://www.flowleader.vn" class="back-link">← Quay lại trang workshop</a>
+  <div class="eyebrow" style="justify-content:center; width:100%; margin-bottom:20px;"><span class="rule"></span><span class="diamond"></span>TEAM LEAD X2 HIỆU SUẤT<span class="diamond"></span><span class="rule right"></span></div>
+  <h1 class="hero-title" style="font-size:clamp(28px, 4vw, 46px); margin-bottom:14px;">Chính Sách &amp; Điều Khoản</h1>
+  <p class="policy-updated">Cập nhật lần cuối: tháng 7/2026</p>
 
   <nav class="policy-nav">
     <a href="#privacy">Chính sách bảo mật</a>
@@ -123,95 +84,118 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
     <a href="#terms">Điều khoản sử dụng</a>
     <a href="#contact">Liên hệ</a>
   </nav>
+</section>
 
+<!-- ============ PRIVACY ============ -->
+<section class="dots-bg" id="privacy">
+  <div class="section-head">
+    <div class="eyebrow"><span class="rule"></span><span class="diamond"></span>BẢO MẬT<span class="diamond"></span><span class="rule right"></span></div>
+    <h2 class="section-title">Chính Sách Bảo Mật</h2>
+  </div>
 
-  <!-- PRIVACY -->
-  <div class="policy-section" id="privacy">
-    <h2>Chính Sách Bảo Mật</h2>
-    <p>Flow Leader cam kết bảo vệ thông tin cá nhân của bạn. Chính sách này mô tả cách chúng tôi thu thập, sử dụng và bảo vệ dữ liệu khi bạn đăng ký tham gia workshop hoặc mua vé trên flowleader.vn.</p>
+  <div class="article">
+    <p>Workshop Lãnh đạo Đòn bẩy (vận hành bởi Sora Flow Leader) cam kết bảo vệ thông tin cá nhân của bạn. Chính sách này mô tả cách chúng tôi thu thập, sử dụng và bảo vệ dữ liệu khi bạn đăng ký tham gia Workshop Lãnh Đạo Đòn Bẩy trên flowleader.vn.</p>
 
-    <p><strong>Thông tin chúng tôi thu thập:</strong></p>
-    <ul>
-      <li>Họ tên, địa chỉ email, số điện thoại — khi bạn điền vào form đăng ký hoặc thanh toán</li>
-      <li>Thông tin đơn hàng (mã đơn, số tiền, thời gian thanh toán)</li>
-      <li>URL trang bạn đến từ (source URL để theo dõi hiệu quả quảng cáo)</li>
+    <h3>Thông tin chúng tôi thu thập</h3>
+    <ul class="policy-list">
+      <li><span class="dot-mark"></span>Họ tên, địa chỉ email, số điện thoại — khi bạn điền vào form đăng ký hoặc thanh toán</li>
+      <li><span class="dot-mark"></span>Thông tin đơn hàng (mã đơn, số tiền, thời gian thanh toán)</li>
+      <li><span class="dot-mark"></span>URL trang bạn đến từ (source URL để theo dõi hiệu quả quảng cáo)</li>
     </ul>
 
-    <p><strong>Chúng tôi sử dụng thông tin để:</strong></p>
-    <ul>
-      <li>Xác nhận đăng ký và gửi thông tin tham gia workshop qua email</li>
-      <li>Liên hệ hỗ trợ khi cần thiết</li>
-      <li>Gửi thông tin về các chương trình liên quan (bạn có thể hủy đăng ký bất kỳ lúc nào)</li>
+    <h3>Chúng tôi sử dụng thông tin để</h3>
+    <ul class="policy-list">
+      <li><span class="dot-mark"></span>Xác nhận đăng ký, gửi link Zoom và thông tin tham gia workshop qua Zalo hoặc email</li>
+      <li><span class="dot-mark"></span>Liên hệ hỗ trợ khi cần thiết</li>
+      <li><span class="dot-mark"></span>Gửi thông tin về các chương trình liên quan của Sora (bạn có thể hủy đăng ký bất kỳ lúc nào)</li>
     </ul>
 
-    <p><strong>Chúng tôi không:</strong></p>
-    <ul>
-      <li>Bán, cho thuê hoặc chia sẻ thông tin của bạn cho bên thứ ba vì mục đích thương mại</li>
-      <li>Lưu trữ thông tin thẻ ngân hàng hay tài khoản thanh toán</li>
+    <h3>Chúng tôi không</h3>
+    <ul class="policy-list">
+      <li><span class="dot-mark"></span>Bán, cho thuê hoặc chia sẻ thông tin của bạn cho bên thứ ba vì mục đích thương mại</li>
+      <li><span class="dot-mark"></span>Lưu trữ thông tin thẻ ngân hàng hay tài khoản thanh toán</li>
     </ul>
 
     <p>Thông tin được lưu trong Google Sheets và hệ thống email Kit.com, bảo mật theo tiêu chuẩn của các nền tảng này.</p>
   </div>
+</section>
 
-
-  <!-- REFUND -->
-  <div class="policy-section" id="refund">
-    <h2>Chính Sách Hoàn Tiền</h2>
-    <p>Flow Leader cam kết hoàn tiền 100% nếu bạn không hài lòng với chương trình.</p>
-
-    <p><strong>Điều kiện hoàn tiền:</strong></p>
-    <ul>
-      <li>Bạn đã tham gia Buổi 3 — FLOW IN ACTION và xem toàn bộ nội dung</li>
-      <li>Trong vòng <strong>7 ngày sau workshop</strong>, bạn đã áp dụng ít nhất 1 tình huống theo cơ chế mới</li>
-      <li>Bạn vẫn cảm thấy không có thay đổi và giá trị nhận được không xứng đáng với mức đầu tư</li>
-    </ul>
-
-    <p><strong>Cách yêu cầu hoàn tiền:</strong></p>
-    <ul>
-      <li>Gửi email về <a href="mailto:sora@flowleader.vn">sora@flowleader.vn</a> với tiêu đề: <em>"Yêu cầu hoàn tiền — [Tên của bạn]"</em></li>
-      <li>Mô tả ngắn gọn tình huống bạn đã áp dụng và kết quả</li>
-      <li>Tiền sẽ được hoàn về tài khoản gốc trong vòng 3–5 ngày làm việc</li>
-    </ul>
-
-    <p>Khi được hoàn tiền, bạn vẫn được giữ toàn bộ tài liệu và video đã nhận — đó là lời cảm ơn của Sora vì bạn đã dành thời gian trải nghiệm.</p>
+<!-- ============ REFUND ============ -->
+<section style="background:var(--beige-100);" id="refund">
+  <div class="section-head">
+    <div class="eyebrow"><span class="rule"></span><span class="diamond"></span>HOÀN TIỀN<span class="diamond"></span><span class="rule right"></span></div>
+    <h2 class="section-title">Chính Sách Hoàn Tiền</h2>
+    <p class="section-sub">Cam kết "Giá Trị Thật Hoặc Hoàn Tiền" — Sora hoàn tiền 100% nếu bạn tham gia trọn vẹn workshop mà không thấy giá trị nào.</p>
   </div>
 
+  <div class="article">
+    <h3>Điều kiện hoàn tiền</h3>
+    <ul class="policy-list">
+      <li><span class="dot-mark"></span>Bạn đã tham gia trọn vẹn cả 2 buổi workshop: Buổi 1 — Từ Chuyên Viên Giỏi Đến Team Lead Có Đòn Bẩy, và Buổi 2 — Xây Bản Đồ Lãnh Đạo 90 Ngày Với Đòn Bẩy AI</li>
+      <li><span class="dot-mark"></span>Trong vòng 24 giờ sau khi kết thúc Buổi 2, bạn nhắn cho Sora rằng mình không nhận được giá trị nào</li>
+      <li><span class="dot-mark"></span>Không cần lý do, không cần chứng minh — đây là cam kết vô điều kiện</li>
+    </ul>
 
-  <!-- TERMS -->
-  <div class="policy-section" id="terms">
-    <h2>Điều Khoản Sử Dụng</h2>
+    <h3>Cách yêu cầu hoàn tiền</h3>
+    <ul class="policy-list">
+      <li><span class="dot-mark"></span>Nhắn trực tiếp cho Sora qua <a href="https://www.facebook.com/profile.php?id=61575346547617" target="_blank" rel="noopener">Fanpage</a> hoặc gửi email về <a href="mailto:sora@flowleader.vn">sora@flowleader.vn</a> với tiêu đề "Yêu cầu hoàn tiền — [Tên của bạn]"</li>
+      <li><span class="dot-mark"></span>Cho biết email hoặc số điện thoại bạn dùng khi đăng ký để chúng mình tra đơn hàng nhanh hơn</li>
+      <li><span class="dot-mark"></span>Tiền sẽ được hoàn về tài khoản gốc trong vòng 3–5 ngày làm việc</li>
+    </ul>
+
+    <div class="closing" style="background:linear-gradient(160deg, var(--brown-800), var(--brown-950));">
+      <p>Khi được hoàn tiền, bạn vẫn được giữ toàn bộ bản ghi âm và tài liệu đã nhận — đó là lời cảm ơn của Sora vì bạn đã dành thời gian trải nghiệm.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TERMS ============ -->
+<section class="dots-bg" id="terms">
+  <div class="section-head">
+    <div class="eyebrow"><span class="rule"></span><span class="diamond"></span>SỬ DỤNG<span class="diamond"></span><span class="rule right"></span></div>
+    <h2 class="section-title">Điều Khoản Sử Dụng</h2>
+  </div>
+
+  <div class="article">
     <p>Khi đăng ký và thanh toán trên flowleader.vn, bạn đồng ý với các điều khoản sau:</p>
-    <ul>
-      <li>Vé workshop chỉ dành cho cá nhân đăng ký, không được chuyển nhượng cho người khác</li>
-      <li>Nội dung workshop (video, tài liệu, workbook) là tài sản trí tuệ của Flow Leader — không được sao chép, phân phối hoặc bán lại dưới bất kỳ hình thức nào</li>
-      <li>Flow Leader có quyền thay đổi lịch, hình thức tổ chức (online/offline) trong trường hợp bất khả kháng và sẽ thông báo trước qua email</li>
-      <li>Tham gia workshop đồng nghĩa với việc bạn đồng ý có thể được nhắc đến trong các tài liệu marketing (ẩn danh, không tiết lộ thông tin cá nhân) trừ khi bạn có yêu cầu khác</li>
+    <ul class="policy-list">
+      <li><span class="dot-mark"></span>Chỗ workshop chỉ dành cho cá nhân đăng ký, không được chuyển nhượng cho người khác</li>
+      <li><span class="dot-mark"></span>Nội dung workshop (bản ghi âm, tài liệu, bộ hướng dẫn Skill AI) là tài sản trí tuệ của Flow Leader và cơ chế LÃNH ĐẠO ĐÒN BẨY™ — không được sao chép, phân phối hoặc bán lại dưới bất kỳ hình thức nào</li>
+      <li><span class="dot-mark"></span>Flow Leader có quyền thay đổi lịch (hiện tại: 20h ngày 3 &amp; 4/8) hoặc hình thức tổ chức trong trường hợp bất khả kháng, và sẽ thông báo trước qua Zalo hoặc email</li>
+      <li><span class="dot-mark"></span>Tham gia workshop đồng nghĩa với việc bạn đồng ý có thể được nhắc đến trong các tài liệu marketing (ẩn danh, không tiết lộ thông tin cá nhân) trừ khi bạn có yêu cầu khác</li>
     </ul>
   </div>
+</section>
 
-
-  <!-- CONTACT -->
-  <div class="policy-section" id="contact">
-    <h2>Liên Hệ</h2>
-    <p>Mọi thắc mắc về chính sách hoặc đơn hàng, vui lòng liên hệ:</p>
-    <ul>
-      <li>Email: <a href="mailto:sora@flowleader.vn">sora@flowleader.vn</a></li>
-      <li>Website: <a href="https://www.flowleader.vn">www.flowleader.vn</a></li>
-    </ul>
-    <p>Chúng tôi sẽ phản hồi trong vòng 24 giờ (ngày làm việc).</p>
+<!-- ============ CONTACT ============ -->
+<section style="background:var(--beige-100);" id="contact">
+  <div class="section-head">
+    <div class="eyebrow"><span class="rule"></span><span class="diamond"></span>LIÊN HỆ<span class="diamond"></span><span class="rule right"></span></div>
+    <h2 class="section-title">Cần Hỗ Trợ Thêm?</h2>
+    <p class="section-sub">Mọi thắc mắc về chính sách hoặc đơn hàng, vui lòng liên hệ Sora qua một trong các kênh sau. Chúng mình sẽ phản hồi trong vòng 24 giờ (ngày làm việc).</p>
   </div>
 
-</div>
+  <ul class="policy-contact-list">
+    <li>
+      <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z" opacity="0"/><path d="M4 6l8 6 8-6"/><path d="M4 6h16v12H4z"/></svg></span>
+      Email: <a href="mailto:sora@flowleader.vn">sora@flowleader.vn</a>
+    </li>
+    <li>
+      <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z"/><path d="M9 18h6"/></svg></span>
+      Fanpage: <a href="https://www.facebook.com/profile.php?id=61575346547617" target="_blank" rel="noopener">facebook.com/TeamLeadX2</a>
+    </li>
+    <li>
+      <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20z"/></svg></span>
+      Website: <a href="https://www.flowleader.vn">www.flowleader.vn</a>
+    </li>
+  </ul>
+</section>
 
-
+<!-- ============ FOOTER ============ -->
 <footer class="site-footer">
-  <div class="wrap">
-    <p class="footer-brand">© Flow Leader</p>
-    <p>Dẫn dắt từ bên trong.<br>Lead nhẹ nhàng, hiệu quả và sống trọn vẹn hơn.</p>
-    <p style="margin-top:12px;">
-      <a href="/policy" style="color:rgba(255,255,255,.5); font-size:13px; text-decoration:underline;">Chính sách & Điều khoản</a>
-    </p>
-  </div>
+  <div class="foot-brand">Team Lead X2 Hiệu Suất</div>
+  <div>20h ngày 3 &amp; 4/8 · Online qua Zoom</div>
+  <div>By Sora © 2026 Workshop Team Lead X2 · All Rights Reserved</div>
 </footer>
 
 </body>

@@ -20,7 +20,16 @@
       "Bash(python3)",
       "Bash(curl -s http://localhost:3456/inside-out-leadership-demo.html)",
       "Bash(curl -s http://localhost:3456/inside-out-leadership-demo)",
-      "Bash(curl -s -o /dev/null -w \"%{http_code} %{redirect_url}\\\\n\" http://localhost:3456/)"
+      "Bash(curl -s -o /dev/null -w \"%{http_code} %{redirect_url}\\\\n\" http://localhost:3456/)",
+      "Bash(grep -n \"^<style>$\\\\|^</style>$\" /Users/thucanh/Downloads/Website/index.html)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3456/style2.css)",
+      "WebSearch",
+      "WebFetch(domain:docs.sepay.vn)",
+      "Bash(curl -s http://localhost:3456/cam-on.html)",
+      "Bash(curl -s -i http://localhost:3456/cam-on.html)",
+      "Bash(curl -s -L http://localhost:3456/cam-on)",
+      "mcp__4857d191-72b9-4c82-aa16-9bbab7c76e3f__read_file_content",
+      "mcp__4857d191-72b9-4c82-aa16-9bbab7c76e3f__get_file_metadata"
     ]
   }
 }

@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thanh Toán — Workshop Lãnh Đạo Đòn Bẩy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,500;1,9..144,600&family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style2.css">
+<style>
+  /* ============================================================
+     CHECKOUT PAGE — page-specific styles (dùng chung style2.css)
+     ============================================================ */
+  body{ background:var(--beige-050); }
+
+  /* ---------- Nav bar ---------- */
+  .ckt-nav{
+    display:flex; align-items:center; justify-content:space-between;
+    gap:16px; padding:20px 6vw;
+    background:var(--brown-950);
+  }
+  .ckt-nav__brand{
+    font-family:var(--font-display); font-optical-sizing:auto;
+    font-weight:700; font-size:16px; color:var(--gold-300);
+  }
+  .ckt-nav__back{
+    font-size:13.5px; font-weight:600; color:var(--beige-200);
+    display:inline-flex; align-items:center; gap:6px;
+    transition:color .2s ease;
+  }
+  .ckt-nav__back:hover{ color:var(--gold-300); }
+
+  /* ---------- Section wrapper ---------- */
+  .ckt-section{ padding:64px 6vw 90px; }
+  .ckt-section .section-head{ margin-bottom:48px; }
+
+  .ckt-grid{
+    max-width:1180px; margin:0 auto;
+    display:grid; grid-template-columns:420px 1fr; gap:34px; align-items:start;
+  }
+
+  /* ---------- Left column ---------- */
+  .ckt-left{ display:flex; flex-direction:column; position:sticky; top:24px; }
+
+  .ckt-left-card{
+    background:linear-gradient(160deg, var(--brown-800), var(--brown-950) 85%);
+    border:1px solid var(--gold-600);
+    border-radius:var(--radius-lg);
+    padding:30px 26px;
+  }
+  .ckt-left-section{ padding:24px 0; }
+  .ckt-left-section:first-child{ padding-top:0; }
+  .ckt-left-section:last-child{ padding-bottom:0; }
+  .ckt-left-divider{
+    height:1px; margin:0;
+    background:linear-gradient(90deg, transparent, rgba(220,185,104,.35), transparent);
+  }
+
+  .ckt-card__title{
+    font-family:var(--font-display); font-weight:700; font-size:12.5px;
+    letter-spacing:.12em; text-transform:uppercase; color:var(--gold-300);
+    margin-bottom:16px;
+  }
+  .ckt-workshop-name{
+    font-family:var(--font-display); font-optical-sizing:auto; font-weight:700;
+    font-size:19px; color:var(--beige-050); margin-bottom:20px; line-height:1.3;
+  }
+  .ckt-meta-row{
+    display:flex; flex-direction:column; gap:2px;
+    padding:12px 0; border-bottom:1px dashed rgba(220,185,104,.25);
+  }
+  .ckt-meta-row:first-of-type{ padding-top:0; }
+  .ckt-meta-row:last-child{ border-bottom:none; padding-bottom:0; }
+  .ckt-meta-row .k{ font-weight:700; font-size:14.5px; color:var(--beige-050); }
+  .ckt-meta-row .v{ font-size:13px; color:#c9b79b; }
+
+  .ckt-benefit-list{ display:flex; flex-direction:column; gap:14px; }
+  .ckt-benefit-list li{ display:flex; gap:12px; align-items:flex-start; font-size:14.5px; line-height:1.6; color:var(--text-body-dark); }
+  .ckt-benefit-list li .icon{
+    flex:none; width:20px; height:20px; border-radius:50%;
+    background:rgba(220,185,104,.16); display:flex; align-items:center; justify-content:center; margin-top:2px;
+  }
+  .ckt-benefit-list li .icon svg{ width:11px; height:11px; stroke:var(--gold-300); }
+
+  .ckt-price-row{ display:flex; align-items:center; justify-content:center; gap:10px; margin-bottom:10px; flex-wrap:wrap; }
+  .ckt-price-old{ font-size:15px; color:#c9b79b; text-decoration:line-through; }
+  .ckt-save-badge{
+    display:inline-block; padding:3px 10px; border-radius:999px;
+    background:rgba(220,185,104,.16); border:1px solid var(--gold-500);
+    color:var(--gold-300); font-size:11.5px; font-weight:700; letter-spacing:.03em;
+  }
+  .ckt-price-new{
+    font-family:var(--font-display); font-optical-sizing:auto; font-weight:800;
+    font-size:34px; color:var(--gold-300);
+  }
+
+  /* ---------- Right column ---------- */
+  .ckt-form-card{
+    background:#fff;
+    border:1px solid var(--beige-300);
+    border-radius:var(--radius-lg);
+    padding:36px 34px;
+    box-shadow:0 20px 50px -30px rgba(36,21,9,.35);
+    position:relative;
+  }
+  .ckt-form-card__title{
+    font-family:var(--font-display); font-optical-sizing:auto; font-weight:700;
+    font-size:19px; color:var(--brown-900); margin-bottom:24px;
+  }
+
+  .ckt-field{ margin-bottom:18px; }
+  .ckt-field label{
+    display:block; font-size:13.5px; font-weight:600; color:var(--brown-800); margin-bottom:7px;
+  }
+  .ckt-field label .req{ color:#c0392b; margin-left:2px; }
+  .ckt-field input[type="text"],
+  .ckt-field input[type="email"],
+  .ckt-field input[type="tel"]{
+    width:100%; height:48px; padding:0 16px;
+    border:1.5px solid var(--beige-300); border-radius:var(--radius-sm);
+    font-family:var(--font-body); font-size:15px; color:var(--ink);
+    background:var(--beige-050);
+    transition:border-color .2s ease, box-shadow .2s ease;
+  }
+  .ckt-field input:focus{
+    outline:none; border-color:var(--gold-500); background:#fff;
+    box-shadow:0 0 0 3px rgba(198,154,63,.16);
+  }
+  .field-error{
+    font-size:12.5px; color:#b3423a; margin-top:6px; display:none;
+  }
+  .field-error.is-visible{ display:block; }
+
+  .ckt-radio-group{ display:flex; flex-direction:column; gap:10px; }
+  .ckt-radio{
+    display:flex; align-items:center; gap:12px;
+    padding:12px 16px; border:1.5px solid var(--beige-300); border-radius:var(--radius-sm);
+    cursor:pointer; transition:border-color .2s ease, background .2s ease;
+  }
+  .ckt-radio:has(input:checked){
+    border-color:var(--gold-500); background:rgba(198,154,63,.08);
+  }
+  .ckt-radio input{ width:17px; height:17px; accent-color:var(--gold-600); flex:none; cursor:pointer; }
+  .ckt-radio span{ font-size:14.5px; color:var(--text-body); }
+
+  .ckt-btn-block{ width:100%; justify-content:center; margin-top:24px; }
+  .ckt-secure-note{
+    margin-top:14px; text-align:center; font-size:12.5px; color:var(--muted);
+    display:flex; align-items:center; justify-content:center; gap:6px;
+  }
+  .ckt-secure-note svg{ width:13px; height:13px; stroke:var(--gold-600); flex:none; }
+
+  /* ---------- Step 2 ---------- */
+  .ckt-edit-row{ text-align:right; margin-bottom:12px; }
+  .ckt-edit-link{
+    display:inline-flex; align-items:center; gap:6px;
+    background:none; border:none; cursor:pointer;
+    font-family:var(--font-body); font-size:13px; font-weight:700;
+    color:var(--gold-700); padding:0;
+  }
+  .ckt-edit-link:hover{ color:var(--gold-600); text-decoration:underline; }
+
+  .ckt-summary{
+    background:var(--beige-050); border:1px solid var(--beige-300); border-radius:var(--radius-md);
+    padding:18px 20px; margin-bottom:28px;
+  }
+  .ckt-summary__row{
+    display:flex; justify-content:space-between; align-items:flex-start; gap:14px;
+    padding:8px 0; border-bottom:1px solid var(--beige-300); font-size:14px;
+  }
+  .ckt-summary__row:last-child{ border-bottom:none; }
+  .ckt-summary__row .k{ color:var(--muted); white-space:nowrap; }
+  .ckt-summary__row .v{ color:var(--brown-900); font-weight:600; text-align:right; }
+
+  .ckt-pay-method{
+    display:flex; align-items:center; gap:10px;
+    padding:12px 16px; border:1.5px solid var(--gold-500);
+    border-radius:var(--radius-sm); background:rgba(198,154,63,.08);
+    margin-bottom:6px;
+  }
+  .ckt-pay-method svg{ width:18px; height:18px; stroke:var(--gold-700); flex:none; }
+  .ckt-pay-method span{ font-size:14.5px; font-weight:600; color:var(--brown-900); }
+  .ckt-pay-desc{ font-size:13px; color:var(--muted); line-height:1.6; margin-bottom:22px; }
+
+  .ckt-qr-wrap{
+    width:280px; margin:0 auto 24px;
+    border:1px solid var(--beige-300); border-radius:var(--radius-md);
+    overflow:hidden; background:#fff;
+  }
+  .ckt-qr-wrap img{ width:100%; display:block; }
+
+  .ckt-bank-title{
+    font-family:var(--font-display); font-weight:700; font-size:14px;
+    color:var(--brown-900); margin-bottom:12px;
+  }
+  .ckt-bank-table{ width:100%; border-collapse:collapse; margin-bottom:22px; }
+  .ckt-bank-table tr{ border-bottom:1px solid var(--beige-300); }
+  .ckt-bank-table tr:last-child{ border-bottom:none; }
+  .ckt-bank-table td{ padding:11px 4px; font-size:14px; line-height:1.4; vertical-align:middle; }
+  .ckt-bank-table td:first-child{ color:var(--muted); font-weight:500; width:40%; }
+  .ckt-bank-table td:last-child{ color:var(--brown-900); font-weight:700; }
+  .copy-btn{
+    background:none; border:1px solid var(--gold-500); border-radius:5px;
+    padding:3px 9px; font-size:11px; font-family:var(--font-body); font-weight:600;
+    color:var(--gold-700); cursor:pointer; margin-left:8px; vertical-align:middle;
+    transition:background .15s ease;
+  }
+  .copy-btn:hover{ background:rgba(198,154,63,.1); }
+
+  .pay-status{
+    display:flex; align-items:center; gap:10px;
+    padding:14px 16px; border-radius:var(--radius-sm); margin-bottom:22px;
+  }
+  .pay-status--waiting{ background:rgba(198,154,63,.08); border:1px solid var(--gold-400); }
+  .pay-status--success{
+    background:rgba(34,197,94,.08); border:1px solid rgba(34,197,94,.3); display:none;
+  }
+  .pay-status--success.is-visible{ display:flex; }
+  .pay-status__text{ font-family:var(--font-body); font-size:13.5px; font-weight:500; line-height:1.5; }
+  .pay-status--waiting .pay-status__text{ color:var(--gold-700); }
+  .pay-status--success .pay-status__text{ color:#166534; font-weight:600; }
+  .spinner{
+    width:17px; height:17px; border:2.5px solid rgba(198,154,63,.22);
+    border-top-color:var(--gold-600); border-radius:50%;
+    animation:spin .8s linear infinite; flex:none;
+  }
+  @keyframes spin{ to{ transform:rotate(360deg); } }
+
+  .ckt-help-note{ font-size:12.5px; color:var(--muted); line-height:1.6; }
+  .ckt-help-note a{ color:var(--gold-700); font-weight:600; text-decoration:underline; }
+
+  @media (max-width: 980px){
+    .ckt-grid{ grid-template-columns:1fr; max-width:560px; }
+    .ckt-left{ position:static; }
+  }
+  @media (max-width: 640px){
+    .ckt-nav{ padding:16px 5vw; }
+    .ckt-nav__brand{ font-size:14px; }
+    .ckt-section{ padding:44px 5vw 64px; }
+    .ckt-form-card{ padding:26px 20px; }
+    .ckt-card{ padding:22px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV BAR ============ -->
+<header class="ckt-nav">
+  <span class="ckt-nav__brand">Workshop Lãnh Đạo Đòn Bẩy</span>
+  <a href="https://www.flowleader.vn" class="ckt-nav__back">← Quay lại trang workshop</a>
+</header>
+
+<!-- ============ CHECKOUT SECTION ============ -->
+<section class="ckt-section">
+  <div class="section-head">
+    <div class="eyebrow"><span class="rule"></span><span class="diamond"></span>ĐĂNG KÝ THAM GIA<span class="diamond"></span><span class="rule right"></span></div>
+    <h1 class="section-title">Hoàn tất đăng ký <span class="accent">workshop</span></h1>
+  </div>
+
+  <div class="ckt-grid">
+
+    <!-- ══════════ LEFT — Order info (persists across steps) ══════════ -->
+    <div class="ckt-left">
+      <div class="ckt-left-card">
+
+        <div class="ckt-left-section">
+          <p class="ckt-card__title">Thông Tin Workshop</p>
+          <p class="ckt-workshop-name">Workshop Lãnh Đạo Đòn Bẩy</p>
+
+          <div class="ckt-meta-row">
+            <span class="k">3 &amp; 4/08/2026</span>
+            <span class="v">Thứ Hai &amp; Thứ Ba</span>
+          </div>
+          <div class="ckt-meta-row">
+            <span class="k">20h00 – 21h30</span>
+            <span class="v">90 phút × 2 buổi</span>
+          </div>
+          <div class="ckt-meta-row">
+            <span class="k">Online qua Zoom</span>
+            <span class="v">Link gửi sau khi đăng ký</span>
+          </div>
+        </div>
+
+        <div class="ckt-left-divider"></div>
+
+        <div class="ckt-left-section">
+          <p class="ckt-card__title">Bạn Sẽ Nhận Được</p>
+          <ul class="ckt-benefit-list">
+            <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>2 buổi Workshop Online qua Zoom trực tiếp 90 phút cùng Sora</li>
+            <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Bộ hướng dẫn Skill AI hiệu quả Sora đang dùng cho công việc quản lý</li>
+            <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Bản ghi âm đầy đủ 2 buổi, gửi qua Zalo hoặc email để nghe lại bất cứ lúc nào</li>
+            <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Nhóm cộng đồng đồng hành sau workshop, dành riêng cho các Team Lead trên cùng hành trình</li>
+            <li><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Q&amp;A hỏi đáp trực tiếp trong buổi với Sora</li>
+          </ul>
+        </div>
+
+        <div class="ckt-left-divider"></div>
+
+        <div class="ckt-left-section" style="text-align:center;">
+          <div class="ckt-price-row">
+            <span class="ckt-price-old">1.299.000đ</span>
+            <span class="ckt-save-badge">TIẾT KIỆM 90%</span>
+          </div>
+          <div class="ckt-price-new">96.000 đ</div>
+        </div>
+
+      </div><!-- /.ckt-left-card -->
+    </div><!-- /.ckt-left -->
+
+
+    <!-- ══════════ RIGHT — Step 1 / Step 2 ══════════ -->
+    <div class="ckt-right">
+
+      <!-- ── STEP 1: THÔNG TIN ĐĂNG KÝ ── -->
+      <div class="ckt-form-card" id="step-1">
+        <p class="ckt-form-card__title">Bước 1: Thông tin đăng ký</p>
+
+        <div class="ckt-field">
+          <label for="f-name">Họ tên: <span class="req">*</span></label>
+          <input type="text" id="f-name" autocomplete="name">
+          <p class="field-error" id="err-name">Vui lòng nhập họ tên của bạn</p>
+        </div>
+
+        <div class="ckt-field">
+          <label for="f-email">Email: <span class="req">*</span></label>
+          <input type="email" id="f-email" autocomplete="email">
+          <p class="field-error" id="err-email">Vui lòng nhập email hợp lệ</p>
+        </div>
+
+        <div class="ckt-field">
+          <label for="f-phone">Số điện thoại: <span class="req">*</span></label>
+          <input type="tel" id="f-phone" autocomplete="tel">
+          <p class="field-error" id="err-phone">Vui lòng nhập số điện thoại của bạn</p>
+        </div>
+
+        <div class="ckt-field">
+          <label>Trạng thái của bạn <span class="req">*</span></label>
+          <div class="ckt-radio-group">
+            <label class="ckt-radio">
+              <input type="radio" name="status" value="Chuyên viên muốn lên Team Lead trong 6 tháng">
+              <span>Chuyên viên muốn lên Team Lead trong 6 tháng</span>
+            </label>
+            <label class="ckt-radio">
+              <input type="radio" name="status" value="Team Lead &lt; 1 năm">
+              <span>Team Lead &lt; 1 năm</span>
+            </label>
+            <label class="ckt-radio">
+              <input type="radio" name="status" value="Team Lead 1-2 năm">
+              <span>Team Lead 1-2 năm</span>
+            </label>
+            <label class="ckt-radio">
+              <input type="radio" name="status" value="Team Lead 2-3 năm">
+              <span>Team Lead 2-3 năm</span>
+            </label>
+            <label class="ckt-radio">
+              <input type="radio" name="status" value="Team Lead &gt; 3 năm">
+              <span>Team Lead &gt; 3 năm</span>
+            </label>
+          </div>
+          <p class="field-error" id="err-status">Vui lòng chọn trạng thái của bạn</p>
+        </div>
+
+        <button type="button" id="btn-step1-submit" class="btn-gold ckt-btn-block">
+          Tiếp tục thanh toán →
+        </button>
+
+        <p class="ckt-secure-note">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+          Thông tin của bạn được bảo mật tuyệt đối.
+        </p>
+      </div>
+
+      <!-- ── STEP 2: THANH TOÁN ── -->
+      <div class="ckt-form-card" id="step-2" style="display:none;">
+
+        <div class="ckt-edit-row">
+          <button type="button" id="btn-edit" class="ckt-edit-link">✎ Sửa</button>
+        </div>
+
+        <div class="ckt-summary">
+          <div class="ckt-summary__row"><span class="k">Họ tên</span><span class="v" id="sum-name">—</span></div>
+          <div class="ckt-summary__row"><span class="k">Email</span><span class="v" id="sum-email">—</span></div>
+          <div class="ckt-summary__row"><span class="k">Số điện thoại</span><span class="v" id="sum-phone">—</span></div>
+          <div class="ckt-summary__row"><span class="k">Trạng thái</span><span class="v" id="sum-status">—</span></div>
+        </div>
+
+        <p class="ckt-form-card__title" style="margin-bottom:16px;">Bước 2: Thanh toán</p>
+
+        <div class="ckt-pay-method">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>
+          <span>Chuyển khoản ngân hàng (VietQR)</span>
+        </div>
+        <p class="ckt-pay-desc">Vui lòng quét mã QR bên dưới, nội dung chuyển khoản sẽ tự động điền đúng cú pháp.</p>
+
+        <div class="ckt-qr-wrap">
+          <img id="qr-img" src="" alt="Mã QR thanh toán (kết nối Sepay)" loading="lazy">
+        </div>
+
+        <p class="ckt-bank-title">Thông tin chuyển khoản</p>
+        <table class="ckt-bank-table">
+          <tr>
+            <td>Ngân hàng</td>
+            <td>BIDV</td>
+          </tr>
+          <tr>
+            <td>Số tài khoản</td>
+            <td>
+              <span id="b-account">96247FLOWLEADER</span>
+              <button type="button" class="copy-btn" onclick="copyEl('b-account', this)">Sao chép</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Chủ tài khoản</td>
+            <td>DUONG HA THUC ANH</td>
+          </tr>
+          <tr>
+            <td>Số tiền</td>
+            <td>96.000đ</td>
+          </tr>
+          <tr>
+            <td>Nội dung CK</td>
+            <td>
+              <span id="b-ref">—</span>
+              <button type="button" class="copy-btn" id="copy-ref-btn">Sao chép</button>
+            </td>
+          </tr>
+        </table>
+
+        <!-- Waiting -->
+        <div class="pay-status pay-status--waiting" id="pay-waiting">
+          <div class="spinner"></div>
+          <span class="pay-status__text">Đang chờ xác nhận thanh toán...</span>
+        </div>
+
+        <!-- Success -->
+        <div class="pay-status pay-status--success" id="pay-success">
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <circle cx="10" cy="10" r="10" fill="#22c55e"/>
+            <path d="M5 10.5l3.5 3.5 7-7" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="pay-status__text">Thanh toán thành công! Đang chuyển trang...</span>
+        </div>
+
+        <p class="ckt-help-note"><strong>Quan trọng:</strong> Đừng tắt trang! Sau khi chuyển khoản xong, vui lòng giữ trang này mở và đợi trang xác nhận hiện ra. Nếu sau 15 phút chưa thấy, liên hệ Sora qua <a href="https://www.facebook.com/profile.php?id=61575346547617" target="_blank" rel="noopener">Fanpage</a>.</p>
+
+      </div><!-- /#step-2 -->
+
+    </div><!-- /.ckt-right -->
+
+  </div><!-- /.ckt-grid -->
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="foot-brand">Workshop Lãnh Đạo Đòn Bẩy</div>
+  <div>20h ngày 3 &amp; 4/8 · Online qua Zoom</div>
+  <div>By Sora © 2026 · All Rights Reserved</div>
+</footer>
+
+
+<script>
+(function () {
+  'use strict';
+
+  var GAS_URL   = 'https://script.google.com/macros/s/AKfycbwjRrSRVBbrSQRKW5NIOhZO7dujCDmr0CUaDR9mxQ0foM3uuasuYb3dxT_SwNPIGMdV/exec';
+  var BANK      = { code: 'BIDV', account: '96247FLOWLEADER', owner: 'DUONG HA THUC ANH' };
+  var AMOUNT    = 96000;
+  var CK_PREFIX = 'WSLDDB';
+  var CK_DIGITS = 3;
+
+  var step1 = document.getElementById('step-1');
+  var step2 = document.getElementById('step-2');
+  var btnSubmit = document.getElementById('btn-step1-submit');
+  var btnEdit   = document.getElementById('btn-edit');
+
+  /* ── Step 1 → Step 2 ── */
+  btnSubmit.addEventListener('click', function () {
+    var name  = (document.getElementById('f-name').value  || '').trim();
+    var email = (document.getElementById('f-email').value || '').trim();
+    var phone = (document.getElementById('f-phone').value || '').trim();
+    var statusInput = document.querySelector('input[name="status"]:checked');
+
+    var ok = true;
+
+    function setErr(id, isError) {
+      var el = document.getElementById(id);
+      if (isError) { el.classList.add('is-visible'); ok = false; }
+      else { el.classList.remove('is-visible'); }
+    }
+
+    setErr('err-name', !name);
+
+    var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    setErr('err-email', !email || !emailRe.test(email));
+
+    setErr('err-phone', !phone);
+
+    setErr('err-status', !statusInput);
+
+    if (!ok) return;
+
+    var statusLabel = statusInput.value;
+
+    btnSubmit.disabled = true;
+    btnSubmit.textContent = 'Đang xử lý...';
+
+    fetch(GAS_URL, {
+      method: 'POST',
+      body: JSON.stringify({
+        action: 'createOrder',
+        data: {
+          name: name, email: email, phone: phone,
+          totalAmount: AMOUNT,
+          ckPrefix: CK_PREFIX, ckDigits: CK_DIGITS,
+          status: statusLabel
+        }
+      })
+    })
+    .then(function (r) { return r.json(); })
+    .then(function (res) {
+      if (!res.success) throw new Error(res.error || 'Lỗi tạo đơn hàng');
+
+      var orderId   = res.orderId;
+      var ckContent = res.ckContent;
+
+      document.getElementById('sum-name').textContent   = name;
+      document.getElementById('sum-email').textContent  = email;
+      document.getElementById('sum-phone').textContent  = phone;
+      document.getElementById('sum-status').textContent = statusLabel;
+
+      document.getElementById('b-ref').textContent = ckContent;
+      document.getElementById('copy-ref-btn').onclick = function () {
+        copyStr(ckContent, this);
+      };
+
+      var qrSrc = 'https://qr.sepay.vn/img' +
+        '?acc=' + encodeURIComponent(BANK.account) +
+        '&bank=' + encodeURIComponent(BANK.code) +
+        '&amount=' + AMOUNT +
+        '&des=' + encodeURIComponent(ckContent) +
+        '&template=compact';
+      document.getElementById('qr-img').src = qrSrc;
+
+      document.getElementById('pay-waiting').style.display = 'flex';
+      document.getElementById('pay-success').classList.remove('is-visible');
+
+      step1.style.display = 'none';
+      step2.style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      startPolling(orderId);
+    })
+    .catch(function (err) {
+      alert('Có lỗi xảy ra: ' + err.message + '. Vui lòng thử lại.');
+      btnSubmit.disabled = false;
+      btnSubmit.textContent = 'Tiếp tục thanh toán →';
+    });
+  });
+
+  /* ── "Sửa" → back to Step 1 ── */
+  btnEdit.addEventListener('click', function (e) {
+    e.preventDefault();
+    clearInterval(pollTimer);
+    step2.style.display = 'none';
+    step1.style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  /* ── Sepay payment polling ── */
+  var pollTimer = null;
+
+  function startPolling(orderId) {
+    clearInterval(pollTimer);
+    var attempts = 0;
+    var maxAttempts = 120; /* 10 phút */
+
+    pollTimer = setInterval(function () {
+      attempts++;
+      if (attempts >= maxAttempts) { clearInterval(pollTimer); return; }
+
+      fetch(GAS_URL + '?action=getStatus&orderId=' + encodeURIComponent(orderId))
+        .then(function (r) { return r.json(); })
+        .then(function (data) {
+          if (data.success && data.status === 'PAID') {
+            clearInterval(pollTimer);
+            onPaymentConfirmed();
+          }
+        })
+        .catch(function () {});
+    }, 5000);
+  }
+
+  function onPaymentConfirmed() {
+    document.getElementById('pay-waiting').style.display = 'none';
+    document.getElementById('pay-success').classList.add('is-visible');
+    setTimeout(function () {
+      window.location.href = 'https://www.flowleader.vn/thanh-cong';
+    }, 2000);
+  }
+
+})();
+
+/* ── Copy helpers ── */
+function copyEl(id, btn) {
+  var el = document.getElementById(id);
+  doCopy(el ? el.textContent.trim() : '', btn);
+}
+function copyStr(str, btn) {
+  doCopy(str, btn);
+}
+function doCopy(text, btn) {
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).catch(function () {});
+  } else {
+    var t = document.createElement('textarea');
+    t.value = text;
+    t.style.position = 'fixed';
+    t.style.opacity  = '0';
+    document.body.appendChild(t);
+    t.select();
+    try { document.execCommand('copy'); } catch (e) {}
+    document.body.removeChild(t);
+  }
+  var orig = btn.textContent;
+  btn.textContent = 'Đã sao chép!';
+  setTimeout(function () { btn.textContent = orig; }, 1600);
+}
+</script>
+
+</body>
+</html>
