@@ -284,10 +284,10 @@ img { display: block; max-width: 100%; }
 .forwhom-list li {
   display:flex; gap:14px; align-items:flex-start;
   font-family:var(--fb); font-size:16px; font-weight:500; line-height:1.72;
-  color:rgba(255,255,255,.85);
+  color:#000;
 }
 .forwhom-list li svg  { flex-shrink:0; margin-top:1px; }
-.forwhom-list li strong { color:#fff; font-weight:700; }
+.forwhom-list li strong { color:#000; font-weight:700; }
 
 /* ════════════════════════════════════════
    S6 — ABOUT SORA
@@ -1199,9 +1199,7 @@ img { display: block; max-width: 100%; }
   .forwhom-box     { padding:28px 20px; }
   .hero__bg img    { object-position:-200px top; }
   .story-mobile-img {
-    display:block; width:100%; height:221px;
-    object-fit:cover; object-position:left center;
-    border-radius:var(--r-md); margin-bottom:28px;
+    display:none;
   }
   .countdown__unit  { min-width: 70px; }
   .countdown__num   { font-size: 32px; padding: 10px 8px; min-width: 70px; }

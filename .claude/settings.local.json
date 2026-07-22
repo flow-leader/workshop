@@ -39,7 +39,11 @@
       "Bash(curl -s \"https://api.convertkit.com/v3/subscribers?api_secret=W9Kruf5pczTvAr-vw2r1ur_iSEguHAKF5ssOGKBA6xk&email_address=curltest-tag@example.com\")",
       "Bash(curl -s -i -X DELETE \"https://api.convertkit.com/v3/subscribers/4216044003/tags/21306148?api_secret=W9Kruf5pczTvAr-vw2r1ur_iSEguHAKF5ssOGKBA6xk\")",
       "Bash(grep -oE \"#[0-9a-fA-F]{3,6}\" /Users/thucanh/Downloads/Website/style2.css)",
-      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" \"http://localhost:3456/assets/images/Section%201.jpg\")"
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" \"http://localhost:3456/assets/images/Section%201.jpg\")",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --force-device-scale-factor=1 --window-size=1200,1200 --screenshot=\"/Users/thucanh/Downloads/Website/assets/images/group-avatar.png\" --default-background-color=0 \"file:///Users/thucanh/Downloads/Website/_avatar-preview.html\")",
+      "Bash(echo \"EXIT:$?\")",
+      "Bash(date -j -f \"%Y-%m-%d\" \"2026-08-05\" \"+%A\")",
+      "Bash(date -j -f \"%Y-%m-%d\" \"2026-08-06\" \"+%A\")"
     ]
   }
 }

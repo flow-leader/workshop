@@ -31,49 +31,236 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
   gtag('js', new Date());
   gtag('config', 'G-J7VEM7L844');
 </script>
+<style>
+  /* ── FAQ accordion (light background) ── */
+  .faq-item { border-bottom: 1px solid rgba(0,0,0,.1); }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 20px 0;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #1a1a2e;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+  .faq-item summary::-webkit-details-marker { display:none; }
+  .faq-item summary::after {
+    content: "+";
+    font-size: 1.4rem;
+    color: #8B6914;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+  .faq-item[open] summary::after { content: "−"; }
+  .faq-item__body {
+    padding: 0 0 20px;
+    color: #555;
+    line-height: 1.7;
+  }
+  /* ── Testimonial image grid ── */
+  .testi-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 840px;
+    margin: 0 auto;
+  }
+  .testi-grid img {
+    width: 100%;
+    border-radius: 12px;
+    display: block;
+  }
+  @media (max-width: 600px) {
+    .testi-grid { grid-template-columns: 1fr; }
+  }
+  /* ── What you get list (dark background) ── */
+  .get-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .get-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,.9);
+  }
+  .get-list li svg { flex-shrink: 0; margin-top: 3px; }
+  /* ── What you get box ── */
+  .get-box {
+    background: rgba(255,255,255,.07);
+    border: 1.5px solid #E2C27A;
+    border-radius: 14px;
+    padding: 32px;
+    margin: 0 auto 40px;
+    max-width: 480px;
+  }
+  .get-price-row {
+    border-top: 1px solid rgba(226,194,122,.3);
+    margin-top: 24px;
+    padding-top: 24px;
+    text-align: center;
+  }
+  .get-price-row .old-price {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,.45);
+    text-decoration: line-through;
+    margin: 0 0 4px;
+  }
+  .get-price-row .new-price {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #E2C27A;
+    margin: 0 0 8px;
+    line-height: 1.2;
+  }
+  .get-price-row .price-caption {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,.6);
+    margin: 0;
+    font-style: italic;
+  }
+  /* ── Guarantee box ── */
+  .guarantee-box {
+    background: rgba(226,194,122,.08);
+    border: 1.5px solid rgba(226,194,122,.35);
+    border-radius: 14px;
+    padding: 40px 36px;
+    max-width: 720px;
+    margin: 0 auto 48px;
+    text-align: center;
+  }
+  .guarantee-box p { color: rgba(255,255,255,.82); line-height: 1.75; margin: 0 0 16px; }
+  .guarantee-box p:last-child { margin: 0; }
+  /* ── Two paths ── */
+  .paths-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin: 40px 0;
+  }
+  .path-card {
+    border-radius: 14px;
+    padding: 28px;
+    line-height: 1.7;
+    font-size: 0.97rem;
+  }
+  .path-card--bad {
+    background: rgba(255,255,255,.05);
+    border: 1.5px solid rgba(255,255,255,.15);
+    color: rgba(255,255,255,.65);
+  }
+  .path-card--good {
+    background: rgba(2,77,194,.2);
+    border: 1.5px solid rgba(2,77,194,.6);
+    color: rgba(255,255,255,.9);
+  }
+  .path-card__label {
+    font-weight: 700;
+    font-size: 0.82rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    margin: 0 0 10px;
+  }
+  .path-card--bad .path-card__label { color: rgba(255,255,255,.35); }
+  .path-card--good .path-card__label { color: #7eb3ff; }
+  .ps-note {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,.65);
+    font-style: italic;
+    margin: 8px auto 0;
+    max-width: 680px;
+    line-height: 1.7;
+    text-align: center;
+  }
+  @media (max-width: 640px) {
+    .paths-grid { grid-template-columns: 1fr; }
+    .get-box { padding: 24px 20px; }
+    .guarantee-box { padding: 28px 20px; }
+  }
+  /* ── Sora signature ── */
+  .about-sig-solo {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2rem;
+    color: #8B6914;
+    margin-top: 20px;
+    display: block;
+  }
+  /* ── Seats badge ── */
+  .seats-badge {
+    display: inline-block;
+    background: rgba(226,194,122,.15);
+    border: 1px solid rgba(226,194,122,.45);
+    color: #E2C27A;
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 4px 16px;
+    border-radius: 999px;
+    letter-spacing: .06em;
+  }
+  /* ── S1 Section1b image ── */
+  .s1b-img { max-width:580px; margin:0 auto; padding:0 16px 44px; line-height:0; }
+  .s1b-img img { width:100%; display:block; border-radius:16px; }
+</style>
 </head>
 <body>
+
 
 <!-- ══════════════════════════════════════════
      S1 — HERO
 ══════════════════════════════════════════ -->
-<section class="hero">
-  <div class="hero__bg">
-    <img src="assets/images/Section 1 upscale.jpg" alt="">
-  </div>
-  <div class="hero__wrap">
-    <div class="hero__card">
+<section class="hero" style="background:#121936; min-height:auto;">
+  <div class="hero__wrap" style="padding:20px 16px 12px; justify-content:center;">
+    <div class="hero__card" style="padding-top:36px; padding-bottom:12px; min-height:auto; display:flex; flex-direction:column; justify-content:center; background:none; border:none; backdrop-filter:none; -webkit-backdrop-filter:none; max-width:760px;">
 
-      <div class="hero__badge-pill">
+      <div class="hero__badge-pill" style="align-self:center;">
         <span class="hero__badge-dot"></span>
-        <span class="hero__badge-text" style="font-size:0.82em;">WORKSHOP X2 KẾT QUẢ KHÔNG CẦN ÔM VIỆC</span>
+        <span class="hero__badge-text" style="font-size:0.82em; display:block; text-align:center;">WORKSHOP: X2 HIỆU SUẤT KHÔNG CẦN ÔM VIỆC</span>
       </div>
 
-      <h1 class="hero__headline">
-        Đây là hệ thống giúp mình làm
-        <span class="gold-text">Team Lead</span> đạt
-        <span class="gold-text">Nhân đôi Hiệu Suất</span>
+      <h1 class="hero__headline" style="font-size:clamp(2.1rem,5vw,3.6rem); line-height:1.18; margin-bottom:22px;">
+        Hệ thống giúp <span class="gold-text">Team Lead</span> đạt
+        <span class="gold-text">X2 Hiệu Suất</span>
         bằng Nội lực và Đội ngũ <span style="text-decoration:underline; text-decoration-color:#E2C27A; text-underline-offset:4px;">(với đòn bẩy AI)</span>
       </h1>
 
-      <p class="hero__sub">
-        Khám phá toàn bộ cơ chế <strong>FLOW LEADER™</strong> đã giúp mình từ gánh team 12 tiếng/ngày, đau dạ dày, mất ngủ trở thành
-        <em><span class="gold-text">phiên bản giá trị cao</span></em> trong công việc —
-        ngay cả khi bạn đang kẹt giữa sếp áp lực và team chưa hiệu quả.
+      <p class="hero__sub" style="font-size:clamp(1rem,2.4vw,1.15rem);">
+        Khám phá toàn bộ cơ chế <strong>Lãnh Đạo Đòn Bẩy™</strong> đã giúp mình chuyển từ gánh team 12 tiếng/ngày, đau dạ dày, mất ngủ trở thành
+        <em><span class="gold-text">Team Lead năng suất</span></em> —
+        ngay cả khi bạn đang kẹt giữa sếp áp lực và team chưa hiệu quả
       </p>
 
-      <a href="https://www.flowleader.vn/thanh-toan-vip" class="btn-cta">Đăng Ký Giữ Chỗ Ngay</a>
+      <p style="color:rgba(255,255,255,.75); font-size:0.9rem; margin:0 0 8px; text-align:center;">
+        Workshop Online qua Zoom · 2 buổi tối 20h ngày <strong style="color:#E2C27A;">5-6/8</strong>
+      </p>
+      <p style="text-align:center; margin:0 0 24px;">
+        <span class="seats-badge">Còn 18 chỗ</span>
+      </p>
+
+      <a href="https://www.flowleader.vn/thanh-toan-vip" class="btn-cta">ĐĂNG KÝ GIỮ CHỖ NGAY →</a>
       <p class="cta-note">
-        Để lại thông tin giữ chỗ cho workshop <strong style="color:#E2C27A">Online Zoom 20h ngày 30/6 và 1/7</strong>
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none" style="vertical-align:middle; margin-right:5px; flex-shrink:0;"><path d="M8 1.5L2.5 4v4c0 3.2 2.4 6 5.5 7 3.1-1 5.5-3.8 5.5-7V4L8 1.5z" fill="rgba(226,194,122,.25)" stroke="#E2C27A" stroke-width="1.4" stroke-linejoin="round"/></svg><strong style="color:#E2C27A">Hoàn tiền 100% trong 24h nếu không giá trị</strong>
       </p>
 
     </div>
   </div>
 </section>
 
+<div class="s1b-img">
+  <img src="assets/images/Section1b.jpg" alt="">
+</div>
+
 
 <!-- ══════════════════════════════════════════
-     S2 — PAIN + STORY (light, plain, blue accents)
+     S2 — PAIN + STORY (light)
 ══════════════════════════════════════════ -->
 <section class="sec sec--light story-sec">
   <div class="wrap">
@@ -86,12 +273,12 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
         <p>Đã lên làm lead, đã học thêm kỹ năng, đã cố gắng hết sức để hoàn thành KPI và giữ team ổn định…</p>
         <p>Nhưng mỗi ngày đi làm vẫn cảm thấy như đang chạy mà không đến đâu?</p>
         <p>Bạn luôn tự nhủ:</p>
-        <p><em>"Mình làm nhiều mà sao vẫn không được ghi nhận?"</em></p>
+        <p><em>"Mình làm nhiều như vậy mà sao vẫn không được ghi nhận?"</em></p>
         <p><em>"Mình hiền thì bị nhờn, nghiêm thì bị gồng"</em></p>
-        <p><em>"Về nhà mà đầu cứ ám ảnh công việc"</em></p>
+        <p><em>"Về nhà rồi mà đầu vẫn không tắt được, cứ nghĩ mãi về công việc."</em></p>
         <p>Biết mình đang cố gắng, biết team cũng đang vất vả… nhưng cứ mãi kẹt giữa sếp và nhân viên, không ai thực sự hiểu mình đang gánh gì?</p>
         <p>Nếu vậy, không phải bạn thiếu nỗ lực. Không phải bạn thiếu kiến thức.</p>
-        <p>Mà là bạn chưa có một <strong>cơ chế</strong> lead phù hợp với vị trí của mình.</p>
+        <p>Mà là bạn chưa có một <strong>Hệ thống</strong> phù hợp với vị trí của mình.</p>
       </div>
 
       <!-- Block 2 -->
@@ -99,10 +286,10 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
         <h2 class="h2-story">Mình Cũng Từng Như Vậy</h2>
         <div class="divider-gold"></div>
         <p>Sau khi làm trưởng nhóm hơn 2 năm, mình kiệt sức.</p>
-        <p>Từ bên ngoài nhìn vào, mọi thứ có vẻ ổn. Kết quả tốt, thăng tiến nhanh, quản lý team mấy chục người. Nhưng mình mất ngủ, đau dạ dày thường xuyên. Đi làm 10–12 tiếng mỗi ngày, về đêm vẫn mở máy tính ra làm tiếp đến khuya.</p>
+        <p>Từ bên ngoài nhìn vào, mọi thứ có vẻ ổn. Kết quả tốt, thăng tiến nhanh, quản lý team mấy chục người. Nhưng mình mất ngủ, đau dạ dày thường xuyên. Đi làm 10-12 tiếng mỗi ngày, về đêm vẫn mở máy tính ra làm tiếp đến khuya.</p>
         <p>Mình từng tin rằng:</p>
         <p><em>"Làm lead thì phải là người giỏi nhất, biết nhiều nhất."</em></p>
-        <p><em>"Muốn team làm được việc thì phải tự tay mình làm mẫu, kiểm tra từng bước."</em></p>
+        <p><em>"Muốn team làm được việc thì phải mình tay mình làm mẫu, kiểm tra từng bước."</em></p>
         <p><em>"Cứ cố gắng đủ nhiều thì sếp sẽ nhìn thấy, nhân viên sẽ phục."</em></p>
         <p>Những niềm tin đó như một chiếc lồng vô hình.</p>
         <p>Mình cãi nhau với sếp vì những áp đặt vô lý. Mình tự dọn rác cho nhân viên vì không muốn chất lượng đi xuống. Mình gồng vai chuyên nghiệp đến mức không còn nhớ mình là ai nữa.</p>
@@ -116,19 +303,17 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
         <div class="divider-gold"></div>
         <p>Vấn đề không phải mình thiếu kỹ năng.</p>
         <p>Vấn đề là mình đang vận hành từ trạng thái bị dắt: bởi áp lực, bởi nỗi sợ, bởi nhu cầu được ghi nhận. Mọi kỹ năng mình thêm vào chỉ làm mình chạy nhanh hơn trong cái vòng xoáy đó.</p>
-        <p>Cho đến khi mình dừng lại, lùi ra khỏi guồng quay và quay về <strong>bên trong</strong> — đó là khoảnh khắc mọi thứ dịch chuyển.</p>
-        <p>Nếu bên trong không vững, thì làm gì cũng méo mó.</p>
-        <p>Có nội lực vững rồi, mình mới thực sự <strong>kết nối được với người khác</strong> — để kết quả đến từ team, không phải từ việc tự mình ôm hết.</p>
-        <p>Và trong thời đại này, có thêm một đòn bẩy mà nếu không biết dùng, mình sẽ tự làm khó mình mãi: <strong>đòn bẩy công cụ AI</strong>. Không phải để thay mình, mà để giao việc cho AI như giao cho một nhân viên giỏi — mình quyết định, AI thực thi.</p>
-        <p>Mình bắt đầu xây dựng một cơ chế lead đi từ nội lực tinh thần, mở rộng bằng kết nối con người, và khuếch đại bằng AI.</p>
-        <p>Mình gọi nó là <strong>FLOW LEADER™</strong>.</p>
+        <p>Cho đến khi mình dừng lại, lùi ra khỏi guồng quay và quay về bên trong — đó là khoảnh khắc mọi thứ dịch chuyển.</p>
+        <p>Nếu bên trong người Lead không vững, thì làm gì cũng méo mó.</p>
+        <p>Nếu đội ngũ thiếu kết nối, thì có thêm công cụ AI cũng không thể kết nối được.</p>
+        <p>Khi bạn có Nội lực và Đội ngũ hiệu quả, bạn đã xây cho mình một Điểm tựa vững chắc. Để có thể từ điểm tựa đó, sử dụng thêm đòn bẩy AI để tạo ra sức mạnh thực sự từ trong ra ngoài.</p>
+        <p>Mình gọi nó là <strong>Lãnh Đạo Đòn Bẩy™</strong>.</p>
         <p>Cơ chế đó đã giúp mình liên tục thăng tiến từ trưởng nhóm lên trưởng phòng, giám đốc vận hành. Từ những công ty ổn định, đến những môi trường khắc nghiệt và áp lực. Từ những sếp ôn hoà, đến những sếp khó tính nhất. Cơ chế này vẫn thể hiện được tính hiệu quả và giúp mình làm quản lý cấp trung dễ dàng mà vẫn thăng tiến không ngờ, mà vẫn có cuộc sống cá nhân trọn vẹn. Trở thành người giá trị cao trong công việc.</p>
-        <p>Mình cũng giống bạn thôi. Bạn cũng có thể kết nối lại được một nguồn năng lượng FLOW mạnh mẽ — mà bạn cũng đang có sẵn bên trong rồi.</p>
+        <p>Mình cũng giống bạn thôi. Bạn cũng có thể kết nối lại được một nguồn năng lượng mạnh mẽ — mà bạn cũng đang có sẵn bên trong rồi — để xây dựng một hệ thống hiệu quả cho công việc của mình.</p>
       </div>
 
       <div style="margin-top:48px;">
-        <a href="https://www.flowleader.vn/thanh-toan-vip" class="btn-cta">Đăng Ký Giữ Chỗ Ngay</a>
-        <p class="cta-note cta-note--light">Để lại thông tin giữ chỗ cho workshop <strong style="color:#8B6914">Online Zoom 20h ngày 30/6 và 1/7</strong></p>
+        <a href="https://www.flowleader.vn/thanh-toan-vip" class="btn-cta">ĐĂNG KÝ GIỮ CHỖ NGAY →</a>
       </div>
 
     </div>
@@ -137,13 +322,13 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
 
 
 <!-- ══════════════════════════════════════════
-     S3 — PHƯƠNG PHÁP (dark)
+     S3 — CƠ CHẾ ĐỘC NHẤT (dark)
 ══════════════════════════════════════════ -->
 <section class="sec sec--dark">
   <div class="wrap">
 
     <div style="text-align:center;">
-      <h2 class="h2-dark">Phương Pháp Độc Nhất Của FLOW LEADER™</h2>
+      <h2 class="h2-dark">Cơ Chế Độc Nhất Của LÃNH ĐẠO ĐÒN BẨY™</h2>
       <div class="divider-gold"></div>
       <p class="body-dark" style="max-width:640px; margin:0 auto; text-align:center;">
         Phần lớn trưởng nhóm, trưởng phòng kiệt sức không phải vì thiếu kỹ năng, mà vì đang lead theo cách làm cũ.
@@ -164,11 +349,11 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
         </ul>
       </div>
 
-      <!-- FLOW LEADER™ -->
+      <!-- LÃNH ĐẠO ĐÒN BẨY™ -->
       <div class="compare-card compare-card--new">
-        <p class="compare-card__label">Với FLOW LEADER™</p>
+        <p class="compare-card__label">Với LÃNH ĐẠO ĐÒN BẨY™</p>
         <ul class="compare-list">
-          <li><svg class="bullet-dot" width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="#E2C27A"/></svg><span>Vững từ bên trong, không bị dắt bởi áp lực bên ngoài — về nhà là về nhà thực sự</span></li>
+          <li><svg class="bullet-dot" width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="#E2C27A"/></svg><span>Có điểm tựa vững từ bên trong, không bị dắt bởi áp lực bên ngoài — về nhà là về nhà thực sự</span></li>
           <li><svg class="bullet-dot" width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="#E2C27A"/></svg><span>Thấu hiểu và tạo ra kết quả thông qua người khác — team vận hành vì họ muốn, không phải vì bị ép</span></li>
           <li><svg class="bullet-dot" width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="#E2C27A"/></svg><span>Dùng AI như một đòn bẩy thực thi — làm ít hơn, đạt nhiều hơn</span></li>
           <li><svg class="bullet-dot" width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="#E2C27A"/></svg><span>Càng thực hành càng mở ra — năng lượng không bị rút cạn mà ngày càng dồi dào hơn</span></li>
@@ -178,29 +363,25 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
       </div>
     </div>
 
-    <!-- Formula — plain text -->
+    <!-- Formula -->
     <div class="formula-plain">
       <div class="formula-plain__item">
-        <span class="formula-plain__term">Nội Lực Tinh Thần</span>
-        <span class="formula-plain__sub">(Bản thân trọn vẹn)</span>
+        <span class="formula-plain__term">Vững Nội Lực</span>
       </div>
       <span class="formula-plain__op">+</span>
       <div class="formula-plain__item">
-        <span class="formula-plain__term">Kết Nối Con Người</span>
-        <span class="formula-plain__sub">(Con người tâm phục)</span>
+        <span class="formula-plain__term">Mạnh Đội Ngũ</span>
       </div>
       <span class="formula-plain__op">+</span>
       <div class="formula-plain__item">
-        <span class="formula-plain__term">Khuếch Đại Hiệu Suất Với AI</span>
-        <span class="formula-plain__sub">(Công việc hiệu quả)</span>
+        <span class="formula-plain__term">Đòn Bẩy Hiệu Suất AI</span>
       </div>
       <span class="formula-plain__op">=</span>
-      <span class="formula-plain__result">FLOW LEADER™</span>
+      <span class="formula-plain__result">LÃNH ĐẠO ĐÒN BẨY™</span>
     </div>
 
     <div style="margin-top:48px;">
-      <a href="https://www.flowleader.vn/thanh-toan-vip" class="btn-cta">Đăng Ký Giữ Chỗ Ngay</a>
-      <p class="cta-note">Để lại thông tin giữ chỗ cho workshop <strong style="color:#E2C27A">Online Zoom 20h ngày 30/6 và 1/7</strong></p>
+      <a href="https://www.flowleader.vn/thanh-toan-vip" class="btn-cta">ĐĂNG KÝ GIỮ CHỖ NGAY →</a>
     </div>
 
   </div>
@@ -208,13 +389,13 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
 
 
 <!-- ══════════════════════════════════════════
-     S4 — CURRICULUM (light, dark-header cards)
+     S4 — CURRICULUM (light)
 ══════════════════════════════════════════ -->
 <section class="sec sec--light" id="curriculum">
   <div class="wrap">
 
     <div style="text-align:center;">
-      <h2 class="h2-light">Trong 2 Buổi Workshop<br>Bạn Sẽ Được Trang Bị?</h2>
+      <h2 class="h2-light">Trong 2 Buổi Workshop<br>Bạn Sẽ Được Trang Bị Những Gì?</h2>
       <div class="divider-gold"></div>
     </div>
 
@@ -223,88 +404,85 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
       <!-- Buổi 1 -->
       <div class="session-v3">
         <div class="session-v3__header">
-          <p class="session-v3__tag">Buổi 1 — Thức Tỉnh</p>
-          <h3 class="session-v3__title">Thoát Khỏi Vòng Xoáy Kiệt Sức &amp; Quay Về Nội Lực Bên Trong</h3>
-          <p class="session-v3__time">(20h tối ngày 30/06)</p>
+          <p class="session-v3__tag">Buổi 1</p>
+          <h3 class="session-v3__title">Tấm Bản Đồ Hiệu Suất Lãnh Đạo Đòn Bẩy</h3>
         </div>
         <div class="session-v3__img">
-          <img src="assets/images/Buổi 1.png" alt="Buổi 1 — Thức Tỉnh">
+          <img src="assets/images/Buổi 1.png" alt="Buổi 1 — Tấm Bản Đồ Hiệu Suất Lãnh Đạo Đòn Bẩy">
         </div>
         <div class="session-v3__body">
-          <p class="session-v3__intro">Trong buổi này, bạn sẽ khám phá:</p>
+          <p class="session-v3__intro"><em>"Điều gì đang khiến bạn kiệt sức, ngăn cản bạn trở thành Team Lead hiệu suất?"</em></p>
           <ul class="session-v3__list">
             <li>
               <svg class="bullet-dot" width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#E2C27A"/></svg>
-              <span>Niềm tin "phải gánh nhiều, gồng nhiều mới được ghi nhận" đang giết chết năng lượng và hiệu suất của bạn</span>
+              <span>Nhìn ra chính xác những sai lầm đang khiến bạn mắc kẹt trong bẫy chuyên viên, dù đã ngồi ở vị trí Team Lead</span>
             </li>
             <li>
               <svg class="bullet-dot" width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#E2C27A"/></svg>
-              <span>Bài kiểm tra 4 nhiệm vụ cốt lõi của Team Lead — để biết chính xác bạn đã thực sự lên lead, hay vẫn đang là "chuyên viên đội lốt lead"</span>
+              <span>Hiểu hậu quả thật của những sai lầm này: vì sao bạn vẫn ôm việc, vẫn kiệt sức, vẫn loay hoay dù đã cố gắng rất nhiều</span>
             </li>
             <li>
               <svg class="bullet-dot" width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#E2C27A"/></svg>
-              <span>Những mối quan hệ bị lãng quên đang khiến công việc của bạn ngày càng khó kiểm soát</span>
+              <span>Nhìn ra bức tranh tại sao mình chưa thể kết nối được với nhân viên, chưa thể hiểu sếp</span>
             </li>
             <li>
               <svg class="bullet-dot" width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#E2C27A"/></svg>
-              <span><strong>Công Thức Tạo Khoảng Hở</strong> — cách thoát khỏi phản ứng tự động ngay trong những tình huống áp lực nhất, để ra quyết định nhanh và chính xác hơn</span>
+              <span>Tự chấm điểm bản thân đang mắc kẹt ở phần nào: Nội lực, Đội ngũ, hay Đòn bẩy AI</span>
             </li>
             <li>
               <svg class="bullet-dot" width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#E2C27A"/></svg>
-              <span><strong>Công Thức Động Lực Bền</strong> — chuyển hoá động lực để vận hành vững vàng, không cần gồng, không cần chứng minh</span>
+              <span>Hiểu vì sao những biểu hiện kiệt sức này không phải vì bạn chưa đủ giỏi, mà vì những niềm tin cũ đang âm thầm kìm bạn lại</span>
             </li>
             <li>
               <svg class="bullet-dot" width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#E2C27A"/></svg>
-              <span>Thực hành: Bạn sẽ nhận diện được vị trí của mình trong bài kiểm tra 4 nhiệm vụ, và biết chính xác nên nâng cấp năng lực nào trước để bứt phá hiệu suất nhanh nhất</span>
+              <span>Nắm được cơ chế Lãnh Đạo Đòn Bẩy: Vững Nội Lực, Mạnh Đội Ngũ, Nhân Hiệu Suất Bằng AI</span>
             </li>
           </ul>
-          <p class="session-v3__outro">Bạn sẽ rời khỏi buổi này nhận diện được chính xác điều gì đang giới hạn hiệu suất của mình, và cách làm chủ năng lượng để tăng tốc ngay lập tức.</p>
+          <p class="session-v3__outro">Kết quả: Bạn biết chính xác mình đang mắc kẹt ở đâu, và vì sao điều đó đang ngăn cản bạn trở thành Team Lead hiệu suất</p>
         </div>
       </div>
 
       <!-- Buổi 2 -->
       <div class="session-v3">
         <div class="session-v3__header">
-          <p class="session-v3__tag">Buổi 2 — Khai Mở</p>
-          <h3 class="session-v3__title">Cơ Chế FLOW LEADER™ &amp; Cách Để Kết Quả Tự Đến Từ Đội Ngũ</h3>
-          <p class="session-v3__time">(20h tối ngày 1/07)</p>
+          <p class="session-v3__tag">Buổi 2</p>
+          <h3 class="session-v3__title">Xem Trực Tiếp Sora Vận Hành Cỗ Máy Hiệu Suất</h3>
         </div>
         <div class="session-v3__img">
-          <img src="assets/images/Buổi 2.png" alt="Buổi 2 — Khai Mở">
+          <img src="assets/images/Buổi 2.png" alt="Buổi 2 — Xem Trực Tiếp Sora Vận Hành Cỗ Máy Hiệu Suất">
         </div>
         <div class="session-v3__body">
-          <p class="session-v3__intro">Trong buổi này, bạn sẽ nhận được:</p>
+          <p class="session-v3__intro"><em>"Làm sao áp dụng cơ chế Lãnh Đạo Đòn Bẩy vào công việc thật, để tăng hiệu suất bằng AI?"</em></p>
           <ul class="session-v3__list">
             <li>
               <svg class="bullet-dot" width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#E2C27A"/></svg>
-              <span>Lý do <strong>90% Team Lead chỉ giỏi gánh việc rồi kiệt sức</strong>, và toàn cảnh cơ chế FLOW LEADER™ giúp kết quả đến qua người khác chứ không phải qua việc tự mình ôm hết</span>
+              <span>Đi sâu hơn vào cơ chế Lãnh Đạo Đòn Bẩy, hiểu rõ cách ba tầng Nội lực, Đội ngũ, AI vận hành cùng nhau</span>
             </li>
             <li>
               <svg class="bullet-dot" width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#E2C27A"/></svg>
-              <span><strong>Framework 4 cấp độ kết nối</strong> — để giao việc một lần là hiểu đúng, không phải 3 ngày sau mới phát hiện sai</span>
+              <span>Xem trực tiếp Sora vận hành cỗ máy hiệu suất của mình, ứng dụng cơ chế này bằng AI ngay trước mắt bạn</span>
             </li>
             <li>
               <svg class="bullet-dot" width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#E2C27A"/></svg>
-              <span>Bí mật để sếp tin và trao quyền nhiều hơn, thay vì áp đặt và không nghe bạn</span>
+              <span>Nhận bản đồ hành động 90 ngày: 30 ngày đầu thoát khỏi bẫy chuyên viên, 30 ngày tiếp xây nền đội ngũ, 30 ngày cuối tạo đòn bẩy bằng AI</span>
             </li>
             <li>
               <svg class="bullet-dot" width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#E2C27A"/></svg>
-              <span>Cách biến AI thành một hệ thống tác nhân thực thi của riêng bạn, giúp khuếch đại hiệu suất công việc lên gấp nhiều lần</span>
+              <span>Nhận miễn phí bộ hướng dẫn Skill AI hiệu quả nhất Sora đang dùng</span>
             </li>
             <li>
               <svg class="bullet-dot" width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#E2C27A"/></svg>
-              <span>Bức tranh cụ thể: làm sao để giảm giờ làm thực tế mà kết quả vẫn tăng, thay vì càng làm nhiều giờ thì hiệu suất càng đi xuống</span>
+              <span>Biết cách áp dụng ngay vào công việc quản lý của mình, dù chưa từng giỏi công nghệ</span>
             </li>
           </ul>
-          <p class="session-v3__outro">Bạn sẽ rời khỏi buổi này với bức tranh toàn diện về cơ chế giúp bạn X2 hiệu suất mà không cần làm thêm giờ.</p>
+          <p class="session-v3__outro">Kết quả: Bạn có bản đồ 90 ngày và công cụ để bắt đầu xây Nội lực, Đội ngũ và Nhân hiệu suất bằng AI, ngay từ ngày mai.</p>
         </div>
       </div>
 
     </div>
 
     <div style="margin-top:56px;">
-      <a href="https://www.flowleader.vn/thanh-toan-vip" class="btn-cta">Đăng Ký Giữ Chỗ Ngay</a>
-      <p class="cta-note" style="color:#000">Để lại thông tin giữ chỗ cho workshop <strong style="color:#8B6914">Online Zoom 20h ngày 30/6 và 1/7</strong></p>
+      <a href="https://www.flowleader.vn/thanh-toan-vip" class="btn-cta">GIỮ CHỖ CỦA TÔI · 96.000đ →</a>
     </div>
 
   </div>
@@ -312,15 +490,42 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
 
 
 <!-- ══════════════════════════════════════════
-     S5 — FOR WHOM (dark, one big box)
+     S5 — TESTIMONIALS (dark)
 ══════════════════════════════════════════ -->
 <section class="sec sec--dark">
   <div class="wrap">
+
+    <div style="text-align:center;">
+      <h2 class="h2-dark">Những Chia Sẻ Từ Học Viên<br>Trong Các Workshop Trước</h2>
+      <div class="divider-gold"></div>
+      <p style="color:rgba(255,255,255,.75); font-style:italic; max-width:600px; margin:0 auto 44px; line-height:1.7;">
+        Đây không phải Sora nói về Sora nữa. Đây là những người từng đứng đúng chỗ bạn đang đứng, đã đi qua, và giờ nói lại bằng chính lời của họ.
+      </p>
+    </div>
+
+    <div class="testi-grid">
+      <img src="assets/images/Testi1.jpg" alt="Chia sẻ học viên 1">
+      <img src="assets/images/Testi2.jpg" alt="Chia sẻ học viên 2">
+    </div>
+
+    <div style="margin-top:48px;">
+      <a href="https://www.flowleader.vn/thanh-toan-vip" class="btn-cta">ĐĂNG KÝ GIỮ CHỖ NGAY →</a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     S6 — FOR WHOM (light)
+══════════════════════════════════════════ -->
+<section class="sec sec--light">
+  <div class="wrap">
     <div class="col-text">
-      <h2 class="h2-dark">Workshop Này Dành Cho Bạn Nếu…</h2>
+      <h2 class="h2-light">Workshop Này Dành Cho Bạn Nếu…</h2>
       <div class="divider-gold"></div>
 
-      <div class="forwhom-box">
+      <div class="forwhom-box" style="color:#000;">
         <ul class="forwhom-list">
           <li>
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="1.5" y="1.5" width="19" height="19" rx="4.5" fill="#E2C27A"/><path d="M6 11.5L9.5 15L16 8" stroke="#121936" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -328,7 +533,11 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
           </li>
           <li>
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="1.5" y="1.5" width="19" height="19" rx="4.5" fill="#E2C27A"/><path d="M6 11.5L9.5 15L16 8" stroke="#121936" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span>Bạn đã là <strong>trưởng nhóm, trưởng phòng 1–3 năm+</strong>, chăm chỉ và có năng lực, nhưng cứ mãi cảm thấy kiệt sức, cô độc thay vì thăng hoa.</span>
+            <span>Bạn đã là <strong>trưởng nhóm, trưởng phòng 1-5 năm+</strong>, chăm chỉ và có năng lực, nhưng cứ mãi cảm thấy kiệt sức, cô độc thay vì thăng hoa.</span>
+          </li>
+          <li>
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="1.5" y="1.5" width="19" height="19" rx="4.5" fill="#E2C27A"/><path d="M6 11.5L9.5 15L16 8" stroke="#121936" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Bạn đang là <strong>chuyên viên</strong>, muốn trở thành Team Lead trong 6 tháng tới.</span>
           </li>
           <li>
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="1.5" y="1.5" width="19" height="19" rx="4.5" fill="#E2C27A"/><path d="M6 11.5L9.5 15L16 8" stroke="#121936" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -348,14 +557,13 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
           </li>
           <li>
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="1.5" y="1.5" width="19" height="19" rx="4.5" fill="#E2C27A"/><path d="M6 11.5L9.5 15L16 8" stroke="#121936" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span>Bạn muốn <strong>trở thành phiên bản giá trị cao</strong> trong công việc.</span>
+            <span>Bạn muốn <strong>trở thành người giá trị cao</strong> trong công việc.</span>
           </li>
         </ul>
       </div>
 
       <div style="margin-top:48px;">
-        <a href="https://www.flowleader.vn/thanh-toan-vip" class="btn-cta">Đăng Ký Giữ Chỗ Ngay</a>
-        <p class="cta-note" style="color:#fff">Để lại thông tin giữ chỗ cho workshop <strong style="color:#E2C27A">Online Zoom 20h ngày 30/6 và 1/7</strong></p>
+        <a href="https://www.flowleader.vn/thanh-toan-vip" class="btn-cta">GIỮ CHỖ CỦA TÔI · 96.000đ →</a>
       </div>
 
     </div>
@@ -364,7 +572,173 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
 
 
 <!-- ══════════════════════════════════════════
-     S6 — ABOUT SORA (light, white card)
+     S7 — WHAT YOU GET (dark)
+══════════════════════════════════════════ -->
+<section class="sec sec--dark">
+  <div class="wrap">
+    <div class="col-text">
+
+      <h2 class="h2-dark">Bạn Nhận Về Những Gì</h2>
+      <div class="divider-gold"></div>
+
+      <div class="get-box">
+        <ul class="get-list">
+          <li>
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="1.5" y="1.5" width="19" height="19" rx="4.5" fill="#E2C27A"/><path d="M6 11.5L9.5 15L16 8" stroke="#121936" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>2 buổi Workshop Online qua Zoom trực tiếp 90 phút cùng Sora</span>
+          </li>
+          <li>
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="1.5" y="1.5" width="19" height="19" rx="4.5" fill="#E2C27A"/><path d="M6 11.5L9.5 15L16 8" stroke="#121936" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Workbook <strong style="color:#E2C27A;">Tấm Bản Đồ 90 Ngày Lãnh Đạo Đòn Bẩy</strong></span>
+          </li>
+          <li>
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="1.5" y="1.5" width="19" height="19" rx="4.5" fill="#E2C27A"/><path d="M6 11.5L9.5 15L16 8" stroke="#121936" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Bộ hướng dẫn Skill AI hiệu quả Sora đang dùng cho công việc quản lý</span>
+          </li>
+          <li>
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="1.5" y="1.5" width="19" height="19" rx="4.5" fill="#E2C27A"/><path d="M6 11.5L9.5 15L16 8" stroke="#121936" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Bản ghi âm đầy đủ 2 buổi, gửi qua Zalo hoặc email để nghe lại bất cứ lúc nào</span>
+          </li>
+          <li>
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="1.5" y="1.5" width="19" height="19" rx="4.5" fill="#E2C27A"/><path d="M6 11.5L9.5 15L16 8" stroke="#121936" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Nhóm cộng đồng đồng hành sau workshop, dành riêng cho các Team Lead trên cùng hành trình</span>
+          </li>
+          <li>
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="1.5" y="1.5" width="19" height="19" rx="4.5" fill="#E2C27A"/><path d="M6 11.5L9.5 15L16 8" stroke="#121936" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Q&amp;A hỏi đáp trực tiếp trong buổi với Sora</span>
+          </li>
+        </ul>
+        <div class="get-price-row">
+          <p class="old-price">Tổng giá trị thực: 1.299.000đ</p>
+          <p class="new-price" style="font-family:'Lora',serif; font-size:2.8rem;">96.000đ</p>
+          <p class="price-caption" style="color:#fff;">Tương đương 1-2 ly cafe.<br>Được một hệ thống cho cả sự nghiệp làm Team Lead của bạn.</p>
+        </div>
+      </div>
+
+      <div style="text-align:center;">
+        <a href="https://www.flowleader.vn/thanh-toan-vip" class="btn-cta">GIỮ CHỖ CỦA TÔI · 96.000đ →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     S8 — GUARANTEE (dark)
+══════════════════════════════════════════ -->
+<section class="sec sec--light" style="background:#b8d4f0;">
+  <div class="wrap" style="text-align:center;">
+
+    <h2 class="h2-light">Cam Kết Hoàn Tiền 100%</h2>
+    <div class="divider-gold"></div>
+
+    <div class="guarantee-box" style="background:rgba(255,255,255,.55); border-color:rgba(2,77,194,.35);">
+      <p style="color:#1a1a2e;">Tham gia 2 Buổi Workshop với giá chỉ bằng 1-2 ly cafe. Tận mắt xem Sora chia sẻ những kinh nghiệm đúc rút từ 10 năm làm Team Lead thực hành trực tiếp từ đầu đến cuối.</p>
+      <p style="color:#1a1a2e;">Và nếu trong vòng 7 ngày sau workshop, bạn áp dụng ít nhất 1 tình huống theo cơ chế mới, bạn vẫn cảm thấy không có gì thay đổi trong cảm xúc, suy nghĩ bên trong bạn và từ sếp nhân viên, hoàn cảnh bên ngoài bạn và vẫn cảm thấy những gì nhận được không xứng đáng với mức đầu tư…</p>
+      <p style="color:#1a1a2e;">Mình sẽ vui vẻ hoàn lại tiền 100% cho bạn, và bạn vẫn được giữ toàn bộ tài liệu, video đã nhận được, coi như một lời cảm ơn vì đã dành thời gian trải nghiệm chương trình này.</p>
+      <p style="color:#1a1a2e;">Mình tự tin cam kết vì mình biết: Khi bạn tham gia buổi workshop đặc biệt này, giá trị bạn nhận lại sẽ còn nhiều hơn thế.</p>
+    </div>
+
+    <a href="https://www.flowleader.vn/thanh-toan-vip" class="btn-cta">ĐĂNG KÝ GIỮ CHỖ NGAY →</a>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     S10 — FAQ (light)
+══════════════════════════════════════════ -->
+<section class="sec sec--light">
+  <div class="wrap">
+
+    <div style="text-align:center;">
+      <h2 class="h2-light">Câu Hỏi Thường Gặp</h2>
+      <div class="divider-gold"></div>
+    </div>
+
+    <div style="max-width:720px; margin:0 auto;">
+
+      <details class="faq-item">
+        <summary>Mình mới lên Team Lead chưa đầy 1 năm, liệu có phù hợp không?</summary>
+        <div class="faq-item__body">
+          Đây chính xác là đối tượng phù hợp với workshop. Càng ở giai đoạn đầu, việc xây đúng nền tảng càng dễ hơn nhiều so với để thói quen cũ ăn sâu.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Mình đã thử nhiều cách rồi mà chưa hiệu quả, workshop này có khác không?</summary>
+        <div class="faq-item__body">
+          Khác ở chỗ workshop không dạy thêm một kỹ năng rời rạc, mà chỉ ra chính xác điểm tựa nào bạn đang thiếu, trước khi bàn đến công cụ.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Mình rất bận, sợ không theo kịp 2 buổi tối liên tiếp thì sao?</summary>
+        <div class="faq-item__body">
+          Mỗi buổi có bản ghi âm gửi lại ngay sau đó. Nghe lại bất cứ lúc nào phù hợp với lịch của bạn.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Mình chưa từng giỏi công nghệ, có theo được không?</summary>
+        <div class="faq-item__body">
+          Được. Buổi 2 demo trực tiếp từng bước, bạn chỉ cần làm theo, không cần biết lập trình hay kỹ thuật gì cả.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Chỉ 2 buổi có đủ để thay đổi gì không?</summary>
+        <div class="faq-item__body">
+          2 buổi giúp bạn nhìn rõ tấm bản đồ và điểm tựa mình cần xây. Đây là bước khởi đầu, không phải phép màu tức thì.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>96.000đ thật luôn hay có phí ẩn?</summary>
+        <div class="faq-item__body">
+          96.000đ là toàn bộ chi phí cho 2 buổi. Không phí phát sinh.
+        </div>
+      </details>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     S11 — TWO PATHS (dark)
+══════════════════════════════════════════ -->
+<section class="sec sec--dark">
+  <div class="wrap" style="text-align:center;">
+
+    <h2 class="h2-dark">Hai Con Đường Trước Mặt Bạn</h2>
+    <div class="divider-gold"></div>
+
+    <div class="paths-grid">
+      <div class="path-card path-card--bad">
+        <p class="path-card__label">Con đường cũ</p>
+        <p>Bạn có thể tiếp tục thêm 6 tháng nữa. Vẫn ôm việc vì không tin nhân viên làm được. Vẫn dùng AI vài lần rồi quay lại tự làm vì chưa hiệu quả. Vẫn thắng trò chơi sự nghiệp bên ngoài, mà bên trong rất kiệt sức.</p>
+      </div>
+      <div class="path-card path-card--good">
+        <p class="path-card__label">Con đường mới</p>
+        <p>Hoặc dành 2 buổi tối để tìm ra đúng nút thắt bẫy chuyên viên đang giữ bạn lại, và có bản đồ 90 ngày để xây một hệ thống Lãnh Đạo Đòn Bẩy thật sự cho cả 3 tầng: Nội lực, Đội ngũ, Đòn bẩy AI.</p>
+      </div>
+    </div>
+
+    <a href="https://www.flowleader.vn/thanh-toan-vip" class="btn-cta">GIỮ CHỖ CỦA TÔI · 96.000đ →</a>
+
+    <p class="ps-note" style="margin-top:32px;">
+      <strong>P.S.</strong> Phiên bản mới của bạn — Team Lead vừa có thể dẫn dắt team thong dong, cân bằng được cuộc sống, vừa có hiệu suất mạnh mẽ, tiếp tục thăng tiến — đang nhìn vào quyết định này ngay lúc này. Với phiên bản đó, 96.000đ là gì? Một rào cản, hay điểm khởi đầu của mọi thứ?
+    </p>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     S9 — ABOUT SORA (light) — cuối trang
 ══════════════════════════════════════════ -->
 <section class="sec sec--light">
   <div class="wrap">
@@ -386,9 +760,11 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
 
         <p class="about-greeting">Xin chào, mình là Sora.</p>
 
-        <p>Có thể bạn biết đến mình là nữ quản lý cấp trung rất tâm huyết về lãnh đạo và tính nữ.</p>
+        <p>Có thể bạn biết đến mình là người làm quản lý cấp trung rất tâm huyết về lãnh đạo và nội tâm.</p>
 
-        <p>Nhưng trên hết, mình chỉ là một người đã từng đứng tại chính nơi bạn đang đứng bây giờ. Mình từng mắc kẹt trong đúng những câu hỏi mà có lẽ bạn đang tự hỏi lúc này:</p>
+        <p>Nhưng trên hết, mình chỉ là một người đã từng đứng tại chính nơi bạn đang đứng bây giờ.</p>
+
+        <p>Mình từng mắc kẹt trong đúng những câu hỏi mà có lẽ bạn đang tự hỏi lúc này:</p>
 
         <p><em>"Tại sao làm công việc mình yêu thích, mà thấy kiệt sức và khổ thế?"</em></p>
         <p><em>"Liệu có đáng, hay chỉ lãng phí sức khỏe và đánh mất cuộc sống cá nhân?"</em></p>
@@ -396,39 +772,44 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
 
         <p>Mình đã từng chạy theo mọi công cụ quản trị phức tạp, ép mình vào đủ loại bảng biểu khô cứng và dùng áp lực để kiểm soát deadlines. Nhưng kết quả chỉ là mất ngủ, đau dạ dày, kiệt sức tinh thần trong khi đội ngũ thiếu hiệu quả và sếp còn chẳng coi trọng mình.</p>
 
-        <p>Cho đến khi mình ngừng hỏi <em>"Làm sao để quản lý nhiều hơn?"</em> và bắt đầu chuyển sang tự hỏi: <strong>"Làm sao để xây nội lực tinh thần vững từ bên trong, rồi mới mở rộng ra bằng đội ngũ và công cụ AI?"</strong> — đó là khoảnh khắc mọi thứ dịch chuyển.</p>
+        <p>Cho đến khi mình ngừng hỏi <em>"Làm sao để quản lý nhiều hơn?"</em> và bắt đầu chuyển sang tự hỏi: <em>"Làm sao để xây nội lực tinh thần vững từ bên trong, rồi mới mở rộng ra bằng đội ngũ và công cụ AI?"</em></p>
 
-        <p>Hôm nay, hệ thống <strong>FLOW LEADER™</strong> đó giúp mình:</p>
+        <p>Đó là khoảnh khắc mọi thứ dịch chuyển.</p>
+
+        <p>Hôm nay, hệ thống <strong>Lãnh Đạo Đòn Bẩy™</strong> đó giúp mình:</p>
 
         <div class="about-results">
           <div class="about-result">
             <svg class="bullet-dot" width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#E2C27A"/></svg>
-            <span>Liên tục thăng tiến từ team lead nhóm 3 người, lên các cấp trưởng phòng và <strong>giám đốc vận hành</strong> công ty từ 20–50 người</span>
+            <span>Liên tục thăng tiến từ team lead nhóm 3 người, lên các cấp trưởng phòng và <strong>giám đốc vận hành</strong> công ty từ 20-50 người</span>
           </div>
           <div class="about-result">
             <svg class="bullet-dot" width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#E2C27A"/></svg>
-            <span>Rút ngắn thời gian làm việc thực tế xuống chỉ còn <strong>4–6 tiếng/ngày</strong>, giải phóng hoàn toàn không gian cho sáng tạo, phát triển bản thân</span>
+            <span>Rút ngắn thời gian làm việc thực tế xuống chỉ còn <strong>4-6 tiếng/ngày</strong>, giải phóng hoàn toàn không gian cho sáng tạo, phát triển bản thân</span>
           </div>
           <div class="about-result">
             <svg class="bullet-dot" width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#E2C27A"/></svg>
-            <span>Có thể nghỉ đi du lịch <strong>10 ngày, 3–4 lần/năm</strong> mà team vẫn vận hành, không cuộc gọi từ sếp trên</span>
+            <span>Có thể nghỉ đi du lịch <strong>10 ngày, 3-4 lần/năm</strong> mà team vẫn vận hành, không cuộc gọi nào từ sếp trên</span>
           </div>
           <div class="about-result">
             <svg class="bullet-dot" width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#E2C27A"/></svg>
-            <span>Nói không với OT và làm việc cuối tuần, để có <strong>thời gian trọn vẹn dành cho gia đình</strong>, cho sức mạnh nội tâm của bản thân</span>
+            <span>Nói không với OT và làm việc cuối tuần, để có <strong>thời gian trọn vẹn dành cho gia đình</strong>, cho sở thích và sức mạnh nội tâm của bản thân</span>
           </div>
           <div class="about-result">
             <svg class="bullet-dot" width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#E2C27A"/></svg>
-            <span>Kết quả làm ra <strong>gấp 30 lần</strong> so với hồi cày 12–14 tiếng/ngày</span>
+            <span>Vẫn duy trì được phong cách làm việc đó từ ngành ổn định, cho đến ngành tăng trưởng nóng, áp lực cao. Từ sếp dễ chịu đến sếp khó tính nhất</span>
+          </div>
+          <div class="about-result">
+            <svg class="bullet-dot" width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#E2C27A"/></svg>
+            <span>Kết quả mình làm ra <strong>gấp nhiều lần</strong> so với hồi xưa lúc mình cày 12-14 tiếng/ngày</span>
           </div>
         </div>
 
-        <p>Nhưng mình không kể những điều đó để chứng minh mình giỏi. Mình kể vì mình muốn bạn biết: mình đã đi qua đúng nỗi đau kiệt quệ bạn đang chịu đựng. Và con đường phía trước không phải là cố gắng ôm nhiều việc hơn — mà là làm chủ năng lượng tinh thần và sở hữu một cơ chế đúng để giải phóng chính mình cùng đội ngũ.</p>
+        <p>Nhưng mình không kể những điều đó để chứng minh mình giỏi.</p>
 
-        <div class="about-quote">
-          <blockquote>"Phiên bản giá trị cao trong công việc không nằm ở việc nỗ lực hơn. Mà ở việc quản trị dòng chảy bằng một nội lực tĩnh tại."</blockquote>
-          <span class="about-sig">Sora</span>
-        </div>
+        <p>Mình kể vì mình muốn bạn biết: Mình đã đi qua đúng nỗi đau kiệt quệ bạn đang chịu đựng. Và con đường phía trước không phải là cố gắng "ôm nhiều việc hơn". Mà là làm chủ năng lượng tinh thần và sở hữu một cơ chế đúng để giải phóng chính mình cùng đội ngũ.</p>
+
+        <span class="about-sig-solo">Sora</span>
 
       </div>
     </div>
@@ -442,9 +823,9 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
 ══════════════════════════════════════════ -->
 <footer class="site-footer" id="register">
   <div class="wrap">
-    <p class="footer-brand">© Flow Leader</p>
-    <p>Dẫn dắt từ bên trong, khuếch đại bằng đòn bẩy.</p>
-    <p style="margin-top:12px;"><a href="/policy" style="color:rgba(255,255,255,.5); font-size:13px; text-decoration:underline;">Chính sách & Điều khoản</a></p>
+    <p class="footer-brand">Workshop Team Lead X2 Hiệu Suất ™</p>
+    <p>By Sora Flow © 2026 · All Rights Reserved</p>
+    <p style="margin-top:12px;"><a href="/policy" style="color:rgba(255,255,255,.5); font-size:13px; text-decoration:underline;">Chính sách &amp; Điều khoản</a></p>
   </div>
 </footer>
 
@@ -463,7 +844,7 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
         </svg>
       </button>
       <h2 class="modal-title" id="modalTitle">Đăng Ký Giữ Chỗ Workshop</h2>
-      <p class="modal-subtitle">Điền thông tin giữ chỗ cho workshop Online Zoom 20h ngày 30/6 và 1/7</p>
+      <p class="modal-subtitle">Điền thông tin giữ chỗ cho workshop Online Zoom 20h ngày 5-6/8</p>
     </div>
 
     <!-- ── Scrollable body ── -->
@@ -596,7 +977,7 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
             </label>
             <label class="form-option">
               <input type="checkbox" name="goals" value="Sẵn sàng thăng tiến và nhận mức lương mới">
-              <span class="option-label">Có vị thế sẵn sàng thăng chức,  nhận mức lương mới 125-200% không phải xin xỏ hay cố gắng chứng minh quá nhiều.</span>
+              <span class="option-label">Có vị thế sẵn sàng thăng chức, nhận mức lương mới 125-200% không phải xin xỏ hay cố gắng chứng minh quá nhiều.</span>
             </label>
             <label class="form-option">
               <input type="checkbox" name="goals" id="goals_khac" value="Khác">
@@ -639,7 +1020,7 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
         <h3 class="modal-success__title">Đăng ký thành công!</h3>
         <p class="modal-success__body">
           Cảm ơn bạn đã đăng ký giữ chỗ.<br>
-          Mình sẽ liên hệ để xác nhận chỗ của bạn trước ngày <strong style="color:var(--primary)">30/6</strong>.
+          Mình sẽ liên hệ để xác nhận chỗ của bạn trước ngày <strong style="color:var(--primary)">5/8</strong>.
         </p>
       </div>
 
