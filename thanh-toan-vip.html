@@ -403,7 +403,7 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
             <span class="ckt-price-old">1.299.000đ</span>
             <span class="ckt-save-badge">TIẾT KIỆM 90%</span>
           </div>
-          <div class="ckt-price-new">96.000 đ</div>
+          <div class="ckt-price-new">98.000 đ</div>
         </div>
 
       </div><!-- /.ckt-left-card -->
@@ -509,7 +509,7 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
             </td>
           </tr>
           <tr><td>Chủ tài khoản</td><td>DUONG HA THUC ANH</td></tr>
-          <tr><td>Số tiền</td><td>96.000đ</td></tr>
+          <tr><td>Số tiền</td><td>98.000đ</td></tr>
           <tr>
             <td>Nội dung CK</td>
             <td>
@@ -588,7 +588,7 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
   ─────────────────────────────────────────────────────────── */
   var GAS_URL   = 'https://script.google.com/macros/s/AKfycbwjRrSRVBbrSQRKW5NIOhZO7dujCDmr0CUaDR9mxQ0foM3uuasuYb3dxT_SwNPIGMdV/exec';
   var BANK      = { code: 'BIDV', account: '96247WORKSHOP', owner: 'DUONG HA THUC ANH' };
-  var AMOUNT    = 96000;
+  var AMOUNT    = 98000;
   var CK_PREFIX = 'WSFL';
   var CK_DIGITS = 3;
 
@@ -700,11 +700,11 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
   }
 
   function onPaymentConfirmed() {
-    if (typeof fbq !== 'undefined') fbq('track', 'Purchase', { value: 96000, currency: 'VND' });
+    if (typeof fbq !== 'undefined') fbq('track', 'Purchase', { value: 98000, currency: 'VND' });
     document.getElementById('pay-waiting').style.display = 'none';
     document.getElementById('pay-success').classList.add('is-visible');
     setTimeout(function () {
-      window.location.href = 'https://www.flowleader.vn/cam-on-vip?amount=96000';
+      window.location.href = 'https://www.flowleader.vn/cam-on-vip?amount=98000';
     }, 2000);
   }
 
