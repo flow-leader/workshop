@@ -155,6 +155,14 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
   gtag('js', new Date());
   gtag('config', 'G-J7VEM7L844');
 </script>
+<script>
+  /* Backup Purchase event — bắn nếu onPaymentConfirmed() trên thanh-toan.html
+     bị miss (khách đóng tab, điện thoại sleep trong khi polling) */
+  var _amount = new URLSearchParams(window.location.search).get('amount');
+  if (_amount && typeof fbq !== 'undefined') {
+    fbq('track', 'Purchase', { value: parseInt(_amount, 10), currency: 'VND' });
+  }
+</script>
 </head>
 <body>
 
