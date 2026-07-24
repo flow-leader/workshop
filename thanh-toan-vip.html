@@ -721,6 +721,7 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
 
   function onPaymentConfirmed() {
     if (typeof fbq !== 'undefined') fbq('track', 'Purchase', { value: 98000, currency: 'VND' });
+    try { sessionStorage.setItem('fb_purchase_fired', '1'); } catch (e) {}
     document.getElementById('pay-waiting').style.display = 'none';
     document.getElementById('pay-success').classList.add('is-visible');
     setTimeout(function () {

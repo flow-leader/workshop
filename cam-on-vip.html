@@ -175,12 +175,20 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
 </script>
 <script>
   /* Backup Purchase event — bắn nếu onPaymentConfirmed() trên thanh-toan-vip.html
-     bị miss (khách đóng tab, điện thoại sleep trong khi polling) */
+     bị miss (khách đóng tab, điện thoại sleep trong khi polling).
+     Chống trùng: nếu Purchase đã bắn ở thanh-toan-vip.html (sessionStorage
+     'fb_purchase_fired'), bỏ qua để không double-count trên Meta. */
   var _amount = new URLSearchParams(window.location.search).get('amount');
+  var _alreadyFired = false;
+  try { _alreadyFired = sessionStorage.getItem('fb_purchase_fired') === '1'; } catch (e) {}
+
   if (_amount && typeof fbq !== 'undefined') {
     fbq('track', 'Lead');
-    fbq('track', 'Purchase', { value: parseInt(_amount, 10), currency: 'VND' });
+    if (!_alreadyFired) {
+      fbq('track', 'Purchase', { value: parseInt(_amount, 10), currency: 'VND' });
+    }
   }
+  try { sessionStorage.removeItem('fb_purchase_fired'); } catch (e) {}
 </script>
 </head>
 <body>
