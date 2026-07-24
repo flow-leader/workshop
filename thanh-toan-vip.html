@@ -417,6 +417,8 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
       <div class="ckt-form-card" id="step-1">
         <p class="ckt-form-card__title">Bước 1: Thông tin đăng ký</p>
 
+        <input type="hidden" id="f-source" value="">
+
         <div class="ckt-field">
           <label for="f-name">Họ tên <span class="req">*</span></label>
           <input type="text" id="f-name" autocomplete="name">
@@ -598,6 +600,23 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
   var btnEdit   = document.getElementById('btn-edit');
   var pollTimer = null;
 
+  /* ─── Ghi nhận trang gốc khách hàng vào (lp = flow-workshop / ws) ───
+     Ưu tiên query param ?lp=... trên link CTA; nếu không có thì lấy
+     từ document.referrer (trang trước đó) làm phương án dự phòng.
+  ─────────────────────────────────────────────────────────── */
+  var landingPage = (function () {
+    try {
+      var lp = new URLSearchParams(window.location.search).get('lp');
+      if (lp) return lp;
+      if (document.referrer) {
+        var path = new URL(document.referrer).pathname.replace(/^\/|\.html$/g, '');
+        if (path) return path;
+      }
+    } catch (e) {}
+    return 'unknown';
+  })();
+  document.getElementById('f-source').value = landingPage;
+
   /* ── Step 1 → Step 2 ── */
   btnSubmit.addEventListener('click', function () {
     var name        = (document.getElementById('f-name').value  || '').trim();
@@ -631,7 +650,8 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
           totalAmount: AMOUNT,
           ckPrefix: CK_PREFIX, ckDigits: CK_DIGITS,
           status: statusInput.value,
-          product: 'Ve VIP B3'
+          product: 'Ve VIP B3',
+          landingPage: document.getElementById('f-source').value
         }
       })
     })
