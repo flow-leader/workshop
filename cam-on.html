@@ -160,6 +160,7 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
      bị miss (khách đóng tab, điện thoại sleep trong khi polling) */
   var _amount = new URLSearchParams(window.location.search).get('amount');
   if (_amount && typeof fbq !== 'undefined') {
+    fbq('track', 'Lead');
     fbq('track', 'Purchase', { value: parseInt(_amount, 10), currency: 'VND' });
   }
 </script>
