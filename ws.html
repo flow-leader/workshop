@@ -32,6 +32,23 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
   gtag('config', 'G-J7VEM7L844');
 </script>
 <style>
+  /* ── Hero headline/sub trải rộng hơn trên desktop (Section 1) ── */
+  @media (min-width: 769px) {
+    .hero__headline--wide {
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 78vw;
+      max-width: 1080px;
+    }
+    .hero__sub--wide {
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 780px;
+      max-width: 88vw;
+    }
+  }
   /* ── FAQ accordion (light background) ── */
   .faq-item { border-bottom: 1px solid rgba(0,0,0,.1); }
   .faq-item summary {
@@ -226,13 +243,13 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
         <span class="hero__badge-text" style="font-size:0.82em; display:block; text-align:center;">WORKSHOP FLOW LEADER 2.0</span>
       </div>
 
-      <h1 class="hero__headline" style="font-size:clamp(2.5rem,6vw,4.4rem); line-height:1.15; margin-bottom:22px;">
+      <h1 class="hero__headline hero__headline--wide" style="font-size:clamp(2.5rem,6vw,4.4rem); line-height:1.15; margin-bottom:22px;">
         Cách Trở Thành <span class="gold-text">Team Lead</span>
         <span class="gold-text">Truyền Cảm Hứng</span>,
         Đội Nhóm Đồng Lòng, <span style="text-decoration:underline; text-decoration-color:#E2C27A; text-underline-offset:4px;">Cấp Trên Tin Tưởng</span>
       </h1>
 
-      <p class="hero__sub" style="font-size:clamp(1rem,2.4vw,1.15rem);">
+      <p class="hero__sub hero__sub--wide" style="font-size:clamp(1rem,2.4vw,1.15rem);">
         Khám phá toàn bộ cơ chế Lãnh đạo từ Dòng chảy bên trong đã giúp mình từ gánh team 12 tiếng/ngày, đau dạ dày, mất ngủ trở thành
         <em><span class="gold-text">Team Lead hiệu suất và thăng tiến</span></em> —
         ngay cả khi bạn đang kẹt giữa sếp áp lực và team chưa còn chưa hiệu quả
