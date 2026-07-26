@@ -43,7 +43,8 @@
       "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --force-device-scale-factor=1 --window-size=1200,1200 --screenshot=\"/Users/thucanh/Downloads/Website/assets/images/group-avatar.png\" --default-background-color=0 \"file:///Users/thucanh/Downloads/Website/_avatar-preview.html\")",
       "Bash(echo \"EXIT:$?\")",
       "Bash(date -j -f \"%Y-%m-%d\" \"2026-08-05\" \"+%A\")",
-      "Bash(date -j -f \"%Y-%m-%d\" \"2026-08-06\" \"+%A\")"
+      "Bash(date -j -f \"%Y-%m-%d\" \"2026-08-06\" \"+%A\")",
+      "Bash(grep -i \"^-.*section 1\\\\.jpg$\\\\|Section 1\\\\.jpg\")"
     ]
   }
 }
