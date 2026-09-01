@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ngừng Ôm Việc Hộ Nhân Viên Trong 7 Ngày</title>
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.flowleader.vn/giao-viec">
+  <meta property="og:title" content="Ngừng Ôm Việc Hộ Nhân Viên Trong 7 Ngày">
+  <meta property="og:description" content="Hệ Thống Giao Việc 7 Bước Giúp Bạn Giao 1 Lần, Nhân Viên Hiểu Đúng Ngay.">
+  <meta property="og:image" content="https://www.flowleader.vn/assets/images/Section%201.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ngừng Ôm Việc Hộ Nhân Viên Trong 7 Ngày">
+  <meta name="twitter:description" content="Hệ Thống Giao Việc 7 Bước Giúp Bạn Giao 1 Lần, Nhân Viên Hiểu Đúng Ngay.">
+  <meta name="twitter:image" content="https://www.flowleader.vn/assets/images/Section%201.jpg">
+
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1532532048582130');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J7VEM7L844"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-J7VEM7L844');
+</script>
+<style>
+  /* ── Hero headline/sub trải rộng hơn trên desktop (Section 1) ── */
+  @media (min-width: 769px) {
+    .hero__headline--wide {
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 78vw;
+      max-width: 1080px;
+    }
+    .hero__sub--wide {
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 780px;
+      max-width: 88vw;
+    }
+  }
+  /* ── FAQ accordion (light background) ── */
+  .faq-item { border-bottom: 1px solid rgba(0,0,0,.1); }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 20px 0;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #1a1a2e;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+  .faq-item summary::-webkit-details-marker { display:none; }
+  .faq-item summary::after {
+    content: "+";
+    font-size: 1.4rem;
+    color: #8B6914;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+  .faq-item[open] summary::after { content: "−"; }
+  .faq-item__body {
+    padding: 0 0 20px;
+    color: #555;
+    line-height: 1.7;
+  }
+  /* ── Text testimonial cards (dark background) ── */
+  .testi-text-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .testi-card {
+    background: rgba(255,255,255,.05);
+    border: 1.5px solid rgba(226,194,122,.3);
+    border-radius: 14px;
+    padding: 30px;
+    text-align: left;
+  }
+  .testi-card__quote {
+    color: rgba(255,255,255,.85);
+    line-height: 1.75;
+    font-style: italic;
+    margin: 0 0 18px;
+    font-size: 0.98rem;
+  }
+  .testi-card__name {
+    color: #E2C27A;
+    font-weight: 700;
+    margin: 0;
+    font-size: 0.98rem;
+  }
+  .testi-card__role {
+    color: rgba(255,255,255,.55);
+    font-size: 0.85rem;
+    margin: 4px 0 0;
+  }
+  @media (max-width: 600px) {
+    .testi-text-grid { grid-template-columns: 1fr; }
+  }
+  /* ── What you get list (dark background) ── */
+  .get-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .get-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,.9);
+  }
+  .get-list li svg { flex-shrink: 0; margin-top: 3px; }
+  /* ── What you get box ── */
+  .get-box {
+    background: rgba(255,255,255,.07);
+    border: 1.5px solid #E2C27A;
+    border-radius: 14px;
+    padding: 32px;
+    margin: 0 auto 40px;
+    max-width: 480px;
+  }
+  .get-price-row {
+    border-top: 1px solid rgba(226,194,122,.3);
+    margin-top: 24px;
+    padding-top: 24px;
+    text-align: center;
+  }
+  .get-price-row .old-price {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,.45);
+    text-decoration: line-through;
+    margin: 0 0 4px;
+  }
+  .get-price-row .new-price {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #E2C27A;
+    margin: 0 0 8px;
+    line-height: 1.2;
+  }
+  .get-price-row .price-caption {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,.6);
+    margin: 0;
+    font-style: italic;
+  }
+  /* ── Guarantee box ── */
+  .guarantee-box {
+    background: rgba(226,194,122,.08);
+    border: 1.5px solid rgba(226,194,122,.35);
+    border-radius: 14px;
+    padding: 40px 36px;
+    max-width: 720px;
+    margin: 0 auto 48px;
+    text-align: center;
+  }
+  .guarantee-box p { color: rgba(255,255,255,.82); line-height: 1.75; margin: 0 0 16px; }
+  .guarantee-box p:last-child { margin: 0; }
+  /* ── Two paths ── */
+  .paths-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin: 40px 0;
+  }
+  .path-card {
+    border-radius: 14px;
+    padding: 28px;
+    line-height: 1.7;
+    font-size: 0.97rem;
+  }
+  .path-card--bad {
+    background: rgba(255,255,255,.05);
+    border: 1.5px solid rgba(255,255,255,.15);
+    color: rgba(255,255,255,.65);
+  }
+  .path-card--good {
+    background: rgba(2,77,194,.2);
+    border: 1.5px solid rgba(2,77,194,.6);
+    color: rgba(255,255,255,.9);
+  }
+  .path-card__label {
+    font-weight: 700;
+    font-size: 0.82rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    margin: 0 0 10px;
+  }
+  .path-card--bad .path-card__label { color: rgba(255,255,255,.35); }
+  .path-card--good .path-card__label { color: #7eb3ff; }
+  .ps-note {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,.65);
+    font-style: italic;
+    margin: 8px auto 0;
+    max-width: 680px;
+    line-height: 1.7;
+    text-align: center;
+  }
+  @media (max-width: 640px) {
+    .paths-grid { grid-template-columns: 1fr; }
+    .get-box { padding: 24px 20px; }
+    .guarantee-box { padding: 28px 20px; }
+  }
+  /* ── Sora signature ── */
+  .about-sig-solo {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2rem;
+    color: #8B6914;
+    margin-top: 20px;
+    display: block;
+  }
+  /* ── Hero secondary sub (X2 hiệu suất) ── */
+  .hero__sub2 {
+    text-align: center;
+    font-size: clamp(1.05rem, 2.6vw, 1.3rem);
+    font-weight: 700;
+    color: #E2C27A;
+    margin: 4px 0 22px;
+  }
+  /* ── S1 Section1b image ── */
+  .s1b-img { max-width:580px; margin:0 auto; padding:0 16px 44px; line-height:0; }
+  .s1b-img img { width:100%; display:block; border-radius:16px; }
+</style>
+</head>
+<body>
+
+
+<!-- ══════════════════════════════════════════
+     S1 — HERO
+══════════════════════════════════════════ -->
+<section class="hero" style="background:#121936; min-height:auto;">
+  <div class="hero__wrap" style="padding:20px 16px 12px; justify-content:center;">
+    <div class="hero__card" style="padding-top:36px; padding-bottom:12px; min-height:auto; display:flex; flex-direction:column; justify-content:center; background:none; border:none; backdrop-filter:none; -webkit-backdrop-filter:none; max-width:760px;">
+
+      <div class="hero__badge-pill" style="align-self:center;">
+        <span class="hero__badge-dot"></span>
+        <span class="hero__badge-text" style="font-size:0.82em; display:block; text-align:center;">NGỪNG ÔM VIỆC HỘ NHÂN VIÊN TRONG 7 NGÀY</span>
+      </div>
+
+      <h1 class="hero__headline hero__headline--wide" style="font-size:clamp(2.5rem,6vw,4.4rem); line-height:1.15; margin-bottom:22px;">
+        Hệ Thống <span class="gold-text">Giao Việc 7 Bước</span>
+        Giúp Bạn <span class="gold-text">Giao 1 Lần</span>,
+        Nhân Viên <span style="text-decoration:underline; text-decoration-color:#E2C27A; text-underline-offset:4px;">Hiểu Đúng Ngay</span>
+      </h1>
+
+      <p class="hero__sub hero__sub--wide" style="font-size:clamp(1rem,2.4vw,1.15rem);">
+        Ngay cả khi bạn đang <em><span class="gold-text">kiệt sức làm 12-14 tiếng/ngày</span></em>, sợ mất kiểm soát, hoặc chưa kết nối được với nhân sự nhiều level — từ intern đến senior
+      </p>
+
+      <p class="hero__sub2">X2 Hiệu Suất Team Mà Bạn Không Cần Làm Thêm Giờ</p>
+
+      <p style="color:rgba(255,255,255,.75); font-size:0.9rem; margin:0 0 24px; text-align:center;">
+        Khoá học video · Học theo tốc độ riêng · Áp dụng ngay trong 7 ngày tới
+      </p>
+
+      <a href="https://www.flowleader.vn/thanh-toan-giao-viec" class="btn-cta">BẮT ĐẦU HỌC NGAY →</a>
+      <p class="cta-note">
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none" style="vertical-align:middle; margin-right:5px; flex-shrink:0;"><path d="M8 1.5L2.5 4v4c0 3.2 2.4 6 5.5 7 3.1-1 5.5-3.8 5.5-7V4L8 1.5z" fill="rgba(226,194,122,.25)" stroke="#E2C27A" stroke-width="1.4" stroke-linejoin="round"/></svg><strong style="color:#E2C27A">Hoàn tiền 100% nếu áp dụng đúng mà không thấy khác biệt</strong>
+      </p>
+
+    </div>
+  </div>
+</section>
+
+<div class="s1b-img">
+  <img src="assets/images/Section1b.jpg" alt="">
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     S2 — PAIN + STORY (light)
+══════════════════════════════════════════ -->
+<section class="sec sec--light story-sec">
+  <div class="wrap">
+    <div class="col-text">
+
+      <!-- Block 1 -->
+      <div class="story-block">
+        <h2 class="h2-story">Nếu Bạn Từng Cảm Thấy…</h2>
+        <div class="divider-gold"></div>
+        <p>Đã cố gắng giao việc, đã dặn dò kỹ, đã nghĩ mình nói rõ ràng rồi…</p>
+        <p>Nhưng nhân viên vẫn làm sai, làm thiếu, hoặc lại quay lại hỏi bạn từng bước một?</p>
+        <p>Bạn luôn tự nhủ:</p>
+        <p><em>"Mình đã nói rõ vậy rồi mà sao vẫn làm sai?"</em></p>
+        <p><em>"Giao cho nhân viên xong lại phải ngồi sửa lại, thà mình tự làm cho nhanh."</em></p>
+        <p><em>"Về nhà rồi mà vẫn mở máy kiểm tra lại việc của team, không yên tâm được."</em></p>
+        <p>Biết mình đã cố gắng, biết nhân viên cũng không cố tình làm sai… nhưng cứ mãi loay hoay không biết vấn đề nằm ở đâu?</p>
+        <p>Nếu vậy, không phải bạn thiếu chuyên môn. Không phải bạn thiếu chăm chỉ.</p>
+        <p>Mà là bạn chưa có một <strong>cách giao việc đúng hệ thống</strong>.</p>
+      </div>
+
+      <!-- Block 2 -->
+      <div class="story-block">
+        <h2 class="h2-story">Mình Cũng Từng Như Vậy</h2>
+        <div class="divider-gold"></div>
+        <p>Sau khi làm Team Lead được vài năm, mình kiệt sức.</p>
+        <p>Từ bên ngoài nhìn vào, mọi thứ có vẻ ổn — được lên làm quản lý khá trẻ, kết quả cũng không tệ. Nhưng bên trong, mình làm việc 12-14 tiếng/ngày. 7h sáng đến, 7h tối mới về. Ăn uống tắm rửa qua loa, rồi 9-10h tối lại ngồi làm tiếp đến 11-12h khuya. Liên tục như vậy suốt 2 năm.</p>
+        <p>Mình từng tin rằng:</p>
+        <p><em>"Tự làm mới chắc chắn đúng."</em></p>
+        <p><em>"Mình giỏi nhất thì mình làm là nhanh nhất."</em></p>
+        <p><em>"Cố gắng đủ nhiều thì team sẽ ổn."</em></p>
+        <p>Những niềm tin đó khiến mình không bao giờ buông tay được.</p>
+        <p>Nhân viên làm không như ý, team loạn lên, mình cảm thấy mất kiểm soát — nên lại ôm việc, làm hộ. Mặt nổi mụn, người gầy không lên cân được, mất ngủ thường xuyên, đau dạ dày. Gia đình phản đối mình đi làm vì không còn thời gian cho ai. Và tệ nhất — dù cố gắng như vậy, mình vẫn luôn nghi ngờ năng lực bản thân, không biết mình đang cố gắng vì cái gì nữa.</p>
+      </div>
+
+      <!-- Block 3 -->
+      <div class="story-block">
+        <img class="story-mobile-img" src="assets/images/Section 1 upscale.jpg" alt="">
+        <h2 class="h2-story">Cho Đến Khi Mình Nhận Ra</h2>
+        <div class="divider-gold"></div>
+        <p>Vấn đề không phải mình thiếu kỹ năng chuyên môn.</p>
+        <p>Mình nhận ra mình chỉ có cái mác Team Lead bên ngoài. Bên trong toàn bộ tư duy, hành động vẫn là một Chuyên viên với khối lượng công việc nhiều hơn. "Chuyên viên đội lốt Team Lead."</p>
+        <p>Cho đến khi mình dừng lại, tìm ra đúng cách để một nhiệm vụ được hiểu đúng ngay từ lần đầu — không cần nói lại, không cần sửa lại — đó là khoảnh khắc mọi thứ dịch chuyển.</p>
+        <p>Nếu người giao việc chưa rõ ràng, thì nhân viên có giỏi đến đâu cũng không đoán đúng ý được.</p>
+        <p>Nếu chỉ dặn miệng qua loa, thì công cụ quản lý hay AI nào cũng không giúp được gì.</p>
+        <p>Mình gọi đó là <strong>Hệ Thống Giao Việc 7 Bước</strong>.</p>
+        <p>Cơ chế đó đã giúp mình quản lý từ đội nhóm 3 người, tăng dần lên 10, 20, rồi 50 người. Từ nhân sự mới ra trường đến nhân sự nhiều năm kinh nghiệm hơn cả mình. Vẫn hiệu quả.</p>
+      </div>
+
+      <div style="margin-top:48px;">
+        <a href="https://www.flowleader.vn/thanh-toan-giao-viec" class="btn-cta">BẮT ĐẦU HỌC NGAY →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     S3 — ÔM VIỆC vs GIAO VIỆC CÓ HỆ THỐNG (dark)
+══════════════════════════════════════════ -->
+<section class="sec sec--dark">
+  <div class="wrap">
+
+    <div style="text-align:center;">
+      <h2 class="h2-dark">"Ôm Việc" vs "Giao Việc Có Hệ Thống"</h2>
+      <div class="divider-gold"></div>
+      <p class="body-dark" style="max-width:640px; margin:0 auto; text-align:center;">
+        Phần lớn quản lý ôm việc không phải vì thiếu chuyên môn, mà vì đang giao việc theo cách cũ.
+      </p>
+    </div>
+
+    <div class="compare-grid">
+      <!-- Cách cũ -->
+      <div class="compare-card compare-card--old">
+        <p class="compare-card__label">Ôm Việc / Chưa Giao Việc Được</p>
+        <ul class="compare-list">
+          <li><svg class="bullet-dot" width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="rgba(0,0,0,0.22)"/></svg><span>Vừa giao việc vừa thấp thỏm lo lắng, phải kiểm tra liên tục mới thấy yên tâm</span></li>
+          <li><svg class="bullet-dot" width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="rgba(0,0,0,0.22)"/></svg><span>Giao việc xong vẫn phải ngồi sửa lại, giải thích lại nhiều lần vì nhân viên hiểu sai ý</span></li>
+          <li><svg class="bullet-dot" width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="rgba(0,0,0,0.22)"/></svg><span>Trung bình mất 40 giờ/tháng làm ngoài giờ để làm việc lẽ ra có thể giao/ sửa nhân viên làm sai</span></li>
+          <li><svg class="bullet-dot" width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="rgba(0,0,0,0.22)"/></svg><span>Kết quả team giậm chân tại chỗ dù bạn đã cố gắng rất nhiều</span></li>
+          <li><svg class="bullet-dot" width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="rgba(0,0,0,0.22)"/></svg><span>Chỉ cần Lead nghỉ phép vài ngày là cả team khựng lại, không biết xử lý sao</span></li>
+          <li><svg class="bullet-dot" width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="rgba(0,0,0,0.22)"/></svg><span>Không dám nhận thêm người, thêm dự án lớn vì sợ không quản nổi khối lượng công việc tăng lên</span></li>
+        </ul>
+      </div>
+
+      <!-- Giao việc có hệ thống -->
+      <div class="compare-card compare-card--new">
+        <p class="compare-card__label">Giao Việc Có Hệ Thống</p>
+        <ul class="compare-list">
+          <li><svg class="bullet-dot" width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="#E2C27A"/></svg><span>Giao xong là an tâm thật sự, vì biết chắc nhân viên đã hiểu đúng những gì cần làm</span></li>
+          <li><svg class="bullet-dot" width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="#E2C27A"/></svg><span>Giao việc 1 lần, nhân viên hiểu đúng và bắt tay làm ngay</span></li>
+          <li><svg class="bullet-dot" width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="#E2C27A"/></svg><span>Gần như không còn phải mang việc về nhà hay thức khuya xử lý</span></li>
+          <li><svg class="bullet-dot" width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="#E2C27A"/></svg><span>Kết quả team tăng gấp đôi vì mọi người đều làm đúng việc, đúng cách</span></li>
+          <li><svg class="bullet-dot" width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="#E2C27A"/></svg><span>Team vẫn vận hành bình thường dù không có bạn ở đó</span></li>
+          <li><svg class="bullet-dot" width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="#E2C27A"/></svg><span style="color:#E2C27A; font-weight:500;">Tự tin nhận thêm quy mô, vì đã có hệ thống thay vì phải tự ôm hết vào người</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Formula -->
+    <div class="formula-plain">
+      <div class="formula-plain__item">
+        <span class="formula-plain__term">Tư Duy Team Lead</span>
+      </div>
+      <span class="formula-plain__op">+</span>
+      <div class="formula-plain__item">
+        <span class="formula-plain__term">Hệ Thống Giao Việc 7 Bước</span>
+      </div>
+      <span class="formula-plain__op">+</span>
+      <div class="formula-plain__item">
+        <span class="formula-plain__term">Kịch Bản Theo Từng Nhóm Nhân Sự</span>
+      </div>
+      <span class="formula-plain__op">=</span>
+      <span class="formula-plain__result">GIAO VIỆC HIỆU QUẢ TRONG 7 NGÀY</span>
+    </div>
+
+    <div style="margin-top:48px;">
+      <a href="https://www.flowleader.vn/thanh-toan-giao-viec" class="btn-cta">BẮT ĐẦU HỌC NGAY — 198K →</a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     S4 — CURRICULUM (light)
+══════════════════════════════════════════ -->
+<section class="sec sec--light" id="curriculum">
+  <div class="wrap">
+
+    <div style="text-align:center;">
+      <h2 class="h2-light">Trong Khoá Học Bạn Sẽ<br>Được Trang Bị Những Gì?</h2>
+      <div class="divider-gold"></div>
+    </div>
+
+    <div class="sessions-v3">
+
+      <!-- Phần 1 -->
+      <div class="session-v3">
+        <div class="session-v3__header">
+          <p class="session-v3__tag">Phần 1</p>
+          <h3 class="session-v3__title">Nhìn Ra Đúng Điều Đang Giữ Chân Bạn</h3>
+        </div>
+        <div class="session-v3__img">
+          <img src="assets/images/Buổi 1.png" alt="Phần 1 — Nhìn Ra Đúng Điều Đang Giữ Chân Bạn">
+        </div>
+        <div class="session-v3__body">
+          <p class="session-v3__intro"><em>"Tại sao càng cố gắng, bạn càng thấy mình giống Chuyên viên hơn là Team Lead?"</em></p>
+          <ul class="session-v3__list">
+            <li>
+              <svg class="bullet-dot" width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#E2C27A"/></svg>
+              <span>Bạn sẽ không còn tự trách mình vì "chưa đủ giỏi" hay "chưa đủ chăm" mỗi lần nhân viên làm sai ý</span>
+            </li>
+            <li>
+              <svg class="bullet-dot" width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#E2C27A"/></svg>
+              <span>Nhìn thẳng vào 3 con số đang âm thầm bào mòn bạn mỗi tháng</span>
+            </li>
+            <li>
+              <svg class="bullet-dot" width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#E2C27A"/></svg>
+              <span>Nhận ra chính xác niềm tin nào đang khiến bạn không dám buông tay, dù đã ở vị trí Team Lead từ lâu</span>
+            </li>
+          </ul>
+          <p class="session-v3__outro">Kết quả: Bạn không còn mơ hồ tự hỏi "mình có làm quản lý được không" — mà biết rõ vấn đề nằm ở đâu, và nó hoàn toàn sửa được.</p>
+        </div>
+      </div>
+
+      <!-- Phần 2 -->
+      <div class="session-v3">
+        <div class="session-v3__header">
+          <p class="session-v3__tag">Phần 2</p>
+          <h3 class="session-v3__title">Hệ Thống Giao Việc 7 Bước</h3>
+        </div>
+        <div class="session-v3__img">
+          <img src="assets/images/Section1V.jpg" alt="Phần 2 — Hệ Thống Giao Việc 7 Bước">
+        </div>
+        <div class="session-v3__body">
+          <p class="session-v3__intro"><em>"Làm sao để nói 1 lần, nhân viên làm đúng ngay — dù họ là ai?"</em></p>
+          <p style="color:#333; line-height:1.7; margin:0 0 20px;">Bạn sẽ có trong tay công thức 7 bước đầy đủ để áp dụng ngay trong lần giao việc tiếp theo, không cần nhớ lý thuyết dài dòng.</p>
+          <ul class="session-v3__list">
+            <li>
+              <svg class="bullet-dot" width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#E2C27A"/></svg>
+              <span>Biết chính xác nên nói gì để nhân viên hiểu đúng mục tiêu và tiêu chuẩn thành công, thay vì đoán ý bạn</span>
+            </li>
+            <li>
+              <svg class="bullet-dot" width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#E2C27A"/></svg>
+              <span>Có kịch bản riêng cho intern/junior và senior/chuyên gia — không còn dùng chung 1 cách nói cho mọi trình độ, tránh vừa bị kêu kiểm soát chặt vừa bị kêu thả lỏng quá</span>
+            </li>
+            <li>
+              <svg class="bullet-dot" width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#E2C27A"/></svg>
+              <span>Biết cách đặt câu hỏi để chính nhân viên tự nói ra cam kết của họ — thay vì bạn nói, họ chỉ gật đầu cho qua chuyện rồi làm sai</span>
+            </li>
+            <li>
+              <svg class="bullet-dot" width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#E2C27A"/></svg>
+              <span>Có sẵn cách xử lý những tình huống khó nhất: team đang quá tải mà vẫn phải giao thêm, nhân viên đùn đẩy không ai nhận việc, việc gấp cần giao ngay trong ngày</span>
+            </li>
+            <li>
+              <svg class="bullet-dot" width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#E2C27A"/></svg>
+              <span>Checklist theo dõi tiến độ 7 ngày để không việc nào bị rơi giữa chừng</span>
+            </li>
+            <li>
+              <svg class="bullet-dot" width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#E2C27A"/></svg>
+              <span>Nguyên tắc đặt deadline sớm hơn thực tế cần, để bạn luôn chủ động thay vì bị động chạy theo</span>
+            </li>
+          </ul>
+          <p class="session-v3__outro">Kết quả: Ngay sau khi học xong phần này, bạn có thể áp dụng vào lần giao việc gần nhất — và thấy sự khác biệt rõ rệt ngay từ lần đầu tiên, không cần chờ nhiều tuần mới thấy hiệu quả.</p>
+        </div>
+      </div>
+
+      <!-- Phần 3 -->
+      <div class="session-v3">
+        <div class="session-v3__header">
+          <p class="session-v3__tag">Phần 3</p>
+          <h3 class="session-v3__title">Lộ Trình Từ Giao Việc Hiệu Quả Đến Trở Thành Team Lead Truyền Cảm Hứng</h3>
+        </div>
+        <div class="session-v3__img">
+          <img src="assets/images/Buổi 2.png" alt="Phần 3 — Lộ Trình Từ Giao Việc Hiệu Quả Đến Trở Thành Team Lead Truyền Cảm Hứng">
+        </div>
+        <div class="session-v3__body">
+          <p class="session-v3__intro"><em>"Sau khi hết ôm việc, bước tiếp theo để team thực sự đồng lòng là gì?"</em></p>
+          <ul class="session-v3__list">
+            <li>
+              <svg class="bullet-dot" width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#E2C27A"/></svg>
+              <span>Nhìn thấy con đường tiếp theo: từ việc chỉ ngừng ôm việc, đến việc trở thành Team Lead mà đội ngũ tin tưởng và đồng lòng đi cùng</span>
+            </li>
+            <li>
+              <svg class="bullet-dot" width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#E2C27A"/></svg>
+              <span>Có công cụ theo dõi để đảm bảo việc đã giao thực sự được hoàn thành đúng, không cần bạn nhắc lại nhiều lần</span>
+            </li>
+            <li>
+              <svg class="bullet-dot" width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#E2C27A"/></svg>
+              <span>Có hướng đi rõ ràng để tiếp tục phát triển vai trò Team Lead của mình</span>
+            </li>
+          </ul>
+          <p class="session-v3__outro">Kết quả: Bạn có công cụ theo dõi để đảm bảo việc đã giao thực sự được hoàn thành đúng, không cần bạn nhắc lại nhiều lần. Có hướng đi rõ ràng để tiếp tục phát triển vai trò Team Lead của mình.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="margin-top:56px;">
+      <a href="https://www.flowleader.vn/thanh-toan-giao-viec" class="btn-cta">BẮT ĐẦU HỌC NGAY — 198K →</a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     S5 — TESTIMONIALS (dark)
+══════════════════════════════════════════ -->
+<section class="sec sec--dark">
+  <div class="wrap">
+
+    <div style="text-align:center;">
+      <h2 class="h2-dark">Những Chia Sẻ Từ Học Viên</h2>
+      <div class="divider-gold"></div>
+      <p style="color:rgba(255,255,255,.75); font-style:italic; max-width:600px; margin:0 auto 44px; line-height:1.7;">
+        Đây không phải Sora nói về Sora nữa. Đây là những người từng đứng đúng chỗ bạn đang đứng, đã đi qua, và giờ nói lại bằng chính lời của họ.
+      </p>
+    </div>
+
+    <div class="testi-text-grid">
+      <div class="testi-card">
+        <p class="testi-card__quote">"Mình từ chuyên viên lên Team Lead nên đôi khi cũng chỉ quen tự làm việc mà không biết giao việc cho nhân viên hiệu quả. Cho nên cứ loanh quanh tại chỗ, team chưa bứt phá lên được. Từ khi có thể giao việc, đặc biệt cho các bạn nhân viên thông minh, nhưng cá tính, thì mình đã tăng được hiệu suất team từ quản lý 1 kênh lên 5 kênh social."</p>
+        <p class="testi-card__name">Hải Minh</p>
+        <p class="testi-card__role">Quản lý Team Social</p>
+      </div>
+      <div class="testi-card">
+        <p class="testi-card__quote">"Mọi người từng bảo mình là Chuyên viên giỏi, nhưng không biết cách làm Team Lead. Học xong khoá học nhỏ này, mình bắt đầu nhận diện rõ tư duy Chuyên viên đang kéo mình lại và dần áp dụng tư duy Team Lead để dẫn dắt đội nhóm thay vì làm thay. Giúp mình quản lý và phát huy năng lực 5 bạn nhân sự trong team mình tốt hơn."</p>
+        <p class="testi-card__name">Lan Anh</p>
+        <p class="testi-card__role">Quản lý Team Chăm sóc khách hàng</p>
+      </div>
+    </div>
+
+    <div style="margin-top:48px;">
+      <a href="https://www.flowleader.vn/thanh-toan-giao-viec" class="btn-cta">BẮT ĐẦU HỌC NGAY — 198K →</a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     S6 — FOR WHOM (light)
+══════════════════════════════════════════ -->
+<section class="sec sec--light">
+  <div class="wrap">
+    <div class="col-text">
+      <h2 class="h2-light">Khoá Học Này Dành Cho Bạn Nếu…</h2>
+      <div class="divider-gold"></div>
+
+      <div class="forwhom-box" style="color:#000;">
+        <ul class="forwhom-list">
+          <li>
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="1.5" y="1.5" width="19" height="19" rx="4.5" fill="#E2C27A"/><path d="M6 11.5L9.5 15L16 8" stroke="#121936" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Bạn đang quản lý team từ <strong>3-50 người</strong>, và đang phải tự làm lại việc nhân viên đã giao.</span>
+          </li>
+          <li>
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="1.5" y="1.5" width="19" height="19" rx="4.5" fill="#E2C27A"/><path d="M6 11.5L9.5 15L16 8" stroke="#121936" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Bạn <strong>mới lên làm Team Lead</strong>, chưa ai thực sự dạy bạn cách giao việc đúng.</span>
+          </li>
+          <li>
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="1.5" y="1.5" width="19" height="19" rx="4.5" fill="#E2C27A"/><path d="M6 11.5L9.5 15L16 8" stroke="#121936" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Bạn đã làm quản lý <strong>vài năm</strong>, nhưng vẫn cảm thấy phải ôm việc vì không tin nhân viên làm được.</span>
+          </li>
+          <li>
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="1.5" y="1.5" width="19" height="19" rx="4.5" fill="#E2C27A"/><path d="M6 11.5L9.5 15L16 8" stroke="#121936" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Bạn đang <strong>mất thời gian ngoài giờ</strong> để sửa lại, kiểm tra lại việc của team.</span>
+          </li>
+          <li>
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="1.5" y="1.5" width="19" height="19" rx="4.5" fill="#E2C27A"/><path d="M6 11.5L9.5 15L16 8" stroke="#121936" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Bạn có cả <strong>intern lẫn senior</strong> trong team, và đang giao việc giống nhau cho tất cả.</span>
+          </li>
+          <li>
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="1.5" y="1.5" width="19" height="19" rx="4.5" fill="#E2C27A"/><path d="M6 11.5L9.5 15L16 8" stroke="#121936" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Bạn muốn có lại thời gian cho vai trò thật sự của một Team Lead: <strong>chiến lược, phát triển con người</strong>.</span>
+          </li>
+        </ul>
+      </div>
+
+      <div style="margin-top:48px;">
+        <a href="https://www.flowleader.vn/thanh-toan-giao-viec" class="btn-cta">BẮT ĐẦU HỌC NGAY — 198K →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     S7 — WHAT YOU GET (dark)
+══════════════════════════════════════════ -->
+<section class="sec sec--dark">
+  <div class="wrap">
+    <div class="col-text">
+
+      <h2 class="h2-dark">Bạn Nhận Về Những Gì</h2>
+      <div class="divider-gold"></div>
+
+      <div class="get-box">
+        <ul class="get-list">
+          <li>
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="1.5" y="1.5" width="19" height="19" rx="4.5" fill="#E2C27A"/><path d="M6 11.5L9.5 15L16 8" stroke="#121936" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Hệ Thống Giao Việc Hiệu Quả 7 Bước</span>
+          </li>
+          <li>
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="1.5" y="1.5" width="19" height="19" rx="4.5" fill="#E2C27A"/><path d="M6 11.5L9.5 15L16 8" stroke="#121936" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Tư Duy Chuyên Viên Sang Tư Duy Team Lead</span>
+          </li>
+          <li>
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="1.5" y="1.5" width="19" height="19" rx="4.5" fill="#E2C27A"/><path d="M6 11.5L9.5 15L16 8" stroke="#121936" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Kịch Bản Giao Việc Theo Từng Nhóm Nhân Sự</span>
+          </li>
+          <li>
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="1.5" y="1.5" width="19" height="19" rx="4.5" fill="#E2C27A"/><path d="M6 11.5L9.5 15L16 8" stroke="#121936" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Cẩm Nang Xử Lý Tình Huống Thực Tế</span>
+          </li>
+          <li>
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="1.5" y="1.5" width="19" height="19" rx="4.5" fill="#E2C27A"/><path d="M6 11.5L9.5 15L16 8" stroke="#121936" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>5 Bài Tập Thực Hành Từng Bước</span>
+          </li>
+          <li>
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="1.5" y="1.5" width="19" height="19" rx="4.5" fill="#E2C27A"/><path d="M6 11.5L9.5 15L16 8" stroke="#121936" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Checklist Theo Dõi 7 Ngày</span>
+          </li>
+          <li>
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="1.5" y="1.5" width="19" height="19" rx="4.5" fill="#E2C27A"/><path d="M6 11.5L9.5 15L16 8" stroke="#121936" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Template Mẫu Áp Dụng Ngay</span>
+          </li>
+        </ul>
+        <div class="get-price-row">
+          <p class="old-price">Tổng giá trị thực: 1.559.000đ</p>
+          <p class="new-price" style="font-family:'Lora',serif; font-size:2.8rem;">198.000đ</p>
+          <p class="price-caption" style="color:#fff;">Tương đương 3 ly trà sữa.<br>Được một hệ thống áp dụng cho cả sự nghiệp làm Team Lead của bạn.</p>
+        </div>
+      </div>
+
+      <div style="text-align:center;">
+        <a href="https://www.flowleader.vn/thanh-toan-giao-viec" class="btn-cta">BẮT ĐẦU HỌC NGAY — 198K →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     S8 — GUARANTEE (light)
+══════════════════════════════════════════ -->
+<section class="sec sec--light" style="background:#b8d4f0;">
+  <div class="wrap" style="text-align:center;">
+
+    <h2 class="h2-light">Cam Kết Hoàn Tiền 100%</h2>
+    <div class="divider-gold"></div>
+
+    <div class="guarantee-box" style="background:rgba(255,255,255,.55); border-color:rgba(2,77,194,.35);">
+      <p style="color:#1a1a2e;">Tham gia khoá học với giá chỉ bằng 3 ly trà sữa. Xem toàn bộ hệ thống giao việc được Sora đúc rút từ hơn 10 năm kinh nghiệm quản lý thực chiến.</p>
+      <p style="color:#1a1a2e;">Và nếu trong 7 ngày sau khi học, bạn áp dụng hệ thống này vào ít nhất 1 lần giao việc thực tế, mà vẫn không thấy nhân viên hiểu đúng ý hơn so với trước — mình sẽ hoàn lại tiền 100% cho bạn, không cần lý do.</p>
+      <p style="color:#1a1a2e;">Mình tự tin cam kết vì mình biết: khi bạn áp dụng đúng các bước, kết quả sẽ tự nó chứng minh.</p>
+    </div>
+
+    <a href="https://www.flowleader.vn/thanh-toan-giao-viec" class="btn-cta">BẮT ĐẦU HỌC NGAY →</a>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     S9 — FAQ (light)
+══════════════════════════════════════════ -->
+<section class="sec sec--light">
+  <div class="wrap">
+
+    <div style="text-align:center;">
+      <h2 class="h2-light">Câu Hỏi Thường Gặp</h2>
+      <div class="divider-gold"></div>
+    </div>
+
+    <div style="max-width:720px; margin:0 auto;">
+
+      <details class="faq-item">
+        <summary>Mình mới làm Team Lead, quản lý nhóm rất nhỏ, có phù hợp không?</summary>
+        <div class="faq-item__body">
+          Hoàn toàn phù hợp. Công thức giao việc trong khoá học này Sora đã áp dụng từ khi quản lý nhóm chỉ 3 người, cho đến khi quản lý team 20-50 người. Nhóm càng nhỏ, bạn càng dễ áp dụng ngay và thấy kết quả nhanh, vì ít đầu việc hơn để bắt đầu luyện tập.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Mình đã thử nhiều cách giao việc rồi mà nhân viên vẫn làm sai, khoá học này khác gì?</summary>
+        <div class="faq-item__body">
+          Rất có thể trước đây bạn đã giao việc, nhưng thiếu một vài mảnh trong công thức đầy đủ. Thiếu một mảnh thôi, nhân viên đã có thể hiểu sai hướng. Khoá học này đưa bạn công thức đầy đủ 7 bước, kèm ví dụ đúng/sai cụ thể, để bạn tự đối chiếu xem trước giờ mình đang thiếu ở đâu.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Học 7 ngày có thực sự đủ để thay đổi cách mình giao việc không?</summary>
+        <div class="faq-item__body">
+          Đủ để bạn có trong tay một công thức rõ ràng và áp dụng được ngay cho một việc thật, một nhân sự thật của bạn. Có 5 bài tập đi kèm, nên bạn không chỉ học lý thuyết mà thực hành song song. 7 ngày là để bạn bắt đầu thấy sự khác biệt trong cách nhân sự hiểu và làm đúng việc, chứ không phải để bạn thành thạo mọi tình huống phức tạp nhất ngay lập tức.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Nhân sự của mình rất đa dạng về trình độ, công thức này có áp dụng được hết không?</summary>
+        <div class="faq-item__body">
+          Có. Đây là lý do khoá học dành hẳn một phần riêng để phân biệt cách giao việc cho intern/junior và senior/chuyên gia — từ mức độ chi tiết cần đưa ra, đến phạm vi tự quyết, tần suất feedback. Cùng một công thức gốc, nhưng cách áp dụng sẽ khác nhau tuỳ người bạn giao.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>198.000đ có phát sinh chi phí gì thêm không?</summary>
+        <div class="faq-item__body">
+          Không có chi phí ẩn nào cả. 198.000đ là bạn sở hữu trọn bộ 10 video và 5 bài tập đi kèm, xem lại bất cứ lúc nào. Ngoài ra, khoá học có các tài liệu mở rộng và nâng cao hơn, tuỳ nhu cầu thực tế của bạn có thể đăng ký thêm.
+        </div>
+      </details>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     S10 — TWO PATHS (dark)
+══════════════════════════════════════════ -->
+<section class="sec sec--dark">
+  <div class="wrap" style="text-align:center;">
+
+    <h2 class="h2-dark">Hai Con Đường Trước Mặt Bạn</h2>
+    <div class="divider-gold"></div>
+
+    <div class="paths-grid">
+      <div class="path-card path-card--bad">
+        <p class="path-card__label">Con đường cũ</p>
+        <p>Bạn có thể tiếp tục thêm vài tháng nữa. Vẫn tự làm lại việc vì không tin nhân viên làm đúng. Vẫn mất 40 giờ/tháng ngoài giờ để sửa những việc lẽ ra không cần sửa. Vẫn thăng tiến chậm vì không dám nhận thêm quy mô, sợ không quản nổi.</p>
+      </div>
+      <div class="path-card path-card--good">
+        <p class="path-card__label">Con đường mới</p>
+        <p>Hoặc dành 7 ngày tới để áp dụng đúng 1 hệ thống giao việc — để lần giao việc tiếp theo, nhân viên hiểu đúng ngay từ đầu, và bạn có lại thời gian cho vai trò thật sự của một Team Lead.</p>
+      </div>
+    </div>
+
+    <a href="https://www.flowleader.vn/thanh-toan-giao-viec" class="btn-cta">BẮT ĐẦU HỌC NGAY — 198K →</a>
+
+    <p class="ps-note" style="margin-top:32px;">
+      <strong>P.S.</strong> Phiên bản Team Lead không còn phải ôm việc hộ nhân viên, có thời gian về nhà đúng giờ, vẫn đang nhìn vào quyết định này ngay lúc này. Với phiên bản đó, 198k là gì? Một rào cản, hay điểm khởi đầu?
+    </p>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     S11 — ABOUT SORA (light) — cuối trang
+══════════════════════════════════════════ -->
+<section class="sec sec--light">
+  <div class="wrap">
+
+    <div style="text-align:center; margin-bottom:40px;">
+      <h2 class="h2-light">Người Đồng Hành Với Bạn<br>Trong Khoá Học Này</h2>
+      <div class="divider-gold"></div>
+    </div>
+
+    <div class="about-card">
+
+      <!-- Square photo -->
+      <div class="about-card__img">
+        <img src="assets/images/Profile.jpg" alt="Sora">
+      </div>
+
+      <!-- Bio -->
+      <div class="about-card__text">
+
+        <p class="about-greeting">Xin chào, mình là Sora.</p>
+
+        <p>Có thể bạn biết đến mình là người làm quản lý cấp trung rất tâm huyết về lãnh đạo và nội tâm.</p>
+
+        <p>Nhưng trên hết, mình chỉ là một người đã từng đứng tại chính nơi bạn đang đứng bây giờ.</p>
+
+        <p>Mình từng mắc kẹt trong đúng những câu hỏi mà có lẽ bạn đang tự hỏi lúc này:</p>
+
+        <p><em>"Tại sao mình đã cố gắng hết sức, mà nhân viên vẫn không làm đúng ý mình?"</em></p>
+
+        <p>Mình từng làm việc 12-14 tiếng mỗi ngày, ôm việc hộ nhân viên vì không tin họ làm đúng, đến mức kiệt sức và phải nghỉ việc dù lương không hề thấp.</p>
+
+        <p>Cho đến khi mình tìm ra: vấn đề không nằm ở nhân viên, mà ở cách mình giao việc.</p>
+
+        <p>Khi nhận ra các vấn đề cốt lõi, mình thay đổi từ cách Giao việc và mở rộng ra phát triển thành hệ thống <strong>FLOW LEADER™</strong> toàn diện.</p>
+
+        <p>Hôm nay, hệ thống <strong>FLOW LEADER™</strong> đã giúp mình:</p>
+
+        <div class="about-results">
+          <div class="about-result">
+            <svg class="bullet-dot" width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#E2C27A"/></svg>
+            <span>Liên tục thăng tiến từ team lead nhóm 3 người, lên các cấp trưởng phòng và <strong>giám đốc vận hành</strong> công ty từ 20-50 người</span>
+          </div>
+          <div class="about-result">
+            <svg class="bullet-dot" width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#E2C27A"/></svg>
+            <span>Rút ngắn thời gian làm việc thực tế xuống chỉ còn <strong>4-6 tiếng/ngày</strong>, giải phóng hoàn toàn không gian cho sáng tạo, phát triển bản thân</span>
+          </div>
+          <div class="about-result">
+            <svg class="bullet-dot" width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#E2C27A"/></svg>
+            <span>Có thể nghỉ đi du lịch <strong>10 ngày, 3-4 lần/năm</strong> mà team vẫn vận hành, không cuộc gọi nào từ sếp trên</span>
+          </div>
+          <div class="about-result">
+            <svg class="bullet-dot" width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#E2C27A"/></svg>
+            <span>Nói không với OT và làm việc cuối tuần, để có <strong>thời gian trọn vẹn dành cho gia đình</strong>, cho sở thích và sức mạnh nội tâm của bản thân</span>
+          </div>
+          <div class="about-result">
+            <svg class="bullet-dot" width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#E2C27A"/></svg>
+            <span>Vẫn duy trì được phong cách làm việc đó từ ngành ổn định, cho đến ngành tăng trưởng nóng, áp lực cao. Từ sếp dễ chịu đến sếp khó tính nhất</span>
+          </div>
+          <div class="about-result">
+            <svg class="bullet-dot" width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#E2C27A"/></svg>
+            <span>Kết quả mình làm ra <strong>gấp nhiều lần</strong> so với hồi xưa lúc mình cày 12-14 tiếng/ngày</span>
+          </div>
+        </div>
+
+        <p>Nhưng mình không kể những điều đó để chứng minh mình giỏi.</p>
+
+        <p>Mình kể vì mình muốn bạn biết: Mình đã đi qua đúng nỗi đau kiệt quệ bạn đang chịu đựng. Và con đường phía trước không phải là cố gắng "ôm nhiều việc hơn". Mà là làm chủ năng lượng tinh thần và sở hữu một cơ chế đúng để giải phóng chính mình cùng đội ngũ.</p>
+
+        <span class="about-sig-solo">Sora</span>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════ -->
+<footer class="site-footer" id="register">
+  <div class="wrap">
+    <p>By Sora Flow © 2026 · All Rights Reserved</p>
+    <p style="margin-top:12px;"><a href="/policy" style="color:rgba(255,255,255,.5); font-size:13px; text-decoration:underline;">Chính sách &amp; Điều khoản</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
