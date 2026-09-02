@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Đăng Ký Tham Gia — Flow Leader</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  /* ============================================================
+     THANH TOÁN GIAO VIỆC — page-specific (style.css tokens)
+     ============================================================ */
+  body { background: var(--light); color: var(--dark); }
+
+  /* ---------- Nav ---------- */
+  .ckt-nav {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px; padding: 18px 6vw;
+    background: var(--dark);
+  }
+  .ckt-nav__brand {
+    font-family: var(--fd); font-weight: 700; font-size: 16px;
+    color: var(--gold);
+  }
+  .ckt-nav__back {
+    font-family: var(--fb); font-size: 13.5px; font-weight: 600;
+    color: rgba(223,237,252,.75); text-decoration: none;
+    display: inline-flex; align-items: center; gap: 6px;
+    transition: color .2s;
+  }
+  .ckt-nav__back:hover { color: var(--gold); }
+
+  /* ---------- Section ---------- */
+  .ckt-section { padding: 56px 6vw 80px; }
+  .ckt-head { text-align: center; margin-bottom: 44px; }
+  .ckt-head__pre {
+    font-family: var(--fd); font-size: clamp(14px, 1.8vw, 17px);
+    color: var(--primary); margin-bottom: 8px;
+  }
+  .ckt-head__h1 {
+    font-family: var(--fd); font-size: clamp(22px, 3vw, 32px);
+    font-weight: 700; color: var(--dark); line-height: 1.25;
+  }
+  .ckt-head__h1 .hl { color: var(--primary); }
+
+  /* ---------- Hero band + price line ---------- */
+  .ckt-hero {
+    background: var(--dark);
+    text-align: center;
+    padding: 40px 6vw 48px;
+  }
+  .ckt-hero img {
+    display: inline-block; width: 620px; max-width: 100%; height: auto;
+    border-radius: 16px;
+  }
+  .ckt-price-line {
+    margin-top: 12px;
+    font-family: var(--fb); font-size: clamp(15px, 2vw, 18px);
+    color: var(--dark);
+  }
+  .ckt-price-line s { color: var(--muted); margin: 0 4px; }
+  .ckt-price-line strong { color: var(--primary); font-weight: 700; font-size: 1.15em; }
+
+  /* ---------- Grid ---------- */
+  .ckt-grid {
+    max-width: 620px; margin: 0 auto;
+    display: block;
+  }
+
+  /* ---------- Left sticky card ---------- */
+  .ckt-left { position: sticky; top: 24px; }
+  .ckt-left-card {
+    background: linear-gradient(160deg, #1c2d5e, var(--dark) 90%);
+    border: 1px solid rgba(226,194,122,.4);
+    border-radius: 18px; padding: 28px 24px;
+  }
+  .ckt-left-section { padding: 20px 0; }
+  .ckt-left-section:first-child { padding-top: 0; }
+  .ckt-left-section:last-child  { padding-bottom: 0; }
+  .ckt-left-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(226,194,122,.28), transparent);
+  }
+  .ckt-card__title {
+    font-family: var(--fb); font-weight: 700; font-size: 11.5px;
+    letter-spacing: .13em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 14px;
+  }
+  .ckt-workshop-name {
+    font-family: var(--fd); font-weight: 700; font-size: 18px;
+    color: #fff; margin-bottom: 18px; line-height: 1.38;
+  }
+  .ckt-meta-row {
+    display: flex; flex-direction: column; gap: 2px;
+    padding: 11px 0; border-bottom: 1px dashed rgba(226,194,122,.2);
+  }
+  .ckt-meta-row:first-of-type { padding-top: 0; }
+  .ckt-meta-row:last-child     { border-bottom: none; padding-bottom: 0; }
+  .ckt-meta-row .k { font-family: var(--fb); font-weight: 700; font-size: 14px; color: var(--light); }
+  .ckt-meta-row .v { font-family: var(--fb); font-size: 13px; color: rgba(223,237,252,.6); }
+
+  .ckt-benefit-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 13px; }
+  .ckt-benefit-list li {
+    display: flex; gap: 11px; align-items: flex-start;
+    font-family: var(--fb); font-size: 14px; line-height: 1.6;
+    color: rgba(223,237,252,.88);
+  }
+  .ckt-benefit-list li .icon {
+    flex: none; width: 20px; height: 20px; border-radius: 50%;
+    background: rgba(226,194,122,.14);
+    display: flex; align-items: center; justify-content: center; margin-top: 2px;
+  }
+  .ckt-benefit-list li .icon svg { width: 11px; height: 11px; stroke: var(--gold); }
+
+  .ckt-price-row {
+    display: flex; align-items: center; justify-content: center;
+    gap: 10px; margin-bottom: 8px; flex-wrap: wrap;
+  }
+  .ckt-price-old  { font-family: var(--fb); font-size: 15px; color: rgba(223,237,252,.45); text-decoration: line-through; }
+  .ckt-save-badge {
+    display: inline-block; padding: 3px 10px; border-radius: 999px;
+    background: rgba(226,194,122,.13); border: 1px solid rgba(226,194,122,.45);
+    color: var(--gold); font-family: var(--fb); font-size: 11px; font-weight: 700; letter-spacing: .04em;
+  }
+  .ckt-price-new  { font-family: var(--fd); font-weight: 700; font-size: 36px; color: var(--gold); text-align: center; }
+
+  /* ── Spots counter (inside left card) ── */
+  .spots-row {
+    display: flex; align-items: center; justify-content: center;
+    gap: 8px; flex-wrap: wrap; margin-top: 14px;
+  }
+  .spots-row__label {
+    font-family: var(--fd); font-size: 14px; font-weight: 700;
+    color: rgba(223,237,252,.8); white-space: nowrap;
+  }
+  .spots-box {
+    position: relative; overflow: hidden;
+    display: inline-flex; align-items: center; justify-content: center;
+    background: linear-gradient(180deg, #f5e9ac 0%, #e8cb6c 35%, #c9a84c 100%);
+    border-radius: 7px; padding: 2px 12px; min-width: 40px;
+    animation: spots-pulse 2.8s ease-in-out infinite;
+  }
+  @keyframes spots-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(226,194,122,0); }
+    50%       { box-shadow: 0 0 0 7px rgba(226,194,122,.22); }
+  }
+  .spots-box::after {
+    content: ''; position: absolute;
+    top: 0; left: -75%; width: 50%; height: 100%;
+    background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0) 35%, rgba(255,255,255,.5) 50%, rgba(255,255,255,0) 65%, transparent 100%);
+    transform: skewX(-15deg);
+    animation: spots-shine 2.4s ease-in-out infinite;
+    pointer-events: none;
+  }
+  @keyframes spots-shine { 0% { left: -75%; } 100% { left: 125%; } }
+  .spots-num {
+    font-family: var(--fd); font-size: 22px; font-weight: 700;
+    color: #5a3200; line-height: 1; position: relative; z-index: 1;
+  }
+
+  /* ---------- Right: form card ---------- */
+  .ckt-form-card {
+    background: #fff;
+    border: 1px solid rgba(2,77,194,.14);
+    border-radius: 18px; padding: 36px 32px;
+    box-shadow: 0 16px 48px -24px rgba(18,25,54,.2);
+  }
+  .ckt-form-card__title {
+    font-family: var(--fd); font-weight: 700; font-size: 20px;
+    color: var(--dark); margin-bottom: 24px;
+  }
+
+  /* ── Step 1 — centered title, left-aligned fields ── */
+  #step-1 { text-align: center; }
+  #step-1 .ckt-field { text-align: left; }
+  #step-1 .ckt-field label { text-align: left; }
+
+  .ckt-field { margin-bottom: 18px; }
+  .ckt-field label {
+    display: block; font-family: var(--fb); font-size: 13.5px;
+    font-weight: 600; color: var(--dark); margin-bottom: 7px;
+  }
+  .ckt-field label .req { color: #c0392b; margin-left: 2px; }
+  .ckt-field input[type="text"],
+  .ckt-field input[type="email"],
+  .ckt-field input[type="tel"] {
+    width: 100%; height: 48px; padding: 0 16px; box-sizing: border-box;
+    border: 1.5px solid rgba(2,77,194,.18); border-radius: 10px;
+    font-family: var(--fb); font-size: 15px; color: var(--dark);
+    background: var(--light); transition: border-color .2s, box-shadow .2s;
+  }
+  .ckt-field input:focus {
+    outline: none; border-color: var(--primary); background: #fff;
+    box-shadow: 0 0 0 3px rgba(2,77,194,.1);
+  }
+  .field-error { font-family: var(--fb); font-size: 12.5px; color: #c0392b; margin-top: 6px; display: none; }
+  .field-error.is-visible { display: block; }
+
+  .ckt-radio-group { display: flex; flex-direction: column; gap: 10px; }
+  .ckt-radio {
+    display: flex; align-items: center; gap: 12px;
+    padding: 11px 14px;
+    border: 1.5px solid rgba(2,77,194,.18); border-radius: 10px;
+    cursor: pointer; transition: border-color .2s, background .2s;
+  }
+  .ckt-radio:has(input:checked) { border-color: var(--primary); background: rgba(2,77,194,.06); }
+  .ckt-radio input  { width: 17px; height: 17px; accent-color: var(--primary); flex: none; cursor: pointer; }
+  .ckt-radio span   { font-family: var(--fb); font-size: 14px; color: var(--dark); }
+
+  .ckt-btn-block    { width: 100%; justify-content: center; margin-top: 24px; }
+  .ckt-secure-note  {
+    margin-top: 12px; text-align: center;
+    font-family: var(--fb); font-size: 12.5px; color: var(--muted);
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+  }
+  .ckt-secure-note svg { width: 13px; height: 13px; stroke: var(--primary); flex: none; }
+
+  /* ---------- Order bumps table ---------- */
+  .ckt-bump-table { width: 100%; border-collapse: collapse; margin-bottom: 26px; }
+  .ckt-bump-table th {
+    font-family: var(--fb); font-size: 12px; font-weight: 700;
+    letter-spacing: .06em; text-transform: uppercase; color: var(--muted);
+    text-align: left; padding: 10px 8px; border-bottom: 2px solid rgba(2,77,194,.16);
+  }
+  .ckt-bump-table th:last-child { text-align: right; white-space: nowrap; }
+  .ckt-bump-table td {
+    padding: 13px 8px; font-family: var(--fb); font-size: 14px;
+    line-height: 1.5; color: var(--dark);
+    border-bottom: 1px solid rgba(2,77,194,.1); vertical-align: top;
+  }
+  .ckt-bump-table td:last-child { text-align: right; font-weight: 700; white-space: nowrap; }
+  .ckt-bump-table .p-old {
+    display: block; font-family: var(--fb); font-size: 12px; font-weight: 500;
+    color: var(--muted); text-decoration: line-through; opacity: .6;
+  }
+  .ckt-bump-table .p-now { display: block; font-weight: 700; }
+  .ckt-bump-desc {
+    margin: 9px 0 0; padding-left: 28px;
+    font-family: var(--fb); font-size: 12.5px; line-height: 1.6;
+    color: var(--muted); font-weight: 400; text-align: left;
+  }
+  .ckt-bump-desc strong { color: var(--primary); font-weight: 700; }
+  .ckt-bump-table label { display: flex; gap: 10px; align-items: flex-start; cursor: pointer; }
+  .ckt-bump-table input[type="checkbox"] {
+    width: 18px; height: 18px; margin-top: 1px; flex: none;
+    accent-color: var(--primary); cursor: pointer;
+  }
+  .ckt-bump-table .bump-base { pointer-events: none; cursor: default; }
+  .ckt-bump-table .bump-total-row td {
+    border-bottom: none; border-top: 2px solid rgba(2,77,194,.16);
+    font-family: var(--fd); font-weight: 700; font-size: 16px; color: var(--dark);
+    padding-top: 15px;
+  }
+  .ckt-bump-table .bump-total-row td:last-child { color: var(--primary); font-size: 18px; }
+
+  /* ---------- Step 2 ---------- */
+  .ckt-edit-row { text-align: right; margin-bottom: 12px; }
+  .ckt-edit-link {
+    background: none; border: none; cursor: pointer;
+    font-family: var(--fb); font-size: 13px; font-weight: 700;
+    color: var(--primary); padding: 0;
+    display: inline-flex; align-items: center; gap: 5px;
+  }
+  .ckt-edit-link:hover { text-decoration: underline; }
+
+  .ckt-summary {
+    background: var(--light); border: 1px solid rgba(2,77,194,.12);
+    border-radius: 12px; padding: 16px 18px; margin-bottom: 26px;
+  }
+  .ckt-summary__row {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    gap: 12px; padding: 8px 0; border-bottom: 1px solid rgba(2,77,194,.09);
+    font-family: var(--fb); font-size: 14px;
+  }
+  .ckt-summary__row:last-child { border-bottom: none; }
+  .ckt-summary__row .k { color: var(--muted); white-space: nowrap; }
+  .ckt-summary__row .v { color: var(--dark); font-weight: 600; text-align: right; }
+
+  .ckt-pay-method {
+    display: flex; align-items: center; gap: 10px;
+    padding: 12px 16px;
+    border: 1.5px solid var(--primary); border-radius: 10px;
+    background: rgba(2,77,194,.06); margin-bottom: 8px;
+  }
+  .ckt-pay-method svg   { width: 18px; height: 18px; stroke: var(--primary); flex: none; }
+  .ckt-pay-method span  { font-family: var(--fb); font-size: 14.5px; font-weight: 600; color: var(--dark); }
+  .ckt-pay-desc {
+    font-family: var(--fb); font-size: 13px; color: var(--muted);
+    line-height: 1.6; margin-bottom: 22px;
+  }
+
+  .ckt-qr-wrap {
+    width: 260px; margin: 0 auto 22px;
+    border: 1px solid rgba(2,77,194,.14); border-radius: 12px;
+    overflow: hidden; background: #fff;
+  }
+  .ckt-qr-wrap img { width: 100%; display: block; }
+
+  .ckt-bank-title {
+    font-family: var(--fd); font-weight: 700; font-size: 14px;
+    color: var(--dark); margin-bottom: 12px;
+  }
+  .ckt-bank-table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+  .ckt-bank-table tr { border-bottom: 1px solid rgba(2,77,194,.09); }
+  .ckt-bank-table tr:last-child { border-bottom: none; }
+  .ckt-bank-table td {
+    padding: 11px 4px; font-family: var(--fb); font-size: 14px;
+    line-height: 1.4; vertical-align: middle;
+  }
+  .ckt-bank-table td:first-child { color: var(--muted); font-weight: 500; width: 40%; }
+  .ckt-bank-table td:last-child  { color: var(--dark); font-weight: 700; }
+  .copy-btn {
+    background: none; border: 1px solid var(--primary); border-radius: 5px;
+    padding: 3px 9px; font-size: 11px; font-family: var(--fb); font-weight: 600;
+    color: var(--primary); cursor: pointer; margin-left: 8px; vertical-align: middle;
+    transition: background .15s;
+  }
+  .copy-btn:hover { background: rgba(2,77,194,.08); }
+
+  .pay-status {
+    display: flex; align-items: center; gap: 10px;
+    padding: 13px 15px; border-radius: 10px; margin-bottom: 20px;
+  }
+  .pay-status--waiting {
+    background: rgba(2,77,194,.06); border: 1px solid rgba(2,77,194,.2);
+  }
+  .pay-status--success {
+    background: rgba(34,197,94,.08); border: 1px solid rgba(34,197,94,.3); display: none;
+  }
+  .pay-status--success.is-visible { display: flex; }
+  .pay-status__text { font-family: var(--fb); font-size: 13.5px; font-weight: 500; line-height: 1.5; }
+  .pay-status--waiting .pay-status__text { color: var(--primary); }
+  .pay-status--success .pay-status__text { color: #166534; font-weight: 600; }
+  .spinner {
+    width: 17px; height: 17px;
+    border: 2.5px solid rgba(2,77,194,.18); border-top-color: var(--primary);
+    border-radius: 50%; animation: spin .8s linear infinite; flex: none;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .ckt-help-note { font-family: var(--fb); font-size: 12.5px; color: var(--muted); line-height: 1.6; }
+  .ckt-help-note a { color: var(--primary); font-weight: 600; text-decoration: underline; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 980px) {
+    .ckt-grid { max-width: 560px; margin: 0 auto; }
+    .ckt-left { position: static; }
+  }
+  @media (max-width: 640px) {
+    .ckt-section   { padding: 36px 5vw 56px; }
+    .ckt-form-card { padding: 24px 18px; }
+    .ckt-left-card { padding: 22px 18px; }
+    .ckt-nav       { padding: 14px 5vw; }
+    .ckt-hero      { padding: 28px 5vw 32px; }
+    .ckt-bump-table td { font-size: 13px; }
+  }
+</style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1532532048582130');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J7VEM7L844"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-J7VEM7L844');
+</script>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="ckt-nav">
+  <span class="ckt-nav__brand">Hệ Thống Giao Việc Hiệu Quả</span>
+  <a href="https://www.flowleader.vn/giao-viec" class="ckt-nav__back">← Quay lại trang khoá học</a>
+</header>
+
+<!-- ============ HERO IMAGE (dark band) ============ -->
+<section class="ckt-hero">
+  <img src="assets/images/Giao viec.jpg" alt="Hệ Thống Giao Việc Hiệu Quả">
+</section>
+
+<!-- ============ CHECKOUT SECTION ============ -->
+<section class="ckt-section">
+
+  <div class="ckt-head">
+    <h1 class="ckt-head__h1">Đăng Ký Tham Gia</h1>
+    <p class="ckt-price-line">Tham gia ngay chỉ với <s>1.599.000đ</s> <strong>198k</strong></p>
+  </div>
+
+  <div class="ckt-grid">
+
+    <!-- ══════════ RIGHT — steps ══════════ -->
+    <div class="ckt-right">
+
+      <!-- ── STEP 1: form ── -->
+      <div class="ckt-form-card" id="step-1">
+        <p class="ckt-form-card__title">Bước 1: Thông tin đăng ký</p>
+
+        <input type="hidden" id="f-source" value="">
+
+        <div class="ckt-field">
+          <label for="f-name">Họ tên <span class="req">*</span></label>
+          <input type="text" id="f-name" autocomplete="name">
+          <p class="field-error" id="err-name">Vui lòng nhập họ tên của bạn</p>
+        </div>
+
+        <div class="ckt-field">
+          <label for="f-email">Email <span class="req">*</span></label>
+          <input type="email" id="f-email" autocomplete="email">
+          <p class="field-error" id="err-email">Vui lòng nhập email hợp lệ</p>
+        </div>
+
+        <div class="ckt-field">
+          <label for="f-phone">Số điện thoại <span class="req">*</span></label>
+          <input type="tel" id="f-phone" autocomplete="tel">
+          <p class="field-error" id="err-phone">Vui lòng nhập số điện thoại của bạn</p>
+        </div>
+
+        <button type="button" id="btn-step1-submit" class="btn-cta ckt-btn-block">
+          TIẾP TỤC THANH TOÁN →
+        </button>
+
+        <p class="ckt-secure-note">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+          Thông tin của bạn được bảo mật tuyệt đối.
+        </p>
+      </div>
+
+      <!-- ── STEP 2: order bumps + QR payment ── -->
+      <div class="ckt-form-card" id="step-2" style="display:none;">
+
+        <p class="ckt-form-card__title">Chọn nội dung tham gia</p>
+        <table class="ckt-bump-table">
+          <thead>
+            <tr><th>Khoá học</th><th>Giá tiền</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><label><input type="checkbox" class="bump-base" data-price="198000" checked> Hệ Thống Team Lead Giao Việc Hiệu Quả Trong 7 Ngày</label></td>
+              <td><span class="p-old">1.559.000</span><span class="p-now">198.000</span></td>
+            </tr>
+            <tr>
+              <td>
+                <label><input type="checkbox" class="bump" data-price="99000"> Thêm Thư Viện 50 Mẫu Tiêu Chuẩn Công Việc + AI Prompt Xác Định Tiêu Chuẩn (tiết kiệm hơn 60% hôm nay)</label>
+                <p class="ckt-bump-desc"><strong>Được chọn nhiều nhất.</strong> Giúp bạn làm nhanh gấp nhiều lần, không phải tự nghĩ tiêu chuẩn cho từng việc mới từ con số không. 50 mẫu tiêu chuẩn dùng được ngay cho các đầu việc phổ biến nhất của Team Lead, và một AI prompt để tự tạo tiêu chuẩn cho bất kỳ việc nào không có sẵn trong mẫu. Chỉ cần mô tả việc, AI hỏi lại vài câu, tiêu chuẩn rõ ràng ra trong vài phút.</p>
+              </td>
+              <td><span class="p-old">299.000</span><span class="p-now">99.000</span></td>
+            </tr>
+            <tr class="bump-total-row">
+              <td>Tổng</td>
+              <td id="bump-total">198.000đ</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p class="ckt-form-card__title" style="margin-bottom:16px;">Bước 2: Thanh toán</p>
+
+        <div class="ckt-pay-method">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>
+          <span>Chuyển khoản ngân hàng (VietQR)</span>
+        </div>
+        <p class="ckt-pay-desc">Vui lòng quét mã QR bên dưới, nội dung chuyển khoản sẽ tự động điền đúng cú pháp.</p>
+
+        <div class="ckt-qr-wrap">
+          <img id="qr-img" src="" alt="Mã QR thanh toán" loading="lazy">
+        </div>
+
+        <p class="ckt-bank-title">Thông tin chuyển khoản</p>
+        <table class="ckt-bank-table">
+          <tr><td>Ngân hàng</td><td>BIDV</td></tr>
+          <tr>
+            <td>Số tài khoản</td>
+            <td>
+              <span id="b-account">96247FLOWLEADER</span>
+              <button type="button" class="copy-btn" onclick="copyEl('b-account', this)">Sao chép</button>
+            </td>
+          </tr>
+          <tr><td>Chủ tài khoản</td><td>DUONG HA THUC ANH</td></tr>
+          <tr><td>Số tiền</td><td id="b-amount">198.000đ</td></tr>
+          <tr>
+            <td>Nội dung CK</td>
+            <td>
+              <span id="b-ref">—</span>
+              <button type="button" class="copy-btn" id="copy-ref-btn">Sao chép</button>
+            </td>
+          </tr>
+        </table>
+
+        <div class="pay-status pay-status--waiting" id="pay-waiting">
+          <div class="spinner"></div>
+          <span class="pay-status__text">Đang chờ xác nhận thanh toán...</span>
+        </div>
+
+        <div class="pay-status pay-status--success" id="pay-success">
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <circle cx="10" cy="10" r="10" fill="#22c55e"/>
+            <path d="M5 10.5l3.5 3.5 7-7" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="pay-status__text">Thanh toán thành công! Đang chuyển trang...</span>
+        </div>
+
+        <p class="ckt-help-note"><strong>Quan trọng:</strong> Đừng tắt trang! Sau khi chuyển khoản xong, vui lòng giữ trang này mở và đợi trang xác nhận hiện ra. Nếu sau 15 phút chưa thấy, liên hệ Sora qua <a href="https://www.facebook.com/profile.php?id=61575346547617" target="_blank" rel="noopener">Fanpage</a>.</p>
+
+      </div><!-- /#step-2 -->
+
+    </div><!-- /.ckt-right -->
+
+  </div><!-- /.ckt-grid -->
+</section>
+
+<!-- ============ CAM KẾT HOÀN TIỀN ============ -->
+<section class="sec sec--dark sec--tight-top" style="padding-bottom:64px;">
+  <div class="wrap">
+    <div class="guarantee-dark">
+      <div class="guarantee-dark__img">
+        <img src="assets/images/money-back.jpg" alt="Cam kết hoàn tiền">
+      </div>
+      <h3 class="guarantee-dark__title">Cam Kết Hoàn Tiền</h3>
+      <div class="guarantee-dark__body">
+        <p>Tham gia khoá học với giá chỉ bằng 3 ly trà sữa. Xem toàn bộ hệ thống giao việc được Sora đúc rút từ hơn 10 năm kinh nghiệm quản lý thực chiến.</p>
+        <p>Và nếu trong 7 ngày sau khi học, bạn áp dụng hệ thống này vào ít nhất 1 lần giao việc thực tế, mà vẫn không thấy nhân viên hiểu đúng ý hơn so với trước — mình sẽ hoàn lại tiền 100% cho bạn, không cần lý do.</p>
+        <p>Mình tự tin cam kết vì mình biết: khi bạn áp dụng đúng các bước, kết quả sẽ tự nó chứng minh.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="footer-brand">© Flow Leader</p>
+    <p>Dẫn dắt từ bên trong. Lead nhẹ nhàng, hiệu quả và sống trọn vẹn hơn.</p>
+    <p style="margin-top:12px;">
+      <a href="/policy" style="color:rgba(255,255,255,.5); font-size:13px; text-decoration:underline;">Chính sách &amp; Điều khoản</a>
+    </p>
+  </div>
+</footer>
+
+
+<script>
+(function () {
+  'use strict';
+
+  /* ─── Config ───────────────────────────────────────────────
+     GAS_URL: Google Apps Script backend riêng cho khoá Giao Việc
+     Google Sheet: 11IM4JgHvvUtL0hmiKD8oCl-Dbi2hLZioyoE8vJs6Kdw
+     Sheet tab: "Giao Viec Orders"
+  ─────────────────────────────────────────────────────────── */
+  var GAS_URL     = 'https://script.google.com/macros/s/AKfycbwAUAnHnsSSc6652DuK-u0M8TkQVAfFdFW_SvSPb9LWC1_e2hrWSqqwO5fdpjwVvnbI2w/exec';
+  var BANK        = { code: 'BIDV', account: '96247FLOWLEADER', owner: 'DUONG HA THUC ANH' };
+  var BASE_AMOUNT = 198000;
+  var CK_PREFIX   = 'GV';
+  var CK_DIGITS   = 4;
+
+  var step1     = document.getElementById('step-1');
+  var step2     = document.getElementById('step-2');
+  var btnSubmit = document.getElementById('btn-step1-submit');
+  var pollTimer = null;
+  var orderId   = null;
+  var ckContent = null;
+
+  /* ─── Ghi nhận trang gốc khách hàng vào (lp / referrer) ─── */
+  var landingPage = (function () {
+    try {
+      var lp = new URLSearchParams(window.location.search).get('lp');
+      if (lp) return lp;
+      if (document.referrer) {
+        var path = new URL(document.referrer).pathname.replace(/^\/|\.html$/g, '');
+        if (path) return path;
+      }
+    } catch (e) {}
+    return 'unknown';
+  })();
+  document.getElementById('f-source').value = landingPage;
+
+  /* ─── Order bumps ─────────────────────────────────────── */
+  function fmtVND(n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, '.') + 'đ'; }
+
+  function calcTotal() {
+    var total = BASE_AMOUNT;
+    var boxes = document.querySelectorAll('.bump:checked');
+    for (var i = 0; i < boxes.length; i++) {
+      total += parseInt(boxes[i].getAttribute('data-price'), 10) || 0;
+    }
+    return total;
+  }
+
+  function selectedItems() {
+    var items = ['He Thong Team Lead Giao Viec Hieu Qua Trong 7 Ngay'];
+    var boxes = document.querySelectorAll('.bump:checked');
+    for (var i = 0; i < boxes.length; i++) {
+      items.push(boxes[i].parentNode.textContent.trim());
+    }
+    return items.join(' + ');
+  }
+
+  function buildQrSrc(ref, amount) {
+    return 'https://qr.sepay.vn/img'
+      + '?acc='    + BANK.account
+      + '&bank='   + BANK.code
+      + '&amount=' + amount
+      + '&des='    + encodeURIComponent(ref)
+      + '&template=compact';
+  }
+
+  function refreshTotals() {
+    var total = calcTotal();
+    document.getElementById('bump-total').textContent = fmtVND(total);
+    document.getElementById('b-amount').textContent   = fmtVND(total);
+    if (ckContent) {
+      document.getElementById('qr-img').src = buildQrSrc(ckContent, total);
+    }
+    if (orderId) {
+      fetch(GAS_URL, {
+        method: 'POST',
+        body: JSON.stringify({
+          action: 'updateOrder',
+          data: { orderId: orderId, totalAmount: total, product: selectedItems() }
+        })
+      }).catch(function () {});
+    }
+  }
+
+  var bumps = document.querySelectorAll('.bump');
+  for (var b = 0; b < bumps.length; b++) {
+    bumps[b].addEventListener('change', refreshTotals);
+  }
+
+  /* Khoá học chính luôn được chọn — không cho bỏ tick */
+  var baseBox = document.querySelector('.bump-base');
+  if (baseBox) baseBox.addEventListener('change', function () { baseBox.checked = true; });
+
+  /* ── Step 1 → Step 2 ── */
+  btnSubmit.addEventListener('click', function () {
+    var name  = (document.getElementById('f-name').value  || '').trim();
+    var email = (document.getElementById('f-email').value || '').trim();
+    var phone = (document.getElementById('f-phone').value || '').trim();
+    var ok = true;
+
+    function setErr(id, isErr) {
+      var el = document.getElementById(id);
+      if (isErr) { el.classList.add('is-visible'); ok = false; }
+      else        { el.classList.remove('is-visible'); }
+    }
+
+    setErr('err-name',  !name);
+    setErr('err-email', !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email));
+    setErr('err-phone', !phone);
+
+    if (!ok) return;
+
+    btnSubmit.disabled    = true;
+    btnSubmit.textContent = 'Đang xử lý...';
+
+    var total = calcTotal();
+
+    fetch(GAS_URL, {
+      method: 'POST',
+      body: JSON.stringify({
+        action: 'createOrder',
+        data: {
+          name: name, email: email, phone: phone,
+          totalAmount: total,
+          ckPrefix: CK_PREFIX, ckDigits: CK_DIGITS,
+          status: '',
+          product: selectedItems(),
+          landingPage: document.getElementById('f-source').value
+        }
+      })
+    })
+    .then(function (r) { return r.json(); })
+    .then(function (res) {
+      if (!res.success) throw new Error(res.error || 'Lỗi tạo đơn hàng');
+
+      orderId   = res.orderId;
+      ckContent = res.ckContent;
+
+      document.getElementById('b-ref').textContent = ckContent;
+      document.getElementById('copy-ref-btn').onclick = function () { copyStr(ckContent, this); };
+
+      refreshTotals();
+
+      step1.style.display = 'none';
+      step2.style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      if (typeof fbq !== 'undefined') fbq('track', 'Lead');
+
+      startPolling(orderId);
+    })
+    .catch(function (err) {
+      alert('Có lỗi xảy ra: ' + err.message + '. Vui lòng thử lại.');
+      btnSubmit.disabled    = false;
+      btnSubmit.textContent = 'TIẾP TỤC THANH TOÁN →';
+    });
+  });
+
+  /* ── Polling mỗi 5 giây ── */
+  function startPolling(id) {
+    clearInterval(pollTimer);
+    var attempts = 0;
+    pollTimer = setInterval(function () {
+      if (++attempts >= 120) { clearInterval(pollTimer); return; }
+      fetch(GAS_URL + '?action=getStatus&orderId=' + encodeURIComponent(id))
+        .then(function (r) { return r.json(); })
+        .then(function (data) {
+          if (data.success && data.status === 'PAID') {
+            clearInterval(pollTimer);
+            onPaymentConfirmed();
+          }
+        })
+        .catch(function () {});
+    }, 5000);
+  }
+
+  function onPaymentConfirmed() {
+    var total = calcTotal();
+    if (typeof fbq !== 'undefined') fbq('track', 'Purchase', { value: total, currency: 'VND' });
+    try { sessionStorage.setItem('fb_purchase_fired', '1'); } catch (e) {}
+    document.getElementById('pay-waiting').style.display = 'none';
+    document.getElementById('pay-success').classList.add('is-visible');
+    setTimeout(function () {
+      window.location.href = 'https://www.flowleader.vn/cam-on-giao-viec?amount=' + total;
+    }, 2000);
+  }
+
+})();
+
+function copyEl(id, btn) { doCopy(document.getElementById(id).textContent.trim(), btn); }
+function copyStr(str, btn) { doCopy(str, btn); }
+function doCopy(text, btn) {
+  if (navigator.clipboard) { navigator.clipboard.writeText(text).catch(function(){}); }
+  else {
+    var t = document.createElement('textarea');
+    t.value = text; t.style.cssText = 'position:fixed;opacity:0';
+    document.body.appendChild(t); t.select();
+    try { document.execCommand('copy'); } catch(e) {}
+    document.body.removeChild(t);
+  }
+  var orig = btn.textContent; btn.textContent = 'Đã sao chép!';
+  setTimeout(function() { btn.textContent = orig; }, 1600);
+}
+</script>
+
+</body>
+</html>
