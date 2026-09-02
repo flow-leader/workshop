@@ -203,7 +203,11 @@
       font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:700;position:relative;
     }
     .cta-card__title{
-      font-family:var(--fd);font-size:clamp(19px,2.2vw,23px);font-weight:700;line-height:1.35;margin:10px 0 12px;position:relative;
+      font-family:var(--fd);font-size:clamp(19px,2.2vw,23px);font-weight:700;line-height:1.4;margin:10px 0 12px;position:relative;
+    }
+    .cta-card__title .uline{
+      text-decoration:underline;text-decoration-color:var(--gold);
+      text-decoration-thickness:2.5px;text-underline-offset:3px;
     }
     .cta-card__text{font-size:14px;color:rgba(255,255,255,.78);line-height:1.7;position:relative;}
     .cta-card__text strong{color:#fff;}
@@ -218,13 +222,21 @@
     }
     .cta-card__list li svg{flex-shrink:0;width:15px;height:15px;color:var(--gold);margin-top:2px;}
     .btn-call{
-      display:inline-block;text-align:center;text-decoration:none;
-      margin-top:22px;padding:15px 34px;border-radius:11px;
+      display:block;width:100%;text-align:center;text-decoration:none;
+      margin-top:22px;padding:17px 32px;border-radius:11px;
       background:var(--primary);color:#fff;
-      font-family:var(--fd);font-size:15.5px;font-weight:700;
-      transition:background .15s,transform .1s;position:relative;
+      font-family:var(--fd);font-size:16px;font-weight:700;letter-spacing:.06em;
+      transition:background .15s,transform .1s;
+      position:relative;overflow:hidden;
     }
     .btn-call:hover{background:#0444bb;transform:translateY(-1px);}
+    .btn-call::before{
+      content:'';position:absolute;top:0;left:-75%;width:50%;height:100%;
+      background:linear-gradient(120deg,transparent 0%,rgba(255,255,255,0) 35%,rgba(255,255,255,.45) 50%,rgba(255,255,255,0) 65%,transparent 100%);
+      transform:skewX(-15deg);
+      animation:btnshine 2.4s ease-in-out infinite;pointer-events:none;
+    }
+    @keyframes btnshine{0%{left:-75%}50%{left:130%}100%{left:130%}}
     .cta-card__sub{
       font-size:11.5px;color:rgba(255,255,255,.5);margin-top:12px;position:relative;
     }
@@ -259,6 +271,7 @@
       .brand__name{font-size:10.5px;letter-spacing:.1em;}
       .brand__by{font-size:9.5px;}
       .cta-card__list{grid-template-columns:1fr;grid-template-rows:auto;grid-auto-flow:row;}
+      .btn-call{padding-left:24px;padding-right:24px;}
       .playlist__scroll{max-height:none;}
       .playlist.is-collapsed .playlist__scroll{display:none;}
       .mob-toggle{
@@ -329,10 +342,10 @@
 
       <!-- CTA · Book a call (below video) -->
       <div class="cta-card" id="callCard">
-        <div class="cta-card__label">Phiên 1-1 · 60 phút</div>
-        <div class="cta-card__title">Phiên Chẩn Đoán Nút Thắt Team Lead</div>
+        <div class="cta-card__label">Phiên 1-1 · Miễn phí 60 phút</div>
+        <div class="cta-card__title">Đặt Phiên <span class="uline">Chẩn Đoán Nút Thắt Team Lead</span> Với Sora</div>
         <p class="cta-card__text">
-          Một không gian cá nhân hoá <strong>1-1</strong> để:
+          Một không gian cá nhân hoá <strong>1-1</strong> để bạn được:
         </p>
         <ul class="cta-card__list">
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Nhìn nhận lại vai trò hiện tại</span></li>
@@ -343,9 +356,9 @@
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Đánh giá khả năng tham gia chương trình</span></li>
         </ul>
         <a class="btn-call" href="https://calendly.com/sora-flowleader/cuoc-goi" target="_blank" rel="noopener">
-          Đặt cuộc gọi tư vấn →
+          ĐẶT CUỘC GỌI CHẨN ĐOÁN →
         </a>
-        <p class="cta-card__sub">60 phút · 1-1 trực tiếp với Sora</p>
+        <p class="cta-card__sub">Miễn phí 60 phút · 1-1 trực tiếp với Sora</p>
       </div>
 
       <div class="stage__nav">
