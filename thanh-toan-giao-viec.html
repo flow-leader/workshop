@@ -235,7 +235,10 @@
     width: 18px; height: 18px; margin-top: 1px; flex: none;
     accent-color: var(--primary); cursor: pointer;
   }
-  .ckt-bump-table .bump-base { pointer-events: none; cursor: default; }
+  .ckt-bump-warn {
+    margin: -14px 0 22px; font-family: var(--fb); font-size: 13px;
+    color: #c0392b; font-weight: 600;
+  }
   .ckt-bump-table .bump-total-row td {
     border-bottom: none; border-top: 2px solid rgba(2,77,194,.16);
     font-family: var(--fd); font-weight: 700; font-size: 16px; color: var(--dark);
@@ -432,7 +435,7 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
           </thead>
           <tbody>
             <tr>
-              <td><label><input type="checkbox" class="bump-base" data-price="198000" checked> Hệ Thống Team Lead Giao Việc Hiệu Quả Trong 7 Ngày</label></td>
+              <td><label><input type="checkbox" class="bump" data-price="198000" checked> Hệ Thống Team Lead Giao Việc Hiệu Quả Trong 7 Ngày</label></td>
               <td><span class="p-old">1.559.000</span><span class="p-now">198.000</span></td>
             </tr>
             <tr>
@@ -448,6 +451,7 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
             </tr>
           </tbody>
         </table>
+        <p class="ckt-bump-warn" id="bump-warn" hidden>Vui lòng chọn ít nhất 1 mục để thanh toán.</p>
 
         <p class="ckt-form-card__title" style="margin-bottom:16px;">Bước 2: Thanh toán</p>
 
@@ -544,7 +548,6 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
   ─────────────────────────────────────────────────────────── */
   var GAS_URL     = 'https://script.google.com/macros/s/AKfycbwAUAnHnsSSc6652DuK-u0M8TkQVAfFdFW_SvSPb9LWC1_e2hrWSqqwO5fdpjwVvnbI2w/exec';
   var BANK        = { code: 'BIDV', account: '96247FLOWLEADER', owner: 'DUONG HA THUC ANH' };
-  var BASE_AMOUNT = 198000;
   var CK_PREFIX   = 'GV';
   var CK_DIGITS   = 4;
 
@@ -573,7 +576,7 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
   function fmtVND(n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, '.') + 'đ'; }
 
   function calcTotal() {
-    var total = BASE_AMOUNT;
+    var total = 0;
     var boxes = document.querySelectorAll('.bump:checked');
     for (var i = 0; i < boxes.length; i++) {
       total += parseInt(boxes[i].getAttribute('data-price'), 10) || 0;
@@ -582,12 +585,12 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
   }
 
   function selectedItems() {
-    var items = ['He Thong Team Lead Giao Viec Hieu Qua Trong 7 Ngay'];
+    var items = [];
     var boxes = document.querySelectorAll('.bump:checked');
     for (var i = 0; i < boxes.length; i++) {
       items.push(boxes[i].parentNode.textContent.trim());
     }
-    return items.join(' + ');
+    return items.join(' + ') || '(chua chon muc nao)';
   }
 
   function buildQrSrc(ref, amount) {
@@ -602,7 +605,16 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
   function refreshTotals() {
     var total = calcTotal();
     document.getElementById('bump-total').textContent = fmtVND(total);
-    document.getElementById('b-amount').textContent   = fmtVND(total);
+
+    /* Không chọn mục nào -> cảnh báo, giữ nguyên QR/số tiền cũ */
+    var warn = document.getElementById('bump-warn');
+    if (total <= 0) {
+      if (warn) warn.hidden = false;
+      return;
+    }
+    if (warn) warn.hidden = true;
+
+    document.getElementById('b-amount').textContent = fmtVND(total);
     if (ckContent) {
       document.getElementById('qr-img').src = buildQrSrc(ckContent, total);
     }
@@ -617,14 +629,11 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
     }
   }
 
+  /* Mọi checkbox trong bảng (gồm cả sản phẩm chính) -> cập nhật tổng khi đổi */
   var bumps = document.querySelectorAll('.bump');
   for (var b = 0; b < bumps.length; b++) {
     bumps[b].addEventListener('change', refreshTotals);
   }
-
-  /* Khoá học chính luôn được chọn — không cho bỏ tick */
-  var baseBox = document.querySelector('.bump-base');
-  if (baseBox) baseBox.addEventListener('change', function () { baseBox.checked = true; });
 
   /* ── Step 1 → Step 2 ── */
   btnSubmit.addEventListener('click', function () {
