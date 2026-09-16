@@ -8,6 +8,15 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-J7VEM7L844"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-J7VEM7L844');
+  </script>
+
   <style>
     :root{
       --dark:#121936;
@@ -660,6 +669,31 @@
     renderList();
     updateDoneBtn();
     updateProgress();
+  });
+
+  /* ─────────── GOOGLE ANALYTICS EVENT TRACKING ───────────
+     Bắt sự kiện bấm nút Workbook và nút Đặt cuộc gọi ở TẤT CẢ các bài.
+     Dùng event delegation trên document nên hoạt động cả với nút
+     workbook được render lại mỗi lần đổi bài. */
+  function trackClick(eventName, extra) {
+    if (typeof gtag === 'function') {
+      const les = LESSONS[current] || {};
+      gtag('event', eventName, Object.assign({
+        lesson_number: current + 1,
+        lesson_title: les.title || ''
+      }, extra || {}));
+    }
+  }
+  document.addEventListener('click', function (e) {
+    const wbLink = e.target.closest('.workbook-link');
+    if (wbLink) {
+      trackClick('click_workbook', { link_url: wbLink.href });
+      return;
+    }
+    const callLink = e.target.closest('.btn-call');
+    if (callLink) {
+      trackClick('click_book_call', { link_url: callLink.href });
+    }
   });
 
   /* ─────────── MOBILE TOGGLE ─────────── */
