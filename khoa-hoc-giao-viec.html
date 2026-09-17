@@ -405,6 +405,7 @@
      • workbookText  : hoặc dán nội dung nếu bài tập là đoạn chữ (xuống dòng được)
          → Bài KHÔNG có bài tập: bỏ trống cả 2 và đặt  hasWorkbook: false
          → Bài CÓ bài tập nhưng chưa điền nội dung: để  hasWorkbook: true , điền link/text sau
+     • workbookLinkLabel : chữ hiển thị trên nút link (mặc định "Mở Workbook" nếu bỏ trống)
      • showCall      : true = hiện phần mời đặt cuộc gọi ·  false = ẩn
      ══════════════════════════════════════════════════════════ */
   const LESSONS = [
@@ -442,11 +443,14 @@
     {
       title: "5. Các bước giao việc hiệu quả",
       video: "https://youtu.be/k-TZayOLFzc", desc: "",
-      hasWorkbook: true, workbookLink: "",
+      hasWorkbook: true,
+      workbookLink: "https://docs.google.com/document/d/1Hwser2l7Tu5KOVA-VVcWxTTrT0FrsjDY/edit",
+      workbookLinkLabel: "Câu lệnh AI: Tạo Nội Dung Giao Việc Cơ Bản Trong 5 Phút",
       workbookText:
         "Bài tập 3: Thử viết một bản giao việc hoàn chỉnh\n\n" +
         "Từ danh sách việc cần giao ở Bài tập 2, chọn ra 1 việc. Viết bản giao việc cho việc đó theo đúng các bước đã học.\n\n" +
-        "Chưa cần gắn với một nhân sự cụ thể nào. Mục tiêu của bài tập là luyện cách diễn đạt sao cho một người bất kỳ đọc vào là hiểu đúng ý bạn ngay từ đầu, không phải hỏi lại.",
+        "Chưa cần gắn với một nhân sự cụ thể nào. Mục tiêu của bài tập là luyện cách diễn đạt sao cho một người bất kỳ đọc vào là hiểu đúng ý bạn ngay từ đầu, không phải hỏi lại.\n\n" +
+        "Mời bạn tham khảo thêm tài liệu dưới đây — câu lệnh AI giúp bạn tạo nội dung giao việc cơ bản chỉ trong 5 phút:",
       showCall: true
     },
     {
@@ -609,9 +613,10 @@
         const a = document.createElement('a');
         a.className = 'workbook-link';
         a.href = link; a.target = '_blank'; a.rel = 'noopener';
+        const label = (les.workbookLinkLabel || 'Mở Workbook').trim();
         a.innerHTML =
           '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>' +
-          '<span>Mở Workbook</span>' +
+          '<span>' + esc(label) + '</span>' +
           '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>';
         workbookSlot.appendChild(a);
       }
