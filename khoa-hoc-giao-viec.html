@@ -393,6 +393,14 @@
     if (!isNaN(savedLast) && savedLast >= 0 && savedLast < LESSONS.length) current = savedLast;
   } catch (e) {}
 
+  /* Link trực tiếp tới 1 bài: ...khoa-hoc-giao-viec#bai-5  (ưu tiên hơn bài xem gần nhất) */
+  function lessonFromHash() {
+    const m = /^#bai-(\d+)$/.exec(location.hash);
+    const n = m ? parseInt(m[1], 10) - 1 : -1;
+    return n >= 0 && n < LESSONS.length ? n : -1;
+  }
+  if (lessonFromHash() >= 0) current = lessonFromHash();
+
   /* ─────────── HELPERS ─────────── */
   function toEmbed(url) {
     if (!url) return null;
@@ -503,6 +511,8 @@
     // book-a-call block (below video)
     callCard.style.display = les.showCall ? '' : 'none';
 
+    // GA: ghi nhận lượt xem từng bài (trang không tải lại khi đổi bài nên GA không tự thấy)
+    trackClick('view_lesson');
   }
 
   /* ─────────── ACTIONS ─────────── */
@@ -510,6 +520,7 @@
     if (i < 0 || i >= LESSONS.length) return;
     current = i;
     try { localStorage.setItem(LS_LAST, String(current)); } catch (e) {}
+    try { history.replaceState(null, '', '#bai-' + (current + 1)); } catch (e) {}
     renderList();
     renderStage();
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -551,6 +562,11 @@
   mobToggle.addEventListener('click', () => {
     const collapsed = playlistEl.classList.toggle('is-collapsed');
     mobToggle.setAttribute('aria-expanded', String(!collapsed));
+  });
+
+  window.addEventListener('hashchange', function () {
+    const n = lessonFromHash();
+    if (n >= 0 && n !== current) go(n);
   });
 
   /* ─────────── INIT ─────────── */
