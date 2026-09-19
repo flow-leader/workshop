@@ -199,38 +199,45 @@
     }
 
     .cta-card{
-      background:linear-gradient(160deg,#12245a,#0f1738);
-      border:1.5px solid rgba(226,194,122,.45);
-      border-radius:16px;
-      padding:30px 30px;
+      background:linear-gradient(155deg,#1a3a8f 0%,#12245a 45%,#0f1738 100%);
+      border:2px solid var(--gold);
+      border-radius:18px;
+      padding:34px 34px 32px;
       position:relative;overflow:hidden;
+      box-shadow:0 0 0 4px rgba(226,194,122,.12),0 18px 50px rgba(2,77,194,.35),0 0 60px rgba(226,194,122,.18);
     }
     .cta-card::before{
-      content:"";position:absolute;top:-40px;right:-40px;width:160px;height:160px;border-radius:50%;
-      background:radial-gradient(circle,rgba(226,194,122,.25),transparent 70%);
+      content:"";position:absolute;top:-60px;right:-60px;width:240px;height:240px;border-radius:50%;
+      background:radial-gradient(circle,rgba(226,194,122,.38),transparent 70%);
+    }
+    .cta-card::after{
+      content:"";position:absolute;top:0;left:0;right:0;height:5px;
+      background:linear-gradient(90deg,#c9a84c,var(--gold),#f0d898,var(--gold),#c9a84c);
     }
     .cta-card__label{
-      font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:700;position:relative;
+      display:inline-block;position:relative;
+      font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;
+      color:#121936;background:linear-gradient(135deg,#c9a84c,var(--gold),#f0d898);
+      padding:6px 14px;border-radius:999px;
     }
     .cta-card__title{
-      font-family:var(--fd);font-size:clamp(19px,2.2vw,23px);font-weight:700;line-height:1.4;margin:10px 0 12px;position:relative;
+      font-family:var(--fd);font-size:clamp(22px,2.8vw,30px);font-weight:700;line-height:1.3;margin:16px 0 18px;position:relative;
     }
     .cta-card__title .uline{
-      text-decoration:underline;text-decoration-color:var(--gold);
-      text-decoration-thickness:2.5px;text-underline-offset:3px;
+      color:var(--gold);
     }
     .cta-card__text{font-size:14px;color:rgba(255,255,255,.78);line-height:1.7;position:relative;}
     .cta-card__text strong{color:#fff;}
     .cta-card__list{
-      list-style:none;margin:16px 0 0;padding:0;position:relative;
-      display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(3,auto);
-      grid-auto-flow:column;gap:10px 26px;
+      list-style:none;margin:0;padding:0;position:relative;
+      display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(2,auto);
+      grid-auto-flow:column;gap:12px 26px;
     }
     .cta-card__list li{
       display:flex;gap:10px;align-items:flex-start;
-      font-size:13.5px;color:rgba(255,255,255,.82);line-height:1.55;
+      font-size:15px;color:rgba(255,255,255,.92);line-height:1.55;
     }
-    .cta-card__list li svg{flex-shrink:0;width:15px;height:15px;color:var(--gold);margin-top:2px;}
+    .cta-card__list li svg{flex-shrink:0;width:17px;height:17px;color:var(--gold);margin-top:2px;}
     .btn-call{
       display:block;width:100%;text-align:center;text-decoration:none;
       margin-top:22px;padding:17px 32px;border-radius:11px;
@@ -240,6 +247,12 @@
       position:relative;overflow:hidden;
     }
     .btn-call:hover{background:#0444bb;transform:translateY(-1px);}
+    .btn-call--gold{
+      background:linear-gradient(135deg,#c9a84c,var(--gold) 45%,#f0d898);color:#121936;
+      box-shadow:0 8px 24px rgba(226,194,122,.35);
+      transition:filter .15s,transform .1s;
+    }
+    .btn-call--gold:hover{background:linear-gradient(135deg,#c9a84c,var(--gold) 45%,#f0d898);filter:brightness(1.06);}
     .btn-call::before{
       content:'';position:absolute;top:0;left:-75%;width:50%;height:100%;
       background:linear-gradient(120deg,transparent 0%,rgba(255,255,255,0) 35%,rgba(255,255,255,.45) 50%,rgba(255,255,255,0) 65%,transparent 100%);
@@ -353,23 +366,10 @@
 
       <!-- CTA · Book a call (below video) -->
       <div class="cta-card" id="callCard">
-        <div class="cta-card__label">Phiên 1-1 · Miễn phí 60 phút</div>
-        <div class="cta-card__title">Đặt Phiên <span class="uline">Chẩn Đoán Nút Thắt Team Lead</span> Với Sora</div>
-        <p class="cta-card__text">
-          Một không gian cá nhân hoá <strong>1-1</strong> để bạn được:
-        </p>
-        <ul class="cta-card__list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Nhìn nhận lại vai trò hiện tại</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Xác định nút thắt chính</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Làm rõ thành phẩm cần xây</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Nhận đề xuất roadmap phù hợp</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Xác định ưu tiên trong 12 tuần</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Đánh giá khả năng tham gia chương trình</span></li>
-        </ul>
-        <a class="btn-call" href="https://calendly.com/sora-flowleader/cuoc-goi" target="_blank" rel="noopener">
-          ĐẶT CUỘC GỌI CHẨN ĐOÁN →
-        </a>
-        <p class="cta-card__sub">Miễn phí 60 phút · 1-1 trực tiếp với Sora</p>
+        <div class="cta-card__label" id="ctaLabel"></div>
+        <div class="cta-card__title" id="ctaTitle"></div>
+        <ul class="cta-card__list" id="ctaList"></ul>
+        <a class="btn-call" id="ctaBtn" href="https://calendly.com/sora-flowleader/cuoc-goi" target="_blank" rel="noopener"></a>
       </div>
 
       <div class="stage__nav">
@@ -483,7 +483,7 @@
       title: "9. Lộ trình từ giao việc hiệu quả đến trở thành Team Lead truyền cảm hứng (phần 1)",
       video: "https://youtu.be/u-n-scFjrVU", desc: "",
       hasWorkbook: false, workbookLink: "", workbookText: "",
-      showCall: true
+      showCall: true, callVariant: "untangle"
     },
     {
       title: "10. Lộ trình từ giao việc hiệu quả đến trở thành Team Lead truyền cảm hứng (phần 2)",
@@ -491,9 +491,37 @@
       hasWorkbook: true,
       workbookLink: "https://docs.google.com/document/d/1WHgg6HpQDypM3AxUVqwB3FtA5uZ1NUtb",
       workbookText: "Bài tập 6: Tự chẩn đoán nút thắt trong lãnh đạo theo cơ chế FLOW LEADER™\n\nMời bạn truy cập link dưới đây để nhận ngay Workbook:",
-      showCall: true
+      showCall: true, callVariant: "untangle"
     }
   ];
+
+  const CTA_VARIANTS = {
+    review: {
+      label: "Quà tặng khi hoàn thành bài tập",
+      titleGold: "Cuộc Gọi Chữa Bài Chuyên Sâu",
+      titleRest: " Trực Tiếp Với Sora",
+      bullets: [
+        "Bạn được góp ý trực tiếp để giao việc hiệu quả hơn",
+        "Bạn được giải đáp các khó khăn cá nhân trong quá trình giao việc",
+        "Bạn được mở rộng giải đáp các khó khăn khác trong quá trình làm Team Lead",
+        "Giúp bạn có lộ trình phát triển bản thân tiếp theo"
+      ],
+      button: "Yes, Tôi Muốn Được Sora Góp Ý Trực Tiếp →",
+      goldButton: false
+    },
+    untangle: {
+      label: "Quà tặng cho Team Lead nhiệt huyết",
+      titleGold: "Cuộc gọi Gỡ Rối Team Lead",
+      titleRest: " - Nhìn rõ con đường",
+      bullets: [
+        "Giúp bạn nhìn nhận rõ hơn vai trò hiện tại",
+        "Xác định các nút thắt khiến bạn chưa trở thành phiên bản Team Lead mình mong muốn",
+        "Nhận lộ trình để phát triển và hoàn thiện bản thân"
+      ],
+      button: "Yes, Tôi Muốn Được Sora Gỡ Rối Trực Tiếp →",
+      goldButton: true
+    }
+  };
 
   /* ─────────── STATE ─────────── */
   const LS_LAST = 'khgv_last_lesson';
@@ -629,6 +657,22 @@
 
     // book-a-call block (below video)
     callCard.style.display = les.showCall ? '' : 'none';
+    if (les.showCall) {
+      const v = CTA_VARIANTS[les.callVariant] || CTA_VARIANTS.review;
+      document.getElementById('ctaLabel').textContent = v.label;
+      const t = document.getElementById('ctaTitle');
+      t.innerHTML = '<span class="uline"></span><span class="rest"></span>';
+      t.querySelector('.uline').textContent = v.titleGold;
+      t.querySelector('.rest').textContent = v.titleRest;
+      const chk = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+      const ul = document.getElementById('ctaList');
+      ul.innerHTML = '';
+      v.bullets.forEach(b => { const li = document.createElement('li'); li.innerHTML = chk + '<span></span>'; li.querySelector('span').textContent = b; ul.appendChild(li); });
+      ul.style.gridTemplateRows = 'repeat(' + Math.ceil(v.bullets.length / 2) + ',auto)';
+      const btn = document.getElementById('ctaBtn');
+      btn.textContent = v.button;
+      btn.classList.toggle('btn-call--gold', !!v.goldButton);
+    }
 
     // nav
     prevBtn.disabled = current === 0;
