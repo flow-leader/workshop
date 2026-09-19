@@ -19,295 +19,204 @@
 
   <style>
     :root{
-      --dark:#121936;
-      --dark-2:#1a2348;
-      --panel:#161d3f;
+      --ink:#14213d;
+      --muted:#5a6b88;
       --primary:#024dc2;
-      --gold:#E2C27A;
-      --light:#dfedfc;
+      --primary-dark:#0444bb;
+      --sky:#f0f6fe;
+      --sky-2:#dfedfc;
+      --line:#cfe0f5;
+      --ok:#1f8f52;
       --fd:'Lora', Georgia, serif;
       --fb:'Roboto', Arial, sans-serif;
-      --line:rgba(255,255,255,.10);
     }
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
     html{scroll-behavior:smooth;}
     body{
       font-family:var(--fb);
-      background:var(--dark);
-      color:#fff;
+      background:#fff;
+      color:var(--ink);
       -webkit-font-smoothing:antialiased;
       line-height:1.6;
     }
     img{display:block;max-width:100%;}
-    a{color:inherit;}
+    a{color:var(--primary);}
 
-    /* ─────────── HEADER ─────────── */
+    /* ─────────── HEADER (dark) ─────────── */
     .site-head{
       background:linear-gradient(180deg,#0e1430,#121936);
-      border-bottom:1px solid var(--line);
-      padding:22px 20px;
+      border-bottom:1px solid rgba(255,255,255,.10);
+      padding:8px 12px;
     }
     .site-head__inner{
-      max-width:1200px;margin:0 auto;
-      display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
+      max-width:1320px;margin:0 auto;
+      display:flex;align-items:center;justify-content:space-between;gap:14px;
     }
-    .brand{
-      display:flex;align-items:center;gap:12px;
+    .course-title{text-align:left;min-width:0;}
+    .course-title h1{
+      font-family:var(--fd);font-size:clamp(15px,1.7vw,19px);font-weight:700;line-height:1.25;color:#fff;
     }
+    .course-title p{font-size:11.5px;color:rgba(255,255,255,.6);margin-top:1px;}
+    .brand{display:flex;align-items:center;gap:8px;flex-shrink:0;}
     .brand__mark{
-      width:38px;height:38px;border-radius:9px;flex-shrink:0;
-      background:linear-gradient(135deg,#c9a84c,var(--gold),#f0d898);
+      width:26px;height:26px;border-radius:7px;flex-shrink:0;
+      background:linear-gradient(135deg,#c9a84c,#E2C27A,#f0d898);
       display:flex;align-items:center;justify-content:center;
-      font-family:var(--fd);font-weight:700;color:#121936;font-size:20px;
+      font-family:var(--fd);font-weight:700;color:#121936;font-size:14px;
     }
     .brand__name{
-      font-family:var(--fd);font-weight:700;font-size:15px;letter-spacing:.14em;color:var(--gold);
+      font-family:var(--fd);font-weight:700;font-size:12px;letter-spacing:.12em;color:#E2C27A;line-height:1.2;
     }
-    .brand__by{font-size:11px;color:rgba(255,255,255,.5);letter-spacing:.05em;margin-top:2px;}
-    .course-title{
-      text-align:left;
-    }
-    .course-title h1{
-      font-family:var(--fd);font-size:clamp(18px,2.4vw,26px);font-weight:700;line-height:1.25;
-    }
-    .course-title h1 .g{color:var(--gold);}
-    .course-title p{font-size:12.5px;color:rgba(255,255,255,.6);margin-top:4px;}
+    .brand__by{font-size:10px;color:rgba(255,255,255,.5);letter-spacing:.04em;}
 
     /* ─────────── LAYOUT ─────────── */
     .layout{
-      max-width:1200px;margin:0 auto;padding:28px 20px 80px;
+      max-width:1320px;margin:0 auto;padding:14px 10px 56px;
       display:grid;
       grid-template-columns:300px minmax(0,1fr);
-      gap:26px;
+      gap:16px;
       align-items:start;
     }
-
     .panel{
-      background:var(--panel);
+      background:var(--sky);
       border:1px solid var(--line);
-      border-radius:16px;
+      border-radius:14px;
     }
-    .panel__head{
-      padding:18px 20px;border-bottom:1px solid var(--line);
-    }
-    .panel__head h2{
-      font-family:var(--fd);font-size:15px;font-weight:700;letter-spacing:.03em;
-    }
-    .panel__head span{font-size:12px;color:rgba(255,255,255,.5);}
+    .panel__head{padding:14px 18px;border-bottom:1px solid var(--line);}
+    .panel__head h2{font-family:var(--fd);font-size:15px;font-weight:700;color:var(--ink);}
+    .panel__head span{font-size:12px;color:var(--muted);}
 
-    /* ─────────── PLAYLIST (left) ─────────── */
-    .playlist{position:sticky;top:20px;}
-    .playlist__scroll{max-height:calc(100vh - 120px);overflow-y:auto;padding:8px;}
+    /* ─────────── PLAYLIST ─────────── */
+    .playlist{position:sticky;top:12px;}
+    .playlist__scroll{max-height:calc(100vh - 100px);overflow-y:auto;padding:8px;}
     .lesson{
       display:flex;gap:12px;align-items:center;
       width:100%;text-align:left;
-      padding:12px 12px;border-radius:11px;
+      padding:11px 12px;border-radius:11px;
       background:transparent;border:1px solid transparent;
-      color:#fff;font-family:var(--fb);cursor:pointer;
+      color:var(--ink);font-family:var(--fb);cursor:pointer;
       transition:background .15s,border-color .15s;
     }
-    .lesson:hover{background:rgba(255,255,255,.04);}
-    .lesson.is-active{
-      background:rgba(226,194,122,.12);
-      border-color:rgba(226,194,122,.45);
-    }
+    .lesson:hover{background:#e6f0fc;}
+    .lesson.is-active{background:var(--sky-2);border-color:#8db8ee;}
     .lesson__num{
       flex-shrink:0;width:26px;height:26px;border-radius:7px;
-      background:rgba(255,255,255,.08);
+      background:#fff;border:1px solid var(--line);
       display:flex;align-items:center;justify-content:center;
-      font-size:12.5px;font-weight:700;color:rgba(255,255,255,.7);
-      font-family:var(--fd);
+      color:var(--primary);
     }
     .lesson__num svg{width:13px;height:13px;display:block;}
-    .lesson.is-active .lesson__num{background:var(--gold);color:#121936;}
-    .lesson.is-done .lesson__num{background:rgba(52,199,120,.9);color:#0b2a17;}
+    .lesson.is-active .lesson__num{background:var(--primary);border-color:var(--primary);color:#fff;}
+    .lesson.is-done .lesson__num{background:var(--ok);border-color:var(--ok);color:#fff;}
     .lesson__body{flex:1;min-width:0;}
-    .lesson__label{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:2px;}
-    .lesson__title{font-size:13.5px;line-height:1.4;font-weight:500;color:rgba(255,255,255,.92);}
-    .lesson.is-active .lesson__title{color:#fff;}
+    .lesson__title{font-size:13.5px;line-height:1.4;font-weight:500;color:var(--ink);}
+    .lesson.is-active .lesson__title{font-weight:700;}
 
-    /* ─────────── CENTER ─────────── */
-    .stage{display:flex;flex-direction:column;gap:20px;min-width:0;}
+    /* ─────────── STAGE ─────────── */
+    .stage{display:flex;flex-direction:column;gap:12px;min-width:0;width:100%;}
     .video-wrap{
       position:relative;width:100%;aspect-ratio:16/10;
-      background:#000;border-radius:16px;overflow:hidden;
+      max-width:clamp(440px,calc((100vh - 300px) * 1.6),100%);
+      background:#000;border-radius:14px;overflow:hidden;
       border:1px solid var(--line);
     }
-    .video-wrap iframe,.video-wrap video{
-      position:absolute;inset:0;width:100%;height:100%;border:0;
-    }
+    .video-wrap iframe,.video-wrap video{position:absolute;inset:0;width:100%;height:100%;border:0;}
     .video-empty{
       position:absolute;inset:0;display:flex;flex-direction:column;
       align-items:center;justify-content:center;gap:12px;text-align:center;padding:24px;
-      background:radial-gradient(circle at 50% 40%,#1c2550,#0d1330);
+      background:radial-gradient(circle at 50% 40%,#f4f9ff,#dfedfc);color:var(--muted);
     }
-    .video-empty svg{width:52px;height:52px;opacity:.5;}
-    .video-empty p{font-size:14px;color:rgba(255,255,255,.55);max-width:320px;}
+    .video-empty svg{width:52px;height:52px;opacity:.55;color:var(--primary);}
+    .video-empty p{font-size:14px;max-width:320px;}
+    .stage__desc{font-size:14.5px;color:var(--muted);line-height:1.7;padding:0 2px;}
 
-    .stage__meta{padding:4px 2px;}
-    .stage__label{
-      font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:700;
-    }
-    .stage__title{
-      font-family:var(--fd);font-size:clamp(20px,2.6vw,28px);font-weight:700;line-height:1.3;margin:8px 0 10px;
-    }
-    .stage__desc{font-size:14.5px;color:rgba(255,255,255,.7);line-height:1.7;}
-
-    .stage__nav{
-      display:flex;justify-content:space-between;gap:12px;margin-top:6px;
-    }
+    .stage__nav{display:flex;justify-content:space-between;gap:12px;}
     .navbtn{
       display:inline-flex;align-items:center;gap:8px;
-      padding:11px 18px;border-radius:10px;
-      background:rgba(255,255,255,.06);border:1px solid var(--line);
-      color:#fff;font-family:var(--fb);font-size:13.5px;font-weight:500;cursor:pointer;
+      padding:10px 18px;border-radius:10px;
+      background:#fff;border:1px solid var(--line);
+      color:var(--ink);font-family:var(--fb);font-size:13.5px;font-weight:500;cursor:pointer;
       transition:background .15s;
     }
-    .navbtn:hover:not(:disabled){background:rgba(255,255,255,.12);}
-    .navbtn:disabled{opacity:.3;cursor:not-allowed;}
-    .navbtn--done{
-      background:rgba(52,199,120,.14);border-color:rgba(52,199,120,.4);color:#7ee2a8;
-    }
+    .navbtn:hover:not(:disabled){background:var(--sky-2);}
+    .navbtn:disabled{opacity:.4;cursor:not-allowed;}
+    .navbtn--done{background:#e8f7ee;border-color:#9fd8b7;color:var(--ok);}
+    .navbtn--done:hover:not(:disabled){background:#d8f0e2;}
 
-    /* ─────────── BLOCKS BELOW VIDEO ─────────── */
-    .stage-block{
-      background:var(--panel);
+    /* ─────────── INFO BELOW VIDEO ─────────── */
+    .wb-line{font-size:15px;line-height:1.6;color:var(--ink);padding:0 2px;}
+    .wb-line__label{font-weight:700;}
+    .wb-line details{margin-top:6px;}
+    .wb-line summary{cursor:pointer;font-size:13.5px;color:var(--primary);}
+    .workbook-text{margin-top:8px;font-size:14.5px;color:var(--ink);line-height:1.75;white-space:pre-wrap;
+      background:var(--sky);border:1px solid var(--line);border-radius:12px;padding:14px 16px;}
+    .workbook-link,.call-link,.mastery-link{
+      color:var(--primary);font-weight:500;text-decoration:underline;text-underline-offset:3px;word-break:break-word;
+    }
+    .workbook-link:hover,.call-link:hover,.mastery-link:hover{color:var(--primary-dark);}
+
+    .info-card{
+      background:#fff;
       border:1px solid var(--line);
       border-radius:14px;
-      padding:22px 24px;
+      box-shadow:0 4px 18px rgba(2,77,194,.08);
+      padding:6px 20px;
+      font-size:14.5px;line-height:1.6;color:var(--ink);
     }
-    .stage-block__head{
-      font-family:var(--fd);font-size:16px;font-weight:700;letter-spacing:.02em;
-      margin-bottom:14px;display:flex;align-items:center;gap:9px;
+    .info-row{display:flex;gap:12px;align-items:flex-start;padding:12px 0;}
+    .info-row+.info-row{border-top:1px dashed var(--line);}
+    .info-ic{
+      flex-shrink:0;width:32px;height:32px;border-radius:50%;
+      background:var(--sky-2);color:var(--primary);
+      display:flex;align-items:center;justify-content:center;
     }
-    .stage-block__head svg{width:17px;height:17px;color:var(--gold);flex-shrink:0;}
-    #workbookSlot{display:flex;flex-direction:column;align-items:flex-start;gap:14px;}
-    .workbook-link{
-      display:inline-flex;align-items:center;gap:12px;
-      padding:14px 18px;border-radius:11px;
-      background:rgba(226,194,122,.10);border:1px solid rgba(226,194,122,.35);
-      color:#fff;text-decoration:none;font-size:14px;font-weight:500;
-      transition:background .15s;
-    }
-    .workbook-link:hover{background:rgba(226,194,122,.18);}
-    .workbook-link svg{flex-shrink:0;width:20px;height:20px;color:var(--gold);}
-    .workbook-text{
-      font-size:14.5px;color:rgba(255,255,255,.82);line-height:1.75;white-space:pre-wrap;
-    }
-    .workbook-pending{
-      font-size:13.5px;color:rgba(255,255,255,.45);font-style:italic;
+    .info-ic svg{width:17px;height:17px;}
+    .info-row p{flex:1;min-width:0;}
+    .info-card strong{color:var(--ink);}
+    .info-card mark{
+      background:#ffe98a;
+      color:var(--ink);font-weight:700;padding:1px 4px;border-radius:4px;
+      -webkit-box-decoration-break:clone;box-decoration-break:clone;
     }
 
-    .cta-card{
-      background:linear-gradient(155deg,#1a3a8f 0%,#12245a 45%,#0f1738 100%);
-      border:2px solid var(--gold);
-      border-radius:18px;
-      padding:34px 34px 32px;
-      position:relative;overflow:hidden;
-      box-shadow:0 0 0 4px rgba(226,194,122,.12),0 18px 50px rgba(2,77,194,.35),0 0 60px rgba(226,194,122,.18);
-    }
-    .cta-card::before{
-      content:"";position:absolute;top:-60px;right:-60px;width:240px;height:240px;border-radius:50%;
-      background:radial-gradient(circle,rgba(226,194,122,.38),transparent 70%);
-    }
-    .cta-card::after{
-      content:"";position:absolute;top:0;left:0;right:0;height:5px;
-      background:linear-gradient(90deg,#c9a84c,var(--gold),#f0d898,var(--gold),#c9a84c);
-    }
-    .cta-card__label{
-      display:inline-block;position:relative;
-      font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;
-      color:#121936;background:linear-gradient(135deg,#c9a84c,var(--gold),#f0d898);
-      padding:6px 14px;border-radius:999px;
-    }
-    .cta-card__title{
-      font-family:var(--fd);font-size:clamp(22px,2.8vw,30px);font-weight:700;line-height:1.3;margin:16px 0 18px;position:relative;
-    }
-    .cta-card__title .uline{
-      color:var(--gold);
-    }
-    .cta-card__text{font-size:14px;color:rgba(255,255,255,.78);line-height:1.7;position:relative;}
-    .cta-card__text strong{color:#fff;}
-    .cta-card__list{
-      list-style:none;margin:0;padding:0;position:relative;
-      display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(2,auto);
-      grid-auto-flow:column;gap:12px 26px;
-    }
-    .cta-card__list li{
-      display:flex;gap:10px;align-items:flex-start;
-      font-size:15px;color:rgba(255,255,255,.92);line-height:1.55;
-    }
-    .cta-card__list li svg{flex-shrink:0;width:17px;height:17px;color:var(--gold);margin-top:2px;}
-    .btn-call{
-      display:block;width:100%;text-align:center;text-decoration:none;
-      margin-top:22px;padding:17px 32px;border-radius:11px;
-      background:var(--primary);color:#fff;
-      font-family:var(--fd);font-size:16px;font-weight:700;letter-spacing:.06em;
-      transition:background .15s,transform .1s;
-      position:relative;overflow:hidden;
-    }
-    .btn-call:hover{background:#0444bb;transform:translateY(-1px);}
-    .btn-call--gold{
-      background:linear-gradient(135deg,#c9a84c,var(--gold) 45%,#f0d898);color:#121936;
-      box-shadow:0 8px 24px rgba(226,194,122,.35);
-      transition:filter .15s,transform .1s;
-    }
-    .btn-call--gold:hover{background:linear-gradient(135deg,#c9a84c,var(--gold) 45%,#f0d898);filter:brightness(1.06);}
-    .btn-call::before{
-      content:'';position:absolute;top:0;left:-75%;width:50%;height:100%;
-      background:linear-gradient(120deg,transparent 0%,rgba(255,255,255,0) 35%,rgba(255,255,255,.45) 50%,rgba(255,255,255,0) 65%,transparent 100%);
-      transform:skewX(-15deg);
-      animation:btnshine 2.4s ease-in-out infinite;pointer-events:none;
-    }
-    @keyframes btnshine{0%{left:-75%}50%{left:130%}100%{left:130%}}
-    .cta-card__sub{
-      font-size:11.5px;color:rgba(255,255,255,.5);margin-top:12px;position:relative;
-    }
-
-    /* ─────────── FOOTER ─────────── */
+    /* ─────────── FOOTER (dark) ─────────── */
     .site-foot{
-      border-top:1px solid var(--line);
+      border-top:1px solid rgba(255,255,255,.10);
       background:linear-gradient(180deg,#121936,#0e1430);
-      padding:30px 20px 40px;
+      padding:26px 20px 34px;
       text-align:center;
     }
     .site-foot p{font-size:13.5px;color:rgba(255,255,255,.7);line-height:1.7;}
-    .site-foot p.site-foot__help{font-size:15.5px;color:rgba(255,255,255,.82);}
-    .site-foot a{color:var(--gold);text-decoration:underline;text-underline-offset:2px;}
+    .site-foot p.site-foot__help{font-size:15.5px;color:rgba(255,255,255,.85);}
+    .site-foot a{color:#E2C27A;text-decoration:underline;text-underline-offset:2px;}
     .site-foot a:hover{color:#f0d898;}
-    .site-foot__copy{
-      margin-top:10px;font-size:11.5px;color:rgba(255,255,255,.4);
-      font-family:var(--fd);letter-spacing:.08em;
-    }
+    .site-foot__copy{margin-top:8px;font-size:11.5px;color:rgba(255,255,255,.4)!important;font-family:var(--fd);letter-spacing:.08em;}
 
     /* ─────────── MOBILE PLAYLIST TOGGLE ─────────── */
     .mob-toggle{display:none;}
 
     /* ─────────── RESPONSIVE ─────────── */
     @media (max-width:900px){
-      .layout{grid-template-columns:minmax(0,1fr);gap:20px;}
+      .layout{grid-template-columns:minmax(0,1fr);gap:14px;}
       .stage{grid-column:1;grid-row:1;}
+      .video-wrap{max-width:none;}
       .playlist{grid-column:1;grid-row:2;position:static;}
-      .course-title{text-align:left;flex:1;min-width:0;}
-      .site-head__inner{flex-direction:row;align-items:flex-start;flex-wrap:nowrap;gap:14px;}
-      .brand{flex-shrink:0;gap:8px;}
-      .brand__mark{width:28px;height:28px;font-size:15px;border-radius:7px;}
-      .brand__name{font-size:10.5px;letter-spacing:.1em;}
-      .brand__by{font-size:9.5px;}
-      .cta-card__list{grid-template-columns:1fr;grid-template-rows:auto;grid-auto-flow:row;}
-      .btn-call{padding-left:24px;padding-right:24px;}
       .playlist__scroll{max-height:none;}
       .playlist.is-collapsed .playlist__scroll{display:none;}
       .mob-toggle{
         display:flex;align-items:center;justify-content:space-between;width:100%;
-        padding:18px 20px;background:none;border:0;color:#fff;cursor:pointer;font-family:var(--fd);
+        padding:16px 18px;background:none;border:0;color:var(--ink);cursor:pointer;font-family:var(--fd);
         font-size:15px;font-weight:700;
       }
       .mob-toggle svg{transition:transform .2s;}
       .playlist.is-collapsed .mob-toggle svg{transform:rotate(-90deg);}
       .panel__head.is-mobhead{display:none;}
-      .cta-card__list{grid-template-columns:1fr;}
-      .cta-card{padding:26px 22px;}
+      .info-card{padding:18px 18px;}
+      .stage-block{padding:16px 16px;}
+      .info-card{padding:4px 14px;}
+      .brand__name{font-size:10.5px;letter-spacing:.08em;}
+      .brand__by{font-size:9.5px;}
+      .site-head__inner{align-items:flex-start;}
     }
   </style>
 </head>
@@ -317,7 +226,7 @@
   <header class="site-head">
     <div class="site-head__inner">
       <div class="course-title">
-        <h1>Khoá Học <span class="g">Giao Việc Hiệu Quả</span> Trong 7 Ngày</h1>
+        <h1>Khoá Học Giao Việc Hiệu Quả Trong 7 Ngày</h1>
         <p>10 video bài học · Học theo tốc độ riêng · Áp dụng ngay</p>
       </div>
       <div class="brand">
@@ -337,10 +246,9 @@
     <section class="panel playlist" id="playlist">
       <div class="panel__head is-mobhead">
         <h2>Danh sách bài học</h2>
-        <span id="progressText">0/10 hoàn thành</span>
       </div>
       <button class="mob-toggle" id="mobToggle" aria-expanded="true">
-        <span>Danh sách bài học · <span id="progressTextMob">0/10</span></span>
+        <span>Danh sách bài học</span>
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
       </button>
       <div class="playlist__scroll" id="lessonList"><!-- lessons injected --></div>
@@ -349,39 +257,26 @@
     <!-- CENTER · VIDEO STAGE -->
     <section class="stage">
       <div class="video-wrap" id="videoWrap"><!-- player injected --></div>
-      <div class="stage__meta">
-        <div class="stage__label" id="stageLabel">Bài 1 / 10</div>
-        <h2 class="stage__title" id="stageTitle">—</h2>
-        <p class="stage__desc" id="stageDesc"></p>
+      <p class="stage__desc" id="stageDesc"></p>
+
+      <!-- Workbook: 1 dòng duy nhất -->
+      <div class="wb-line" id="workbookPanel">
+        <span class="wb-line__label">Link Workbook:</span> <span id="workbookSlot"></span>
       </div>
 
-      <!-- Workbook (below video) -->
-      <div class="stage-block" id="workbookPanel">
-        <div class="stage-block__head">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-          Bài tập
+      <!-- Mời đặt cuộc gọi + giới thiệu Mastery (below video) -->
+      <div class="info-card" id="callCard">
+        <div class="info-row">
+          <span class="info-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+          <p><strong>Bạn muốn nhận góp ý trực tiếp từ Sora về vấn đề cụ thể của bạn trong giao việc và làm Team Lead?</strong><br>
+            Hãy làm bài tập và đăng ký cuộc gọi 1-1 miễn phí với Sora tại đây:
+            <a class="call-link" href="https://calendly.com/sora-flowleader/cuoc-goi" target="_blank" rel="noopener">https://calendly.com/sora-flowleader/cuoc-goi</a></p>
         </div>
-        <div id="workbookSlot"><!-- injected --></div>
-      </div>
-
-      <!-- CTA · Book a call (below video) -->
-      <div class="cta-card" id="callCard">
-        <div class="cta-card__label" id="ctaLabel"></div>
-        <div class="cta-card__title" id="ctaTitle"></div>
-        <ul class="cta-card__list" id="ctaList"></ul>
-        <a class="btn-call" id="ctaBtn" href="https://calendly.com/sora-flowleader/cuoc-goi" target="_blank" rel="noopener"></a>
-      </div>
-
-      <div class="stage__nav">
-        <button class="navbtn" id="prevBtn">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-          Bài trước
-        </button>
-        <button class="navbtn navbtn--done" id="doneBtn">Đánh dấu đã học ✓</button>
-        <button class="navbtn" id="nextBtn">
-          Bài tiếp theo
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-        </button>
+        <div class="info-row">
+          <span class="info-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polygon points="15.5 8.5 13.5 13.5 8.5 15.5 10.5 10.5 15.5 8.5"/></svg></span>
+          <p>Nếu sau khi học bạn muốn được Sora đồng hành trực tiếp trong <mark>12 Tuần Để Trở Thành Team Lead Truyền Cảm Hứng - Đội Ngũ Đồng Lòng - Cấp Trên Tin Tưởng</mark>, bạn có thể tìm hiểu thêm chương trình Flow Leader Mastery tại đây:
+            <a class="mastery-link" href="https://www.flowleader.vn/12-tuan-mastery" target="_blank" rel="noopener">https://www.flowleader.vn/12-tuan-mastery</a></p>
+        </div>
       </div>
     </section>
 
@@ -399,42 +294,40 @@
   <script>
   /* ══════════════════════════════════════════════════════════
      CẤU HÌNH BÀI HỌC
-     • video         : link YouTube / Vimeo / Google Drive / Loom / .mp4  (để "" nếu chưa có)
-     • desc          : mô tả ngắn hiển thị dưới tiêu đề video (tuỳ chọn)
-     • workbookLink  : dán link nếu bài tập là 1 đường link
-     • workbookText  : hoặc dán nội dung nếu bài tập là đoạn chữ (xuống dòng được)
-         → Bài KHÔNG có bài tập: bỏ trống cả 2 và đặt  hasWorkbook: false
-         → Bài CÓ bài tập nhưng chưa điền nội dung: để  hasWorkbook: true , điền link/text sau
-     • workbookLinkLabel : chữ hiển thị trên nút link (mặc định "Mở Workbook" nếu bỏ trống)
-     • showCall      : true = hiện phần mời đặt cuộc gọi ·  false = ẩn
+     • video          : link YouTube / Vimeo / Google Drive / Loom / .mp4 (để "" nếu chưa có)
+     • desc           : mô tả ngắn dưới video (tuỳ chọn)
+     • hasWorkbook    : true = hiện dòng "Link Workbook: …" (CHỈ hiện khi có workbookLink) · false = ẩn
+     • workbookTitle  : tên bài tập hiển thị trên dòng đó
+     • workbookLink   : nếu có → tên bài tập thành hyperlink; nếu để "" → chỉ hiện chữ
+     • workbookDetail : (tuỳ chọn) hướng dẫn chi tiết, hiện khi bấm "Xem hướng dẫn"
+     • showCall       : true = hiện khung mời đặt cuộc gọi + Mastery · false = ẩn
      ══════════════════════════════════════════════════════════ */
   const LESSONS = [
     {
       title: "1. Quan trọng! Xem điều này trước!",
       video: "https://youtu.be/DzawszPBVB4", desc: "",
-      hasWorkbook: false, workbookLink: "", workbookText: "",
-      showCall: false
+      hasWorkbook: false, showCall: false
     },
     {
       title: "2. Hiểu lầm lớn nhất đang ngăn cản bạn làm Team Lead hiệu quả",
       video: "https://youtu.be/z89-aDzcFt4", desc: "",
       hasWorkbook: true,
+      workbookTitle: "Bài tập 1: Tự phát hiện biểu hiện vai trò Chuyên Viên và Team Lead",
       workbookLink: "https://docs.google.com/document/d/1jvg4A4bYK9zNTaOyoeuRdFj23BIY_JsF",
-      workbookText: "Bài tập 1: Tự phát hiện biểu hiện vai trò Chuyên Viên và Team Lead\n\nMời bạn truy cập link dưới đây để nhận ngay Workbook:",
       showCall: true
     },
     {
       title: "3. 3 sự thật thay đổi toàn bộ tư duy Chuyên viên thành Team Lead",
       video: "https://youtu.be/xW1C2LHWkvo", desc: "",
-      hasWorkbook: false, workbookLink: "", workbookText: "",
-      showCall: true
+      hasWorkbook: false, showCall: true
     },
     {
       title: "4. Bước vào tư duy của 1 Team Lead",
       video: "https://youtu.be/LwchKeWa8ks", desc: "",
-      hasWorkbook: true, workbookLink: "",
-      workbookText:
-        "Bài tập 2: Cân đối 80–20 và chọn ra việc cần giao\n\n" +
+      hasWorkbook: true,
+      workbookTitle: "Bài tập 2: Cân đối 80–20 và chọn ra việc cần giao",
+      workbookLink: "",
+      workbookDetail:
         "Liệt kê toàn bộ đầu việc bạn đang ôm trong 1–2 tuần gần nhất. Với mỗi việc, tự hỏi: việc này thuộc nhóm 20% việc chiến lược, kế hoạch, xây hệ thống hay thuộc nhóm 80% việc thực thi có thể giao được?\n\n" +
         "Khoanh vùng những việc thuộc nhóm 80% — đây chính là nhóm việc bạn nên giao đi. Từ đó, chọn ra 1–3 việc cụ thể để chuẩn bị giao trong tuần tới.\n\n" +
         "Lưu ý: ở bước này bạn chỉ cần trả lời “GIAO VIỆC GÌ”, chưa cần nghĩ đến “giao cho ai”.",
@@ -444,36 +337,32 @@
       title: "5. Các bước giao việc hiệu quả",
       video: "https://youtu.be/k-TZayOLFzc", desc: "",
       hasWorkbook: true,
+      workbookTitle: "Bài tập 3: Thử viết một bản giao việc hoàn chỉnh – Câu lệnh AI: Tạo Nội Dung Giao Việc Cơ Bản Trong 5 Phút",
       workbookLink: "https://docs.google.com/document/d/1Hwser2l7Tu5KOVA-VVcWxTTrT0FrsjDY/edit",
-      workbookLinkLabel: "Câu lệnh AI: Tạo Nội Dung Giao Việc Cơ Bản Trong 5 Phút",
-      workbookText:
-        "Bài tập 3: Thử viết một bản giao việc hoàn chỉnh\n\n" +
-        "Từ danh sách việc cần giao ở Bài tập 2, chọn ra 1 việc. Viết bản giao việc cho việc đó theo đúng các bước đã học.\n\n" +
-        "Chưa cần gắn với một nhân sự cụ thể nào. Mục tiêu của bài tập là luyện cách diễn đạt sao cho một người bất kỳ đọc vào là hiểu đúng ý bạn ngay từ đầu, không phải hỏi lại.\n\n" +
-        "Mời bạn tham khảo thêm tài liệu dưới đây — câu lệnh AI giúp bạn tạo nội dung giao việc cơ bản chỉ trong 5 phút:",
       showCall: true
     },
     {
       title: "6. Nhân viên của tôi có đủ năng lực để làm không, làm có đạt chất lượng?",
       video: "https://youtu.be/ux-3ipqK2Pk", desc: "",
-      hasWorkbook: false, workbookLink: "", workbookText: "",
-      showCall: true
+      hasWorkbook: false, showCall: true
     },
     {
       title: "7. Giao việc hay không giao?",
       video: "https://youtu.be/kW9KolmuIWg", desc: "",
-      hasWorkbook: true, workbookLink: "",
-      workbookText:
-        "Bài tập 4: Giao một việc cụ thể cho một nhân sự cụ thể\n\n" +
+      hasWorkbook: true,
+      workbookTitle: "Bài tập 4: Giao một việc cụ thể cho một nhân sự cụ thể",
+      workbookLink: "",
+      workbookDetail:
         "Lần này chọn 1 việc và 1 nhân sự thật trong team của bạn. Dựa trên bản giao việc đã luyện ở Bài tập 3, điều chỉnh lại cho phù hợp với đúng người này: mức độ chi tiết, phạm vi tự quyết và tần suất feedback nên khác nhau tuỳ nhân sự là intern/junior hay senior.",
       showCall: true
     },
     {
       title: "8. Cách đảm bảo nhân sự hiểu đúng ý",
       video: "https://youtu.be/mWTJxEbOGmY", desc: "",
-      hasWorkbook: true, workbookLink: "",
-      workbookText:
-        "Bài tập 5: Lập file Checklist giao việc\n\n" +
+      hasWorkbook: true,
+      workbookTitle: "Bài tập 5: Lập file Checklist giao việc",
+      workbookLink: "",
+      workbookDetail:
         "Tạo một file checklist chuẩn để dùng lại mỗi lần giao việc, giúp bạn không bỏ sót bước nào khiến nhân sự hiểu sai ý.\n\n" +
         "Trong checklist, đưa vào những mục bạn cần xác nhận mình đã nói rõ trước khi kết thúc buổi giao việc, kèm một bước bắt buộc: để nhân sự nói lại bằng lời của họ những gì sẽ làm — thay vì chỉ hỏi “em hiểu chưa”.\n\n" +
         "Lưu file ở nơi dễ mở và áp dụng cho mọi lần giao việc trong 7 ngày tới.",
@@ -482,59 +371,26 @@
     {
       title: "9. Lộ trình từ giao việc hiệu quả đến trở thành Team Lead truyền cảm hứng (phần 1)",
       video: "https://youtu.be/u-n-scFjrVU", desc: "",
-      hasWorkbook: false, workbookLink: "", workbookText: "",
-      showCall: true, callVariant: "untangle"
+      hasWorkbook: false, showCall: true
     },
     {
       title: "10. Lộ trình từ giao việc hiệu quả đến trở thành Team Lead truyền cảm hứng (phần 2)",
       video: "https://youtu.be/xDJLqmTxVnQ", desc: "",
       hasWorkbook: true,
+      workbookTitle: "Bài tập 6: Tự chẩn đoán nút thắt trong lãnh đạo theo cơ chế FLOW LEADER™",
       workbookLink: "https://docs.google.com/document/d/1WHgg6HpQDypM3AxUVqwB3FtA5uZ1NUtb",
-      workbookText: "Bài tập 6: Tự chẩn đoán nút thắt trong lãnh đạo theo cơ chế FLOW LEADER™\n\nMời bạn truy cập link dưới đây để nhận ngay Workbook:",
-      showCall: true, callVariant: "untangle"
+      showCall: true
     }
   ];
 
-  const CTA_VARIANTS = {
-    review: {
-      label: "Quà tặng khi hoàn thành bài tập",
-      titleGold: "Cuộc Gọi Chữa Bài Chuyên Sâu",
-      titleRest: " Trực Tiếp Với Sora",
-      bullets: [
-        "Bạn được góp ý trực tiếp để giao việc hiệu quả hơn",
-        "Bạn được giải đáp các khó khăn cá nhân trong quá trình giao việc",
-        "Bạn được mở rộng giải đáp các khó khăn khác trong quá trình làm Team Lead",
-        "Giúp bạn có lộ trình phát triển bản thân tiếp theo"
-      ],
-      button: "Yes, Tôi Muốn Được Sora Góp Ý Trực Tiếp →",
-      goldButton: false
-    },
-    untangle: {
-      label: "Quà tặng cho Team Lead nhiệt huyết",
-      titleGold: "Cuộc gọi Gỡ Rối Team Lead",
-      titleRest: " - Nhìn rõ con đường",
-      bullets: [
-        "Giúp bạn nhìn nhận rõ hơn vai trò hiện tại",
-        "Xác định các nút thắt khiến bạn chưa trở thành phiên bản Team Lead mình mong muốn",
-        "Nhận lộ trình để phát triển và hoàn thiện bản thân"
-      ],
-      button: "Yes, Tôi Muốn Được Sora Gỡ Rối Trực Tiếp →",
-      goldButton: true
-    }
-  };
-
   /* ─────────── STATE ─────────── */
   const LS_LAST = 'khgv_last_lesson';
-  const LS_DONE = 'khgv_done_lessons';
 
   let current = 0;
-  let done = new Set();
 
   try {
     const savedLast = parseInt(localStorage.getItem(LS_LAST), 10);
     if (!isNaN(savedLast) && savedLast >= 0 && savedLast < LESSONS.length) current = savedLast;
-    const savedDone = JSON.parse(localStorage.getItem(LS_DONE) || '[]');
-    if (Array.isArray(savedDone)) done = new Set(savedDone.filter(i => i >= 0 && i < LESSONS.length));
   } catch (e) {}
 
   /* ─────────── HELPERS ─────────── */
@@ -576,10 +432,8 @@
     listEl.innerHTML = '';
     LESSONS.forEach((les, i) => {
       const btn = document.createElement('button');
-      btn.className = 'lesson' + (i === current ? ' is-active' : '') + (done.has(i) ? ' is-done' : '');
-      const mark = done.has(i)
-        ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>'
-        : '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
+      btn.className = 'lesson' + (i === current ? ' is-active' : '');
+      const mark = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
       btn.innerHTML =
         '<span class="lesson__num" aria-hidden="true">' + mark + '</span>' +
         '<span class="lesson__body">' +
@@ -592,13 +446,8 @@
 
   /* ─────────── RENDER STAGE ─────────── */
   const videoWrap = document.getElementById('videoWrap');
-  const stageLabel = document.getElementById('stageLabel');
-  const stageTitle = document.getElementById('stageTitle');
   const stageDesc = document.getElementById('stageDesc');
   const workbookSlot = document.getElementById('workbookSlot');
-  const prevBtn = document.getElementById('prevBtn');
-  const nextBtn = document.getElementById('nextBtn');
-  const doneBtn = document.getElementById('doneBtn');
   const workbookPanel = document.getElementById('workbookPanel');
   const callCard = document.getElementById('callCard');
 
@@ -620,36 +469,32 @@
     }
 
     // meta
-    stageLabel.textContent = 'Bài ' + (current + 1) + ' / ' + LESSONS.length;
-    stageTitle.textContent = les.title;
     stageDesc.textContent = les.desc || '';
     stageDesc.style.display = les.desc ? '' : 'none';
 
-    // workbook (below video)
-    const link = (les.workbookLink || '').trim();
-    const text = (les.workbookText || '').trim();
-    if (les.hasWorkbook || link || text) {
+    // workbook: 1 dòng
+    if (les.hasWorkbook && (les.workbookLink || '').trim()) {
       workbookPanel.style.display = '';
       workbookSlot.innerHTML = '';
-      if (text) {
-        const d = document.createElement('div');
-        d.className = 'workbook-text';
-        d.textContent = text;
-        workbookSlot.appendChild(d);
-      }
+      const title = (les.workbookTitle || 'Bài tập').trim();
+      const link = (les.workbookLink || '').trim();
       if (link) {
         const a = document.createElement('a');
         a.className = 'workbook-link';
         a.href = link; a.target = '_blank'; a.rel = 'noopener';
-        const label = (les.workbookLinkLabel || 'Mở Workbook').trim();
-        a.innerHTML =
-          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>' +
-          '<span>' + esc(label) + '</span>' +
-          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>';
+        a.textContent = title;
         workbookSlot.appendChild(a);
+      } else {
+        const sp = document.createElement('span');
+        sp.textContent = title;
+        workbookSlot.appendChild(sp);
       }
-      if (!text && !link) {
-        workbookSlot.innerHTML = '<p class="workbook-pending">Nội dung bài tập đang được cập nhật.</p>';
+      const detail = (les.workbookDetail || '').trim();
+      if (detail) {
+        const d = document.createElement('details');
+        d.innerHTML = '<summary>Xem hướng dẫn</summary><div class="workbook-text"></div>';
+        d.querySelector('.workbook-text').textContent = detail;
+        workbookSlot.appendChild(d);
       }
     } else {
       workbookPanel.style.display = 'none';
@@ -657,46 +502,7 @@
 
     // book-a-call block (below video)
     callCard.style.display = les.showCall ? '' : 'none';
-    if (les.showCall) {
-      const v = CTA_VARIANTS[les.callVariant] || CTA_VARIANTS.review;
-      document.getElementById('ctaLabel').textContent = v.label;
-      const t = document.getElementById('ctaTitle');
-      t.innerHTML = '<span class="uline"></span><span class="rest"></span>';
-      t.querySelector('.uline').textContent = v.titleGold;
-      t.querySelector('.rest').textContent = v.titleRest;
-      const chk = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
-      const ul = document.getElementById('ctaList');
-      ul.innerHTML = '';
-      v.bullets.forEach(b => { const li = document.createElement('li'); li.innerHTML = chk + '<span></span>'; li.querySelector('span').textContent = b; ul.appendChild(li); });
-      ul.style.gridTemplateRows = 'repeat(' + Math.ceil(v.bullets.length / 2) + ',auto)';
-      const btn = document.getElementById('ctaBtn');
-      btn.textContent = v.button;
-      btn.classList.toggle('btn-call--gold', !!v.goldButton);
-    }
 
-    // nav
-    prevBtn.disabled = current === 0;
-    nextBtn.disabled = current === LESSONS.length - 1;
-    updateDoneBtn();
-    updateProgress();
-  }
-
-  function updateDoneBtn() {
-    if (done.has(current)) {
-      doneBtn.textContent = 'Đã học ✓  ·  Bỏ đánh dấu';
-      doneBtn.style.opacity = '1';
-    } else {
-      doneBtn.textContent = 'Đánh dấu đã học ✓';
-    }
-  }
-
-  function updateProgress() {
-    const n = done.size;
-    const t = LESSONS.length;
-    const a = document.getElementById('progressText');
-    const b = document.getElementById('progressTextMob');
-    if (a) a.textContent = n + '/' + t + ' hoàn thành';
-    if (b) b.textContent = n + '/' + t;
   }
 
   /* ─────────── ACTIONS ─────────── */
@@ -708,17 +514,6 @@
     renderStage();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
-
-  prevBtn.addEventListener('click', () => go(current - 1));
-  nextBtn.addEventListener('click', () => go(current + 1));
-  doneBtn.addEventListener('click', () => {
-    if (done.has(current)) done.delete(current);
-    else done.add(current);
-    try { localStorage.setItem(LS_DONE, JSON.stringify([...done])); } catch (e) {}
-    renderList();
-    updateDoneBtn();
-    updateProgress();
-  });
 
   /* ─────────── GOOGLE ANALYTICS EVENT TRACKING ───────────
      Bắt sự kiện bấm nút Workbook và nút Đặt cuộc gọi ở TẤT CẢ các bài.
@@ -739,9 +534,14 @@
       trackClick('click_workbook', { link_url: wbLink.href });
       return;
     }
-    const callLink = e.target.closest('.btn-call');
+    const callLink = e.target.closest('.call-link');
     if (callLink) {
       trackClick('click_book_call', { link_url: callLink.href });
+      return;
+    }
+    const masteryLink = e.target.closest('.mastery-link');
+    if (masteryLink) {
+      trackClick('click_mastery', { link_url: masteryLink.href });
     }
   });
 

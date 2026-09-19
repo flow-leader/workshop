@@ -31,8 +31,8 @@
     /* ── S1 HERO ── */
     .booking-hero { background: #121936; padding: 72px 0 56px; }
     .booking-hero__wrap {
-      width: 100%; max-width: 920px;
-      margin: 0 auto; padding: 0 32px; text-align: center;
+      width: 100%; max-width: 1240px;
+      margin: 0 auto; padding: 0 12px; text-align: center;
     }
     .booking-hero__badge {
       display: block; margin-bottom: 24px;
@@ -184,8 +184,9 @@
       display: block; margin-bottom: 16px; text-align: center;
     }
     .formula-sub {
+      display: block; margin-top: 2px;
       font-family: var(--fb); font-size: 13px; font-weight: 400;
-      color: rgba(226,194,122,.55) !important; font-style: italic;
+      color: rgba(226,194,122,.80) !important; font-style: italic;
     }
     .formula-op {
       font-family: var(--fb); font-size: 20px; font-weight: 300;
@@ -631,6 +632,14 @@
     .faq-q__text { color: #fff; }
     .faq-a__inner { color: rgba(255,255,255,.75); }
     .faq-a__inner strong { color: #fff; }
+    /* ── Formula row ── */
+    .formula-row { display: flex; align-items: flex-start; justify-content: center; gap: 16px; margin-bottom: 8px; }
+    .formula-item { flex: 1; text-align: center; }
+    .formula-main { display: block; font-family: var(--fd); font-weight: 700; color: #E2C27A; font-size: clamp(20px,2.4vw,28px); line-height: 1.3; margin-bottom: 6px; }
+    .formula-row .formula-sub { font-size: 14px; }
+    .formula-row .formula-op { font-size: 32px; line-height: 1.2; margin-top: 2px; }
+    @media (max-width: 720px) { .formula-row { flex-direction: column; align-items: center; gap: 8px; } }
+    @media (max-width: 640px) { .pkg-cta { padding: 18px 24px !important; display: block !important; font-size: 15px !important; } }
   </style>
 
 <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
@@ -825,12 +834,14 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
         <p>Đó chính là nền tảng của Flow Leader:</p>
 
         <div class="story-formula-box">
-          <span class="story-formula-line">Nội Lực Tinh Thần <span class="formula-sub">(Bản thân trọn vẹn)</span></span>
-          <span class="formula-op" style="display:block;text-align:center;margin-bottom:16px;">+</span>
-          <span class="story-formula-line">Kết Nối Con Người <span class="formula-sub">(Con người tâm phục)</span></span>
-          <span class="formula-op" style="display:block;text-align:center;margin-bottom:16px;">+</span>
-          <span class="story-formula-line">Hệ Thống Vận Hành <span class="formula-sub">(Công việc hiệu quả)</span></span>
-          <span class="formula-op" style="display:block;text-align:center;margin-bottom:16px;">=</span>
+          <div class="formula-row">
+            <div class="formula-item"><span class="formula-main">Nội Lực<br>Tinh Thần</span><span class="formula-sub">(Bản thân trọn vẹn)</span></div>
+            <span class="formula-op">+</span>
+            <div class="formula-item"><span class="formula-main">Kết Nối<br>Con Người</span><span class="formula-sub">(Con người tâm phục)</span></div>
+            <span class="formula-op">+</span>
+            <div class="formula-item"><span class="formula-main">Hệ Thống<br>Vận Hành</span><span class="formula-sub">(Công việc hiệu quả)</span></div>
+          </div>
+          <span class="formula-op" style="display:block;text-align:center;margin-bottom:12px;">=</span>
           <span class="story-formula-line" style="font-size:clamp(24px,3.4vw,34px);margin-bottom:0;">FLOW LEADER™</span>
 
           <p class="story-closing-headline" style="margin-top:28px;text-align:center;">
@@ -1122,6 +1133,10 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
       </div>
     </div>
 
+    <div style="text-align:center;margin-top:44px;">
+      <a href="#dat-lich" class="pkg-cta" style="display:inline-block;background:#024dc2;color:#fff;font-family:var(--fb);font-size:17px;font-weight:700;text-decoration:none;padding:18px 88px;border-radius:10px;letter-spacing:.04em;box-shadow:0 8px 24px rgba(2,77,194,.35);">ĐẶT CUỘC GỌI VÀ NHẬN ƯU ĐÃI →</a>
+    </div>
+
   </div>
 </section>
 
@@ -1201,7 +1216,7 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
   </div>
 
   <!-- S11, Lịch (lặp lại S2) -->
-  <div class="cta-cal-calendar">
+  <div class="cta-cal-calendar" id="dat-lich">
     <div class="cal-wrap">
       <div class="cal-box">
         <div class="cal-info">
