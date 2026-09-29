@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Bài Test: Điều Gì Đang Cản Trở Bạn Trở Thành Team Lead Truyền Cảm Hứng?</title>
+<meta name="description" content="Bài test tự chẩn đoán 3 phút — tìm ra điều đang cản trở bạn trở thành Team Lead truyền cảm hứng, được đội ngũ đồng lòng và cấp trên tin tưởng.">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1532532048582130');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J7VEM7L844"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-J7VEM7L844');
+</script>
+<style>
+:root{
+  --bg:#F4F7FC;
+  --card:#FFFFFF;
+  --primary:#024dc2;
+  --primary-dark:#013a94;
+  --primary-light:#EAF2FF;
+  --gold:#E2C27A;
+  --gold-dark:#C9A25C;
+  --text:#121936;
+  --muted:#5b6b85;
+  --border:#E3E9F2;
+  --danger:#e0577a;
+  --fd:'Lora', Georgia, serif;
+  --fb:'Roboto', Arial, sans-serif;
+  --radius:20px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html,body{height:100%;}
+body{
+  font-family:var(--fb);
+  background:var(--bg);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+img{display:block;max-width:100%;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;}
+
+.quiz-app{
+  position:relative;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:64px 16px 40px;
+}
+
+/* progress bar */
+.progress-wrap{
+  position:fixed;
+  top:0;left:0;right:0;
+  height:56px;
+  background:rgba(244,247,252,0.92);
+  backdrop-filter:blur(6px);
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:0 20px;
+  z-index:50;
+  border-bottom:1px solid var(--border);
+}
+.progress-track{
+  flex:1;
+  height:8px;
+  background:var(--border);
+  border-radius:99px;
+  overflow:hidden;
+}
+.progress-fill{
+  height:100%;
+  width:0%;
+  background:linear-gradient(90deg,var(--primary),#3a7bff);
+  border-radius:99px;
+  transition:width .5s cubic-bezier(.4,0,.2,1);
+}
+.progress-gift{
+  font-size:22px;
+  transition:transform .4s cubic-bezier(.34,1.56,.64,1), filter .4s;
+  filter:grayscale(60%) opacity(.6);
+}
+.progress-gift.reached{
+  transform:scale(1.35) rotate(-8deg);
+  filter:none;
+  animation:giftPulse 1.1s ease-in-out infinite;
+}
+@keyframes giftPulse{
+  0%,100%{transform:scale(1.3) rotate(-8deg);}
+  50%{transform:scale(1.45) rotate(6deg);}
+}
+
+.back-btn{
+  position:fixed;
+  top:64px; left:16px;
+  width:38px;height:38px;
+  border-radius:50%;
+  background:var(--card);
+  border:1px solid var(--border);
+  color:var(--muted);
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;
+  z-index:40;
+  box-shadow:0 2px 8px rgba(18,25,54,0.06);
+}
+.back-btn:hover{color:var(--primary);border-color:var(--primary-light);}
+
+.screen-stage{
+  width:100%;
+  max-width:560px;
+  margin-top:12px;
+}
+
+.screen{
+  background:var(--card);
+  border-radius:var(--radius);
+  padding:36px 28px 28px;
+  box-shadow:0 12px 32px rgba(18,25,54,0.08);
+  animation:screenIn .45s cubic-bezier(.22,1,.36,1);
+  overflow:hidden;
+}
+@keyframes screenIn{
+  from{opacity:0; transform:translateY(18px) scale(.98);}
+  to{opacity:1; transform:translateY(0) scale(1);}
+}
+
+.step-label{
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.06em;
+  color:var(--primary);
+  background:var(--primary-light);
+  display:inline-block;
+  padding:4px 12px;
+  border-radius:99px;
+  margin-bottom:16px;
+}
+
+.screen h1,.screen h2{
+  font-family:var(--fd);
+  font-weight:700;
+  color:var(--text);
+  line-height:1.32;
+}
+.screen h1{font-size:clamp(21px,5vw,26px); margin-bottom:10px;}
+.screen h2{font-size:clamp(19px,4.5vw,23px); margin-bottom:8px;}
+.subtitle{font-size:14.5px; color:var(--muted); margin-bottom:22px; line-height:1.55;}
+
+/* welcome screen */
+.badge-icon{
+  width:64px;height:64px;
+  border-radius:50%;
+  background:var(--primary-light);
+  display:flex;align-items:center;justify-content:center;
+  font-size:30px;
+  margin-bottom:18px;
+}
+.welcome h1{font-size:clamp(19px,4.5vw,23px); margin-bottom:26px;}
+.welcome-opt{
+  padding:18px 20px;
+  font-weight:600;
+  text-align:left;
+}
+.btn-primary{
+  width:100%;
+  background:var(--primary);
+  color:#fff;
+  font-family:var(--fd);
+  font-weight:700;
+  font-size:16.5px;
+  padding:16px 20px;
+  border-radius:14px;
+  transition:transform .15s, background .2s, box-shadow .2s;
+  box-shadow:0 8px 20px rgba(2,77,194,0.28);
+}
+.btn-primary:hover{background:var(--primary-dark); transform:translateY(-2px);}
+.btn-primary:active{transform:translateY(0);}
+.btn-primary:disabled{background:#c7d3e6; box-shadow:none; cursor:not-allowed; transform:none;}
+.trust-list{margin-top:46px; display:flex; flex-direction:column; gap:12px; align-items:center;}
+.trust-list li{
+  list-style:none;
+  font-size:13.5px;
+  color:var(--muted);
+  display:flex; align-items:center; gap:10px;
+  justify-content:center;
+}
+.trust-list li .ic{font-size:16px;}
+
+/* option rows (single & multi) */
+.options{display:flex; flex-direction:column; gap:10px;}
+.options.grid{flex-direction:row; flex-wrap:wrap;}
+.opt,.welcome-opt{
+  border:1.5px solid var(--border);
+  border-radius:14px;
+  padding:14px 16px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-size:15px;
+  line-height:1.45;
+  transition:background .18s ease, border-color .18s ease, box-shadow .18s ease;
+  background:#fff;
+  cursor:pointer;
+}
+.options:not(.grid) .opt{width:100%;}
+.options.grid .opt{
+  flex:1 1 calc(50% - 10px);
+  justify-content:center;
+  text-align:center;
+  flex-direction:column;
+  gap:6px;
+  padding:18px 12px;
+}
+.opt:hover,.welcome-opt:hover{border-color:var(--primary); background:var(--primary-light);}
+.opt .opt-icon{font-size:20px; flex-shrink:0;}
+.opt .opt-text{flex:1;}
+.opt.selected{
+  border-color:var(--primary);
+  background:var(--primary-light);
+  box-shadow:0 0 0 3px rgba(2,77,194,.10);
+}
+.opt.goal{border-color:var(--gold-dark);}
+.opt.goal.selected{background:#FBF3E3; border-color:var(--gold-dark); box-shadow:0 0 0 3px rgba(226,194,122,.28);}
+.opt .check{
+  margin-left:auto;
+  width:20px;height:20px;
+  border-radius:50%;
+  border:1.5px solid #cfd8e8;
+  flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;
+  color:#fff;
+  transition:all .18s ease;
+}
+.opt.selected .check{background:var(--primary); border-color:var(--primary);}
+.opt.selected.goal .check{background:var(--gold-dark); border-color:var(--gold-dark);}
+.opt[data-multi] .check{border-radius:6px;}
+
+.multi-footer{
+  margin-top:22px;
+  display:flex; flex-direction:column; gap:8px;
+}
+
+/* info screens */
+.info-title.lg{font-size:clamp(24px,6vw,30px);}
+.info-eyebrow{font-size:14.5px; font-weight:700; color:var(--muted); text-align:center; line-height:1.45; margin-bottom:4px;}
+.big-word{font-family:var(--fd); font-weight:800; color:var(--primary); text-align:center; line-height:1.16; margin:2px 0 20px;}
+.big-word.short{font-size:clamp(32px,10.5vw,46px);}
+.big-word.sentence{font-size:clamp(23px,6.5vw,29px);}
+.info-body{font-size:15px; line-height:1.7; color:var(--text); margin-bottom:8px;}
+.info-body.lg{font-size:17px; line-height:1.8;}
+.info-body strong{color:var(--primary);}
+.emph-inline{color:var(--primary); font-weight:800;}
+.info-bullets{margin:16px 0 4px; list-style:none; display:flex; flex-direction:column; gap:11px;}
+.info-bullets li{display:flex; gap:10px; align-items:flex-start; font-size:15.5px; line-height:1.6; color:var(--text);}
+.info-bullets li::before{content:'✓'; color:var(--primary); font-weight:800; flex-shrink:0; margin-top:1px;}
+.quote-box{
+  background:var(--primary-light);
+  border-left:4px solid var(--primary);
+  border-radius:10px;
+  padding:16px 18px;
+  font-family:var(--fd);
+  font-style:italic;
+  font-size:15.5px;
+  color:var(--text);
+  margin:18px 0;
+}
+.info-image{border-radius:16px; overflow:hidden; margin-bottom:18px;}
+.info-image img{width:100%; object-fit:cover; max-height:220px;}
+.square-illustration{width:100%; max-width:200px; margin:0 auto 20px; aspect-ratio:1/1; border-radius:22px; overflow:hidden; box-shadow:0 6px 18px rgba(18,25,54,0.08);}
+.square-illustration svg{width:100%; height:100%; display:block;}
+
+/* timeline (screen 16) */
+.timeline-head{text-align:center;}
+.tl-eyebrow{
+  font-size:11.5px; font-weight:800; letter-spacing:.09em; text-transform:uppercase;
+  color:var(--gold-dark); margin-bottom:8px;
+}
+.timeline-head .subtitle{text-align:center;}
+.timeline{display:flex; flex-direction:column; gap:0; margin:24px 0;}
+.tl-step{display:flex; align-items:flex-start; gap:16px;}
+.tl-dot{
+  width:52px;height:52px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px; flex-shrink:0;
+  box-shadow:0 4px 10px rgba(18,25,54,0.12);
+}
+.tl-step:nth-child(1) .tl-dot{background:linear-gradient(135deg,#fff,var(--primary-light)); border:2px solid var(--primary);}
+.tl-step:nth-child(2) .tl-dot{background:linear-gradient(135deg,var(--primary),var(--primary-dark));}
+.tl-step:nth-child(3) .tl-dot{background:linear-gradient(135deg,var(--gold),var(--gold-dark));}
+.tl-line{width:3px; flex:none; background:linear-gradient(var(--primary),var(--gold-dark)); margin:4px 0 4px 24px; min-height:30px;}
+.tl-content{padding-bottom:22px; padding-top:4px;}
+.tl-content b{font-family:var(--fd); font-size:18px; font-weight:700; display:block; margin-bottom:3px;}
+.tl-content span{font-size:14px; color:var(--muted);}
+.tl-step:last-child .tl-content{padding-bottom:0;}
+.formula-highlight{
+  background:linear-gradient(135deg,#FFF8EA,#FBF3E3);
+  border:1.5px solid var(--gold-dark);
+  border-radius:14px;
+  padding:18px 20px;
+  margin:22px 0 8px;
+  text-align:center;
+  font-family:var(--fd);
+  font-weight:700;
+  font-size:17px;
+  color:var(--text);
+  line-height:1.5;
+}
+
+/* forms */
+.field-label{font-size:13.5px; font-weight:700; color:var(--text); margin-bottom:8px; display:block;}
+.field-input{
+  width:100%;
+  border:1.5px solid var(--border);
+  border-radius:12px;
+  padding:15px 16px;
+  font-size:16px;
+  font-family:var(--fb);
+  margin-bottom:8px;
+  transition:border-color .2s;
+  background:#fbfcfe;
+}
+.field-input:focus{outline:none; border-color:var(--primary); background:#fff;}
+.field-hint{font-size:12.5px; color:var(--muted); margin-bottom:20px;}
+.field-hint.error{color:var(--danger);}
+
+/* loading screen */
+.loading-wrap{display:flex; flex-direction:column; align-items:center; text-align:center; padding:12px 0 4px;}
+.ring-wrap{position:relative; width:150px; height:150px; margin-bottom:22px;}
+.ring-wrap svg{transform:rotate(-90deg);}
+.ring-pct{
+  position:absolute; inset:0;
+  display:flex; align-items:center; justify-content:center;
+  font-family:var(--fd); font-size:28px; font-weight:700; color:var(--primary);
+}
+.loading-status{font-size:14.5px; color:var(--muted); min-height:22px; margin-bottom:22px;}
+.testi-viewport{width:100%; overflow:hidden; border-radius:14px;}
+.testi-track{display:flex; transition:transform .6s cubic-bezier(.22,1,.36,1);}
+.testi-card{
+  flex:0 0 100%;
+  box-sizing:border-box;
+  background:var(--primary-light);
+  border-radius:14px;
+  padding:16px 18px;
+  text-align:left;
+}
+.testi-card p{font-size:14px; font-style:italic; line-height:1.6; color:var(--text); margin-bottom:10px;}
+.testi-card .who{display:flex; align-items:center; gap:10px;}
+.testi-card .avatar{
+  width:34px;height:34px;border-radius:50%;
+  background:var(--gold); color:#fff; font-weight:700; font-size:13px;
+  display:flex;align-items:center;justify-content:center; font-family:var(--fd);
+  flex-shrink:0;
+}
+.testi-card .who-name{font-size:13px; font-weight:700;}
+.testi-card .who-role{font-size:12px; color:var(--muted);}
+
+/* result screen */
+.result-hero{
+  background:linear-gradient(135deg,var(--primary),#3a7bff);
+  margin:-36px -28px 26px;
+  padding:38px 28px 32px;
+  border-radius:20px 20px 0 0;
+  text-align:center;
+}
+.result-hero .emoji{font-size:42px; margin-bottom:10px;}
+.result-hero h1{font-family:var(--fd); font-weight:700; color:#fff; font-size:clamp(21px,5.5vw,25px); line-height:1.32;}
+.result-hero p{font-size:14.5px; color:rgba(255,255,255,.85); margin-top:8px;}
+.priority-spotlight{
+  background:linear-gradient(135deg,#FFF8EA,#FDEFD2);
+  border:1.5px solid var(--gold-dark);
+  border-radius:16px;
+  padding:24px 20px;
+  text-align:center;
+  margin-top:26px;
+  box-shadow:0 8px 22px rgba(201,162,92,0.20);
+}
+.spotlight-icon{font-size:34px; margin-bottom:6px;}
+.spotlight-tag{font-size:11.5px; font-weight:800; letter-spacing:.09em; color:var(--gold-dark); margin-bottom:6px;}
+.priority-spotlight h2{font-family:var(--fd); font-size:clamp(21px,5.5vw,25px); color:var(--text); margin-bottom:8px;}
+.priority-spotlight p{font-size:14.5px; color:var(--muted); line-height:1.6;}
+.result-section{margin-top:26px;}
+.result-section h3{
+  font-family:var(--fd); font-size:16.5px; font-weight:700; color:var(--text);
+  margin-bottom:12px; display:flex; align-items:center; gap:8px;
+}
+.desire-list{display:flex; flex-direction:column; gap:10px;}
+.desire-item{
+  display:flex; align-items:flex-start; gap:10px;
+  background:#FBF3E3; border:1px solid #F0DFB8; border-radius:12px; padding:12px 14px;
+  font-size:14.5px; line-height:1.5;
+}
+.desire-item .num{
+  font-family:var(--fd); font-weight:700; color:var(--gold-dark); font-size:16px; flex-shrink:0;
+}
+.feel-chips{display:flex; flex-wrap:wrap; gap:8px;}
+.feel-chip{
+  background:var(--primary-light); color:var(--primary); font-size:13px; font-weight:600;
+  padding:8px 14px; border-radius:99px;
+}
+.score-row{margin-bottom:16px;}
+.score-top{display:flex; justify-content:space-between; align-items:baseline; margin-bottom:6px;}
+.score-name{font-size:14.5px; font-weight:700;}
+.score-count{font-size:13px; color:var(--muted);}
+.score-bar-track{height:10px; background:var(--border); border-radius:99px; overflow:hidden;}
+.score-bar-fill{height:100%; border-radius:99px; background:linear-gradient(90deg,var(--primary),#3a7bff); width:0%; transition:width 1s cubic-bezier(.22,1,.36,1);}
+.score-bar-fill.priority{background:linear-gradient(90deg,var(--gold-dark),var(--gold));}
+.priority-note{
+  font-size:13.5px; color:var(--text); background:var(--bg); border-radius:12px;
+  padding:14px 16px; margin-top:6px; line-height:1.6;
+}
+.priority-note b{color:var(--primary-dark);}
+.cta-wrap{margin-top:30px;}
+.result-cta{display:block; text-align:center; text-decoration:none;}
+.result-cta.pulse{animation:ctaPulse 2.2s ease-in-out infinite;}
+@keyframes ctaPulse{
+  0%,100%{box-shadow:0 8px 20px rgba(2,77,194,0.28);}
+  50%{box-shadow:0 10px 28px rgba(2,77,194,0.48);}
+}
+.cta-sub{text-align:center; font-size:13px; color:var(--muted); margin-top:12px;}
+
+/* confetti */
+.confetti{position:fixed; top:-20px; font-size:20px; pointer-events:none; z-index:60; animation:fall linear forwards;}
+@keyframes fall{
+  to{transform:translateY(110vh) rotate(360deg); opacity:0;}
+}
+
+@media (max-width:420px){
+  .screen{padding:28px 20px 22px;}
+  .options.grid .opt{flex:1 1 100%;}
+  .result-hero{margin:-28px -20px 26px; padding:32px 20px 26px;}
+}
+</style>
+</head>
+<body>
+
+<div class="quiz-app">
+  <div class="progress-wrap">
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="progress-gift" id="progressGift">🎁</div>
+  </div>
+  <button class="back-btn" id="backBtn" aria-label="Quay lại">←</button>
+  <main class="screen-stage" id="screenStage"></main>
+</div>
+
+<script>
+const QUESTION_IDS = [2,3,5,7,9,10,12,14,15,17,19];
+
+const ART = {
+  system: `<svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">
+    <rect width="320" height="320" rx="28" fill="var(--primary-light)"/>
+    <g stroke="var(--primary)" stroke-width="3" opacity="0.35">
+      <line x1="160" y1="160" x2="72" y2="84"/>
+      <line x1="160" y1="160" x2="248" y2="84"/>
+      <line x1="160" y1="160" x2="72" y2="236"/>
+      <line x1="160" y1="160" x2="248" y2="236"/>
+    </g>
+    <circle cx="72" cy="84" r="15" fill="var(--gold)"/>
+    <circle cx="248" cy="84" r="15" fill="var(--primary)"/>
+    <circle cx="72" cy="236" r="15" fill="var(--primary)"/>
+    <circle cx="248" cy="236" r="15" fill="var(--gold)"/>
+    <g fill="var(--primary)">
+      <rect x="150" y="94" width="20" height="26" rx="5"/>
+      <rect x="150" y="94" width="20" height="26" rx="5" transform="rotate(45 160 160)"/>
+      <rect x="150" y="94" width="20" height="26" rx="5" transform="rotate(90 160 160)"/>
+      <rect x="150" y="94" width="20" height="26" rx="5" transform="rotate(135 160 160)"/>
+      <rect x="150" y="94" width="20" height="26" rx="5" transform="rotate(180 160 160)"/>
+      <rect x="150" y="94" width="20" height="26" rx="5" transform="rotate(225 160 160)"/>
+      <rect x="150" y="94" width="20" height="26" rx="5" transform="rotate(270 160 160)"/>
+      <rect x="150" y="94" width="20" height="26" rx="5" transform="rotate(315 160 160)"/>
+      <circle cx="160" cy="160" r="48"/>
+    </g>
+    <circle cx="160" cy="160" r="22" fill="var(--primary-light)"/>
+  </svg>`,
+  inner: `<svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">
+    <rect width="320" height="320" rx="28" fill="var(--primary-light)"/>
+    <circle cx="160" cy="145" r="92" fill="none" stroke="var(--gold)" stroke-width="2" opacity="0.3"/>
+    <circle cx="160" cy="145" r="66" fill="none" stroke="var(--gold)" stroke-width="2" opacity="0.5"/>
+    <rect x="105" y="232" width="110" height="16" rx="8" fill="var(--primary)"/>
+    <rect x="122" y="214" width="76" height="16" rx="8" fill="var(--primary)" opacity="0.8"/>
+    <path d="M118 214 Q160 158 202 214 Z" fill="var(--text)"/>
+    <circle cx="160" cy="140" r="24" fill="var(--text)"/>
+  </svg>`,
+  respect: `<svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">
+    <rect width="320" height="320" rx="28" fill="var(--primary-light)"/>
+    <line x1="160" y1="46" x2="160" y2="274" stroke="var(--gold)" stroke-width="3" stroke-dasharray="6 9" opacity="0.6"/>
+    <circle cx="118" cy="128" r="24" fill="var(--text)"/>
+    <path d="M86 232 Q118 172 150 232 Z" fill="var(--text)"/>
+    <circle cx="202" cy="128" r="24" fill="var(--gold-dark)"/>
+    <path d="M170 232 Q202 172 234 232 Z" fill="var(--gold-dark)"/>
+  </svg>`,
+  lead: `<svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">
+    <rect width="320" height="320" rx="28" fill="var(--primary-light)"/>
+    <circle cx="160" cy="145" r="96" fill="none" stroke="var(--primary)" stroke-width="3" opacity="0.25"/>
+    <polygon points="160,72 174,145 160,218 146,145" fill="var(--gold)"/>
+    <circle cx="160" cy="145" r="12" fill="var(--primary)"/>
+    <circle cx="108" cy="238" r="12" fill="var(--text)"/>
+    <circle cx="160" cy="252" r="12" fill="var(--text)"/>
+    <circle cx="212" cy="238" r="12" fill="var(--text)"/>
+  </svg>`
+};
+
+const CATEGORY_META = {
+  inner:  {icon:'🧘', desc:'Bạn cần thêm sự bình tĩnh, vững vàng để làm chủ cảm xúc mỗi ngày.'},
+  system: {icon:'⚙️', desc:'Công việc của bạn cần một hệ thống rõ ràng để không phải ôm việc mỗi ngày.'},
+  lead:   {icon:'🧭', desc:'Đội ngũ của bạn cần được dẫn dắt đúng cách để đồng lòng và hiệu quả hơn.'}
+};
+
+const TESTIMONIALS = [
+  {avatar:'H', name:'Chị H. — Trưởng nhóm Vận hành', text:'Mình từng nghĩ chỉ cần cố thêm chút nữa. Hoá ra điều mình thiếu không phải sự cố gắng, mà là một hệ thống đúng và một nội tâm đủ vững để dẫn dắt team.'},
+  {avatar:'T', name:'Anh T. — Team Lead Kỹ thuật', text:'Sau khi hiểu đúng vấn đề của mình, mình không còn ôm việc mỗi tối. Team tự chạy, mình có thời gian cho gia đình trở lại.'},
+  {avatar:'M', name:'Chị M. — Quản lý Kinh doanh', text:'Điều bất ngờ nhất là thay đổi lại bắt đầu từ bên trong mình, không phải từ việc học thêm kỹ năng quản lý nào cả.'}
+];
+
+const SCREENS = [
+{ id:1, type:'welcome',
+  title:'Bạn muốn làm Team Lead hiệu quả, mà không cần phải làm thêm giờ?',
+  cta:'Đúng, và tôi muốn biết điều gì đang cản trở tôi đạt được mong muốn đó',
+  trust:[
+    {icon:'⏱️', text:'Bài test chỉ mất 3 phút'},
+    {icon:'🔒', text:'Thông tin của bạn được đảm bảo an toàn và riêng tư'},
+    {icon:'🕵️', text:'Bài test ẩn danh 100%'}
+  ]
+},
+{ id:2, type:'multi', category:'system', layout:'list',
+  title:'Buổi tối của bạn là:',
+  subtitle:'Chọn tất cả đáp án đúng với bạn',
+  options:[
+    {t:'Tăng ca tối, cuối tuần kiệt sức', i:'😩'},
+    {t:'Gia đình phàn nàn vì thiếu thời gian chất lượng với bạn', i:'👨‍👩‍👧'},
+    {t:'Ăn uống thất thường, không có thời gian tập luyện; đau dạ dày hoặc mất ngủ', i:'🌙'},
+    {t:'Cảm thấy bị cuốn đi; khi nhìn lại thấy trống rỗng hoặc vô định', i:'🌀'},
+    {t:'Cảm thấy rơi vào vòng lặp, không phát triển lên được', i:'🔁'},
+    {t:'Về đúng giờ, lấy lại thời gian cho bản thân và mối quan hệ', i:'🌅', goal:true}
+  ]
+},
+{ id:3, type:'multi', category:'system', layout:'list',
+  title:'Về công việc:',
+  subtitle:'Chọn tất cả đáp án đúng với bạn',
+  options:[
+    {t:'Tôi bị cuốn vào nhiều lỗi/ sự việc phát sinh', i:'🔥'},
+    {t:'Bạn không dám nghỉ ốm, đi du lịch vài ngày; luôn phải trả lời điện thoại', i:'📱'},
+    {t:'Nhân viên không biết phối hợp; ai làm việc nấy và chỉ đâu đánh đó', i:'🧩'},
+    {t:'Khi có phát sinh, nhân viên đổ lỗi, cãi cọ hoặc nói xấu nhau', i:'🗯️'},
+    {t:'Khó xác định nhân sự làm tốt do nỗ lực hay may mắn; khó lặp lại thành công', i:'🎲'},
+    {t:'Tôi chưa được nhận dự án lớn hơn, thăng cấp quản lý cao hơn', i:'📉'},
+    {t:'Công việc có hệ thống, chạy chủ động, nghỉ phép vài ngày không cần cầm điện thoại', i:'⚙️', goal:true}
+  ]
+},
+{ id:4, type:'info', big:true, squareArt:ART.system,
+  title:'Vấn đề không phải là bạn chưa cố gắng',
+  bigWord:'Xây hệ thống', bigWordSize:'short',
+  body:'Team Lead giỏi không ôm việc — họ xây hệ thống để công việc tự chạy, để nhân sự biết phải làm gì mà không cần bạn cầm tay chỉ việc từng chút một.',
+  cta:'Ok, tiếp tục'
+},
+{ id:5, type:'multi', category:'inner', layout:'list',
+  title:'Cảm xúc của bạn khi đi làm:',
+  subtitle:'Chọn tất cả đáp án đúng với bạn',
+  options:[
+    {t:'Cảm thấy mình không xứng đáng hoặc không đủ giỏi', i:'🙇'},
+    {t:'Phải cố gắng thể hiện, chứng minh giá trị bản thân; sợ mình mất giá trị', i:'🎭'},
+    {t:'Gồng và dồn nén cảm xúc; không cho phép mình được buồn', i:'🧱'},
+    {t:'Tức giận, cảm thấy mình thất bại khi việc không đúng kế hoạch, như ý', i:'😤'},
+    {t:'Cảm thấy lo lắng, bất an khi giao việc cho nhân sự, nên phải ôm việc', i:'😰'},
+    {t:'Vững vàng, bình tĩnh, làm chủ cuộc chơi', i:'🧘', goal:true}
+  ]
+},
+{ id:6, type:'info', big:true, squareArt:ART.inner,
+  title:'Bên trong vững, bên ngoài mới vững',
+  bigWord:'Nền tảng nội tâm', bigWordSize:'short',
+  body:'Rất nhiều Team Lead giỏi chuyên môn nhưng nội tâm chưa vững — dễ tự trách, dễ gồng, dễ mất bình tĩnh khi có sự cố. Đó không phải là yếu đuối, đó là dấu hiệu bạn cần một nền tảng nội tâm chắc chắn hơn.',
+  cta:'Ok, tiếp tục'
+},
+{ id:7, type:'multi', category:'inner', layout:'list',
+  title:'Mối quan hệ của bạn với sếp:',
+  subtitle:'Chọn tất cả đáp án đúng với bạn',
+  options:[
+    {t:'Hay cãi nhau, bực tức với sếp', i:'💢'},
+    {t:'Không dám từ chối sếp, luôn phải chạy theo sếp mọi lúc', i:'🏃'},
+    {t:'Sợ sếp, không dám hỏi, nói chính kiến', i:'🤐'},
+    {t:'Cảm thấy tủi thân, cảm thấy không được tôn trọng ý kiến', i:'💔'},
+    {t:'Sếp chưa ghi nhận đúng nỗ lực của bạn và team', i:'🙈'},
+    {t:'Được sếp tin tưởng, tôn trọng, đề xuất thăng tiến', i:'🤝', goal:true}
+  ]
+},
+{ id:8, type:'info', big:true, squareArt:ART.respect,
+  title:'Sự tôn trọng bắt đầu từ bên trong bạn',
+  bigWord:'Sự tôn trọng bắt đầu từ bên trong bạn', bigWordSize:'sentence',
+  body:'Cách sếp đối xử với bạn phần nhiều phản chiếu cách bạn thể hiện sự vững vàng và giá trị của mình. Khi nội tâm vững, bạn sẽ biết cách đặt ranh giới và được tôn trọng đúng mực hơn.',
+  cta:'Ok, tiếp tục'
+},
+{ id:9, type:'multi', category:'leadership', layout:'list',
+  title:'Về team của bạn:',
+  subtitle:'Chọn tất cả đáp án đúng với bạn',
+  options:[
+    {t:'Tuyển người không phù hợp, mất thời gian đào tạo rồi lại phải cho nghỉ', i:'🎯'},
+    {t:'Nhân sự tốt rời đi và bạn không hiểu lý do thực sự', i:'🚪'},
+    {t:'Khó làm việc với người giỏi nhưng thái độ chưa tốt', i:'⚡'},
+    {t:'Team phụ thuộc vào 1 số nhân sự; khi người đó nghỉ/ dọa nghỉ, mọi việc trở nên khó khăn', i:'🧷'},
+    {t:'Chưa nhận được sự hợp tác, tôn trọng từ nhân sự cũ, nhân sự lớn tuổi hơn, đồng cấp nam...', i:'🧊'},
+    {t:'Team có các nhân viên chuyên môn tốt, thái độ hợp tác tốt, và nhân viên giỏi muốn gắn bó cùng tôi', i:'🌟', goal:true}
+  ]
+},
+{ id:10, type:'multi', category:'leadership', layout:'list',
+  title:'Về nhân viên của bạn:',
+  subtitle:'Chọn tất cả đáp án đúng với bạn',
+  options:[
+    {t:'Nhân sự làm không đúng ý; bạn lại phải làm thêm giờ để sửa', i:'🔧'},
+    {t:'Bạn đã feedback nhiều lần nhưng nhân sự không thay đổi và vẫn lặp lại lỗi cũ', i:'🔂'},
+    {t:'Nhân sự thiếu chủ động, ít phát biểu, ít ý tưởng và bạn phải nhắc nhiều', i:'💤'},
+    {t:'Nhân sự hay bao biện, đưa lý do, nói "nhưng mà…", tự ti hoặc không dám làm việc mới', i:'🗣️'},
+    {t:'Bạn chần chừ, không biết có nên cho một nhân sự nghỉ việc hay không', i:'⚖️'},
+    {t:'Bạn không dám "căng" vì sợ nhân viên nghỉ', i:'🫣'},
+    {t:'Nhân sự hay nói xấu nhau, không hợp tác, gây khó dễ cho nhau', i:'🐍'},
+    {t:'Đội nhóm đồng lòng, hiệu quả hợp tác', i:'🎉', goal:true}
+  ]
+},
+{ id:11, type:'info', big:true, squareArt:ART.lead,
+  title:'Kỹ năng dẫn dắt là mảnh ghép cuối cùng',
+  bigWord:'Kỹ năng dẫn dắt', bigWordSize:'short',
+  body:'Khi nội tâm vững và hệ thống đã có, điều còn lại là kỹ năng dẫn dắt: đọc vị con người, giao việc đúng cách, xử lý xung đột và xây một đội nhóm thực sự đồng lòng.',
+  cta:'Ok, tiếp tục'
+},
+{ id:12, type:'single', layout:'grid',
+  title:'Bạn đã phải đối diện các khó khăn này bao lâu rồi?',
+  options:[
+    {t:'3 tháng', i:'🕐'},
+    {t:'6 tháng', i:'📅'},
+    {t:'1 năm', i:'🗓️'},
+    {t:'2 năm', i:'⏳'},
+    {t:'3 năm +', i:'⏰'}
+  ]
+},
+{ id:13, type:'info', big:true,
+  title:'Đổi công ty không giải quyết được gốc rễ',
+  bigWord:'Sự thay đổi thực sự phải đến từ bên trong bạn.', bigWordSize:'sentence',
+  body:'Nghỉ việc sang một công ty mới, nhưng mang theo tư duy và thói quen cũ, bạn sẽ lại gặp đúng những vấn đề này ở một nơi khác.',
+  cta:'Ok, tiếp tục'
+},
+{ id:14, type:'multi', layout:'cards',
+  title:'Bạn đã từng thử cách nào để cải thiện?',
+  subtitle:'Chọn tất cả đáp án đúng với bạn',
+  options:[
+    {t:'Đọc sách', i:'📚'},
+    {t:'Xem video Youtube', i:'▶️'},
+    {t:'Học khoá học thu sẵn video', i:'💻'},
+    {t:'Được đồng hành trực tiếp cùng cố vấn 1 kèm 1', i:'🧑‍🏫'}
+  ]
+},
+{ id:15, type:'single', layout:'grid',
+  title:'Bạn nghĩ rằng thay đổi thực sự sẽ đến từ đâu?',
+  options:[
+    {t:'Đợi hoàn cảnh bên ngoài tốt hơn', i:'🌦️'},
+    {t:'Tự thay đổi từ bên trong nội tâm, đến tư duy và kỹ năng', i:'🔑'}
+  ]
+},
+{ id:16, type:'timeline',
+  eyebrow:'Công thức cốt lõi',
+  title:'Công thức trở thành Team Lead truyền cảm hứng',
+  subtitle:'Thay đổi cần đi đúng thứ tự — từ trong ra ngoài:',
+  timeline:[
+    {n:'1', icon:'🧘', t:'Nội tâm vững vàng', d:'Bình tĩnh, tự tin, làm chủ cảm xúc'},
+    {n:'2', icon:'⚙️', t:'Xây hệ thống', d:'Công việc chạy chủ động, không phải ôm việc'},
+    {n:'3', icon:'🧭', t:'Kỹ năng dẫn dắt', d:'Đội ngũ đồng lòng, cấp trên tin tưởng'}
+  ],
+  footer:'✨ Một công thức hệ thống cho lộ trình chuyển hoá bản thân từ gốc',
+  cta:'Ok, tiếp tục'
+},
+{ id:17, type:'multi', layout:'list',
+  title:'Mỗi ngày đi làm bạn muốn cảm thấy thế nào?',
+  titleHtml:'Mỗi ngày đi làm, bạn <span class="emph-inline">MUỐN</span> cảm thấy thế nào?',
+  subtitle:'Chọn tất cả đáp án đúng với mong muốn của bạn',
+  options:[
+    {t:'Bình tĩnh, vững vàng trong vai trò Team Lead', i:'🧘'},
+    {t:'Tự tin, đầy năng lượng', i:'⚡'},
+    {t:'Được tôn trọng, ghi nhận đúng nỗ lực', i:'🏆'},
+    {t:'Kết nối sâu hơn với mọi người', i:'🤗'},
+    {t:'Cảm thấy phát triển, đạt được phiên bản tốt nhất của mình', i:'🌱'}
+  ]
+},
+{ id:18, type:'info', image:'assets/images/Section%201.jpg',
+  title:'Sora đã từng giống bạn',
+  body:'Từng là một Team Lead ôm việc đến kiệt sức, mất ngủ và hoài nghi chính mình. Nhưng sau khi thay đổi từ bên trong, Sora đã:',
+  bullets:[
+    'Xây được đội ngũ tự vận hành, không cần cầm tay chỉ việc từng chút',
+    'Lấy lại buổi tối và cuối tuần cho gia đình, cho sức khoẻ của chính mình',
+    'Được cấp trên tin tưởng, giao những dự án lớn hơn',
+    'Dẫn dắt một đội ngũ đồng lòng, gắn bó lâu dài'
+  ],
+  bodyAfter:'Hành trình đó là lý do bài test này ra đời — để giúp bạn tìm đúng điểm bắt đầu của riêng mình.',
+  cta:'Ok, tiếp tục'
+},
+{ id:19, type:'multi', layout:'cards',
+  title:'Điều đang ngăn cản bạn chưa đạt được mục tiêu đó:',
+  subtitle:'Chọn tất cả đáp án đúng với bạn',
+  options:[
+    {t:'Tôi chưa biết nên bắt đầu từ đâu', i:'🧭'},
+    {t:'Tôi chỉ thấy các kiến thức lẻ tẻ, chưa nhìn được bức tranh tổng thể cần học gì', i:'🧩'},
+    {t:'Tôi không biết phải hỏi ai khi cần lời khuyên cho tình huống cụ thể của mình', i:'🤷'},
+    {t:'Một mình không ai giúp thì tôi hơi khó thay đổi', i:'🫂'}
+  ]
+},
+{ id:20, type:'email',
+  title:'Gần xong rồi! Điền email để nhận kết quả',
+  subtitle:'Kết quả cá nhân hoá của bạn sẽ được gửi kèm tại đây.'
+},
+{ id:21, type:'name',
+  title:'Cuối cùng, bạn tên là gì?',
+  subtitle:'Để mình gọi đúng tên bạn trong phần kết quả nhé.'
+},
+{ id:22, type:'loading' },
+{ id:23, type:'result' }
+];
+
+const state = { index:0, answers:{}, email:'', name:'' };
+
+const stage = document.getElementById('screenStage');
+const progressFill = document.getElementById('progressFill');
+const progressGift = document.getElementById('progressGift');
+const backBtn = document.getElementById('backBtn');
+
+backBtn.addEventListener('click', goBack);
+
+function esc(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;'); }
+
+function gaEvent(name, params){
+  try{ if(typeof gtag === 'function') gtag('event', name, params || {}); }catch(e){}
+}
+function fbEvent(name, params){
+  try{ if(typeof fbq === 'function') fbq('track', name, params || {}); }catch(e){}
+}
+function trackScreen(s){
+  gaEvent('quiz_step_view', {
+    quiz_name: 'teamlead_quiz',
+    step_number: s.id,
+    step_label: 'Trang #' + s.id,
+    step_type: s.type
+  });
+}
+
+function updateProgress(){
+  const s = SCREENS[state.index];
+  let pct;
+  if(s.type==='loading' || s.type==='result'){ pct = 100; }
+  else {
+    let count = 0;
+    for(const sc of SCREENS){
+      if(sc.id > s.id) break;
+      if(QUESTION_IDS.includes(sc.id)) count++;
+    }
+    pct = Math.round((count/QUESTION_IDS.length)*100);
+  }
+  progressFill.style.width = pct + '%';
+  progressGift.classList.toggle('reached', pct >= 100);
+}
+
+function goTo(index){
+  state.index = index;
+  render();
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+function goNext(){ if(state.index < SCREENS.length-1) goTo(state.index+1); }
+function goBack(){ if(state.index > 0) goTo(state.index-1); }
+
+function render(){
+  const s = SCREENS[state.index];
+  const hideBack = (s.id===1 || s.type==='loading' || s.type==='result');
+  backBtn.style.display = hideBack ? 'none' : 'flex';
+
+  let html = '';
+  if(s.type==='welcome') html = renderWelcome(s);
+  else if(s.type==='info') html = renderInfo(s);
+  else if(s.type==='timeline') html = renderTimeline(s);
+  else if(s.type==='single') html = renderChoice(s,false);
+  else if(s.type==='multi') html = renderChoice(s,true);
+  else if(s.type==='email') html = renderEmail(s);
+  else if(s.type==='name') html = renderName(s);
+  else if(s.type==='loading') html = renderLoading(s);
+  else if(s.type==='result') html = renderResult(s);
+
+  stage.innerHTML = `<div class="screen">${html}</div>`;
+  updateProgress();
+  attachEvents(s);
+  trackScreen(s);
+
+  if(s.type==='loading') startLoading();
+  if(s.type==='result') launchConfetti();
+}
+
+function stepLabel(s){
+  if(s.type!=='single' && s.type!=='multi') return '';
+  const pos = QUESTION_IDS.indexOf(s.id)+1;
+  return `<div class="step-label">Câu ${pos}/${QUESTION_IDS.length}</div>`;
+}
+
+function renderWelcome(s){
+  return `
+    <div class="welcome">
+      <div class="badge-icon">🚀</div>
+      <h1>${esc(s.title)}</h1>
+      <div class="welcome-opt" data-action="start">${esc(s.cta)}</div>
+      <ul class="trust-list">
+        ${s.trust.map(t=>`<li><span class="ic">${t.icon}</span>${esc(t.text)}</li>`).join('')}
+      </ul>
+    </div>`;
+}
+
+function renderInfo(s){
+  const titleCls = 'info-title' + (s.big ? ' lg' : '');
+  const bodyCls = 'info-body' + (s.big ? ' lg' : '');
+  const visual = s.squareArt
+    ? `<div class="square-illustration">${s.squareArt}</div>`
+    : (s.image ? `<div class="info-image"><img src="${s.image}" alt=""></div>` : (s.icon ? `<div class="badge-icon">${s.icon}</div>` : ''));
+  const showEyebrow = s.bigWord && s.bigWord !== s.title;
+  const titleBlock = s.bigWord
+    ? `${showEyebrow ? `<div class="info-eyebrow">${esc(s.title)}</div>` : ''}<div class="big-word ${s.bigWordSize||'short'}">${esc(s.bigWord)}</div>`
+    : `<h2 class="${titleCls}">${esc(s.title)}</h2>`;
+  return `
+    ${stepLabel(s)}
+    ${visual}
+    ${titleBlock}
+    <p class="${bodyCls}">${s.body}</p>
+    ${s.bullets ? `<ul class="info-bullets">${s.bullets.map(b=>`<li>${esc(b)}</li>`).join('')}</ul>` : ''}
+    ${s.bodyAfter ? `<p class="${bodyCls}" style="margin-top:14px;">${esc(s.bodyAfter)}</p>` : ''}
+    <button class="btn-primary" data-action="continue" style="margin-top:22px;">${s.cta}</button>
+  `;
+}
+
+function renderTimeline(s){
+  return `
+    <div class="timeline-head">
+      <div class="tl-eyebrow">${esc(s.eyebrow)}</div>
+      <h2 class="info-title lg">${esc(s.title)}</h2>
+      <p class="subtitle">${esc(s.subtitle)}</p>
+    </div>
+    <div class="timeline">
+      ${s.timeline.map((t,i)=>`
+        <div class="tl-step">
+          <div>
+            <div class="tl-dot">${t.icon}</div>
+            ${i < s.timeline.length-1 ? '<div class="tl-line"></div>' : ''}
+          </div>
+          <div class="tl-content"><b>${esc(t.t)}</b><span>${esc(t.d)}</span></div>
+        </div>
+      `).join('')}
+    </div>
+    <div class="formula-highlight">${esc(s.footer)}</div>
+    <button class="btn-primary" data-action="continue">${s.cta}</button>
+  `;
+}
+
+function renderChoice(s, isMulti){
+  const layoutClass = s.layout==='grid' || s.layout==='cards' ? 'grid' : '';
+  const saved = state.answers[s.id];
+  const optsHtml = s.options.map((o,i)=>{
+    const selected = isMulti ? (Array.isArray(saved) && saved.includes(i)) : (saved===i);
+    return `
+      <div class="opt ${selected?'selected':''} ${o.goal?'goal':''}" data-idx="${i}" ${isMulti?'data-multi':''}>
+        <span class="opt-icon">${o.i}</span>
+        <span class="opt-text">${esc(o.t)}</span>
+        <span class="check">${selected?'✓':''}</span>
+      </div>`;
+  }).join('');
+
+  const count = isMulti ? (Array.isArray(saved) ? saved.length : 0) : 0;
+  const titleHtml = s.titleHtml ? s.titleHtml : esc(s.title);
+
+  return `
+    ${stepLabel(s)}
+    <h2>${titleHtml}</h2>
+    ${s.subtitle ? `<p class="subtitle">${esc(s.subtitle)}</p>` : '<div style="margin-bottom:22px;"></div>'}
+    <div class="options ${layoutClass}">${optsHtml}</div>
+    ${isMulti ? `
+      <div class="multi-footer">
+        <button class="btn-primary" id="continueBtn" data-action="continue-multi" ${count>0?'':'disabled'}>Tiếp tục →</button>
+      </div>` : ''}
+  `;
+}
+
+function renderEmail(s){
+  return `
+    <h2>${esc(s.title)}</h2>
+    <p class="subtitle">${esc(s.subtitle)}</p>
+    <label class="field-label">Email của bạn</label>
+    <input type="email" id="emailInput" class="field-input" placeholder="ban@email.com" value="${esc(state.email)}">
+    <p class="field-hint" id="emailHint">Chúng tôi không spam, không chia sẻ thông tin của bạn.</p>
+    <button class="btn-primary" data-action="submit-email">Tiếp tục →</button>
+  `;
+}
+
+function renderName(s){
+  return `
+    <h2>${esc(s.title)}</h2>
+    <p class="subtitle">${esc(s.subtitle)}</p>
+    <label class="field-label">Tên của bạn</label>
+    <input type="text" id="nameInput" class="field-input" placeholder="Nguyễn Văn A" value="${esc(state.name)}">
+    <p class="field-hint" id="nameHint">&nbsp;</p>
+    <button class="btn-primary" data-action="submit-name">Xem kết quả của tôi →</button>
+  `;
+}
+
+function renderLoading(){
+  return `
+    <div class="loading-wrap">
+      <div class="ring-wrap">
+        <svg width="150" height="150">
+          <circle cx="75" cy="75" r="66" stroke="#E3E9F2" stroke-width="12" fill="none"/>
+          <circle id="ringProgress" cx="75" cy="75" r="66" stroke="#024dc2" stroke-width="12" fill="none"
+            stroke-linecap="round" stroke-dasharray="414.7" stroke-dashoffset="414.7"/>
+        </svg>
+        <div class="ring-pct" id="ringPct">0%</div>
+      </div>
+      <div class="loading-status" id="loadingStatus">Đang phân tích câu trả lời của bạn...</div>
+      <div class="testi-viewport">
+        <div class="testi-track" id="testiTrack">
+          ${TESTIMONIALS.map(t=>`
+            <div class="testi-card">
+              <p>"${esc(t.text)}"</p>
+              <div class="who">
+                <div class="avatar">${t.avatar}</div>
+                <div>
+                  <div class="who-name">${esc(t.name)}</div>
+                  <div class="who-role">Đã hoàn thành bài test này</div>
+                </div>
+              </div>
+            </div>`).join('')}
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderResult(){
+  const r = computeResults();
+  const topMeta = CATEGORY_META[r.top.key];
+  return `
+    <div class="result-hero">
+      <div class="emoji">🎉</div>
+      <h1>Chúc mừng ${esc(r.name)}, đây là bức tranh của bạn!</h1>
+      <p>Dựa trên câu trả lời, đây là điều bạn đang khao khát và cần cải thiện nhất.</p>
+    </div>
+
+    <div class="result-section" style="margin-top:0;">
+      <h3>💛 3 điều bạn đang khao khát nhất</h3>
+      <div class="desire-list">
+        ${r.desires.map((d,i)=>`<div class="desire-item"><span class="num">${i+1}</span><span>${esc(d)}</span></div>`).join('')}
+      </div>
+    </div>
+
+    ${r.feelings.length ? `
+    <div class="result-section">
+      <h3>🌤️ Mỗi ngày đi làm, bạn muốn được cảm thấy</h3>
+      <div class="feel-chips">
+        ${r.feelings.map(f=>`<span class="feel-chip">${esc(f)}</span>`).join('')}
+      </div>
+    </div>` : ''}
+
+    <div class="result-section">
+      <h3>📊 Toàn cảnh 3 khía cạnh của bạn</h3>
+      ${r.scores.map(sc=>`
+        <div class="score-row">
+          <div class="score-top">
+            <span class="score-name">${sc.priority?'⭐ ':''}${esc(sc.label)}</span>
+            <span class="score-count">${sc.count} dấu hiệu</span>
+          </div>
+          <div class="score-bar-track"><div class="score-bar-fill ${sc.priority?'priority':''}" style="width:${sc.pct}%"></div></div>
+        </div>
+      `).join('')}
+      <div class="priority-note">
+        Bạn có thể tập trung cải thiện <b>${esc(r.top.label)}</b> trước tiên — đây là khía cạnh có nhiều dấu hiệu cần thay đổi nhất.
+        Sau đó, bổ sung thêm <b>${r.rest.map(x=>x.label).join(' và ')}</b> để trở thành phiên bản Team Lead toàn diện.
+      </div>
+    </div>
+
+    <div class="priority-spotlight">
+      <div class="spotlight-icon">${topMeta.icon}</div>
+      <div class="spotlight-tag">ƯU TIÊN CẢI THIỆN</div>
+      <h2>${esc(r.top.label)}</h2>
+      <p>${r.top.count} dấu hiệu · ${esc(topMeta.desc)}</p>
+    </div>
+
+    <div class="cta-wrap">
+      <a class="btn-primary result-cta pulse" href="phuong-phap.html" data-action="finish">Yes, Tôi Muốn Biết Cách Cải Thiện →</a>
+      <p class="cta-sub">Khám phá phương pháp độc quyền đúc kết từ 10 năm kinh nghiệm làm Team Lead của Sora.</p>
+    </div>
+  `;
+}
+
+function computeResults(){
+  const countOf = id => (state.answers[id]||[]).length;
+  const goalTextOf = id => SCREENS.find(s=>s.id===id).options.find(o=>o.goal).t;
+
+  const desireQIds = [2,3,5,7,9,10];
+  const ranked = desireQIds.map(id=>({id, count:countOf(id)})).sort((a,b)=>b.count-a.count);
+  const top3 = ranked.slice(0,3).map(x=>goalTextOf(x.id));
+
+  const feelSel = state.answers[17] || [];
+  const feelTexts = feelSel.map(i=> SCREENS.find(s=>s.id===17).options[i].t);
+
+  const innerScore = countOf(5) + countOf(7);
+  const systemScore = countOf(2) + countOf(3);
+  const leadScore = countOf(9) + countOf(10);
+  const maxScore = Math.max(innerScore, systemScore, leadScore, 1);
+
+  const scores = [
+    {key:'inner', label:'Vững nội tâm', count:innerScore, pct: Math.round((innerScore/maxScore)*100)},
+    {key:'system', label:'Xây hệ thống', count:systemScore, pct: Math.round((systemScore/maxScore)*100)},
+    {key:'lead', label:'Kỹ năng dẫn dắt', count:leadScore, pct: Math.round((leadScore/maxScore)*100)}
+  ].sort((a,b)=>b.count-a.count);
+  scores[0].priority = true;
+
+  return {
+    name: state.name || 'bạn',
+    desires: top3,
+    feelings: feelTexts,
+    scores,
+    top: scores[0],
+    rest: scores.slice(1)
+  };
+}
+
+function attachEvents(s){
+  stage.querySelectorAll('.opt').forEach(el=>{
+    el.addEventListener('click', ()=>{
+      const idx = parseInt(el.dataset.idx,10);
+      if(s.type==='single'){
+        state.answers[s.id] = idx;
+        stage.querySelectorAll('.opt').forEach(o=>{
+          o.classList.remove('selected');
+          const c = o.querySelector('.check');
+          if(c) c.textContent = '';
+        });
+        el.classList.add('selected');
+        const chk = el.querySelector('.check');
+        if(chk) chk.textContent = '✓';
+        setTimeout(goNext, 260);
+      } else {
+        const arr = state.answers[s.id] ? state.answers[s.id].slice() : [];
+        const pos = arr.indexOf(idx);
+        const nowSelected = pos === -1;
+        if(pos>-1) arr.splice(pos,1); else arr.push(idx);
+        state.answers[s.id] = arr;
+        el.classList.toggle('selected', nowSelected);
+        const chk = el.querySelector('.check');
+        if(chk) chk.textContent = nowSelected ? '✓' : '';
+        const continueBtn = stage.querySelector('[data-action="continue-multi"]');
+        if(continueBtn) continueBtn.disabled = arr.length===0;
+      }
+    });
+  });
+
+  stage.querySelectorAll('[data-action="start"], [data-action="continue"]').forEach(btn=>{
+    btn.addEventListener('click', goNext);
+  });
+
+  const continueMulti = stage.querySelector('[data-action="continue-multi"]');
+  if(continueMulti){ continueMulti.addEventListener('click', ()=>{ if(!continueMulti.disabled) goNext(); }); }
+
+  const submitEmail = stage.querySelector('[data-action="submit-email"]');
+  if(submitEmail){
+    submitEmail.addEventListener('click', ()=>{
+      const input = document.getElementById('emailInput');
+      const hint = document.getElementById('emailHint');
+      const val = input.value.trim();
+      const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+      if(!valid){
+        hint.textContent = 'Vui lòng nhập email hợp lệ.';
+        hint.classList.add('error');
+        input.focus();
+        return;
+      }
+      state.email = val;
+      fbEvent('Lead');
+      gaEvent('generate_lead');
+      goNext();
+    });
+  }
+
+  const submitName = stage.querySelector('[data-action="submit-name"]');
+  if(submitName){
+    submitName.addEventListener('click', ()=>{
+      const input = document.getElementById('nameInput');
+      const hint = document.getElementById('nameHint');
+      const val = input.value.trim();
+      if(!val){
+        hint.textContent = 'Vui lòng nhập tên của bạn.';
+        hint.classList.add('error');
+        input.focus();
+        return;
+      }
+      state.name = val;
+      goNext();
+    });
+  }
+}
+
+function startLoading(){
+  const ring = document.getElementById('ringProgress');
+  const pctEl = document.getElementById('ringPct');
+  const statusEl = document.getElementById('loadingStatus');
+  const track = document.getElementById('testiTrack');
+  const circumference = 414.7;
+  const messages = [
+    'Đang phân tích câu trả lời của bạn...',
+    'Đang xác định điều bạn khao khát nhất...',
+    'Đang tính điểm 3 khía cạnh Team Lead...',
+    'Sắp xong rồi...'
+  ];
+  let pct = 0;
+  let lastIdx = -1;
+  const updateSlide = ()=>{
+    const idx = pct>=66 ? 2 : (pct>=33 ? 1 : 0);
+    if(idx!==lastIdx && track){ track.style.transform = `translateX(-${idx*100}%)`; lastIdx = idx; }
+  };
+  updateSlide();
+  const interval = setInterval(()=>{
+    pct += 2;
+    if(pct > 100) pct = 100;
+    ring.style.strokeDashoffset = circumference - (circumference*pct/100);
+    pctEl.textContent = pct + '%';
+    const msgIdx = Math.min(messages.length-1, Math.floor(pct/26));
+    statusEl.textContent = messages[msgIdx];
+    updateSlide();
+    if(pct >= 100){
+      clearInterval(interval);
+      setTimeout(goNext, 700);
+    }
+  }, 180);
+}
+
+function launchConfetti(){
+  const emojis = ['🎉','✨','💛','🎊'];
+  for(let i=0;i<18;i++){
+    const el = document.createElement('div');
+    el.className = 'confetti';
+    el.textContent = emojis[Math.floor(Math.random()*emojis.length)];
+    el.style.left = Math.random()*100 + 'vw';
+    el.style.animationDuration = (2.2 + Math.random()*1.6) + 's';
+    el.style.animationDelay = (Math.random()*0.6) + 's';
+    document.body.appendChild(el);
+    setTimeout(()=>el.remove(), 4200);
+  }
+}
+
+render();
+</script>
+</body>
+</html>
