@@ -177,13 +177,14 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;}
   display:flex;align-items:center;justify-content:center;
   font-size:30px;
   margin-bottom:18px;
+  flex-shrink:0;
 }
+.welcome-kicker{display:flex; align-items:center; gap:14px; margin-bottom:24px;}
+.welcome-kicker .badge-icon{margin-bottom:0;}
+.welcome-kicker-text{text-align:left;}
+.welcome-kicker-text .wk-line1{font-family:var(--fd); font-weight:700; font-size:15px; color:var(--text); line-height:1.35;}
+.welcome-kicker-text .wk-line2{font-size:13px; color:var(--muted); margin-top:2px;}
 .welcome h1{font-size:clamp(19px,4.5vw,23px); margin-bottom:26px;}
-.welcome-opt{
-  padding:18px 20px;
-  font-weight:600;
-  text-align:left;
-}
 .btn-primary{
   width:100%;
   background:var(--primary);
@@ -735,7 +736,10 @@ const SCREENS = [
 { id:23, type:'result' }
 ];
 
-const state = { index:0, answers:{}, email:'', name:'' };
+// Paste your deployed Google Apps Script Web App URL here (ends with /exec) to enable Google Sheet logging.
+const SHEET_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbzTx46AXjelV-LDJNkh9i0zWt90w_ekqTmS1ZNU8aJos_Xuo1lm-vrC_-z4FwfBFCArVA/exec';
+
+const state = { index:0, answers:{}, email:'', name:'', sheetSent:false, utmLink:window.location.href };
 
 const stage = document.getElementById('screenStage');
 const progressFill = document.getElementById('progressFill');
@@ -759,6 +763,34 @@ function trackScreen(s){
     step_label: 'Trang #' + s.id,
     step_type: s.type
   });
+}
+
+function firstWords(text, n){
+  return text.split(/\s+/).slice(0,n).join(' ');
+}
+function answerSummary(id){
+  const screen = SCREENS.find(sc=>sc.id===id);
+  const val = state.answers[id];
+  if(!screen || val===undefined || val===null) return '';
+  if(screen.type==='single'){
+    return screen.options[val] ? firstWords(screen.options[val].t, 4) : '';
+  }
+  if(Array.isArray(val)){
+    return val.map(i=> screen.options[i] ? firstWords(screen.options[i].t, 4) : '').join(' | ');
+  }
+  return '';
+}
+
+function sendToSheet(payload){
+  if(!SHEET_WEBHOOK_URL) return;
+  try{
+    fetch(SHEET_WEBHOOK_URL, {
+      method:'POST',
+      mode:'no-cors',
+      headers:{'Content-Type':'text/plain;charset=utf-8'},
+      body: JSON.stringify(payload)
+    });
+  }catch(e){}
 }
 
 function updateProgress(){
@@ -819,9 +851,19 @@ function stepLabel(s){
 function renderWelcome(s){
   return `
     <div class="welcome">
-      <div class="badge-icon">🚀</div>
+      <div class="welcome-kicker">
+        <div class="badge-icon">🚀</div>
+        <div class="welcome-kicker-text">
+          <div class="wk-line1">Trở thành Team Lead truyền cảm hứng</div>
+          <div class="wk-line2">Đội ngũ đồng lòng · Cấp trên tin tưởng</div>
+        </div>
+      </div>
       <h1>${esc(s.title)}</h1>
-      <div class="welcome-opt" data-action="start">${esc(s.cta)}</div>
+      <div class="opt welcome-opt" data-idx="0">
+        <span class="opt-icon">✅</span>
+        <span class="opt-text">${esc(s.cta)}</span>
+        <span class="check"></span>
+      </div>
       <ul class="trust-list">
         ${s.trust.map(t=>`<li><span class="ic">${t.icon}</span>${esc(t.text)}</li>`).join('')}
       </ul>
@@ -956,6 +998,36 @@ function renderLoading(){
 function renderResult(){
   const r = computeResults();
   const topMeta = CATEGORY_META[r.top.key];
+
+  if(!state.sheetSent){
+    state.sheetSent = true;
+    const byKey = k => r.scores.find(x=>x.key===k).count;
+    sendToSheet({
+      date: new Date().toISOString(),
+      name: r.name,
+      email: state.email,
+      utm: state.utmLink,
+      priority: r.top.label,
+      desires: r.desires,
+      feelings: r.feelings,
+      innerScore: byKey('inner'),
+      systemScore: byKey('system'),
+      leadScore: byKey('lead'),
+      q2: answerSummary(2),
+      q3: answerSummary(3),
+      q5: answerSummary(5),
+      q7: answerSummary(7),
+      q9: answerSummary(9),
+      q10: answerSummary(10),
+      q12: answerSummary(12),
+      q14: answerSummary(14),
+      q15: answerSummary(15),
+      q17: answerSummary(17),
+      q19: answerSummary(19),
+      rawAnswers: state.answers
+    });
+  }
+
   return `
     <div class="result-hero">
       <div class="emoji">🎉</div>
@@ -1046,8 +1118,8 @@ function attachEvents(s){
   stage.querySelectorAll('.opt').forEach(el=>{
     el.addEventListener('click', ()=>{
       const idx = parseInt(el.dataset.idx,10);
-      if(s.type==='single'){
-        state.answers[s.id] = idx;
+      if(s.type==='single' || s.type==='welcome'){
+        if(s.type==='single') state.answers[s.id] = idx;
         stage.querySelectorAll('.opt').forEach(o=>{
           o.classList.remove('selected');
           const c = o.querySelector('.check');
@@ -1072,7 +1144,7 @@ function attachEvents(s){
     });
   });
 
-  stage.querySelectorAll('[data-action="start"], [data-action="continue"]').forEach(btn=>{
+  stage.querySelectorAll('[data-action="continue"]').forEach(btn=>{
     btn.addEventListener('click', goNext);
   });
 
