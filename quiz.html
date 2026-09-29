@@ -771,7 +771,12 @@ const SCREENS = [
 // Paste your deployed Google Apps Script Web App URL here (ends with /exec) to enable Google Sheet logging.
 const SHEET_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbzTx46AXjelV-LDJNkh9i0zWt90w_ekqTmS1ZNU8aJos_Xuo1lm-vrC_-z4FwfBFCArVA/exec';
 
-const state = { index:0, answers:{}, email:'', name:'', sheetSent:false, utmLink:window.location.href };
+const state = {
+  index:0, answers:{}, email:'', name:'',
+  completedSent:false,
+  utmLink:window.location.href,
+  sessionId: Date.now().toString(36) + Math.random().toString(36).slice(2,10)
+};
 
 const stage = document.getElementById('screenStage');
 const progressFill = document.getElementById('progressFill');
@@ -825,6 +830,42 @@ function sendToSheet(payload){
   }catch(e){}
 }
 
+function buildSheetPayload(status, lastStepId){
+  const r = computeResults();
+  const byKey = k => r.scores.find(x=>x.key===k).count;
+  return {
+    sessionId: state.sessionId,
+    date: new Date().toISOString(),
+    status: status,
+    lastStep: 'Trang #' + lastStepId,
+    name: state.name,
+    email: state.email,
+    utm: state.utmLink,
+    priority: r.top.label,
+    desires: r.desires,
+    feelings: r.feelings,
+    innerScore: byKey('inner'),
+    systemScore: byKey('system'),
+    leadScore: byKey('lead'),
+    q2: answerSummary(2),
+    q3: answerSummary(3),
+    q5: answerSummary(5),
+    q7: answerSummary(7),
+    q9: answerSummary(9),
+    q10: answerSummary(10),
+    q12: answerSummary(12),
+    q14: answerSummary(14),
+    q15: answerSummary(15),
+    q17: answerSummary(17),
+    q19: answerSummary(19),
+    rawAnswers: state.answers
+  };
+}
+
+function checkpointToSheet(fromScreen){
+  sendToSheet(buildSheetPayload('in_progress', fromScreen.id));
+}
+
 function updateProgress(){
   const s = SCREENS[state.index];
   let pct;
@@ -846,7 +887,11 @@ function goTo(index){
   render();
   window.scrollTo({top:0, behavior:'smooth'});
 }
-function goNext(){ if(state.index < SCREENS.length-1) goTo(state.index+1); }
+function goNext(){
+  const cur = SCREENS[state.index];
+  if(cur.type==='single' || cur.type==='multi') checkpointToSheet(cur);
+  if(state.index < SCREENS.length-1) goTo(state.index+1);
+}
 function goBack(){ if(state.index > 0) goTo(state.index-1); }
 
 function render(){
@@ -1031,33 +1076,9 @@ function renderResult(){
   const r = computeResults();
   const topMeta = CATEGORY_META[r.top.key];
 
-  if(!state.sheetSent){
-    state.sheetSent = true;
-    const byKey = k => r.scores.find(x=>x.key===k).count;
-    sendToSheet({
-      date: new Date().toISOString(),
-      name: r.name,
-      email: state.email,
-      utm: state.utmLink,
-      priority: r.top.label,
-      desires: r.desires,
-      feelings: r.feelings,
-      innerScore: byKey('inner'),
-      systemScore: byKey('system'),
-      leadScore: byKey('lead'),
-      q2: answerSummary(2),
-      q3: answerSummary(3),
-      q5: answerSummary(5),
-      q7: answerSummary(7),
-      q9: answerSummary(9),
-      q10: answerSummary(10),
-      q12: answerSummary(12),
-      q14: answerSummary(14),
-      q15: answerSummary(15),
-      q17: answerSummary(17),
-      q19: answerSummary(19),
-      rawAnswers: state.answers
-    });
+  if(!state.completedSent){
+    state.completedSent = true;
+    sendToSheet(buildSheetPayload('completed', 23));
   }
 
   return `
