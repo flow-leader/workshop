@@ -236,6 +236,16 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;}
   padding:18px 12px;
 }
 .opt:hover,.welcome-opt:hover{border-color:var(--primary); background:var(--primary-light);}
+.welcome-opt{
+  border-width:2px;
+  border-color:var(--primary);
+  animation:welcomePulse 1.8s ease-in-out infinite;
+}
+.welcome-opt.selected{animation:none;}
+@keyframes welcomePulse{
+  0%,100%{ box-shadow:0 0 0 0 rgba(2,77,194,0.32); }
+  50%{ box-shadow:0 0 0 10px rgba(2,77,194,0); }
+}
 .opt .opt-icon{font-size:20px; flex-shrink:0;}
 .opt .opt-text{flex:1;}
 .opt.selected{
@@ -267,12 +277,12 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;}
 
 /* info screens */
 .info-title.lg{font-size:clamp(24px,6vw,30px);}
-.info-eyebrow{font-size:14.5px; font-weight:700; color:var(--muted); text-align:center; line-height:1.45; margin-bottom:4px;}
-.big-word{font-family:var(--fd); font-weight:800; color:var(--primary); text-align:center; line-height:1.16; margin:2px 0 20px;}
+.info-eyebrow{font-size:14.5px; font-weight:700; color:var(--muted); text-align:center; line-height:1.45; margin-bottom:8px;}
+.big-word{font-family:var(--fd); font-weight:800; color:var(--primary); text-align:center; line-height:1.22; margin:4px 0 26px;}
 .big-word.short{font-size:clamp(32px,10.5vw,46px);}
 .big-word.sentence{font-size:clamp(23px,6.5vw,29px);}
 .info-body{font-size:15px; line-height:1.7; color:var(--text); margin-bottom:8px;}
-.info-body.lg{font-size:17px; line-height:1.8;}
+.info-body.lg{font-size:17px; line-height:1.9; margin-bottom:16px;}
 .info-body strong{color:var(--primary);}
 .emph-inline{color:var(--primary); font-weight:800;}
 .info-bullets{margin:16px 0 4px; list-style:none; display:flex; flex-direction:column; gap:11px;}
@@ -521,6 +531,28 @@ const ART = {
     <circle cx="108" cy="238" r="12" fill="var(--text)"/>
     <circle cx="160" cy="252" r="12" fill="var(--text)"/>
     <circle cx="212" cy="238" r="12" fill="var(--text)"/>
+  </svg>`,
+  reset: `<svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">
+    <rect width="320" height="320" rx="28" fill="var(--primary-light)"/>
+    <rect x="40" y="222" width="240" height="10" rx="5" fill="var(--primary)" opacity="0.18"/>
+    <rect x="52" y="122" width="72" height="100" rx="10" fill="var(--text)"/>
+    <rect x="68" y="142" width="14" height="14" rx="3" fill="var(--primary-light)"/>
+    <rect x="94" y="142" width="14" height="14" rx="3" fill="var(--primary-light)"/>
+    <rect x="68" y="166" width="14" height="14" rx="3" fill="var(--primary-light)"/>
+    <rect x="94" y="166" width="14" height="14" rx="3" fill="var(--primary-light)"/>
+    <rect x="196" y="122" width="72" height="100" rx="10" fill="var(--text)"/>
+    <rect x="212" y="142" width="14" height="14" rx="3" fill="var(--primary-light)"/>
+    <rect x="238" y="142" width="14" height="14" rx="3" fill="var(--primary-light)"/>
+    <rect x="212" y="166" width="14" height="14" rx="3" fill="var(--primary-light)"/>
+    <rect x="238" y="166" width="14" height="14" rx="3" fill="var(--primary-light)"/>
+    <line x1="128" y1="150" x2="190" y2="150" stroke="var(--muted)" stroke-width="3" stroke-dasharray="7 8"/>
+    <polygon points="196,150 182,142 182,158" fill="var(--muted)"/>
+    <circle cx="88" cy="112" r="15" fill="var(--gold-dark)"/>
+    <rect x="84" y="104" width="8" height="11" rx="3" fill="#fff"/>
+    <circle cx="88" cy="120" r="2.6" fill="#fff"/>
+    <circle cx="232" cy="112" r="15" fill="var(--gold-dark)"/>
+    <rect x="228" y="104" width="8" height="11" rx="3" fill="#fff"/>
+    <circle cx="232" cy="120" r="2.6" fill="#fff"/>
   </svg>`
 };
 
@@ -655,7 +687,7 @@ const SCREENS = [
     {t:'3 năm +', i:'⏰'}
   ]
 },
-{ id:13, type:'info', big:true,
+{ id:13, type:'info', big:true, squareArt:ART.reset,
   title:'Đổi công ty không giải quyết được gốc rễ',
   bigWord:'Sự thay đổi thực sự phải đến từ bên trong bạn.', bigWordSize:'sentence',
   body:'Nghỉ việc sang một công ty mới, nhưng mang theo tư duy và thói quen cũ, bạn sẽ lại gặp đúng những vấn đề này ở một nơi khác.',
