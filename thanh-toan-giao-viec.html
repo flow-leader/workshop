@@ -288,6 +288,13 @@
     overflow: hidden; background: #fff;
   }
   .ckt-qr-wrap img { width: 100%; display: block; }
+  .ckt-qr-wrap img[hidden] { display: none; }
+  .ckt-qr-loading {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 12px; min-height: 260px; padding: 20px; text-align: center;
+    font-family: var(--fb); font-size: 13.5px; font-weight: 500; color: var(--primary);
+  }
+  .copy-btn:disabled { opacity: .45; cursor: default; }
 
   .ckt-bank-title {
     font-family: var(--fd); font-weight: 700; font-size: 14px;
@@ -462,7 +469,11 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
         <p class="ckt-pay-desc">Vui lòng quét mã QR bên dưới, nội dung chuyển khoản sẽ tự động điền đúng cú pháp.</p>
 
         <div class="ckt-qr-wrap">
-          <img id="qr-img" src="" alt="Mã QR thanh toán" loading="lazy">
+          <div class="ckt-qr-loading" id="qr-loading">
+            <div class="spinner"></div>
+            <span>Đang tạo mã thanh toán...</span>
+          </div>
+          <img id="qr-img" src="" alt="Mã QR thanh toán" hidden>
         </div>
 
         <p class="ckt-bank-title">Thông tin chuyển khoản</p>
@@ -480,13 +491,13 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
           <tr>
             <td>Nội dung CK</td>
             <td>
-              <span id="b-ref">—</span>
-              <button type="button" class="copy-btn" id="copy-ref-btn">Sao chép</button>
+              <span id="b-ref">Đang tạo mã...</span>
+              <button type="button" class="copy-btn" id="copy-ref-btn" disabled>Sao chép</button>
             </td>
           </tr>
         </table>
 
-        <div class="pay-status pay-status--waiting" id="pay-waiting">
+        <div class="pay-status pay-status--waiting" id="pay-waiting" style="display:none;">
           <div class="spinner"></div>
           <span class="pay-status__text">Đang chờ xác nhận thanh toán...</span>
         </div>
@@ -602,7 +613,7 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
       + '&template=compact';
   }
 
-  function refreshTotals() {
+  function refreshTotals(skipSync) {
     var total = calcTotal();
     document.getElementById('bump-total').textContent = fmtVND(total);
 
@@ -618,7 +629,8 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
     if (ckContent) {
       document.getElementById('qr-img').src = buildQrSrc(ckContent, total);
     }
-    if (orderId) {
+    /* skipSync: vừa tạo đơn xong, số tiền đã đúng -> không gọi updateOrder thừa */
+    if (orderId && !skipSync) {
       fetch(GAS_URL, {
         method: 'POST',
         body: JSON.stringify({
@@ -654,10 +666,14 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
 
     if (!ok) return;
 
-    btnSubmit.disabled    = true;
-    btnSubmit.textContent = 'Đang xử lý...';
+    btnSubmit.disabled = true;
 
     var total = calcTotal();
+
+    /* Sang bước 2 NGAY (không chờ GAS). Khung QR hiện "Đang tạo mã..." đến khi có đơn. */
+    step1.style.display = 'none';
+    step2.style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 
     fetch(GAS_URL, {
       method: 'POST',
@@ -680,23 +696,40 @@ src="https://www.facebook.com/tr?id=1532532048582130&ev=PageView&noscript=1"
       orderId   = res.orderId;
       ckContent = res.ckContent;
 
+      var refBtn = document.getElementById('copy-ref-btn');
       document.getElementById('b-ref').textContent = ckContent;
-      document.getElementById('copy-ref-btn').onclick = function () { copyStr(ckContent, this); };
+      refBtn.onclick  = function () { copyStr(ckContent, this); };
+      refBtn.disabled = false;
 
-      refreshTotals();
+      /* Hiện QR với số tiền lúc tạo đơn */
+      var qr = document.getElementById('qr-img');
+      document.getElementById('b-amount').textContent = fmtVND(total);
+      qr.src    = buildQrSrc(ckContent, total);
+      qr.hidden = false;
+      document.getElementById('qr-loading').style.display = 'none';
+      document.getElementById('pay-waiting').style.display = '';
 
-      step1.style.display = 'none';
-      step2.style.display = 'block';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      /* Khách đổi lựa chọn trong lúc chờ -> đồng bộ lại lên GAS; không đổi thì bỏ qua */
+      refreshTotals(calcTotal() === total);
 
       if (typeof fbq !== 'undefined') fbq('track', 'Lead');
+
+      /* Gắn tag Kit "leadgoing" tách riêng, không bắt khách chờ */
+      fetch(GAS_URL, {
+        method: 'POST',
+        keepalive: true,
+        body: JSON.stringify({ action: 'tagGoing', data: { orderId: orderId } })
+      }).catch(function () {});
 
       startPolling(orderId);
     })
     .catch(function (err) {
       alert('Có lỗi xảy ra: ' + err.message + '. Vui lòng thử lại.');
-      btnSubmit.disabled    = false;
-      btnSubmit.textContent = 'TIẾP TỤC THANH TOÁN →';
+      /* Quay lại bước 1 */
+      step2.style.display = 'none';
+      step1.style.display = 'block';
+      btnSubmit.disabled  = false;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   });
 
