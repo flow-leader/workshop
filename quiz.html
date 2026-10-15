@@ -1220,6 +1220,7 @@ function attachEvents(s){
       state.email = val;
       fbEvent('Lead');
       gaEvent('generate_lead');
+      sendToSheet(buildSheetPayload('in_progress', 20));
       goNext();
     });
   }
@@ -1237,6 +1238,7 @@ function attachEvents(s){
         return;
       }
       state.name = val;
+      sendToSheet(buildSheetPayload('in_progress', 21));
       goNext();
     });
   }
