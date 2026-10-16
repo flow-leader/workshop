@@ -122,6 +122,14 @@
     .mech__item small { display: block; font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.55); }
     .mech__item b { display: block; font-family: var(--fd); font-size: 23px; color: #fff; margin: 2px 0 4px; }
     .mech__item p { font-size: 17px; line-height: 1.55; color: rgba(255,255,255,.78); }
+    .mech .ring, .mech .ring-labels text { transition: opacity .25s, transform .25s, filter .25s; transform-box: view-box; transform-origin: 280px 280px; }
+    .mech .ring { cursor: pointer; }
+    .mech .ring-labels { pointer-events: none; }
+    .mech__item { transition: opacity .25s, background .25s, transform .25s; border-radius: 12px; cursor: default; }
+    .mech[data-hl] .ring:not(.is-hl) { filter: saturate(.4) brightness(.55); }
+    .mech[data-hl] .ring-labels text:not(.is-hl), .mech[data-hl] .mech__item:not(.is-hl) { opacity: .4; }
+    .mech .ring.is-hl { transform: scale(1.035); filter: drop-shadow(0 0 18px rgba(226,194,122,.55)); }
+    .mech__item.is-hl { background: rgba(226,194,122,.10); transform: translateX(6px); }
     @media (max-width: 900px) { .mech { grid-template-columns: 1fr; gap: 36px; } }
     .root-line { text-align: center; max-width: 860px; margin: 64px auto 0; font-family: var(--fd); font-style: italic; font-size: clamp(22px, 2.6vw, 32px); line-height: 1.5; color: #fff; }
     .root-line span { color: var(--gold); }
@@ -263,7 +271,9 @@
 
     /* ── FORMAT ── */
     .formats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 56px; }
-    .fmt { background: #fff; border-radius: 18px; padding: 30px 28px; border: 1px solid var(--line); }
+    .fmt { background: #fff; border-radius: 18px; padding: 30px 28px; border: 1px solid var(--line); transition: transform .25s, box-shadow .25s, border-color .25s; }
+    .fmt.fx.in { transition: opacity .7s ease, transform .25s ease, box-shadow .25s, border-color .25s; }
+    .fmt.fx.in:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(18,25,54,.12); border-color: rgba(2,77,194,.25); }
     .fmt__icon { width: 52px; height: 52px; border-radius: 14px; background: var(--blue-soft); color: var(--blue); display: grid; place-items: center; margin-bottom: 18px; }
     .fmt b { display: block; font-family: var(--fd); font-size: 21px; margin-bottom: 8px; color: var(--navy); line-height: 1.35; }
     .fmt p { font-size: 16px; color: var(--muted); line-height: 1.6; }
@@ -368,7 +378,7 @@
           </div>
         </div>
         <div class="hero__photo">
-          <img src="assets/images/sora-desk.jpg" alt="Sora đang coaching 1-1">
+          <img src="assets/images/Profile.jpg" alt="Sora">
         </div>
       </div>
     </div>
@@ -434,14 +444,14 @@
       <div class="mech">
         <div class="fx">
           <svg viewBox="0 0 560 560" role="img" aria-label="Cơ chế Flow Leader: ba vòng tròn đồng tâm, trong cùng là Vững nội tâm, giữa là Tư duy hệ thống, ngoài cùng là Kỹ năng dẫn dắt">
-            <circle cx="280" cy="280" r="270" fill="rgba(226,194,122,.22)" stroke="rgba(226,194,122,.55)" stroke-width="1.5"/>
-            <circle cx="280" cy="280" r="182" fill="#E2C27A"/>
-            <circle cx="280" cy="280" r="96" fill="#a87917"/>
-            <g font-family="Lora, Georgia, serif" font-weight="700" text-anchor="middle">
-              <text x="280" y="68" font-size="22" fill="#E2C27A" letter-spacing="1.5">KỸ NĂNG DẪN DẮT</text>
-              <text x="280" y="156" font-size="22" fill="#121936" letter-spacing="1.5">TƯ DUY HỆ THỐNG</text>
-              <text x="280" y="274" font-size="23" fill="#fff" letter-spacing="1">VỮNG</text>
-              <text x="280" y="304" font-size="23" fill="#fff" letter-spacing="1">NỘI TÂM</text>
+            <circle class="ring" data-l="3" cx="280" cy="280" r="270" fill="rgba(226,194,122,.22)" stroke="rgba(226,194,122,.55)" stroke-width="1.5"/>
+            <circle class="ring" data-l="2" cx="280" cy="280" r="182" fill="#E2C27A"/>
+            <circle class="ring" data-l="1" cx="280" cy="280" r="96" fill="#a87917"/>
+            <g class="ring-labels" font-family="Lora, Georgia, serif" font-weight="700" text-anchor="middle">
+              <text data-l="3" x="280" y="68" font-size="22" fill="#E2C27A" letter-spacing="1.5">KỸ NĂNG DẪN DẮT</text>
+              <text data-l="2" x="280" y="156" font-size="22" fill="#121936" letter-spacing="1.5">TƯ DUY HỆ THỐNG</text>
+              <text data-l="1" x="280" y="274" font-size="23" fill="#fff" letter-spacing="1">VỮNG</text>
+              <text data-l="1" x="280" y="304" font-size="23" fill="#fff" letter-spacing="1">NỘI TÂM</text>
             </g>
           </svg>
         </div>
@@ -449,15 +459,15 @@
           <div class="eyebrow">Cơ chế Flow Leader™</div>
           <div class="mech__title">Đi từ gốc bên trong ra ngoài</div>
           <div class="mech__sub">Dẫn dắt từ bên trong</div>
-          <div class="mech__item">
+          <div class="mech__item" data-l="1">
             <span class="mech__dot" style="background:#a87917"></span>
             <div><small>Gốc rễ · Trong cùng</small><b>Vững nội tâm</b><p>Cơ chế Flow Leader bắt đầu từ gốc: quay về bên trong, xây nội tâm vững chắc.</p></div>
           </div>
-          <div class="mech__item">
+          <div class="mech__item" data-l="2">
             <span class="mech__dot" style="background:#E2C27A"></span>
             <div><small>Sau đó</small><b>Tư duy hệ thống</b><p>Giúp bạn xây dựng hệ thống công việc và đội ngũ chạy chủ động.</p></div>
           </div>
-          <div class="mech__item">
+          <div class="mech__item" data-l="3">
             <span class="mech__dot" style="background:rgba(226,194,122,.18);border:1.5px solid rgba(226,194,122,.7)"></span>
             <div><small>Cuối cùng · Ngoài cùng</small><b>Kỹ năng dẫn dắt</b><p>Kết nối cả sếp lẫn nhân viên, tạo kết quả thông qua người khác.</p></div>
           </div>
@@ -1049,6 +1059,20 @@
       document.querySelectorAll('.checks li').forEach(function (li) {
         li.addEventListener('click', function () { li.classList.toggle('on'); });
       });
+
+      // Section 3: hovering a circle or its legend item highlights that layer
+      var mech = document.querySelector('.mech');
+      if (mech) {
+        var layers = mech.querySelectorAll('[data-l]');
+        function hl(l) {
+          if (l) mech.dataset.hl = l; else delete mech.dataset.hl;
+          layers.forEach(function (el) { el.classList.toggle('is-hl', el.getAttribute('data-l') === l); });
+        }
+        mech.querySelectorAll('.ring, .mech__item').forEach(function (el) {
+          el.addEventListener('mouseenter', function () { hl(el.getAttribute('data-l')); });
+          el.addEventListener('mouseleave', function () { hl(null); });
+        });
+      }
 
       // Fade-in on scroll
       if ('IntersectionObserver' in window) {
