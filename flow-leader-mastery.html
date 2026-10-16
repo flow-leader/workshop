@@ -105,16 +105,16 @@
     .callout strong { color: var(--gold); }
     @media (max-width: 600px) { .callout { flex-direction: column; align-items: flex-start; padding: 26px 22px; } }
 
-    /* ── BRIDGE ── */
-    .bridge { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; align-items: center; gap: 0; margin: 56px 0; }
-    .bridge__node { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.14); border-radius: 18px; padding: 28px 22px; text-align: center; }
-    .bridge__node small { display: block; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.55); margin-bottom: 8px; }
-    .bridge__node b { font-family: var(--fd); font-size: 26px; display: block; margin-bottom: 6px; }
-    .bridge__node p { font-size: 16px; color: rgba(255,255,255,.72); line-height: 1.5; }
-    .bridge__node--me { background: linear-gradient(160deg, var(--gold), #c9a457); border-color: transparent; color: var(--navy); box-shadow: 0 20px 50px rgba(226,194,122,.25); }
-    .bridge__node--me small, .bridge__node--me p { color: rgba(18,25,54,.75); }
-    .bridge__link { width: 56px; height: 2px; background: repeating-linear-gradient(90deg, var(--gold) 0 8px, transparent 8px 14px); }
-    @media (max-width: 800px) { .bridge { grid-template-columns: 1fr; } .bridge__link { width: 2px; height: 32px; margin: 0 auto; background: repeating-linear-gradient(180deg, var(--gold) 0 8px, transparent 8px 14px); } }
+    /* ── OUTSIDE STRUGGLES ── */
+    .struggles { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 56px 0; }
+    .struggle { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.14); border-radius: 20px; padding: 32px 32px 30px; }
+    .struggle__tag { display: inline-block; font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+    .struggle h3 { color: #fff; margin-bottom: 16px; }
+    .struggle p { font-size: 18px; line-height: 1.65; color: rgba(255,255,255,.8); }
+    .struggle__end { margin-top: 18px; padding-top: 16px; border-top: 1px dashed rgba(255,255,255,.18); font-family: var(--fd); font-style: italic; font-size: 19px; color: rgba(255,255,255,.92); }
+    @media (max-width: 800px) { .struggles { grid-template-columns: 1fr; } }
+    .root-line { text-align: center; max-width: 860px; margin: 64px auto 0; font-family: var(--fd); font-style: italic; font-size: clamp(22px, 2.6vw, 32px); line-height: 1.5; color: #fff; }
+    .root-line span { color: var(--gold); }
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
     @media (max-width: 900px) { .two-col { grid-template-columns: 1fr; gap: 36px; } }
     .prose p { margin-bottom: 18px; }
@@ -424,59 +424,54 @@
       <div class="center fx">
         <div class="eyebrow">Triết lý cốt lõi</div>
         <h2>Dẫn dắt <span class="gold">từ bên trong</span></h2>
-        <p class="lead">Team Lead đứng ở giữa: sếp nhìn ở tầng hệ thống, nhân viên nhìn ở tầng công việc cụ thể.</p>
       </div>
 
-      <div class="bridge fx">
-        <div class="bridge__node">
-          <small>Phía trên</small>
-          <b>Sếp</b>
-          <p>Nhìn ở tầng hệ thống</p>
+      <div class="struggles">
+        <div class="struggle fx">
+          <span class="struggle__tag">Khi Team Lead cố điều khiển bên ngoài</span>
+          <h3>Muốn sếp, muốn nhân viên phải khác đi</h3>
+          <p>Muốn sếp phải dễ tính hơn, tâm lý hơn, hiểu mình hơn. Muốn nhân viên phải nghe lời, dễ bảo hơn.</p>
+          <div class="struggle__end">Trong khi mọi thứ thay đổi liên tục: có lúc như ý, có lúc trái ý, không kiểm soát được.</div>
         </div>
-        <div class="bridge__link"></div>
-        <div class="bridge__node bridge__node--me">
-          <small>Cây cầu</small>
-          <b>Flow Leader</b>
-          <p>Kết nối mục tiêu của sếp với hành động của đội ngũ</p>
-        </div>
-        <div class="bridge__link"></div>
-        <div class="bridge__node">
-          <small>Phía dưới</small>
-          <b>Nhân viên</b>
-          <p>Nhìn ở tầng công việc cụ thể</p>
+        <div class="struggle fx">
+          <span class="struggle__tag">Khi Team Lead cố khéo léo hơn</span>
+          <h3>Nịnh, giữ quan hệ, kết nối bằng kỹ thuật</h3>
+          <p>Cố gắng khéo léo hơn khi kết nối với mọi người bên ngoài, giữ quan hệ…</p>
+          <div class="struggle__end">Nhưng cảm thấy hời hợt, giả giả, không chạm đến người khác được. Và gồng.</div>
         </div>
       </div>
 
       <div class="two-col">
         <div class="prose fx">
-          <p>Khi Team Lead ôm chuyên môn và đi vá lỗ từng việc, hai góc nhìn này không gặp nhau: <strong>sếp chưa thấy hết giá trị của team, nhân viên chưa chủ động, còn bạn kiệt sức.</strong></p>
-          <p>Flow Leader giúp bạn lùi lại, trở thành cây cầu kết nối mục tiêu của sếp với hành động của đội ngũ, bằng một hệ thống chạy được.</p>
-          <div class="pullquote">Chỉ khi nội tâm bên trong thay đổi thì hoàn cảnh bên ngoài mới thay đổi một cách bản chất.</div>
-          <p>Nếu không, bạn sẽ không xử lý được vấn đề nào đến nơi, và chỉ cần một cơn gió là lại chao đảo.</p>
+          <div class="pullquote" style="margin-top:0;">Thực chất, mọi thứ chúng ta trải nghiệm bên ngoài chỉ thể hiện nội tâm bên trong chúng ta.</div>
+          <p>Bên ngoài, bề mặt, thì luôn thay đổi, biến động. Ta cần quay về <strong>xây dựng một nội tâm vững chắc</strong>, làm nền tảng cho mọi kỹ năng quản lý.</p>
+          <p>Bởi vậy cơ chế Flow Leader <strong>bắt đầu từ gốc</strong>: quay về bên trong, xây nội tâm vững chắc.</p>
         </div>
         <div class="fx">
           <img class="rounded-img" src="assets/images/flm-co-che.jpg" alt="Cơ chế Flow Leader: Vững nội tâm, Tư duy hệ thống, Kỹ năng dẫn dắt">
         </div>
       </div>
 
-      <p class="lead center fx" style="margin: 64px auto 0;">Chương trình được xây dựng trên <strong style="color:#fff">ba trụ cột</strong>, đi từ tầng trong cùng ra ngoài:</p>
+      <p class="lead center fx" style="margin: 64px auto 0;">Cơ chế Flow Leader đi <strong style="color:#fff">từ gốc ra ngoài</strong>, qua ba tầng:</p>
       <div class="pillars">
         <div class="pillar fx">
-          <small>Trụ cột 1 · Trong cùng</small>
-          <b>Nội lực</b>
-          <p>Vững nội tâm, không bị dắt bởi áp lực, nỗi sợ và nhu cầu chứng minh bản thân.</p>
+          <small>Tầng 1 · Gốc rễ</small>
+          <b>Vững nội tâm</b>
+          <p>Quay về bên trong, xây nội tâm vững chắc làm nền tảng cho mọi kỹ năng quản lý.</p>
         </div>
         <div class="pillar fx">
-          <small>Trụ cột 2</small>
+          <small>Tầng 2 · Sau đó</small>
           <b>Tư duy Hệ thống</b>
-          <p>Tư duy xây dựng hệ thống công việc và đội ngũ chạy chủ động.</p>
+          <p>Giúp bạn xây dựng hệ thống công việc và đội ngũ chạy chủ động.</p>
         </div>
         <div class="pillar fx">
-          <small>Trụ cột 3 · Ngoài cùng</small>
+          <small>Tầng 3 · Cuối cùng</small>
           <b>Kỹ năng dẫn dắt</b>
           <p>Kết nối cả sếp lẫn nhân viên, tạo kết quả thông qua người khác.</p>
         </div>
       </div>
+
+      <p class="root-line fx">Bắt nguồn từ <span>gốc sâu thẳm bên trong</span> và mở ra hiệu quả cho đội nhóm vững bền.</p>
     </div>
   </section>
 
